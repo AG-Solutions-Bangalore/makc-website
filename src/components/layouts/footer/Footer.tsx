@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { servicesData } from "@/data/servicesData";
 import { Instagram, Linkedin, Twitter } from "lucide-react";
+import OceanAnimation from "@/components/common/OceanAnimation";
 
 export default function Footer() {
   const scrollRef = useScrollAnimation();
@@ -113,6 +114,10 @@ export default function Footer() {
             </a>
           </div>
         </div>
+      </div>
+      <div className="relative h-[200px] lg:h-[300px] overflow-hidden">
+        <OceanAnimation />
+        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-black/60 to-black pointer-events-none" />
       </div>
     </footer>
   );
