@@ -10,8 +10,6 @@ export default function Header() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [activeHash, setActiveHash] = useState("#home");
 
-
-
   const mainLinks = [
     { label: "Solutions", path: "#solutions" },
     { label: "Projects", path: "#projects" },
@@ -161,8 +159,8 @@ export default function Header() {
                   onClick={(e) => handleLinkClick(e, link.path)}
                   className={`px-3.5 py-1.5 text-sm font-semibold rounded-full transition-colors ${
                     isActive
-                      ? "text-gold-primary bg-gold-primary/5"
-                      : "text-text-muted hover:text-text-main hover:bg-bg-surface"
+                      ? "text-gold-primary"
+                      : "text-text-muted hover:text-text-main"
                   }`}
                 >
                   {link.label}
@@ -173,8 +171,6 @@ export default function Header() {
 
           {/* Desktop Right Side Action Buttons */}
           <div className="flex items-center gap-3 shrink-0 relative">
-
-
             {/* Book Consultation Button (Mockup styling) */}
             <a
               href="#contact"
