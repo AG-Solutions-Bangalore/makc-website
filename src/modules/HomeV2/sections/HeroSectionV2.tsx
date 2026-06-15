@@ -127,7 +127,7 @@ export default function HeroSectionV2() {
               return (
                 <div key={index} className="flex items-center gap-5 group/item">
                   {/* Clean Icon on Left */}
-                  <div className="text-text-main group-hover/item:text-gold-primary transition-all duration-300 shrink-0 flex items-center justify-center w-12 h-12">
+                  <div className="text-gold-primary transition-all duration-300 shrink-0 flex items-center justify-center w-12 h-12">
                     <Icon className="h-8 w-8 stroke-[1.5]" />
                   </div>
 
