@@ -76,8 +76,8 @@
   --color-medium-action-foreground: #ffffff;
   --color-medium-green: #22c55e;
 
-  --font-display: "Orbitron", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Space Grotesk", sans-serif;
 
   --radius-xl: calc(var(--radius) + 4px);
   --radius-lg: var(--radius);
