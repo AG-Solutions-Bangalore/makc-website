@@ -175,7 +175,7 @@ export default function Header() {
             <a
               href="#contact"
               onClick={(e) => handleLinkClick(e, "#contact")}
-              className="hidden sm:flex items-center justify-center px-6 py-2.5 bg-gold-primary text-black font-bold text-xs tracking-[0.12em] uppercase transition-all duration-300 hover:bg-gold-hover font-body rounded-none shadow-[0_4px_15px_rgba(197,168,128,0.2)]"
+              className="hidden sm:flex items-center justify-center px-6 py-2.5 bg-gold-primary text-black font-bold text-xs tracking-[0.12em] uppercase transition-all duration-300 hover:bg-gold-hover font-body rounded-none shadow-[0_4px_15px_rgba(10,132,255,0.3)]"
             >
               BOOK CONSULTATION{" "}
               <span className="ml-2 font-mono font-medium">&gt;</span>
@@ -288,7 +288,7 @@ export default function Header() {
           <div className="mt-auto border-t border-border-main pt-4">
             <a
               href="tel:+919999999999"
-              className="flex h-11 w-full items-center justify-center gap-2 rounded-none bg-gold-primary text-sm font-bold text-black transition-all hover:bg-gold-hover hover:text-black shadow-[0_4px_15px_rgba(197,168,128,0.2)]"
+              className="flex h-11 w-full items-center justify-center gap-2 rounded-none bg-gold-primary text-sm font-bold text-black transition-all hover:bg-gold-hover hover:text-black shadow-[0_4px_15px_rgba(10,132,255,0.3)]"
             >
               <Phone className="h-4 w-4" />
               <span>CALL NOW</span>

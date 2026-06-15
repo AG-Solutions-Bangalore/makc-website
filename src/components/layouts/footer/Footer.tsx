@@ -35,7 +35,7 @@ export default function Footer() {
           
           <a
             href="tel:+971551234567"
-            className="inline-flex items-center justify-center px-8 py-3.5 bg-gold-primary text-black font-bold text-xs tracking-[0.15em] uppercase rounded-none transition-all duration-300 hover:bg-gold-hover hover:text-black hover:scale-105 active:scale-95 shrink-0 shadow-[0_4px_15px_rgba(197,168,128,0.2)]"
+            className="inline-flex items-center justify-center px-8 py-3.5 bg-gold-primary text-black font-bold text-xs tracking-[0.15em] uppercase rounded-none transition-all duration-300 hover:bg-gold-hover hover:text-black hover:scale-105 active:scale-95 shrink-0 shadow-[0_4px_15px_rgba(10,132,255,0.3)]"
           >
             CONTACT US
           </a>

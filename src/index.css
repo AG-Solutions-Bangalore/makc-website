@@ -33,13 +33,16 @@
   --color-card: hsl(var(--card));
   --color-card-foreground: hsl(var(--card-foreground));
 
-  /* Custom brand colors and premium gold palette mapping */
-  --color-gold-primary: #c5a880;
-  --color-gold-hover: #e2cbb0;
+  /* Custom brand colors — Accent Blue palette */
+  --color-gold-primary: #0A84FF;
+  --color-gold-hover: #3EA6FF;
+  --color-accent-blue: #0A84FF;
+  --color-glow-blue: #3EA6FF;
 
   /* Wired dynamic variables mapped to semantic names */
   --color-bg-main: var(--bg-main);
   --color-bg-surface: var(--bg-surface);
+  --color-bg-card: var(--bg-card);
   --color-text-main: var(--text-main);
   --color-text-muted: var(--text-muted);
   --color-border-main: var(--border-main);
@@ -68,9 +71,9 @@
   --color-medium-border-strong: var(--border-main);
   --color-medium-text-primary: var(--text-main);
   --color-medium-text-secondary: var(--text-muted);
-  --color-medium-action: var(--color-gold-primary);
-  --color-medium-action-hover: var(--color-gold-hover);
-  --color-medium-action-foreground: #000000;
+  --color-medium-action: var(--color-accent-blue);
+  --color-medium-action-hover: var(--color-glow-blue);
+  --color-medium-action-foreground: #ffffff;
   --color-medium-green: #22c55e;
 
   --font-display: "Orbitron", sans-serif;
@@ -168,63 +171,65 @@
 @layer base {
   /* Light Mode Defaults */
   :root {
-    --bg-main: #fafafa;
+    --bg-main: #f4f6fa;
     --bg-surface: #ffffff;
-    --text-main: #1a1a1a;
-    --text-muted: #666666;
-    --border-main: #e5e5e5;
+    --bg-card: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border-main: #e2e8f0;
 
     /* Base theme colors for shadcn / component system */
-    --background: 40 20% 96%;
-    --foreground: 36 12% 12%;
+    --background: 210 20% 96%;
+    --foreground: 222 47% 11%;
     --card: 0 0% 100%;
-    --card-foreground: 36 12% 12%;
+    --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
-    --popover-foreground: 36 12% 12%;
-    --primary: 36 40% 64%;
-    --primary-foreground: 36 20% 8%;
-    --secondary: 40 15% 92%;
-    --secondary-foreground: 36 12% 12%;
-    --muted: 40 15% 92%;
-    --muted-foreground: 36 8% 45%;
-    --accent: 36 40% 64%;
-    --accent-foreground: 36 20% 8%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 210 100% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 100% 52%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 36 12% 87%;
-    --input: 36 12% 87%;
-    --ring: 36 40% 64%;
+    --border: 215 16% 87%;
+    --input: 215 16% 87%;
+    --ring: 210 100% 52%;
     --radius: 0.625rem;
   }
 
   /* Dark Mode Overrides */
   .dark {
-    --bg-main: #0d0d0d;
-    --bg-surface: #161616;
+    --bg-main: #030712;
+    --bg-surface: #081528;
+    --bg-card: #0B1629;
     --text-main: #ffffff;
-    --text-muted: #a3a3a3;
-    --border-main: #262626;
+    --text-muted: #A5B4C7;
+    --border-main: rgba(255,255,255,0.08);
 
     /* Base theme overrides for shadcn / component system */
-    --background: 30 8% 7%;
-    --foreground: 30 10% 96%;
-    --card: 30 8% 11%;
-    --card-foreground: 30 10% 96%;
-    --popover: 30 8% 11%;
-    --popover-foreground: 30 10% 96%;
-    --primary: 36 40% 64%;
-    --primary-foreground: 36 20% 8%;
-    --secondary: 30 8% 11%;
-    --secondary-foreground: 30 10% 96%;
-    --muted: 30 6% 15%;
-    --muted-foreground: 30 5% 65%;
-    --accent: 36 40% 64%;
-    --accent-foreground: 36 20% 8%;
+    --background: 222 47% 4%;
+    --foreground: 210 20% 98%;
+    --card: 222 47% 8%;
+    --card-foreground: 210 20% 98%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 210 100% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 47% 8%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 222 30% 12%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 210 100% 52%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 30 6% 16%;
-    --input: 30 6% 16%;
-    --ring: 36 40% 64%;
+    --border: 222 30% 12%;
+    --input: 222 30% 12%;
+    --ring: 210 100% 52%;
   }
 
   /* Dynamic overrides to adapt legacy hardcoded white colors in light mode */

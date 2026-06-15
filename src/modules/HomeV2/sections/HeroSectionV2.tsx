@@ -101,7 +101,7 @@ export default function HeroSectionV2() {
             {/* CTA 1: Solid Gold */}
             <a
               href="#contact"
-              className="px-6 py-3.5 sm:px-8 sm:py-4 bg-gold-primary text-black font-bold text-[10px] sm:text-xs tracking-[0.15em] uppercase hover:bg-gold-hover transition-colors duration-300 rounded-none shadow-[0_4px_20px_rgba(197,168,128,0.25)] flex items-center gap-2 group"
+              className="px-6 py-3.5 sm:px-8 sm:py-4 bg-gold-primary text-black font-bold text-[10px] sm:text-xs tracking-[0.15em] uppercase hover:bg-gold-hover transition-colors duration-300 rounded-none shadow-[0_4px_20px_rgba(10,132,255,0.35)] flex items-center gap-2 group"
             >
               SCHEDULE PRIVATE CONSULTATION
             </a>
