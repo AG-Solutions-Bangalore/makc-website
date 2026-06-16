@@ -138,7 +138,7 @@ export default function HeroSectionV2() {
         <span className=" text-[8px] font-bold tracking-[0.3em] text-text-muted/40 uppercase">
           SCROLL TO DISCOVER
         </span>
-        <div className="w-[18px] h-[30px] border border-border-main rounded-full flex justify-center p-1.5 opacity-50">
+        <div className="w-[18px] h-[30px] border border-border-[#ffff] rounded-full flex justify-center p-1.5 opacity-100">
           <div className="w-[4px] h-[6px] bg-gold-primary rounded-full animate-bounce" />
         </div>
       </div>

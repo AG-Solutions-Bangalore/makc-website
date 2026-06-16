@@ -51,7 +51,7 @@ export default function ProcessSection() {
           <span className="text font-bold tracking-[0.25em] text-accent-blue uppercase mb-4 block select-none">
             OUR PROCESS
           </span>
-          <h2 className="font-display text-3xl md:text-nowrap sm:text-4xl lg:text-5xl font-bold text-text-main leading-tight max-w-2xl mx-auto">
+          <h2 className="text-center font-display text-3xl md:text-nowrap md:max-w-none sm:text-4xl lg:text-5xl font-bold text-text-main leading-tight max-w-2xl mx-auto">
             From Vision to{" "}
             <span className="text-accent-blue">Reality</span>, Step by Step
           </h2>

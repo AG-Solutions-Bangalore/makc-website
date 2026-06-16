@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Phone, X, ChevronRight } from "lucide-react";
 import BrandLogo from "@/components/common/BrandLogo";
@@ -32,24 +32,23 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [showGridDropdown, setShowGridDropdown] = useState(false);
-  const [activeHash, setActiveHash] = useState("#home");
 
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const mainLinks = [
-    { label: "Home", path: "#home" },
-    { label: "Automation", path: "#automation" },
-    { label: "Security", path: "#security" },
-    { label: "Lighting", path: "#lighting" },
-    { label: "Networking", path: "#networking" },
-    { label: "Contact Us", path: "#contact" },
+    { label: "Home", path: "/" },
+    { label: "Automation", path: "/automation" },
+    { label: "Security", path: "/security" },
+    { label: "Lighting", path: "/lighting" },
+    { label: "Networking", path: "/networking" },
+    { label: "Contact Us", path: "/contact" },
   ];
 
   const gridDropdownLinks = [
-    { label: "About", path: "#about" },
-    { label: "Service", path: "#process" },
-    { label: "Blog", path: "#testimonials" },
-    { label: "Experience", path: "#testimonials" },
+    { label: "About", path: "/about" },
+    { label: "Service", path: "/service" },
+    { label: "Blog", path: "/blog" },
+    { label: "Experience", path: "/experience" },
   ];
 
   // Monitor scroll height for sticky background
@@ -59,38 +58,6 @@ export default function Header() {
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Monitor scroll pos to set active link
-  useEffect(() => {
-    const handleScrollActive = () => {
-      const scrollPos = window.scrollY + 150;
-
-      const sections = [
-        "home",
-        "automation",
-        "security",
-        "lighting",
-        "networking",
-        "about",
-        "why-makc",
-        "faq",
-        "contact",
-      ];
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            setActiveHash(section === "home" ? "#home" : `#${section}`);
-            break;
-          }
-        }
-      }
-    };
-    window.addEventListener("scroll", handleScrollActive, { passive: true });
-    return () => window.removeEventListener("scroll", handleScrollActive);
   }, []);
 
   // Close menus on path navigation
@@ -121,51 +88,10 @@ export default function Header() {
     };
   }, [isMenuOpen]);
 
-  // Offset scroll calculations
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 90;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
+  const handleLinkClick = () => {
+    setMenuOpen(false);
+    setShowGridDropdown(false);
   };
-
-  const handleLinkClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    path: string,
-  ) => {
-    if (path.startsWith("#")) {
-      if (location.pathname === "/") {
-        e.preventDefault();
-        const id = path.substring(1);
-        scrollToSection(id);
-        setActiveHash(path);
-        setMenuOpen(false);
-        setShowGridDropdown(false);
-      }
-    } else {
-      setMenuOpen(false);
-      setShowGridDropdown(false);
-    }
-  };
-
-  // Trigger hash scroll on page load
-  useEffect(() => {
-    if (location.pathname === "/" && location.hash) {
-      const id = location.hash.substring(1);
-      setTimeout(() => {
-        scrollToSection(id);
-      }, 150);
-    }
-  }, [location]);
 
   return (
     <>
@@ -187,20 +113,13 @@ export default function Header() {
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center gap-1">
             {mainLinks.map((link) => {
-              const isHash = link.path.startsWith("#");
-              const href = isHash
-                ? location.pathname === "/"
-                  ? link.path
-                  : `/${link.path}`
-                : link.path;
-
-              const isActive = activeHash === link.path;
+              const isActive = location.pathname === link.path;
 
               return (
                 <Link
                   key={link.label}
-                  to={href}
-                  onClick={(e) => handleLinkClick(e, link.path)}
+                  to={link.path}
+                  onClick={handleLinkClick}
                   className={`px-3.5 py-1.5 text-sm font-semibold rounded-full transition-all duration-200 ${
                     isActive
                       ? "text-gold-primary"
@@ -244,18 +163,15 @@ export default function Header() {
                     More Navigation
                   </div>
                   {gridDropdownLinks.map((link) => {
-                    const isHash = link.path.startsWith("#");
-                    const href = isHash
-                      ? location.pathname === "/"
-                        ? link.path
-                        : `/${link.path}`
-                      : link.path;
+                    const isActive = location.pathname === link.path;
                     return (
                       <Link
                         key={link.label}
-                        to={href}
-                        onClick={(e) => handleLinkClick(e, link.path)}
-                        className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-xs font-semibold text-text-muted hover:text-gold-primary hover:bg-[#0A84FF]/5 dark:hover:bg-[#0A84FF]/10 transition-all duration-200"
+                        to={link.path}
+                        onClick={handleLinkClick}
+                        className={`flex items-center justify-between rounded-xl px-3.5 py-2.5 text-xs font-semibold hover:bg-[#0A84FF]/5 dark:hover:bg-[#0A84FF]/10 transition-all duration-200 ${
+                          isActive ? "text-gold-primary" : "text-text-muted hover:text-text-main"
+                        }`}
                       >
                         <span>{link.label}</span>
                         <ChevronRight className="h-4 w-4 opacity-50" />
@@ -341,18 +257,12 @@ export default function Header() {
             <nav className="mt-5 flex flex-col gap-0.5">
               {/* Primary Solutions Links */}
               {mainLinks.map((link, idx) => {
-                const isHash = link.path.startsWith("#");
-                const href = isHash
-                  ? location.pathname === "/"
-                    ? link.path
-                    : `/${link.path}`
-                  : link.path;
-                const isActive = activeHash === link.path;
+                const isActive = location.pathname === link.path;
                 return (
                   <Link
                     key={link.label}
-                    to={href}
-                    onClick={(e) => handleLinkClick(e, link.path)}
+                    to={link.path}
+                    onClick={handleLinkClick}
                     className={`flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all ${
                       isActive
                         ? "text-gold-primary bg-gold-primary/5"
@@ -375,18 +285,15 @@ export default function Header() {
 
               {/* Grid Menu Links */}
               {gridDropdownLinks.map((link) => {
-                const isHash = link.path.startsWith("#");
-                const href = isHash
-                  ? location.pathname === "/"
-                    ? link.path
-                    : `/${link.path}`
-                  : link.path;
+                const isActive = location.pathname === link.path;
                 return (
                   <Link
                     key={link.label}
-                    to={href}
-                    onClick={(e) => handleLinkClick(e, link.path)}
-                    className="flex items-center gap-3.5 rounded-xl px-4 py-2 text-sm font-semibold text-text-muted transition-all hover:bg-bg-surface hover:text-text-main"
+                    to={link.path}
+                    onClick={handleLinkClick}
+                    className={`flex items-center gap-3.5 rounded-xl px-4 py-2 text-sm font-semibold transition-all ${
+                      isActive ? "text-gold-primary" : "text-text-muted hover:text-text-main"
+                    }`}
                   >
                     <ChevronRight className="h-4 w-4 opacity-50" />
                     {link.label}
