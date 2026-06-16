@@ -104,7 +104,7 @@ export default function LifestyleProjectsSection() {
         </div>
 
         {/* ================= FEATURED PROJECTS SUBSECTION ================= */}
-        <div className="flex flex-col items-center mt-20 lg:mt-24">
+        <div id="interior" className="flex flex-col items-center mt-20 lg:mt-24">
           <span className="font-bold tracking-[0.2em] text-accent-blue uppercase">
             FEATURED PROJECTS
           </span>

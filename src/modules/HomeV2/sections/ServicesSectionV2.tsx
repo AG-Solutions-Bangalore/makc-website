@@ -31,18 +31,21 @@ function SmartHomeIcon(props: React.SVGProps<SVGSVGElement>) {
 export default function ServicesSectionV2() {
   const services = [
     {
+      id: "automation",
       icon: SmartHomeIcon,
       title: "Smart Home Automation",
       description: "One-touch control for your entire home.",
       bgImage: imgAutomation,
     },
     {
+      id: "lighting",
       icon: Sun,
       title: "Luxury Lighting",
       description: "Create moods with intelligent lighting scenes.",
       bgImage: imgLighting,
     },
     {
+      id: "security",
       icon: ShieldCheck,
       title: "Advanced Security",
       description:
@@ -50,18 +53,21 @@ export default function ServicesSectionV2() {
       bgImage: imgSecurity,
     },
     {
+      id: "networking",
       icon: Wifi,
       title: "Networking",
       description: "Enterprise-grade WiFi designed for luxury villas.",
       bgImage: imgNetworking,
     },
     {
+      id: "theatre",
       icon: Monitor,
       title: "Home Theatre",
       description: "Immersive entertainment engineered perfectly.",
       bgImage: imgTheatre,
     },
     {
+      id: "energy",
       icon: Leaf,
       title: "Energy Management",
       description: "Luxury with efficiency.",
@@ -112,6 +118,7 @@ export default function ServicesSectionV2() {
               return (
                 <div
                   key={index}
+                  id={service.id}
                   className="relative group min-h-[260px] flex flex-col justify-start items-start p-6 sm:p-8 bg-bg-main overflow-hidden cursor-pointer transition-all duration-300 hover:bg-bg-surface"
                 >
                   {/* Card Background Image with Hover Zoom */}

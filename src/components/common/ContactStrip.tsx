@@ -23,7 +23,6 @@ export default function ContactStrip({
     <div className={`relative w-full ${className}`}>
       {/* Premium Glassmorphic Outer Card container with glowing corners */}
       <div className="relative w-full bg-white/70 dark:bg-[#061121]/50 backdrop-blur-xl border border-border-main/50 dark:border-[#0A84FF]/25 shadow-[0_0_15px_rgba(10,132,255,0.08),inset_0_0_8px_rgba(10,132,255,0.03)] dark:shadow-[0_0_20px_rgba(10,132,255,0.15),inset_0_0_12px_rgba(10,132,255,0.08)] rounded-2xl p-6 sm:p-8 md:p-10 overflow-hidden transition-all duration-300">
-        
         {/* Glow corner highlights */}
         <div className="absolute top-[-1px] left-[-1px] w-6 h-6 border-t-2 border-l-2 border-[#0A84FF]/40 rounded-tl-2xl shadow-[0_-2px_10px_rgba(10,132,255,0.15)] pointer-events-none" />
         <div className="absolute top-[-1px] right-[-1px] w-6 h-6 border-t-2 border-r-2 border-[#0A84FF]/40 rounded-tr-2xl shadow-[0_-2px_10px_rgba(10,132,255,0.15)] pointer-events-none" />
@@ -32,14 +31,13 @@ export default function ContactStrip({
 
         {/* Flex layout for row alignment */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-8 z-10 relative">
-          
           {/* Left Side: Calendar Icon + Text */}
           <div className="flex flex-col sm:flex-row items-center sm:items-start lg:items-center text-center sm:text-left gap-5 sm:gap-6 flex-1 w-full">
             {/* Calendar Icon wrapper with glow */}
             <div className="h-16 w-16 rounded-full border-2 border-[#0A84FF]/40 bg-[#0A84FF]/10 text-[#0A84FF] flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(10,132,255,0.25)]">
               <Calendar className="h-8 w-8 stroke-[1.5]" />
             </div>
-            
+
             {/* Text details */}
             <div className="flex flex-col text-left">
               <h3 className="text-xl sm:text-2xl font-bold text-text-main tracking-tight leading-tight">
@@ -61,7 +59,6 @@ export default function ContactStrip({
               <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </div>
-
         </div>
       </div>
     </div>
