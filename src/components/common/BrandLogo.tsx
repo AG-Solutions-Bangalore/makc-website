@@ -1,9 +1,18 @@
 export default function BrandLogo({ className = "h-10 w-auto" }: { className?: string }) {
   return (
-    <img
-      src="/icons/MAKc-Logo.svg"
-      alt="MAKc Logo"
-      className={`${className} object-contain`}
-    />
+    <>
+      {/* Light Mode Logo: Official Colored SVG */}
+      <img
+        src="/icons/MAKc-Logo.svg"
+        alt="MAKc Logo"
+        className={`${className} block dark:hidden object-contain`}
+      />
+      {/* Dark Mode Logo: Official White PNG */}
+      <img
+        src="/icons/MAKc-Logo-white.png"
+        alt="MAKc Logo"
+        className={`${className} hidden dark:block object-contain`}
+      />
+    </>
   );
 }

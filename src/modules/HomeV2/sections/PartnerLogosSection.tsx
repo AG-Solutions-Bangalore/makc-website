@@ -2,7 +2,7 @@ import Marquee from "react-fast-marquee";
 
 // AJAX Logo SVG
 const AjaxLogo = () => (
-  <svg viewBox="0 0 120 40" className="h-7 w-auto text-text-muted/50 hover:text-text-main/90 transition-colors duration-300 fill-current">
+  <svg viewBox="0 0 120 40" className="h-10 w-auto text-text-muted/50 hover:text-text-main/90 transition-colors duration-300 fill-current">
     <path d="M10 30 L22 6 L34 30 M15 22 L29 22" stroke="currentColor" strokeWidth="3.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
     <path d="M48 6 L48 24 C48 28 46 30 42 30" stroke="currentColor" strokeWidth="3.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
     <path d="M58 30 L70 6 L82 30 M63 22 L77 22" stroke="currentColor" strokeWidth="3.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
@@ -12,9 +12,9 @@ const AjaxLogo = () => (
 
 // Control4 Logo Component
 const Control4Logo = () => (
-  <div className="flex items-center gap-1.5 text-text-muted/50 hover:text-text-main/90 transition-colors duration-300 font-sans font-medium text-lg tracking-tight select-none">
+  <div className="flex items-center gap-2 text-text-muted/50 hover:text-text-main/90 transition-colors duration-300 font-sans font-medium text-2xl tracking-tight select-none">
     <span>Control</span>
-    <div className="h-6 w-6 rounded-full bg-current flex items-center justify-center text-bg-main text-xs font-bold font-sans">
+    <div className="h-8 w-8 rounded-full bg-current flex items-center justify-center text-bg-main text-sm font-black font-sans">
       4
     </div>
   </div>
@@ -22,49 +22,49 @@ const Control4Logo = () => (
 
 // Legrand Logo Component
 const LegrandLogo = () => (
-  <div className="flex items-center gap-2 text-text-muted/50 hover:text-text-main/90 transition-colors duration-300 select-none">
-    <svg viewBox="0 0 24 24" className="h-6 w-6 fill-none stroke-current" strokeWidth="2.5">
+  <div className="flex items-center gap-2.5 text-text-muted/50 hover:text-text-main/90 transition-colors duration-300 select-none">
+    <svg viewBox="0 0 24 24" className="h-8 w-8 fill-none stroke-current" strokeWidth="2.5">
       <rect x="3" y="3" width="18" height="18" rx="2" />
       <path d="M9 9 H15 V15" />
     </svg>
-    <span className="font-sans font-bold text-lg tracking-tight">legrand</span>
+    <span className="font-sans font-extrabold text-2xl tracking-tight">legrand</span>
   </div>
 );
 
 // Schneider Electric Logo Component
 const SchneiderLogo = () => (
   <div className="flex flex-col items-start leading-none text-text-muted/50 hover:text-text-main/90 transition-colors duration-300 select-none font-sans">
-    <span className="font-bold text-base tracking-tight">Schneider</span>
-    <span className="text-[10px] tracking-widest uppercase font-semibold mt-0.5">Electric</span>
+    <span className="font-black text-xl tracking-tight">Schneider</span>
+    <span className="text-xs tracking-widest uppercase font-bold mt-1">Electric</span>
   </div>
 );
 
 // Philips Hue Logo Component
 const PhilipsHueLogo = () => (
   <div className="flex flex-col items-center text-text-muted/50 hover:text-text-main/90 transition-colors duration-300 select-none font-sans">
-    <span className="text-[9px] tracking-[0.25em] font-extrabold uppercase leading-none">Philips</span>
-    <div className="h-[1px] w-12 bg-current my-0.5 opacity-55" />
-    <span className="text-xl font-light tracking-tight leading-none lowercase">hue</span>
+    <span className="text-[11px] tracking-[0.25em] font-black uppercase leading-none">Philips</span>
+    <div className="h-[1px] w-16 bg-current my-1.5 opacity-55" />
+    <span className="text-2xl font-light tracking-tight leading-none lowercase">hue</span>
   </div>
 );
 
 // Lutron Logo Component
 const LutronLogo = () => (
-  <div className="flex items-center text-text-muted/50 hover:text-text-main/90 transition-colors duration-300 select-none font-sans font-extrabold text-lg tracking-wider uppercase">
+  <div className="flex items-center text-text-muted/50 hover:text-text-main/90 transition-colors duration-300 select-none font-sans font-black text-2xl tracking-wider uppercase">
     LUTRON
   </div>
 );
 
 // Yale Logo Component
 const YaleLogo = () => (
-  <div className="h-9 w-9 rounded-full bg-text-muted/50 hover:bg-text-main/90 transition-colors duration-300 text-bg-main flex items-center justify-center font-sans font-extrabold text-sm uppercase select-none">
+  <div className="h-12 w-12 rounded-full bg-text-muted/50 hover:bg-text-main/90 transition-colors duration-300 text-bg-main flex items-center justify-center font-sans font-black text-base uppercase select-none">
     Yale
   </div>
 );
 
 // Akuvox Logo Component
 const AkuvoxLogo = () => (
-  <div className="flex items-center text-text-muted/50 hover:text-text-main/90 transition-colors duration-300 select-none font-sans font-black text-lg tracking-tight">
+  <div className="flex items-center text-text-muted/50 hover:text-text-main/90 transition-colors duration-300 select-none font-sans font-black text-2xl tracking-tight">
     Akuvox
   </div>
 );
@@ -72,27 +72,27 @@ const AkuvoxLogo = () => (
 // Cisco Logo Component
 const CiscoLogo = () => (
   <div className="flex flex-col items-center text-text-muted/50 hover:text-text-main/90 transition-colors duration-300 select-none font-sans">
-    <div className="flex items-end gap-[2px] h-4 mb-0.5">
-      <div className="w-[2px] h-2 bg-current" />
-      <div className="w-[2px] h-3 bg-current" />
-      <div className="w-[2px] h-2 bg-current" />
-      <div className="w-[2px] h-4 bg-current" />
-      <div className="w-[2px] h-2 bg-current" />
-      <div className="w-[2px] h-3 bg-current" />
-      <div className="w-[2px] h-2 bg-current" />
+    <div className="flex items-end gap-[3px] h-6 mb-1">
+      <div className="w-[2.5px] h-3 bg-current" />
+      <div className="w-[2.5px] h-4.5 bg-current" />
+      <div className="w-[2.5px] h-3 bg-current" />
+      <div className="w-[2.5px] h-6 bg-current" />
+      <div className="w-[2.5px] h-3 bg-current" />
+      <div className="w-[2.5px] h-4.5 bg-current" />
+      <div className="w-[2.5px] h-3 bg-current" />
     </div>
-    <span className="font-extrabold text-xs tracking-wider uppercase leading-none">Cisco</span>
+    <span className="font-black text-sm tracking-wider uppercase leading-none">Cisco</span>
   </div>
 );
 
 // Ubiquiti Logo Component
 const UbiquitiLogo = () => (
-  <div className="flex items-center gap-1.5 text-text-muted/50 hover:text-text-main/90 transition-colors duration-300 select-none">
-    <svg viewBox="0 0 24 24" className="h-6 w-6 fill-none stroke-current" strokeWidth="2.5">
+  <div className="flex items-center gap-2.5 text-text-muted/50 hover:text-text-main/90 transition-colors duration-300 select-none">
+    <svg viewBox="0 0 24 24" className="h-8 w-8 fill-none stroke-current" strokeWidth="2.5">
       <path d="M5 3 L12 2 L19 3 L19 12 C19 17 15 21 12 22 C9 21 5 17 5 12 Z" />
       <path d="M8 8 C8 8 10 12 12 12 C14 12 16 8 16 8" />
     </svg>
-    <span className="font-sans font-extrabold text-[11px] tracking-widest uppercase">Ubiquiti</span>
+    <span className="font-sans font-black text-sm tracking-widest uppercase">Ubiquiti</span>
   </div>
 );
 
@@ -111,11 +111,11 @@ export default function PartnerLogosSection() {
   ];
 
   return (
-    <section className="relative w-full bg-bg-main py-10 lg:py-12 border-t border-border-main overflow-hidden">
+    <section className="relative w-full bg-bg-main py-14 lg:py-16 border-t border-border-main overflow-hidden">
       <div className="mx-auto max-w-8xl px-4 sm:px-6 flex flex-col items-center">
         
         {/* Title */}
-        <span className="font-sans text-[10px] font-bold tracking-[0.2em] text-accent-blue uppercase mb-8 select-none">
+        <span className="font-bold tracking-[0.2em] text-accent-blue uppercase mb-8 select-none">
           OUR TECHNOLOGY PARTNERS
         </span>
 

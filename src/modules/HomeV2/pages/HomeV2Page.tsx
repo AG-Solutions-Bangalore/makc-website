@@ -5,6 +5,7 @@ import WhyChooseUsSection from "../sections/WhyChooseUsSection";
 import LifestyleProjectsSection from "../sections/LifestyleProjectsSection";
 import PartnerLogosSection from "../sections/PartnerLogosSection";
 import ProcessSection from "../sections/ProcessSection";
+import ClientTestimonialsSection from "../sections/ClientTestimonialsSection";
 import TestimonialsSection from "../sections/TestimonialsSection";
 import SmarterWaySection from "../sections/SmarterWaySection";
 import GetInTouchSection from "../sections/GetInTouchSection";
@@ -34,11 +35,14 @@ export default function HomeV2Page() {
       {/* V2 Process Section */}
       <ProcessSection />
 
-      {/* V2 Testimonials Section */}
-      <TestimonialsSection />
-
       {/* V2 Smarter Way Section */}
       <SmarterWaySection />
+
+      {/* V2 Client Testimonials Grid Section */}
+      <ClientTestimonialsSection />
+
+      {/* V2 Testimonials Section */}
+      <TestimonialsSection />
 
       {/* V2 Get In Touch Section */}
       <GetInTouchSection />

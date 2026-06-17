@@ -1,7 +1,29 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Phone, X } from "lucide-react";
+import { Phone, X, ChevronRight } from "lucide-react";
 import BrandLogo from "@/components/common/BrandLogo";
+
+// 3x3 dot grid icon matching the mockup
+function GridIcon({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+    >
+      <circle cx="6" cy="6" r="2" />
+      <circle cx="12" cy="6" r="2" />
+      <circle cx="18" cy="6" r="2" />
+      <circle cx="6" cy="12" r="2" />
+      <circle cx="12" cy="12" r="2" />
+      <circle cx="18" cy="12" r="2" />
+      <circle cx="6" cy="18" r="2" />
+      <circle cx="12" cy="18" r="2" />
+      <circle cx="18" cy="18" r="2" />
+    </svg>
+  );
+}
 
 export default function Header() {
   const location = useLocation();
@@ -9,15 +31,24 @@ export default function Header() {
   // Scroll & Menu States
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const [activeHash, setActiveHash] = useState("#home");
+  const [showGridDropdown, setShowGridDropdown] = useState(false);
+
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const mainLinks = [
-    { label: "Solutions", path: "#solutions" },
-    { label: "Projects", path: "#projects" },
-    { label: "Smart Villas", path: "#smart-villas" },
-    { label: "About", path: "#about" },
-    { label: "Resources", path: "#resources" },
-    { label: "Contact", path: "#contact" },
+    { label: "Home", path: "/" },
+    { label: "Automation", path: "/automation" },
+    { label: "Security", path: "/security" },
+    { label: "Lighting", path: "/lighting" },
+    { label: "Networking", path: "/networking" },
+    { label: "Contact Us", path: "/contact" },
+  ];
+
+  const gridDropdownLinks = [
+    { label: "About", path: "/about" },
+    { label: "Service", path: "/service" },
+    { label: "Blog", path: "/blog" },
+    { label: "Experience", path: "/experience" },
   ];
 
   // Monitor scroll height for sticky background
@@ -29,43 +60,25 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Monitor scroll pos to set active link
-  useEffect(() => {
-    const handleScrollActive = () => {
-      const scrollPos = window.scrollY + 150;
-
-      const sections = [
-        "home",
-        "automation",
-        "security",
-        "lighting",
-        "networking",
-        "interior",
-        "about",
-        "why-makc",
-        "faq",
-        "contact",
-      ];
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            setActiveHash(section === "home" ? "#home" : `#${section}`);
-            break;
-          }
-        }
-      }
-    };
-    window.addEventListener("scroll", handleScrollActive, { passive: true });
-    return () => window.removeEventListener("scroll", handleScrollActive);
-  }, []);
-
   // Close menus on path navigation
   useEffect(() => {
     setMenuOpen(false);
+    setShowGridDropdown(false);
   }, [location.pathname]);
+
+  // Click outside grid dropdown closes it
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setShowGridDropdown(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   // Lock body scroll when mobile menu drawer is open
   useEffect(() => {
@@ -75,57 +88,18 @@ export default function Header() {
     };
   }, [isMenuOpen]);
 
-  // Offset scroll calculations
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 90;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
+  const handleLinkClick = () => {
+    setMenuOpen(false);
+    setShowGridDropdown(false);
   };
-
-  const handleLinkClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    path: string,
-  ) => {
-    if (path.startsWith("#")) {
-      if (location.pathname === "/") {
-        e.preventDefault();
-        const id = path.substring(1);
-        scrollToSection(id);
-        setActiveHash(path);
-        setMenuOpen(false);
-      }
-    } else {
-      setMenuOpen(false);
-    }
-  };
-
-  // Trigger hash scroll on page load
-  useEffect(() => {
-    if (location.pathname === "/" && location.hash) {
-      const id = location.hash.substring(1);
-      setTimeout(() => {
-        scrollToSection(id);
-      }, 150);
-    }
-  }, [location]);
 
   return (
     <>
       <header
         className={`fixed top-0 z-50 w-full transition-all duration-300 ${
           isScrolled
-            ? "py-3 bg-bg-surface/90 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.05)]"
-            : "py-3 border-b border-transparent bg-transparent"
+            ? "py-4 bg-bg-surface/90 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.05)] border-b border-border-main/50"
+            : "py-4 border-b border-transparent bg-transparent"
         }`}
       >
         <div className="mx-auto flex max-w-8xl h-[64px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-16">
@@ -139,21 +113,14 @@ export default function Header() {
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center gap-1">
             {mainLinks.map((link) => {
-              const isHash = link.path.startsWith("#");
-              const href = isHash
-                ? location.pathname === "/"
-                  ? link.path
-                  : `/${link.path}`
-                : link.path;
-
-              const isActive = activeHash === link.path;
+              const isActive = location.pathname === link.path;
 
               return (
                 <Link
                   key={link.label}
-                  to={href}
-                  onClick={(e) => handleLinkClick(e, link.path)}
-                  className={`px-3.5 py-1.5 text-sm font-semibold rounded-full transition-colors ${
+                  to={link.path}
+                  onClick={handleLinkClick}
+                  className={`px-3.5 py-1.5 text-sm font-semibold rounded-full transition-all duration-200 ${
                     isActive
                       ? "text-gold-primary"
                       : "text-text-muted hover:text-text-main"
@@ -167,15 +134,53 @@ export default function Header() {
 
           {/* Desktop Right Side Action Buttons */}
           <div className="flex items-center gap-3 shrink-0 relative">
-            {/* Book Consultation Button (Mockup styling) */}
+            {/* Phone button */}
             <a
-              href="#contact"
-              onClick={(e) => handleLinkClick(e, "#contact")}
-              className="hidden sm:flex items-center justify-center px-6 py-2.5 bg-gold-primary text-black font-bold text-xs tracking-[0.12em] uppercase transition-all duration-300 hover:bg-gold-hover font-body rounded-none shadow-[0_4px_15px_rgba(10,132,255,0.3)]"
+              href="tel:+919948432444"
+              className="flex h-9 w-9 items-center apple-border-shine justify-center rounded-full bg-gold-primary text-white transition-all hover:scale-105 active:scale-95 focus:outline-none shadow-[0_4px_15px_rgba(10,132,255,0.3)] cursor-pointer"
+              title="Call Us"
             >
-              BOOK CONSULTATION{" "}
-              <span className="ml-2 font-mono font-medium">&gt;</span>
+              <Phone className="h-4.5 w-4.5 stroke-[1.8]" />
             </a>
+
+            {/* Grid Icon dropdown menu trigger */}
+            <div ref={dropdownRef} className="relative hidden lg:block">
+              <button
+                onClick={() => setShowGridDropdown(!showGridDropdown)}
+                className={`flex h-9 w-9 items-center justify-center rounded-full text-text-muted transition-all hover:bg-bg-surface hover:text-text-main focus:outline-none cursor-pointer ${
+                  showGridDropdown ? "bg-bg-surface text-text-main" : ""
+                }`}
+                aria-label="More navigation"
+                title="Explore More"
+              >
+                <GridIcon className="h-4.5 w-4.5" />
+              </button>
+
+              {/* Grid Dropdown Panel */}
+              {showGridDropdown && (
+                <div className="absolute right-0 top-12 z-50 w-[200px] overflow-hidden rounded-2xl border border-border-main/50 dark:border-[#0A84FF]/25 bg-white/95 dark:bg-[#061121]/90 backdrop-blur-xl p-2 shadow-2xl transition-all duration-300 animate-in fade-in slide-in-from-top-2">
+                  <div className="px-3 py-1.5 text-[10px] font-bold tracking-wider text-text-muted/65 uppercase border-b border-border-main/40 dark:border-white/10 mb-1 select-none">
+                    More Navigation
+                  </div>
+                  {gridDropdownLinks.map((link) => {
+                    const isActive = location.pathname === link.path;
+                    return (
+                      <Link
+                        key={link.label}
+                        to={link.path}
+                        onClick={handleLinkClick}
+                        className={`flex items-center justify-between rounded-xl px-3.5 py-2.5 text-xs font-semibold hover:bg-[#0A84FF]/5 dark:hover:bg-[#0A84FF]/10 transition-all duration-200 ${
+                          isActive ? "text-gold-primary" : "text-text-muted hover:text-text-main"
+                        }`}
+                      >
+                        <span>{link.label}</span>
+                        <ChevronRight className="h-4 w-4 opacity-50" />
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
 
             {/* Mobile Hamburger menu trigger */}
             <button
@@ -244,7 +249,7 @@ export default function Header() {
                 onClick={() => setMenuOpen(false)}
                 className="flex h-8 w-8 items-center justify-center rounded-full text-text-muted transition-colors hover:bg-bg-surface hover:text-text-main"
               >
-                <X className="h-5 w-5" />
+                <X className="h-6 w-6" />
               </button>
             </div>
 
@@ -252,18 +257,12 @@ export default function Header() {
             <nav className="mt-5 flex flex-col gap-0.5">
               {/* Primary Solutions Links */}
               {mainLinks.map((link, idx) => {
-                const isHash = link.path.startsWith("#");
-                const href = isHash
-                  ? location.pathname === "/"
-                    ? link.path
-                    : `/${link.path}`
-                  : link.path;
-                const isActive = activeHash === link.path;
+                const isActive = location.pathname === link.path;
                 return (
                   <Link
                     key={link.label}
-                    to={href}
-                    onClick={(e) => handleLinkClick(e, link.path)}
+                    to={link.path}
+                    onClick={handleLinkClick}
                     className={`flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all ${
                       isActive
                         ? "text-gold-primary bg-gold-primary/5"
@@ -277,14 +276,38 @@ export default function Header() {
                   </Link>
                 );
               })}
+
+              <div className="h-[1px] bg-border-main my-3" />
+
+              <div className="px-4 pb-1 text-[10px] font-bold uppercase tracking-wider text-text-muted/65">
+                More Navigation
+              </div>
+
+              {/* Grid Menu Links */}
+              {gridDropdownLinks.map((link) => {
+                const isActive = location.pathname === link.path;
+                return (
+                  <Link
+                    key={link.label}
+                    to={link.path}
+                    onClick={handleLinkClick}
+                    className={`flex items-center gap-3.5 rounded-xl px-4 py-2 text-sm font-semibold transition-all ${
+                      isActive ? "text-gold-primary" : "text-text-muted hover:text-text-main"
+                    }`}
+                  >
+                    <ChevronRight className="h-4 w-4 opacity-50" />
+                    {link.label}
+                  </Link>
+                );
+              })}
             </nav>
           </div>
 
           {/* Drawer Footer Call Shortcut */}
           <div className="mt-auto border-t border-border-main pt-4">
             <a
-              href="tel:+919999999999"
-              className="flex h-11 w-full items-center justify-center gap-2 rounded-none bg-gold-primary text-sm font-bold text-black transition-all hover:bg-gold-hover hover:text-black shadow-[0_4px_15px_rgba(10,132,255,0.3)]"
+              href="tel:+919948432444"
+              className="flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-gold-primary text-sm font-bold text-black transition-all hover:bg-gold-hover hover:text-black shadow-[0_4px_15px_rgba(10,132,255,0.3)]"
             >
               <Phone className="h-4 w-4" />
               <span>CALL NOW</span>

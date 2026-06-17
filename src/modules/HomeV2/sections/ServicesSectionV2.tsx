@@ -31,18 +31,21 @@ function SmartHomeIcon(props: React.SVGProps<SVGSVGElement>) {
 export default function ServicesSectionV2() {
   const services = [
     {
+      id: "automation",
       icon: SmartHomeIcon,
       title: "Smart Home Automation",
       description: "One-touch control for your entire home.",
       bgImage: imgAutomation,
     },
     {
+      id: "lighting",
       icon: Sun,
       title: "Luxury Lighting",
       description: "Create moods with intelligent lighting scenes.",
       bgImage: imgLighting,
     },
     {
+      id: "security",
       icon: ShieldCheck,
       title: "Advanced Security",
       description:
@@ -50,18 +53,21 @@ export default function ServicesSectionV2() {
       bgImage: imgSecurity,
     },
     {
+      id: "networking",
       icon: Wifi,
       title: "Networking",
       description: "Enterprise-grade WiFi designed for luxury villas.",
       bgImage: imgNetworking,
     },
     {
+      id: "theatre",
       icon: Monitor,
       title: "Home Theatre",
       description: "Immersive entertainment engineered perfectly.",
       bgImage: imgTheatre,
     },
     {
+      id: "energy",
       icon: Leaf,
       title: "Energy Management",
       description: "Luxury with efficiency.",
@@ -72,13 +78,18 @@ export default function ServicesSectionV2() {
   return (
     <section
       id="solutions"
-      className="relative w-full bg-bg-main py-20 lg:py-28 border-t border-border-main"
+      className="relative w-full py-20 lg:py-28 border-t border-border-main overflow-hidden"
     >
-      <div className="mx-auto max-w-8xl px-4 sm:px-6">
+      {/* Gradient background overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-[#F5F7FA] to-[#EBEFF5] dark:from-[#07152D] dark:via-[#051022] dark:to-[#01050E] transition-colors duration-300 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(10,132,255,0.08)_0%,rgba(10,132,255,0.03)_35%,transparent_70%)] dark:bg-[radial-gradient(circle_at_25%_25%,rgba(32,120,255,0.32)_0%,rgba(12,65,190,0.18)_22%,rgba(6,25,60,0.08)_48%,transparent_72%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_75%,rgba(10,132,255,0.04),transparent_70%)] dark:bg-[radial-gradient(circle_at_85%_75%,rgba(0,70,255,0.08),transparent_70%)] pointer-events-none" />
+
+      <div className="relative mx-auto max-w-8xl px-4 sm:px-6 z-10">
         {/* Main Grid Layout: Intro Card + 3x2 Services Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 border border-border-main">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 border border-border-main backdrop-blur-sm">
           {/* Left Column: Intro Section (Spans 4/12 cols) */}
-          <div className="lg:col-span-4 flex flex-col justify-between p-8 sm:p-12 lg:p-14 bg-bg-main border-b lg:border-b-0 lg:border-r border-border-main text-left">
+          <div className="lg:col-span-4 flex flex-col justify-between p-8 sm:p-12 lg:p-14 bg-bg-main/40 dark:bg-bg-main/20 backdrop-blur-md border-b lg:border-b-0 lg:border-r border-border-main text-left">
             <div className="flex flex-col">
               <span className="font-sans text-[10px] font-bold tracking-[0.2em] text-accent-blue uppercase">
                 EXPERIENCE SMART LIVING
@@ -112,6 +123,7 @@ export default function ServicesSectionV2() {
               return (
                 <div
                   key={index}
+                  id={service.id}
                   className="relative group min-h-[260px] flex flex-col justify-start items-start p-6 sm:p-8 bg-bg-main overflow-hidden cursor-pointer transition-all duration-300 hover:bg-bg-surface"
                 >
                   {/* Card Background Image with Hover Zoom */}

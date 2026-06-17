@@ -94,7 +94,7 @@ export default function SmarterWaySection() {
   const nodes = [
     { id: "lighting", icon: Lightbulb, label: "Lighting", x: 35, y: 15 },
     { id: "security", icon: Lock, label: "Security", x: 55, y: 22 },
-    { id: "cameras", icon: Video, label: "Cameras", x: 63, y: 45 },
+    { id: "cameras", icon: Video, label: "Cameras", x: 7, y: 45 },
     { id: "shades", icon: ShadesIcon, label: "Shades", x: 55, y: 68 },
     { id: "garage", icon: GarageIcon, label: "Garage", x: 35, y: 75 },
     { id: "music", icon: Music, label: "Audio", x: 15, y: 68 },
@@ -158,11 +158,11 @@ export default function SmarterWaySection() {
             <div className="mb-14 lg:mb-20">
               <a
                 href="/configurator"
-                className="inline-flex items-center gap-3 border border-accent-blue/30 bg-accent-blue/5 hover:bg-accent-blue/15 text-text-main px-6 py-3.5 transition-all duration-300 rounded-lg text-xs font-bold tracking-widest uppercase select-none shadow-[0_0_15px_rgba(10,132,255,0.15)] group"
+                className="inline-flex items-center gap-3 border border-accent-blue/30 bg-accent-blue/5 hover:bg-accent-blue/15 text-text-main px-6 py-3.5 transition-all duration-300 text-xs font-bold tracking-widest apple-border-shine rounded-full uppercase select-none group"
               >
-                <Smartphone className="h-4 w-4 text-accent-blue" />
+                <Smartphone className="h-5 w-5 text-accent-blue" />
                 <span>Your Home. One Tap Away.</span>
-                <ArrowRight className="h-4 w-4 text-accent-blue transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight className="h-5 w-5 text-accent-blue transition-transform duration-300 group-hover:translate-x-1" />
               </a>
             </div>
 
@@ -181,8 +181,8 @@ export default function SmarterWaySection() {
                           : "lg:px-6"
                     }`}
                   >
-                    <div className="text-accent-blue mb-4 transition-transform duration-300 hover:scale-110">
-                      <Icon className="h-7 w-7 stroke-[1.5]" />
+                    <div className="text-accent-blue apple-border-shine rounded-full p-2 mb-4 transition-transform duration-300 hover:scale-110">
+                      <Icon className="h-9 w-9 stroke-[1.5]" />
                     </div>
 
                     <h4 className="font-sans text-xs font-bold text-text-main tracking-wider uppercase mb-2">
@@ -248,7 +248,7 @@ export default function SmarterWaySection() {
                   }}
                   title="Central Hub"
                 >
-                  <Home className="h-6 w-6 text-accent-blue" />
+                  <Home className="h-8 w-8 text-accent-blue" />
                 </div>
 
                 {/* Outer Circular Nodes */}
@@ -260,7 +260,7 @@ export default function SmarterWaySection() {
                       key={node.id}
                       onMouseEnter={() => setActiveCategory(node.id)}
                       onMouseLeave={() => setActiveCategory(null)}
-                      className={`absolute flex items-center  justify-center w-10 h-10 rounded-full border bg-bg-main/80 backdrop-blur-md transition-all duration-300 pointer-events-auto cursor-pointer ${
+                      className={`absolute flex items-center  justify-center w-12 h-12 rounded-full border bg-bg-main/80 backdrop-blur-md transition-all duration-300 pointer-events-auto cursor-pointer ${
                         isActive
                           ? "border-accent-blue text-accent-blue scale-110 shadow-[0_0_15px_rgba(10,132,255,0.4)]"
                           : "border-border-main text-text-muted hover:border-accent-blue/50 hover:text-text-main"
@@ -272,7 +272,7 @@ export default function SmarterWaySection() {
                       }}
                       aria-label={node.label}
                     >
-                      <Icon className="h-4.5 w-4.5 stroke-[1.5]" />
+                      <Icon className="h-5.5 w-5.5 stroke-[1.5]" />
                     </button>
                   );
                 })}
@@ -281,7 +281,7 @@ export default function SmarterWaySection() {
               {/* CSS Smartphone Mockup */}
               <div
                 className="absolute w-[180px] h-[330px] sm:w-[210px] sm:h-[395px] bg-[#090D16] border-[5px] border-[#222B3E] rounded-[32px] shadow-2xl overflow-hidden flex flex-col justify-between p-2.5 z-30 transition-all duration-500 hover:scale-[1.02]"
-                style={{ right: "2%", bottom: "8%" }}
+                style={{ right: "8%", bottom: "8%" }}
               >
                 {/* Phone Notch/Dynamic Island */}
                 <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-16 h-3.5 bg-black rounded-full z-40 flex items-center justify-center">
@@ -313,7 +313,7 @@ export default function SmarterWaySection() {
                     </div>
 
                     <div className="flex items-center gap-1 bg-[#151D2A] border border-[#232F42] py-0.5 px-1.5 rounded-full select-none">
-                      <Sun className="h-2 w-2 text-amber-500" />
+                      <Sun className="h-2.5 w-2.5 text-amber-500" />
                       <span className="text-[7px] font-bold text-text-main">
                         26°C
                       </span>
@@ -330,14 +330,14 @@ export default function SmarterWaySection() {
                           key={card.id}
                           onMouseEnter={() => setActiveCategory(card.id)}
                           onMouseLeave={() => setActiveCategory(null)}
-                          className={`p-2.5 rounded-xl border text-left transition-all duration-300 flex flex-col justify-between h-[52px] sm:h-[62px] cursor-pointer ${
+                          className={`p-2.5 rounded-xl border text-left transition-all duration-300 flex flex-col justify-between h-[60px] sm:h-[72px] cursor-pointer ${
                             isActive
                               ? "bg-accent-blue/10 border-accent-blue/40 shadow-[0_0_10px_rgba(10,132,255,0.25)]"
                               : "bg-[#101622]/90 border-[#1F2B3E] hover:border-accent-blue/30"
                           }`}
                         >
                           <Icon
-                            className={`h-4.5 w-4.5 stroke-[1.5] ${isActive ? "text-accent-blue" : "text-text-muted"}`}
+                            className={`h-5.5 w-5.5 stroke-[1.5] ${isActive ? "text-accent-blue" : "text-text-muted"}`}
                           />
                           <div className="flex flex-col">
                             <span
@@ -357,19 +357,19 @@ export default function SmarterWaySection() {
                   {/* Tab menu bar */}
                   <div className="border-t border-[#1C2737] pt-1.5 pb-0.5 flex items-center justify-between px-1 text-text-muted text-[7px] select-none pointer-events-none">
                     <div className="flex flex-col items-center gap-0.5 text-accent-blue">
-                      <Home className="h-3.5 w-3.5 stroke-[1.5]" />
+                      <Home className="h-4.5 w-4.5 stroke-[1.5]" />
                       <span className="font-bold scale-90">Home</span>
                     </div>
                     <div className="flex flex-col items-center gap-0.5 hover:text-text-main transition-colors">
-                      <Sun className="h-3.5 w-3.5 stroke-[1.5]" />
+                      <Sun className="h-4.5 w-4.5 stroke-[1.5]" />
                       <span className="scale-90">Scenes</span>
                     </div>
                     <div className="flex flex-col items-center gap-0.5 hover:text-text-main transition-colors">
-                      <Laptop className="h-3.5 w-3.5 stroke-[1.5]" />
+                      <Laptop className="h-4.5 w-4.5 stroke-[1.5]" />
                       <span className="scale-90">Devices</span>
                     </div>
                     <div className="flex flex-col items-center gap-0.5 hover:text-text-main transition-colors">
-                      <Eye className="h-3.5 w-3.5 stroke-[1.5]" />
+                      <Eye className="h-4.5 w-4.5 stroke-[1.5]" />
                       <span className="scale-90">Cameras</span>
                     </div>
                   </div>

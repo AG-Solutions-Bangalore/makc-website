@@ -1,29 +1,12 @@
-import React from "react";
-import { Lightbulb, Thermometer, ShieldCheck, Play } from "lucide-react";
+import {
+  Lightbulb,
+  Thermometer,
+  ShieldCheck,
+  Play,
+  Blinds,
+} from "lucide-react";
 import WaveButton from "@/components/common/WaveButton";
 import heroBg from "../../../assets/images/home_v2/hero_bg.png";
-
-// Simple custom columns/curtains icon
-function CurtainsIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      {...props}
-    >
-      <rect width="18" height="18" x="3" y="3" rx="2" />
-      <path d="M12 3v18" />
-      <path d="M3 8h18" />
-      <path d="M8 3c0 4-2 6-5 6" />
-      <path d="M16 3c0 4 2 6 5 6" />
-    </svg>
-  );
-}
 
 export default function HeroSectionV2() {
   const statusItems = [
@@ -40,7 +23,7 @@ export default function HeroSectionV2() {
       status: "active",
     },
     {
-      icon: CurtainsIcon,
+      icon: Blinds,
       label: "CURTAINS",
       value: "Open",
       status: "active",
@@ -81,13 +64,13 @@ export default function HeroSectionV2() {
       <div className="relative z-20 mx-auto max-w-8xl w-full px-4 sm:px-14 flex flex-col lg:flex-row items-start lg:items-stretch justify-between gap-12 sm:gap-16">
         {/* Hero Left Content */}
         <div className="flex-1 flex flex-col justify-center text-left max-w-2xl">
-          <span className="font-sans text-[10px] sm:text-xs font-bold tracking-[0.25em] text-gold-primary uppercase">
+          <span className=" text-[10px] sm:text-xs font-bold tracking-[0.25em] text-gold-primary uppercase">
             DESIGNED FOR MODERN LUXURY LIVING
           </span>
 
-          <h1 className="mt-4 sm:mt-6 font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-text-main tracking-tight leading-[1.15]">
+          <h1 className="mt-4 sm:mt-6  text-4xl sm:text-5xl lg:text-6xl font-extrabold text-text-main tracking-tight leading-[1.15]">
             Intelligent Homes. <br />
-            <span className="font-serif italic font-normal text-gold-primary animate-fade-in-up">
+            <span className=" italic font-normal text-gold-primary animate-fade-in-up">
               Effortlessly Luxurious.
             </span>
           </h1>
@@ -102,7 +85,7 @@ export default function HeroSectionV2() {
             {/* CTA 1: Solid Gold */}
             <a
               href="#contact"
-              className="px-6 py-3.5 sm:px-8 sm:py-4 bg-gold-primary text-black font-bold text-[10px] sm:text-xs tracking-[0.15em] uppercase hover:bg-gold-hover transition-colors duration-300 rounded-none shadow-[0_4px_20px_rgba(10,132,255,0.35)] flex items-center gap-2 group"
+              className="px-6 py-3.5 sm:px-8 sm:py-4 bg-gold-primary text-white font-bold text-[10px] sm:text-xs tracking-[0.15em] uppercase hover:bg-gold-hover transition-colors duration-300 rounded-none shadow-[0_4px_20px_rgba(10,132,255,0.35)] flex items-center gap-2 group"
             >
               SCHEDULE PRIVATE CONSULTATION
             </a>
@@ -111,7 +94,7 @@ export default function HeroSectionV2() {
             <WaveButton
               href="#solutions"
               accentColor="var(--color-gold-primary)"
-              foregroundColor="#000000"
+              foregroundColor="#fff"
               className="px-6 py-3.5 sm:px-8 sm:py-4 border border-gold-primary text-gold-primary font-bold text-[10px] sm:text-xs tracking-[0.15em] uppercase transition-all duration-300 rounded-none flex items-center gap-2 group"
             >
               EXPLORE SMART HOMES
@@ -136,10 +119,10 @@ export default function HeroSectionV2() {
 
                   {/* Text on Right */}
                   <div className="flex flex-col text-left">
-                    <span className="font-sans text-[11px] sm:text-xs font-bold tracking-[0.25em] text-text-main uppercase">
+                    <span className=" text-[11px] sm:text-xs font-bold tracking-[0.25em] text-text-main uppercase">
                       {item.label}
                     </span>
-                    <span className="font-serif text-sm sm:text-base text-text-main font-semibold group-hover/item:text-gold-primary transition-colors duration-200 mt-1">
+                    <span className=" text-sm sm:text-base text-text-main font-semibold group-hover/item:text-gold-primary transition-colors duration-200 mt-1">
                       {item.value}
                     </span>
                   </div>
@@ -152,10 +135,10 @@ export default function HeroSectionV2() {
 
       {/* Scroll Down Indicator */}
       <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2.5">
-        <span className="font-sans text-[8px] font-bold tracking-[0.3em] text-text-muted/40 uppercase">
+        <span className=" text-[8px] font-bold tracking-[0.3em] text-text-muted/40 uppercase">
           SCROLL TO DISCOVER
         </span>
-        <div className="w-[18px] h-[30px] border border-border-main rounded-full flex justify-center p-1.5 opacity-50">
+        <div className="w-[18px] h-[30px] border border-border-[#ffff] rounded-full flex justify-center p-1.5 opacity-100">
           <div className="w-[4px] h-[6px] bg-gold-primary rounded-full animate-bounce" />
         </div>
       </div>
