@@ -2,6 +2,7 @@ import { Outlet, useLocation } from "react-router";
 import { useEffect } from "react";
 import Header from "../layouts/navbar/Header";
 import Footer from "../layouts/footer/Footer";
+import { Toaster } from "@/components/ui/sonner";
 
 export default function Layout() {
   const location = useLocation();
@@ -17,6 +18,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <Toaster />
     </div>
   );
 }

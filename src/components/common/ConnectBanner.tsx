@@ -1,0 +1,95 @@
+// Reusable Connect banner
+import { Phone, Mail, Facebook, Linkedin, Instagram } from "lucide-react";
+
+// Custom Google Plus SVG to match footer/legacy socials
+function GooglePlusIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path d="M12.3 9.92h-4.3v1.85h2.5c-.24 1.26-1.32 2.15-2.5 2.15-1.53 0-2.77-1.24-2.77-2.77s1.24-2.77 2.77-2.77c.68 0 1.3.25 1.78.67l1.32-1.32C10.1 6.88 8.87 6.23 7.5 6.23 4.46 6.23 2 8.69 2 11.73s2.46 5.5 5.5 5.5c3.18 0 5.29-2.24 5.29-5.38 0-.36-.03-.7-.09-1.03h-2.9v1.1h1.5zm8.7 0H19v-2h-1.5v2h-2v1.5h2v2h1.5v-2h2v-1.5z"/>
+    </svg>
+  );
+}
+
+interface ConnectBannerProps {
+  title?: string;
+  description?: string;
+}
+
+export default function ConnectBanner({
+  title = "Connect With Us",
+  description = "Our experts are ready to design your systems. Contact us via phone or email for customized estimates.",
+}: ConnectBannerProps) {
+  return (
+    <section className="relative rounded-3xl overflow-hidden border border-border-main bg-bg-surface/40 backdrop-blur-xl p-8 sm:p-12 lg:p-16 text-center shadow-xl">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-72 bg-accent-blue/10 rounded-full blur-[100px] pointer-events-none" />
+      
+      <div className="relative z-10 max-w-2xl mx-auto space-y-6">
+        <span className="text-accent-blue text-xs font-bold uppercase tracking-widest block">Start Your Journey</span>
+        <h2 className="text-4xl sm:text-5xl font-serif font-bold text-text-main tracking-tight">{title}</h2>
+        <p className="text-text-muted text-sm leading-relaxed max-w-md mx-auto">
+          {description}
+        </p>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto pt-6">
+          
+          {/* Phone */}
+          <div className="flex flex-col items-center p-5 bg-bg-main/50 rounded-2xl border border-border-main/60 hover:-translate-y-0.5 transition-all">
+            <Phone className="w-6 h-6 text-accent-blue mb-3" />
+            <span className="text-[10px] text-text-muted font-bold uppercase tracking-wider mb-1.5">Direct Line</span>
+            <a href="tel:+918197783287" className="text-sm font-semibold text-text-main hover:text-accent-blue transition-colors">+91-8197783287</a>
+            <a href="tel:+919324226077" className="text-xs text-text-muted mt-1 hover:text-accent-blue transition-colors">+91-9324226077</a>
+          </div>
+
+          {/* Email */}
+          <div className="flex flex-col items-center p-5 bg-bg-main/50 rounded-2xl border border-border-main/60 hover:-translate-y-0.5 transition-all">
+            <Mail className="w-6 h-6 text-accent-blue mb-3" />
+            <span className="text-[10px] text-text-muted font-bold uppercase tracking-wider mb-1.5">Email Support</span>
+            <a href="mailto:info@makcautomations.com" className="text-sm font-semibold text-text-main hover:text-accent-blue transition-colors truncate w-full px-2">info@makcautomations.com</a>
+          </div>
+
+        </div>
+
+        {/* Social icons - wrapped in rounded-full apple-border-shine */}
+        <div className="flex items-center justify-center gap-4 pt-8">
+          <a 
+            href="https://facebook.com" 
+            target="_blank" 
+            rel="noreferrer" 
+            aria-label="Facebook"
+            className="w-10 h-10 rounded-full border border-border-main bg-bg-main flex items-center justify-center text-text-muted hover:text-[#1877F2] hover:border-[#1877F2] transition-all duration-300 apple-border-shine"
+          >
+            <Facebook className="w-4 h-4" />
+          </a>
+          <a 
+            href="https://linkedin.com" 
+            target="_blank" 
+            rel="noreferrer" 
+            aria-label="LinkedIn"
+            className="w-10 h-10 rounded-full border border-border-main bg-bg-main flex items-center justify-center text-text-muted hover:text-[#0A66C2] hover:border-[#0A66C2] transition-all duration-300 apple-border-shine"
+          >
+            <Linkedin className="w-4 h-4" />
+          </a>
+          <a 
+            href="https://instagram.com" 
+            target="_blank" 
+            rel="noreferrer" 
+            aria-label="Instagram"
+            className="w-10 h-10 rounded-full border border-border-main bg-bg-main flex items-center justify-center text-text-muted hover:text-[#E4405F] hover:border-[#E4405F] transition-all duration-300 apple-border-shine"
+          >
+            <Instagram className="w-4 h-4" />
+          </a>
+          <a 
+            href="https://plus.google.com" 
+            target="_blank" 
+            rel="noreferrer" 
+            aria-label="Google Plus"
+            className="w-10 h-10 rounded-full border border-border-main bg-bg-main flex items-center justify-center text-text-muted hover:text-[#db4a39] hover:border-[#db4a39] transition-all duration-300 apple-border-shine"
+          >
+            <GooglePlusIcon className="w-4 h-4" />
+          </a>
+        </div>
+
+      </div>
+    </section>
+  );
+}
