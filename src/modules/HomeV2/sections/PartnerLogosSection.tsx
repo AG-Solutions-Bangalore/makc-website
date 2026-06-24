@@ -124,11 +124,12 @@ export default function PartnerLogosSection() {
           <Marquee
             gradient={false}
             speed={35}
-            className="flex items-center"
+            pauseOnHover={true}
+            className="flex items-center group"
           >
             <div className="flex items-center gap-16 lg:gap-24 pr-16 lg:pr-24">
               {logos.map((logo, index) => (
-                <div key={index} className="flex items-center justify-center shrink-0">
+                <div key={index} className="flex items-center justify-center shrink-0 transition-all duration-300 group-hover:blur-[2px] group-hover:opacity-60 hover:!blur-none hover:!opacity-100 cursor-pointer">
                   {logo}
                 </div>
               ))}
