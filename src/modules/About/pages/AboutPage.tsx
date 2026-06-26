@@ -78,7 +78,7 @@ export default function AboutPage() {
         {/* ABOUT CORE CONTENT SECTION */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-6 reveal-on-scroll reveal-left" data-reveal-duration="0.8s">
             <span className="text-accent-blue text-xs font-bold uppercase tracking-widest block mb-2">Our Foundation</span>
             <h2 className="text-4xl sm:text-5xl font-serif font-bold tracking-tight text-text-main leading-tight">
               Start Living in a Safer Home
@@ -118,7 +118,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5 reveal-on-scroll reveal-right" data-reveal-duration="0.8s">
             <div className="rounded-3xl overflow-hidden border border-border-main aspect-[4/3] bg-bg-surface relative group shadow-2xl">
               <img 
                 src="/images/about/embedded-banner.jpg" 
@@ -135,7 +135,7 @@ export default function AboutPage() {
         <section className="bg-bg-surface/30 border-y border-border-main/50 py-20 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-7 space-y-6 reveal-on-scroll reveal-left" data-reveal-duration="0.8s">
               <span className="text-accent-blue text-xs font-bold uppercase tracking-widest block mb-2">Why Choose Us</span>
               <h2 className="text-4xl font-serif font-bold tracking-tight text-text-main leading-tight">
                 A System Designed for Your Ease
@@ -158,7 +158,12 @@ export default function AboutPage() {
             {/* Stat items */}
             <div className="lg:col-span-5 space-y-4">
               {stats.map((stat, idx) => (
-                <div key={idx} className="bg-bg-surface border border-border-main p-5 rounded-2xl flex items-center justify-between shadow-sm">
+                <div
+                  key={idx}
+                  className="bg-bg-surface border border-border-main p-5 rounded-2xl flex items-center justify-between shadow-sm reveal-on-scroll reveal-up"
+                  data-reveal-delay={`${idx * 100}ms`}
+                  data-reveal-duration="0.6s"
+                >
                   <span className="text-sm font-semibold text-text-main">{stat.label}</span>
                   <span className="text-3xl font-bold text-accent-blue font-serif">{stat.value}</span>
                 </div>
@@ -172,7 +177,7 @@ export default function AboutPage() {
         <section className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           
           {/* Vision Panel */}
-          <div className="bg-bg-surface border border-border-main p-8 sm:p-10 rounded-3xl flex flex-col justify-between transition-all hover:border-accent-blue/15 shadow-md">
+          <div className="bg-bg-surface border border-border-main p-8 sm:p-10 rounded-3xl flex flex-col justify-between transition-all hover:border-accent-blue/15 shadow-md reveal-on-scroll reveal-left" data-reveal-duration="0.8s">
             <div>
               <div className="w-12 h-12 rounded-full border border-border-main bg-bg-main flex items-center justify-center text-accent-blue mb-6 apple-border-shine">
                 <Eye className="w-5 h-5" />
@@ -188,7 +193,7 @@ export default function AboutPage() {
           </div>
 
           {/* Mission Panel */}
-          <div className="bg-bg-surface border border-border-main p-8 sm:p-10 rounded-3xl flex flex-col justify-between transition-all hover:border-accent-blue/15 shadow-md">
+          <div className="bg-bg-surface border border-border-main p-8 sm:p-10 rounded-3xl flex flex-col justify-between transition-all hover:border-accent-blue/15 shadow-md reveal-on-scroll reveal-right" data-reveal-duration="0.8s">
             <div>
               <div className="w-12 h-12 rounded-full border border-border-main bg-bg-main flex items-center justify-center text-accent-blue mb-6 apple-border-shine">
                 <Target className="w-5 h-5" />
@@ -206,7 +211,7 @@ export default function AboutPage() {
         </section>
 
         {/* CLIENTS TICKER MARQUEE */}
-        <section className="border-t border-border-main/50 pt-20">
+        <section className="border-t border-border-main/50 pt-20 reveal-on-scroll reveal-up" data-reveal-duration="0.8s">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-accent-blue text-xs font-bold uppercase tracking-widest block mb-3">Enterprise Trust</span>
             <h2 className="text-4xl font-serif font-bold tracking-tight text-text-main">Our Clients</h2>
@@ -240,7 +245,7 @@ export default function AboutPage() {
 
         {/* TEAM MEMEBRS PROFILE SECTION */}
         <section className="border-t border-border-main/50 pt-20">
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll reveal-up" data-reveal-duration="0.8s">
             <span className="text-accent-blue text-xs font-bold uppercase tracking-widest block mb-3">Design Specialists</span>
             <h2 className="text-4xl font-serif font-bold tracking-tight text-text-main mb-4">Meet Our Team!</h2>
             <p className="text-text-muted text-sm leading-relaxed font-medium">
@@ -250,7 +255,12 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {teamMembers.map((member, idx) => (
-              <div key={idx} className="bg-bg-surface border border-border-main rounded-3xl overflow-hidden shadow-lg transition-transform hover:-translate-y-1 duration-300">
+              <div
+                key={idx}
+                className="bg-bg-surface border border-border-main rounded-3xl overflow-hidden shadow-lg transition-transform hover:-translate-y-1 duration-300 reveal-on-scroll reveal-up"
+                data-reveal-delay={`${idx * 100}ms`}
+                data-reveal-duration="0.6s"
+              >
                 <div className="relative aspect-square overflow-hidden border-b border-border-main/50 bg-neutral-900">
                   <img 
                     src={member.img} 

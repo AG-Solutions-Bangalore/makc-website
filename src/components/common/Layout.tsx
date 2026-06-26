@@ -3,9 +3,11 @@ import { useEffect } from "react";
 import Header from "../layouts/navbar/Header";
 import Footer from "../layouts/footer/Footer";
 import { Toaster } from "@/components/ui/sonner";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function Layout() {
   const location = useLocation();
+  useScrollReveal();
 
   useEffect(() => {
     window.scrollTo(0, 0);

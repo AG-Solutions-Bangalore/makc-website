@@ -52,7 +52,7 @@ export default function ContactPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Hero Header */}
-        <div className="mb-12 lg:mb-16">
+        <div className="mb-12 lg:mb-16 reveal-on-scroll reveal-up" data-reveal-duration="0.8s">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-serif text-text-main tracking-tight leading-[1.1] mb-6">
             Let's build the <br />
             <span className="text-accent-blue">
@@ -68,7 +68,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8">
           
           {/* Main Contact Form Panel */}
-          <div className="lg:col-span-7 bg-bg-surface border border-border-main rounded-3xl p-8 sm:p-10 lg:p-12 apple-border-shine flex flex-col justify-between shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] transition-all">
+          <div className="lg:col-span-7 bg-bg-surface border border-border-main rounded-3xl p-8 sm:p-10 lg:p-12 apple-border-shine flex flex-col justify-between shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] transition-all reveal-on-scroll reveal-left" data-reveal-duration="0.9s">
             <div className="mb-8">
               <h3 className="text-3xl font-bold font-serif text-text-main mb-2 tracking-tight">Send us a message</h3>
               <p className="text-sm text-text-muted">Fill out the form below and we'll get back to you within 24 hours.</p>
@@ -137,7 +137,7 @@ export default function ContactPage() {
           </div>
 
           {/* Visual/Image Panel */}
-          <div className="lg:col-span-5 relative rounded-3xl overflow-hidden min-h-[300px] lg:min-h-full apple-border-shine group border border-border-main shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)]">
+          <div className="lg:col-span-5 relative rounded-3xl overflow-hidden min-h-[300px] lg:min-h-full apple-border-shine group border border-border-main shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] reveal-on-scroll reveal-right" data-reveal-duration="0.9s">
             <img 
               src={bgImage} 
               alt="Luxury Villa Integration"
@@ -159,7 +159,7 @@ export default function ContactPage() {
           {/* Quick-Contact Chips */}
           
           {/* Phone Chip */}
-          <a href="tel:+918197783287" className="lg:col-span-4 bg-bg-surface border border-border-main rounded-3xl p-6 lg:p-8 apple-border-shine flex items-center gap-5 group cursor-pointer transition-transform hover:-translate-y-1 duration-300 shadow-[0_4px_15px_rgb(0,0,0,0.02)] dark:shadow-[0_4px_20px_rgb(0,0,0,0.2)]">
+          <a href="tel:+918197783287" className="lg:col-span-4 bg-bg-surface border border-border-main rounded-3xl p-6 lg:p-8 apple-border-shine flex items-center gap-5 group cursor-pointer transition-transform hover:-translate-y-1 duration-300 shadow-[0_4px_15px_rgb(0,0,0,0.02)] dark:shadow-[0_4px_20px_rgb(0,0,0,0.2)] reveal-on-scroll reveal-up" data-reveal-delay="100ms" data-reveal-duration="0.6s">
             <div className="w-14 h-14 rounded-full bg-accent-blue/10 text-accent-blue flex items-center justify-center shrink-0 border border-accent-blue/20 group-hover:bg-accent-blue group-hover:text-white transition-all duration-300">
               <Phone className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
             </div>
@@ -171,7 +171,7 @@ export default function ContactPage() {
           </a>
 
           {/* Email Chip */}
-          <a href="mailto:info@makcautomations.com" className="lg:col-span-4 bg-bg-surface border border-border-main rounded-3xl p-6 lg:p-8 apple-border-shine flex items-center gap-5 group cursor-pointer transition-transform hover:-translate-y-1 duration-300 shadow-[0_4px_15px_rgb(0,0,0,0.02)] dark:shadow-[0_4px_20px_rgb(0,0,0,0.2)]">
+          <a href="mailto:info@makcautomations.com" className="lg:col-span-4 bg-bg-surface border border-border-main rounded-3xl p-6 lg:p-8 apple-border-shine flex items-center gap-5 group cursor-pointer transition-transform hover:-translate-y-1 duration-300 shadow-[0_4px_15px_rgb(0,0,0,0.02)] dark:shadow-[0_4px_20px_rgb(0,0,0,0.2)] reveal-on-scroll reveal-up" data-reveal-delay="200ms" data-reveal-duration="0.6s">
             <div className="w-14 h-14 rounded-full bg-accent-blue/10 text-accent-blue flex items-center justify-center shrink-0 border border-accent-blue/20 group-hover:bg-accent-blue group-hover:text-white transition-all duration-300">
               <Mail className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
             </div>
@@ -182,7 +182,7 @@ export default function ContactPage() {
           </a>
 
           {/* Social Media Bar */}
-          <div className="lg:col-span-4 bg-bg-surface border border-border-main rounded-3xl p-6 lg:p-8 apple-border-shine flex flex-col justify-center gap-4 shadow-[0_4px_15px_rgb(0,0,0,0.02)] dark:shadow-[0_4px_20px_rgb(0,0,0,0.2)]">
+          <div className="lg:col-span-4 bg-bg-surface border border-border-main rounded-3xl p-6 lg:p-8 apple-border-shine flex flex-col justify-center gap-4 shadow-[0_4px_15px_rgb(0,0,0,0.02)] dark:shadow-[0_4px_20px_rgb(0,0,0,0.2)] reveal-on-scroll reveal-up" data-reveal-delay="300ms" data-reveal-duration="0.6s">
             <p className="text-[10px] sm:text-xs font-bold text-text-muted uppercase tracking-widest text-center sm:text-left">Follow Us On</p>
             <div className="flex items-center justify-center sm:justify-start gap-4">
               <a href="https://facebook.com" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full border border-border-main bg-bg-main flex items-center justify-center text-text-muted hover:text-[#1877F2] hover:border-[#1877F2] hover:shadow-[0_4px_15px_rgba(24,119,242,0.2)] transition-all duration-300 apple-border-shine">
@@ -203,7 +203,7 @@ export default function ContactPage() {
         </div>
 
         {/* Map Section - Edge-to-edge container styling */}
-        <div className="mt-6 lg:mt-8 relative h-[400px] lg:h-[500px] w-full rounded-3xl overflow-hidden border border-border-main shadow-lg apple-border-shine group">
+        <div className="mt-6 lg:mt-8 relative h-[400px] lg:h-[500px] w-full rounded-3xl overflow-hidden border border-border-main shadow-lg apple-border-shine group reveal-on-scroll reveal-up" data-reveal-duration="0.8s">
           <div className="absolute top-6 right-6 lg:top-8 lg:right-8 z-20">
             <a 
               href="https://maps.google.com/?q=Bommasandra,Bengaluru,Karnataka" 

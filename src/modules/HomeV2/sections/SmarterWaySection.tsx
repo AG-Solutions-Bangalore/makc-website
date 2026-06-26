@@ -130,7 +130,7 @@ export default function SmarterWaySection() {
       <div className="relative mx-auto max-w-8xl px-4 sm:px-12 z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center">
           {/* Left Panel: Description and feature bullet grids (Spans 6/12) */}
-          <div className="lg:col-span-6 flex flex-col text-left">
+          <div className="lg:col-span-6 flex flex-col text-left reveal-on-scroll reveal-left" data-reveal-duration="0.9s">
             <span className="font-sans text-[10px] sm:text-xs font-bold tracking-[0.25em] text-accent-blue uppercase select-none mb-4">
               THE SMARTER WAY FORWARD
             </span>
@@ -173,13 +173,15 @@ export default function SmarterWaySection() {
                 return (
                   <div
                     key={index}
-                    className={`flex flex-col items-start ${
+                    className={`flex flex-col items-start reveal-on-scroll reveal-up ${
                       index === 0
                         ? "lg:pr-6 lg:pl-0"
                         : index === features.length - 1
                           ? "lg:pl-6 lg:pr-0"
                           : "lg:px-6"
                     }`}
+                    data-reveal-delay={`${index * 80}ms`}
+                    data-reveal-duration="0.6s"
                   >
                     <div className="text-accent-blue apple-border-shine rounded-full p-2 mb-4 transition-transform duration-300 hover:scale-110">
                       <Icon className="h-9 w-9 stroke-[1.5]" />
@@ -198,7 +200,7 @@ export default function SmarterWaySection() {
           </div>
 
           {/* Right Panel: Interactive smart hub visualization (Spans 6/12) */}
-          <div className="lg:col-span-6 w-full flex justify-center">
+          <div className="lg:col-span-6 w-full flex justify-center reveal-on-scroll reveal-right" data-reveal-duration="0.9s">
             {/* Visualizer Frame */}
             <div className="relative w-full max-w-[700px] h-[450px] sm:h-[500px] rounded-2xl   overflow-hidden flex items-center justify-center">
               {/* Parallax View inside visualizer */}

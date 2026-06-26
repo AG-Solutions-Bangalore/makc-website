@@ -17,7 +17,7 @@ export default function ComingSoon({
       <div className="absolute inset-0 bg-gradient-to-b from-white via-[#F5F7FA] to-[#EBEFF5] dark:from-[#07152D] dark:via-[#051022] dark:to-[#01050E] transition-colors duration-300 pointer-events-none z-0" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(10,132,255,0.08)_0%,rgba(10,132,255,0.03)_35%,transparent_70%)] dark:bg-[radial-gradient(circle_at_center,rgba(32,120,255,0.25)_0%,rgba(12,65,190,0.12)_22%,rgba(6,25,60,0.04)_48%,transparent_72%)] pointer-events-none z-0" />
 
-      <div className="relative z-10 max-w-lg w-full text-center flex flex-col items-center">
+      <div className="relative z-10 max-w-lg w-full text-center flex flex-col items-center reveal-on-scroll reveal-up" data-reveal-duration="0.8s">
         {/* Glowing Pulsing Icon Frame */}
         <div className="relative h-20 w-20 rounded-full border border-[#0A84FF]/40 bg-[#0A84FF]/10 text-[#0A84FF] flex items-center justify-center shadow-[0_0_20px_rgba(10,132,255,0.25)] mb-8 select-none">
           <Hourglass className="h-9 w-9 stroke-[1.2] animate-pulse" />

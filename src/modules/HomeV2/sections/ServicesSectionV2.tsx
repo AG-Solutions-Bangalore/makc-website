@@ -89,12 +89,12 @@ export default function ServicesSectionV2() {
         {/* Main Grid Layout: Intro Card + 3x2 Services Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 border border-border-main backdrop-blur-sm">
           {/* Left Column: Intro Section (Spans 4/12 cols) */}
-          <div className="lg:col-span-4 flex flex-col justify-between p-8 sm:p-12 lg:p-14 bg-bg-main/40 dark:bg-bg-main/20 backdrop-blur-md border-b lg:border-b-0 lg:border-r border-border-main text-left">
+          <div className="lg:col-span-4 flex flex-col justify-between p-8 sm:p-12 lg:p-14 bg-bg-main/40 dark:bg-bg-main/20 backdrop-blur-md border-b lg:border-b-0 lg:border-r border-border-main text-left reveal-on-scroll reveal-up" data-reveal-duration="0.8s">
             <div className="flex flex-col">
               <span className="font-sans text-[10px] font-bold tracking-[0.2em] text-accent-blue uppercase">
                 EXPERIENCE SMART LIVING
               </span>
-
+ 
               <h2 className="mt-4 font-serif text-3xl sm:text-4xl font-extrabold text-text-main tracking-tight leading-tight">
                 The Future <br />
                 Doesn't Wait. <br />
@@ -104,7 +104,7 @@ export default function ServicesSectionV2() {
                 </span>
               </h2>
             </div>
-
+ 
             <p className="mt-8 lg:mt-0 font-sans text-xs sm:text-sm text-text-muted leading-relaxed">
               Every room should anticipate your needs. <br />
               Walk in. Lights welcome you. <br />
@@ -115,7 +115,7 @@ export default function ServicesSectionV2() {
               without looking technological.
             </p>
           </div>
-
+ 
           {/* Right Column: 6 Services Grid (Spans 8/12 cols with clean border gap) */}
           <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 bg-border-main gap-[1px]">
             {services.map((service, index) => {
@@ -124,7 +124,9 @@ export default function ServicesSectionV2() {
                 <div
                   key={index}
                   id={service.id}
-                  className="relative group min-h-[260px] flex flex-col justify-start items-start p-6 sm:p-8 bg-bg-main overflow-hidden cursor-pointer transition-all duration-300 hover:bg-bg-surface"
+                  className="relative group min-h-[260px] flex flex-col justify-start items-start p-6 sm:p-8 bg-bg-main overflow-hidden cursor-pointer transition-all duration-300 hover:bg-bg-surface reveal-on-scroll reveal-up"
+                  data-reveal-delay={`${index * 80}ms`}
+                  data-reveal-duration="0.7s"
                 >
                   {/* Card Background Image with Hover Zoom */}
                   <div className="absolute inset-0 z-0 group-hover:scale-105 transition-all duration-500">

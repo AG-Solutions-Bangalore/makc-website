@@ -30,7 +30,7 @@ export default function ClientTestimonialsSection() {
       <div className="relative mx-auto max-w-8xl px-4 sm:px-6 z-10">
         
         {/* Title */}
-        <span className="font-sans text-xl font-bold tracking-[0.2em] text-accent-blue uppercase mb-12 block select-none">
+        <span className="reveal-on-scroll reveal-up font-sans text-xl font-bold tracking-[0.2em] text-accent-blue uppercase mb-12 block select-none" data-reveal-duration="0.8s">
           WHAT OUR CLIENTS SAY
         </span>
 
@@ -40,7 +40,10 @@ export default function ClientTestimonialsSection() {
             return (
               <div
                 key={index}
-                className="flex flex-col sm:flex-row border border-border-main dark:border-[#0A84FF]/15 bg-white/60 dark:bg-[#061121]/50 backdrop-blur-xl overflow-hidden rounded-xl h-auto sm:h-[220px] transition-all duration-500 hover:border-accent-blue/40 hover:shadow-[0_0_25px_rgba(10,132,255,0.08)] dark:hover:shadow-[0_0_25px_rgba(10,132,255,0.15)]"
+                className={`flex flex-col sm:flex-row border border-border-main dark:border-[#0A84FF]/15 bg-white/60 dark:bg-[#061121]/50 backdrop-blur-xl overflow-hidden rounded-xl h-auto sm:h-[220px] transition-all duration-500 hover:border-accent-blue/40 hover:shadow-[0_0_25px_rgba(10,132,255,0.08)] dark:hover:shadow-[0_0_25px_rgba(10,132,255,0.15)] reveal-on-scroll ${
+                  index === 0 ? "reveal-left" : "reveal-right"
+                }`}
+                data-reveal-duration="0.8s"
               >
                 {/* Left Side: Image (Spans ~38% width on tablet/desktop) */}
                 <div className="w-full sm:w-[38%] h-[160px] sm:h-full shrink-0 relative overflow-hidden">

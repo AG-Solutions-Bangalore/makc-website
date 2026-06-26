@@ -67,7 +67,7 @@ export default function LifestyleProjectsSection() {
       <div className="relative mx-auto max-w-8xl px-4 sm:px-6 z-10">
         
         {/* ================= LIFESTYLE MODES SUBSECTION ================= */}
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center reveal-on-scroll reveal-up" data-reveal-duration="0.8s">
           <span className="font-bold tracking-[0.2em] text-accent-blue uppercase">
             MORE THAN AUTOMATION
           </span>
@@ -83,7 +83,9 @@ export default function LifestyleProjectsSection() {
             return (
               <div
                 key={index}
-                className="relative flex flex-col items-center text-center px-4"
+                className="relative flex flex-col items-center text-center px-4 reveal-on-scroll reveal-up"
+                data-reveal-delay={`${index * 100}ms`}
+                data-reveal-duration="0.6s"
               >
                 {/* Custom vertical gradient divider as border-right on desktop */}
                 {index < modes.length - 1 && (
@@ -109,7 +111,7 @@ export default function LifestyleProjectsSection() {
         </div>
 
         {/* ================= FEATURED PROJECTS SUBSECTION ================= */}
-        <div id="interior" className="flex flex-col items-center mt-20 lg:mt-24">
+        <div id="interior" className="flex flex-col items-center mt-20 lg:mt-24 reveal-on-scroll reveal-up" data-reveal-duration="0.8s">
           <span className="font-bold tracking-[0.2em] text-accent-blue uppercase">
             FEATURED PROJECTS
           </span>
@@ -121,7 +123,9 @@ export default function LifestyleProjectsSection() {
             return (
               <div
                 key={index}
-                className="relative overflow-hidden group aspect-[16/10] w-full border border-border-main cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+                className="relative overflow-hidden group aspect-[16/10] w-full border border-border-main cursor-pointer transition-all duration-300 hover:scale-[1.02] reveal-on-scroll reveal-scale"
+                data-reveal-delay={`${index * 100}ms`}
+                data-reveal-duration="0.7s"
               >
                 {/* Project Image with Zoom Effect */}
                 <img

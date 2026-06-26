@@ -47,7 +47,8 @@ export default function WhyChooseUsSection() {
             <img
               src={imgWhyChooseUs}
               alt="Luxury Living Room Night View with Ambient Lighting"
-              className="w-full h-full object-cover object-center absolute inset-0"
+              className="w-full h-full object-cover object-center absolute inset-0 reveal-on-scroll reveal-left"
+              data-reveal-duration="0.9s"
             />
             {/* Premium overlays for image depth and blending */}
             <div className="absolute inset-0 bg-black/10 dark:bg-black/35 z-10 pointer-events-none" />
@@ -58,7 +59,7 @@ export default function WhyChooseUsSection() {
           <div className="lg:col-span-7 flex flex-col justify-between p-8 sm:p-12 lg:p-14 bg-bg-main/40 dark:bg-bg-main/20 backdrop-blur-md text-left">
             
             {/* Top Text Content */}
-            <div className="flex flex-col">
+            <div className="flex flex-col reveal-on-scroll reveal-up" data-reveal-duration="0.8s">
               <span className="font-sans text-[10px] font-bold tracking-[0.2em] text-accent-blue uppercase">
                 WHY HOMEOWNERS CHOOSE MAKC
               </span>
@@ -75,7 +76,9 @@ export default function WhyChooseUsSection() {
                 return (
                   <div
                     key={index}
-                    className="relative flex flex-col items-center text-center px-2 sm:px-4"
+                    className="relative flex flex-col items-center text-center px-2 sm:px-4 reveal-on-scroll reveal-up"
+                    data-reveal-delay={`${index * 100}ms`}
+                    data-reveal-duration="0.6s"
                   >
                     {/* Custom vertical gradient divider as border-right on desktop */}
                     {index < features.length - 1 && (

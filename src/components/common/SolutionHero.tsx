@@ -36,8 +36,8 @@ export default function SolutionHero({
   socialProofText,
 }: SolutionHeroProps) {
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
-      <div className="lg:col-span-7 flex flex-col justify-center">
+    <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24 no-reveal">
+      <div className="lg:col-span-7 flex flex-col justify-center reveal-on-scroll reveal-left" data-reveal-duration="0.9s">
         
         {/* Clean Rounded-Full Icon with Apple Shine */}
         <div className="flex items-center gap-3 mb-6">
@@ -55,7 +55,7 @@ export default function SolutionHero({
             )}
           </div>
         </div>
-
+ 
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-serif tracking-tight leading-[1.15] mb-6">
           {headingNormal} <br />
           <span className="text-accent-blue bg-gradient-to-r from-accent-blue to-cyan-500 bg-clip-text text-transparent">
@@ -74,9 +74,9 @@ export default function SolutionHero({
           toastMessage={formToastMessage}
         />
       </div>
-
+ 
       {/* Visual device panel mockup - Clean border, no apple shine */}
-      <div className="lg:col-span-5 relative">
+      <div className="lg:col-span-5 relative reveal-on-scroll reveal-right" data-reveal-duration="0.9s">
         <div className="relative rounded-3xl overflow-hidden border border-border-main shadow-2xl group">
           <img 
             src={imageSrc} 

@@ -45,7 +45,7 @@ export default function HeroSectionV2() {
   return (
     <section
       id="home"
-      className="relative w-full min-h-screen bg-bg-main flex items-center justify-between overflow-hidden py-24 sm:py-32 transition-colors duration-300"
+      className="relative w-full min-h-screen bg-bg-main flex items-center justify-between overflow-hidden py-24 sm:py-32 transition-colors duration-300 no-reveal"
     >
       {/* Background Image with Theme-aware Overlays */}
       <div className="absolute inset-0 z-0">
@@ -63,14 +63,14 @@ export default function HeroSectionV2() {
 
       <div className="relative z-20 mx-auto max-w-8xl w-full px-4 sm:px-14 flex flex-col lg:flex-row items-start lg:items-stretch justify-between gap-12 sm:gap-16">
         {/* Hero Left Content */}
-        <div className="flex-1 flex flex-col justify-center text-left max-w-2xl">
+        <div className="flex-1 flex flex-col justify-center text-left max-w-2xl reveal-on-scroll reveal-left" data-reveal-duration="0.9s">
           <span className=" text-[10px] sm:text-xs font-bold tracking-[0.25em] text-gold-primary uppercase">
             DESIGNED FOR MODERN LUXURY LIVING
           </span>
 
           <h1 className="mt-4 sm:mt-6  text-4xl sm:text-5xl lg:text-6xl font-extrabold text-text-main tracking-tight leading-[1.15]">
             Intelligent Homes. <br />
-            <span className=" italic font-normal text-gold-primary animate-fade-in-up">
+            <span className=" italic font-normal text-gold-primary">
               Effortlessly Luxurious.
             </span>
           </h1>
@@ -111,7 +111,12 @@ export default function HeroSectionV2() {
             {statusItems.map((item, index) => {
               const Icon = item.icon;
               return (
-                <div key={index} className="flex items-center gap-5 group/item">
+                <div
+                  key={index}
+                  className="flex items-center gap-5 group/item reveal-on-scroll reveal-right"
+                  data-reveal-delay={`${index * 100}ms`}
+                  data-reveal-duration="0.7s"
+                >
                   {/* Clean Icon on Left */}
                   <div className="text-gold-primary apple-border-shine rounded-full transition-all duration-300 shrink-0 flex items-center justify-center w-12 h-12">
                     <Icon className="h-8 w-8 stroke-[1.5]" />
