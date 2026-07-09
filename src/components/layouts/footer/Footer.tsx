@@ -157,7 +157,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-3  text-xs text-text-muted">
               <li>
                 <a
-                  href="/#about"
+                  href="/why-us#about"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
                   About MAKC
@@ -165,7 +165,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="/#process"
+                  href="/why-us#process"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
                   Our Process

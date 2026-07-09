@@ -142,11 +142,11 @@ export default function SecurityPage() {
         
         {/* REUSABLE HERO SECTION */}
         <SolutionHero 
-          badgeText="Elite Home Security Systems"
+          badgeText="#1 Choice for Home Automation"
           badgeIcon={Shield}
-          headingNormal="Home Security System"
-          headingHighlighted="Bangalore"
-          subtitle="Secure your Home with MAKc Automation. Experience advanced monitoring, robust threat detection, and complete peace of mind."
+          headingNormal="Security System"
+          headingHighlighted="Home - Commercial"
+          subtitle="Security isn't just about cameras - it's about knowing your home or business is protected, even when you're not there. With professionally designed smart home and commercial security systems in Bangalore, MAKc Automation helps you monitor, control, and secure your residential and commercial spaces from anywhere."
           imageSrc={serviceSecurityImg}
           imageTag="System Armed"
           imageTitle="MAKc Alarm Ecosystem"

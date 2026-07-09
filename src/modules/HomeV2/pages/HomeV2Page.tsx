@@ -1,10 +1,8 @@
 import HeroSectionV2 from "../sections/HeroSectionV2";
 import StatsSectionV2 from "../sections/StatsSectionV2";
 import ServicesSectionV2 from "../sections/ServicesSectionV2";
-import WhyChooseUsSection from "../sections/WhyChooseUsSection";
-import LifestyleProjectsSection from "../sections/LifestyleProjectsSection";
+import ProjectsSection from "../sections/ProjectsSection";
 import PartnerLogosSection from "../sections/PartnerLogosSection";
-import ProcessSection from "../sections/ProcessSection";
 import ClientTestimonialsSection from "../sections/ClientTestimonialsSection";
 import TestimonialsSection from "../sections/TestimonialsSection";
 import SmarterWaySection from "../sections/SmarterWaySection";
@@ -23,17 +21,11 @@ export default function HomeV2Page() {
       {/* V2 Services Section */}
       <ServicesSectionV2 />
 
-      {/* V2 Why Choose Us Section */}
-      <WhyChooseUsSection />
-
-      {/* V2 Lifestyle and Projects Section */}
-      <LifestyleProjectsSection />
+      {/* V2 Featured Projects Section */}
+      <ProjectsSection />
 
       {/* V2 Partner Logos Section */}
       <PartnerLogosSection />
-
-      {/* V2 Process Section */}
-      <ProcessSection />
 
       {/* V2 Smarter Way Section */}
       <SmarterWaySection />

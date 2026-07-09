@@ -183,7 +183,7 @@ export default function GetInTouchSection() {
 
               {/* Consultation CTA button */}
               <a
-                href="#contact"
+                href="/contact"
                 className="w-full mt-8 py-4 apple-border-shine bg-accent-blue hover:bg-accent-blue/90 text-white font-bold text-xs tracking-widest uppercase rounded-full  transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer shadow-[0_4px_15px_rgba(10,132,255,0.3)]"
               >
                 <span>Schedule a Consultation</span>

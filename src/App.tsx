@@ -13,6 +13,7 @@ import AboutPage from "./modules/About/pages/AboutPage";
 import ServicePage from "./modules/Service/pages/ServicePage";
 import BlogPage from "./modules/Blogs/pages/BlogPage";
 import ExperiencePage from "./modules/Experience/pages/ExperiencePage";
+import WhyUsPage from "./modules/WhyUs/pages/WhyUsPage";
 import NotFound from "./components/common/NotFound";
 
 export default function App() {
@@ -31,6 +32,7 @@ export default function App() {
         {/* Additional links routes */}
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/why-us" element={<WhyUsPage />} />
         <Route path="/service" element={<ServicePage />} />
         <Route path="/blogs" element={<BlogPage />} />
         <Route path="/experience" element={<ExperiencePage />} />

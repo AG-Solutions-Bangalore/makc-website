@@ -102,11 +102,11 @@ export default function NetworkingPage() {
         
         {/* REUSABLE HERO SECTION */}
         <SolutionHero 
-          badgeText="Elite Home Connectivity Solutions"
+          badgeText="#1 Choice for Home Automation"
           badgeIcon={Wifi}
-          headingNormal="Get your Home Wifi Extender"
-          headingHighlighted="From MAKc Automation"
-          subtitle="Improve Your Connectivity. Experience seamless internet routing, switching, and gigabit mesh WiFi systems designed for modern residential layout structures."
+          headingNormal="Smart Networking"
+          headingHighlighted="Solutions"
+          subtitle="A smart home or office is only as good as its network. With professionally designed networking solutions in Bangalore, MAKc Automation ensures strong, secure, and uninterrupted connectivity across every corner of your space. Designed for homes, villas, apartments, offices, and commercial spaces."
           imageSrc={serviceNetworkingImg}
           imageTag="Mesh Wi-Fi Access Points"
           imageTitle="High-Speed Mesh Network"

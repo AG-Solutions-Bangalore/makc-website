@@ -193,11 +193,11 @@ export default function AutomationPage() {
         
         {/* REUSABLE HERO SECTION */}
         <SolutionHero 
-          badgeText="Next-Gen Home Automation"
+          badgeText="#1 Choice for Home Automation"
           badgeIcon={Sparkles}
-          headingNormal="Future of Living with"
-          headingHighlighted="Smart Home Devices"
-          subtitle="Experience a more convenient lifestyle with our advanced Smart Home Devices. Elevate comfort, enhance security, and save energy effortlessly."
+          headingNormal="Smart Home"
+          headingHighlighted="Automation"
+          subtitle="A smart home or office is only as good as its network. With professionally designed networking solutions in Bangalore, MAKc Automation ensures strong, secure, and uninterrupted connectivity across every corner of your space. Designed for homes, villas, apartments, offices, and commercial spaces."
           imageSrc={serviceAutomationImg}
           imageTag="Premium Switch series"
           imageTitle="THE_6605 Glass Dimmer"

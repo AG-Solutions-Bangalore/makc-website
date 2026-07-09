@@ -4,22 +4,22 @@ export default function StatsSectionV2() {
   const stats = [
     {
       icon: Home,
-      value: "500+",
+      value: "800+",
       label: "Luxury Homes Automated",
     },
     {
       icon: Award,
-      value: "7+",
+      value: "8+",
       label: "Years of Excellence",
     },
     {
       icon: ShieldCheck,
-      value: "5-Year",
+      value: "5-Year Guarantee",
       label: "Installation Warranty",
     },
     {
       icon: MapPin,
-      value: "4 Cities",
+      value: "5+ states",
       label: "Serving Across India",
     },
   ];
@@ -43,7 +43,7 @@ export default function StatsSectionV2() {
                 <div className="h-11 w-11 shrink-0 rounded-none flex items-center justify-center text-accent-blue transition-all duration-300">
                   <Icon className="h-full w-full stroke-[1.5]" />
                 </div>
-                
+
                 {/* Text wrapper */}
                 <div className="flex flex-col">
                   <span className=" text-2xl lg:text-3xl font-extrabold text-text-main tracking-tight leading-none group-hover:text-accent-blue transition-colors duration-200">
@@ -61,5 +61,3 @@ export default function StatsSectionV2() {
     </div>
   );
 }
-
-

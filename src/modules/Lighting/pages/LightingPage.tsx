@@ -141,11 +141,11 @@ export default function LightingPage() {
         
         {/* REUSABLE HERO SECTION */}
         <SolutionHero 
-          badgeText="Smart LED Lighting Solutions"
+          badgeText="#1 Choice for Home Automation"
           badgeIcon={Lightbulb}
-          headingNormal="Change Your Lighting with Our"
-          headingHighlighted="Smart LED Lights"
-          subtitle="And Control with Phone, Alexa and Google Home. Experience total control over brightness, schedules, and custom ambient scenarios."
+          headingNormal="Smart Lighting"
+          headingHighlighted="Automation"
+          subtitle="Lighting automation isn't just about switching lights ON or OFF - it's about creating the right atmosphere, saving energy, and making everyday living effortless. With professionally designed smart lighting automation in Bangalore, MAKc Automation helps you control every light in your space with ease."
           imageSrc={serviceLightingImg}
           imageTag="Atmosphere Customizer"
           imageTitle="Tunable LED Luminaires"

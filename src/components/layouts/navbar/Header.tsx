@@ -38,14 +38,17 @@ export default function Header() {
   const mainLinks = [
     { label: "Home", path: "/" },
     { label: "Automation", path: "/automation" },
-    { label: "Security", path: "/security" },
+    
     { label: "Lighting", path: "/lighting" },
     { label: "Networking", path: "/networking" },
-    { label: "Contact Us", path: "/contact" },
+    { label: "Security", path: "/security" },
+    // { label: "Contact Us", path: "/contact" },
+    { label: "Audio", path: "/audio" },
   ];
 
   const gridDropdownLinks = [
     { label: "About", path: "/about" },
+    { label: "Why Us", path: "/why-us" },
     { label: "Service", path: "/service" },
     { label: "Blog", path: "/blog" },
     { label: "Experience", path: "/experience" },

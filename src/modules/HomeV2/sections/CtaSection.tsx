@@ -9,7 +9,7 @@ export default function CtaSection() {
           description="Book a free consultation and take the first step toward a smarter tomorrow."
           cta={{
             label: "Book Your Free Consultation",
-            href: "#contact",
+            href: "/contact",
           }}
         />
       </div>
