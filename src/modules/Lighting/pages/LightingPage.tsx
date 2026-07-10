@@ -36,7 +36,16 @@ import projectFarmhousesImg from "@/assets/images/home_v2/project_farmhouses.png
 import projectPenthousesImg from "@/assets/images/home_v2/project_penthouses.png";
 import projectCommercialImg from "@/assets/images/home_v2/project_commercial.png";
 
+import useSEO from "@/hooks/useSEO";
+
 export default function LightingPage() {
+  useSEO({
+    title: "Smart LED Lighting for Home in Bangalore | MAKc Automation",
+    description: "Smart LED lights, dimmers, energy-saving lighting, and automation for modern homes. MAKc Automation provides expert smart lighting solutions in Bangalore.",
+    keywords: "led lights for home, home smart light",
+    canonicalUrl: "https://makcautomations.com/index.php/lighting/",
+    robots: "INDEX, FOLLOW, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1, MAX-IMAGE-PREVIEW:LARGE",
+  });
 
   const solutions = [
     {

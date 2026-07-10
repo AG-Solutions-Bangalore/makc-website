@@ -132,7 +132,7 @@ export default function ServicesSectionV2() {
                   <div className="absolute inset-0 z-0 group-hover:scale-105 transition-all duration-500">
                     <img
                       src={service.bgImage}
-                      alt={service.title}
+                      alt={service.id === "security" ? "Smart Home Security System" : service.id === "networking" ? "Home Networking Solutions" : service.title}
                       className="w-full h-full object-cover object-center filter transition-all duration-500"
                     />
                     {/* Shadow overlay */}

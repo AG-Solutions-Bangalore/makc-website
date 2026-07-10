@@ -7,16 +7,16 @@ gsap.registerPlugin(ScrollTrigger);
 
 const textBlocks = [
   {
-    heading: "OUR MISSION",
-    body: "To deliver world-class automation solutions that empower industries to achieve unprecedented efficiency, safety, and reliability. We bridge the gap between cutting-edge technology and practical industrial applications.",
+    heading: "INTELLIGENT LIVING",
+    body: "At MAKc Automation, we transform ordinary homes into intelligent living spaces with innovative smart home technology. As a trusted home automation company in Bangalore, we specialize in delivering customized automation solutions that enhance comfort, security, convenience, and energy efficiency.",
   },
   {
-    heading: "OUR VISION",
-    body: "To be the Middle East's most trusted partner in industrial automation and digital transformation. We envision a future where every industrial process is optimized through intelligent automation, creating safer workplaces and sustainable operations.",
+    heading: "TAILORED SOLUTIONS",
+    body: "With over five years of industry expertise, our experienced team designs and installs seamless smart home systems tailored to your lifestyle. From intelligent lighting and climate control to smart security, CCTV, smart locks, and voice-controlled automation, we provide end-to-end solutions that make everyday living smarter and more connected.",
   },
   {
-    heading: "WHAT WE DO",
-    body: "From PLC programming and SCADA system development to complete industrial control system design, electrical safety solutions, and IoT integration — we provide end-to-end automation services that transform how industries operate.",
+    heading: "OUR COMMITMENT",
+    body: "Whether you're building a new smart home or upgrading your existing automation system, MAKc Automation is committed to delivering reliable technology, premium products, and exceptional customer support—helping you experience the future of modern living with confidence.",
   },
 ];
 
@@ -84,9 +84,9 @@ export default function AboutSection() {
               <SectionLabel text="ABOUT US" />
             </div>
             <h2 className="about-header heading-display leading-[1.2] text-h2 text-white mt-4">
-              PRECISION IN EVERY
+              ABOUT
               <br />
-              <span className="text-highlight">CONNECTION</span>
+              <span className="text-highlight">MAKc Automation</span>
             </h2>
           </div>
         </div>

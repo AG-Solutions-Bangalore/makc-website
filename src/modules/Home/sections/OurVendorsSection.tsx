@@ -34,6 +34,14 @@ const vendorLogos = [
 export default function OurVendorsSection() {
   const sectionRef = useRef<HTMLElement>(null);
 
+  const getVendorAlt = (src: string) => {
+    if (src.includes("vendor-01")) return "Smart Home Automation Technology Partner";
+    if (src.includes("vendor-03")) return "Home Automation Equipment Partner";
+    if (src.includes("client-04")) return "Residential Home Automation Project";
+    if (src.includes("download")) return "Smart Home Automation Device";
+    return "MAKc Automation Partner";
+  };
+
   useEffect(() => {
     if (!sectionRef.current) return;
 
@@ -106,7 +114,7 @@ export default function OurVendorsSection() {
                   <div className="relative">
                     <img
                       src={src}
-                      alt={`Vendor ${index + 1}`}
+                      alt={getVendorAlt(src)}
                       className="h-10 md:h-12 w-auto max-w-[140px] object-contain grayscale brightness-[1.8] contrast-[0.7] opacity-60 group-hover:opacity-100 group-hover:grayscale-0 group-hover:brightness-100 group-hover:contrast-100 transition-all duration-500 ease-out"
                       loading="lazy"
                     />
@@ -136,7 +144,7 @@ export default function OurVendorsSection() {
                   <div className="relative">
                     <img
                       src={src}
-                      alt={`Vendor ${index + 1}`}
+                      alt={getVendorAlt(src)}
                       className="h-10 md:h-12 w-auto max-w-[140px] object-contain grayscale brightness-[1.8] contrast-[0.7] opacity-60 group-hover:opacity-100 group-hover:grayscale-0 group-hover:brightness-100 group-hover:contrast-100 transition-all duration-500 ease-out"
                       loading="lazy"
                     />

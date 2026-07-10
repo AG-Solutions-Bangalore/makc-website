@@ -10,8 +10,13 @@ import Marquee from "react-fast-marquee";
 // Import shared common components
 import ConnectBanner from "@/components/common/ConnectBanner";
 
+import useSEO from "@/hooks/useSEO";
+
 export default function AboutPage() {
-  
+  useSEO({
+    title: "About Us | MAKc Automation",
+    description: "At MAKc Automation, we transform ordinary homes into intelligent living spaces with innovative smart home technology.",
+  });
   const stats = [
     { value: "4", label: "Experience Centers" },
     { value: "500+", label: "Projects" },
@@ -58,7 +63,7 @@ export default function AboutPage() {
       <section className="relative h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden">
         <img 
           src="/images/about/about-us.jpg" 
-          alt="MAKc Luxury Villa Architecture" 
+          alt="MAKc Automation Team" 
           className="absolute inset-0 w-full h-full object-cover scale-102 filter brightness-[45%] contrast-110"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-bg-main/30 to-bg-main" />
@@ -229,7 +234,7 @@ export default function AboutPage() {
                   <div key={idx} className="h-20 w-36 bg-white border border-border-main rounded-2xl p-4 flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.04)] dark:shadow-[0_2px_8px_rgba(0,0,0,0.2)] shrink-0 transition-all duration-300 group-hover:blur-[2px] group-hover:opacity-60 hover:!blur-none hover:!opacity-100 cursor-pointer">
                     <img 
                       src={logo} 
-                      alt={`Client partner logo ${idx + 1}`} 
+                      alt={logo.includes("client-04") ? "Residential Home Automation Project" : `Client partner logo ${idx + 1}`} 
                       className="max-h-[85%] max-w-[85%] object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                     />
                   </div>

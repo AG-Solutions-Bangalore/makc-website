@@ -6,9 +6,9 @@ export default function CtaSection() {
       <div className="relative mx-auto max-w-8xl px-4 sm:px-12">
         <ContactStrip
           title="Your Smart Living Journey Starts Now"
-          description="Book a free consultation and take the first step toward a smarter tomorrow."
+          description="Smart Home Automation Solutions Starting from INR 1,20,000"
           cta={{
-            label: "Book Your Free Consultation",
+            label: "Book a Free Smart Home Consultation",
             href: "/contact",
           }}
         />

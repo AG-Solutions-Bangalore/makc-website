@@ -44,7 +44,17 @@ import projectFarmhousesImg from "@/assets/images/home_v2/project_farmhouses.png
 import projectPenthousesImg from "@/assets/images/home_v2/project_penthouses.png";
 import projectCommercialImg from "@/assets/images/home_v2/project_commercial.png";
 
+import useSEO from "@/hooks/useSEO";
+
 export default function SecurityPage() {
+  useSEO({
+    title: "Home Security System Bangalore | MAKc Automation",
+    description: "Secure your home with advanced security systems from MAKc Automation, including smart door locks, CCTV cameras, gas leakage detection systems, and more.",
+    keywords: "home security system bangalore, home security camera system, digital door locks",
+    canonicalUrl: "https://makcautomations.com/index.php/security/",
+    robots: "INDEX, FOLLOW, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1, MAX-IMAGE-PREVIEW:LARGE",
+  });
+
   const [activeCam, setActiveCam] = useState(0);
   const [isRecording] = useState(true);
   const [timeString, setTimeString] = useState("");

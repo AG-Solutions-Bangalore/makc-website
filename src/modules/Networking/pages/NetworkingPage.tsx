@@ -22,7 +22,16 @@ import projectFarmhousesImg from "@/assets/images/home_v2/project_farmhouses.png
 import projectPenthousesImg from "@/assets/images/home_v2/project_penthouses.png";
 import projectCommercialImg from "@/assets/images/home_v2/project_commercial.png";
 
+import useSEO from "@/hooks/useSEO";
+
 export default function NetworkingPage() {
+  useSEO({
+    title: "Home WiFi Extender | MAKc Automation",
+    description: "Looking for the best home WiFi extender? MAKc Automation offers budget-friendly WiFi extenders and mesh wireless networking solutions for seamless connectivity.",
+    keywords: "home wifi extender, best wifi extender, mesh wireless network",
+    canonicalUrl: "https://makcautomations.com/index.php/networking/",
+    robots: "INDEX, FOLLOW, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1, MAX-IMAGE-PREVIEW:LARGE",
+  });
   
   const mainFeatures = [
     {

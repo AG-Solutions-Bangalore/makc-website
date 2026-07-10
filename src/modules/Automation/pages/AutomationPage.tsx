@@ -46,7 +46,17 @@ import projectFarmhousesImg from "@/assets/images/home_v2/project_farmhouses.png
 import projectPenthousesImg from "@/assets/images/home_v2/project_penthouses.png";
 import projectCommercialImg from "@/assets/images/home_v2/project_commercial.png";
 
+import useSEO from "@/hooks/useSEO";
+
 export default function AutomationPage() {
+  useSEO({
+    title: "Smart Home Automation in Bangalore | MAKc Automation",
+    description: "Smart panels, voice control, dimmers, scheduling, and automation devices for modern homes. MAKc delivers complete smart home automation solutions in Bangalore.",
+    keywords: "smart home devices, home automation system, smart home gadgets",
+    canonicalUrl: "https://makcautomations.com/index.php/automation/",
+    robots: "INDEX, FOLLOW, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1, MAX-IMAGE-PREVIEW:LARGE",
+  });
+
   const [activeFeature, setActiveFeature] = useState("scheduling");
   
   // Mock video player states

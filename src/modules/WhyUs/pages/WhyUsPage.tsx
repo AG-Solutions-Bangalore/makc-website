@@ -1,26 +1,14 @@
-import { useEffect } from "react";
+import useSEO from "@/hooks/useSEO";
 import WhyChooseUsSection from "../sections/WhyChooseUsSection";
 import LifestyleSection from "../sections/LifestyleSection";
 import ProcessSection from "../sections/ProcessSection";
 import ConnectBanner from "@/components/common/ConnectBanner";
 
 export default function WhyUsPage() {
-  useEffect(() => {
-    // Set page title for SEO
-    document.title = "Why Choose Us | MAKc Automation";
-
-    // Set meta description for SEO
-    let metaDesc = document.querySelector('meta[name="description"]');
-    if (!metaDesc) {
-      metaDesc = document.createElement("meta");
-      metaDesc.setAttribute("name", "description");
-      document.head.appendChild(metaDesc);
-    }
-    metaDesc.setAttribute(
-      "content",
-      "Discover why homeowners choose MAKc Automation: custom smart home integration, premium materials, and a refined five-phase installation process."
-    );
-  }, []);
+  useSEO({
+    title: "Why Choose Us | MAKc Automation",
+    description: "Discover why homeowners choose MAKc Automation: custom smart home integration, premium materials, and a refined five-phase installation process.",
+  });
 
   return (
     <div className="relative bg-bg-main min-h-screen text-text-main overflow-hidden">
@@ -34,7 +22,7 @@ export default function WhyUsPage() {
         <div className="absolute inset-0 bg-black/60 z-0">
           <img
             src="/images/about/about-us.jpg"
-            alt="MAKc Smart Home Why Choose Us"
+            alt="MAKc Automation Team"
             className="w-full h-full object-cover scale-105 filter brightness-[45%] contrast-110"
           />
         </div>

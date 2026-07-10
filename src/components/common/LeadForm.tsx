@@ -22,7 +22,7 @@ interface LeadFormProps {
 export default function LeadForm({
   title = "Request Consultation",
   subtitle = "Connect with our design engineers to plan your space.",
-  buttonText = "Schedule Consultation",
+  buttonText = "Book a Free Smart Home Consultation",
   toastMessage = "Consultation requested successfully!",
 }: LeadFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);

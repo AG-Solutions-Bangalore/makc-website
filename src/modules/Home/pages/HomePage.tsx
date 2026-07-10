@@ -1,3 +1,4 @@
+import useSEO from "@/hooks/useSEO";
 import HeroSection from '@/modules/Home/sections/HeroSection';
 import ServicesSection from '@/modules/Home/sections/ServicesSection';
 import IndustriesSection from '@/modules/Home/sections/IndustriesSection';
@@ -31,6 +32,14 @@ const homeFAQs = [
 ];
 
 export default function HomePage() {
+  useSEO({
+    title: "Home Automation Company in Bangalore | MAKc Automation",
+    description: "MAKc Automation is a leading home automation company in Bangalore. Get complete smart home automation solutions for enhanced security, safety, comfort, and convenience.",
+    keywords: "home automation company in bangalore, home automation bangalore, smart home automation",
+    canonicalUrl: "https://makcautomations.com/",
+    robots: "INDEX, FOLLOW, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1, MAX-IMAGE-PREVIEW:LARGE",
+  });
+
   return (
     <>
       <HeroSection />

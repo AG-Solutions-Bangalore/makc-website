@@ -51,7 +51,7 @@ export default function HeroSectionV2() {
       <div className="absolute inset-0 z-0">
         <img
           src={heroBg}
-          alt="Luxury Villa Background"
+          alt="Smart Home Automation Installation in Bangalore"
           className="w-full h-full object-cover object-center scale-105 transition-all duration-500 opacity-95 dark:opacity-85"
         />
         {/* Dynamic theme-aware gradients for premium readability */}
@@ -69,9 +69,9 @@ export default function HeroSectionV2() {
           </span>
 
           <h1 className="mt-4 sm:mt-6  text-4xl sm:text-5xl lg:text-6xl font-extrabold text-text-main tracking-tight leading-[1.15]">
-            Intelligent Homes. <br />
+            Experience Intelligent Living <br />
             <span className=" italic font-normal text-gold-primary">
-              Effortlessly Luxurious.
+              with Smart Home Automation
             </span>
           </h1>
 
@@ -85,9 +85,9 @@ export default function HeroSectionV2() {
             {/* CTA 1: Solid Gold */}
             <a
               href="#contact"
-              className="px-6 py-3.5 sm:px-8 sm:py-4 bg-gold-primary text-white font-bold text-[10px] sm:text-xs tracking-[0.15em] uppercase hover:bg-gold-hover transition-colors duration-300 rounded-none shadow-[0_4px_20px_rgba(10,132,255,0.35)] flex items-center gap-2 group"
+              className="w-full sm:w-auto px-4 py-3.5 sm:px-8 sm:py-4 bg-gold-primary text-white font-bold text-[10px] sm:text-xs tracking-wide sm:tracking-[0.15em] uppercase hover:bg-gold-hover transition-colors duration-300 rounded-none shadow-[0_4px_20px_rgba(10,132,255,0.35)] flex items-center justify-center gap-2 group text-center"
             >
-              SCHEDULE PRIVATE CONSULTATION
+              <span className="leading-snug">Book a Free Smart Home Consultation</span>
             </a>
 
             {/* CTA 2: Outline */}

@@ -100,7 +100,7 @@ export default function HeroSection() {
                 <div className="w-full h-full relative select-none">
                   <img
                     src={item.image}
-                    alt={`Banner ${index + 1}`}
+                    alt="Smart Home Automation Installation in Bangalore"
                     className="w-full h-full object-cover select-none pointer-events-none"
                   />
                   {/* Subtle dark tint to unify colors */}
@@ -110,6 +110,26 @@ export default function HeroSection() {
             ))}
           </CarouselContent>
         </Carousel>
+      </div>
+
+      {/* Hero Content Overlay */}
+      <div className="absolute inset-0 z-20 flex items-center max-w-[1600px] mx-auto px-6 sm:px-14 pointer-events-none select-none">
+        <div className="max-w-3xl flex flex-col justify-center text-left">
+          <span className="text-[10px] sm:text-xs font-bold tracking-[0.25em] text-ma-yellow uppercase mb-4 sm:mb-6">
+            DESIGNED FOR MODERN LUXURY LIVING
+          </span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15]">
+            Experience Intelligent Living <br />
+            <span className="italic font-normal text-ma-yellow">
+              with Smart Home Automation
+            </span>
+          </h1>
+          <p className="mt-6 text-sm sm:text-base text-white/70 font-body leading-relaxed max-w-lg">
+            Experience a new standard of living with intelligent automation,
+            luxury lighting, world-class security, and seamless connectivity—all
+            designed exclusively for premium residences.
+          </p>
+        </div>
       </div>
 
       {/* Floating Glassmorphic Controls Panel */}

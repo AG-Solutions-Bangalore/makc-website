@@ -38,12 +38,11 @@ export default function Header() {
   const mainLinks = [
     { label: "Home", path: "/" },
     { label: "Automation", path: "/automation" },
-    
+    { label: "Security", path: "/security" },
     { label: "Lighting", path: "/lighting" },
     { label: "Networking", path: "/networking" },
-    { label: "Security", path: "/security" },
-    // { label: "Contact Us", path: "/contact" },
-    { label: "Audio", path: "/audio" },
+    { label: "Interior", path: "https://www.saavidesignstudio.com/" },
+    { label: "Contact Us", path: "/contact" },
   ];
 
   const gridDropdownLinks = [
@@ -117,6 +116,21 @@ export default function Header() {
           <nav className="hidden lg:flex items-center gap-1">
             {mainLinks.map((link) => {
               const isActive = location.pathname === link.path;
+              const isExternal = link.path.startsWith("http");
+
+              if (isExternal) {
+                return (
+                  <a
+                    key={link.label}
+                    href={link.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3.5 py-1.5 text-sm font-semibold rounded-full transition-all duration-200 text-text-muted hover:text-text-main"
+                  >
+                    {link.label}
+                  </a>
+                );
+              }
 
               return (
                 <Link
@@ -261,6 +275,25 @@ export default function Header() {
               {/* Primary Solutions Links */}
               {mainLinks.map((link, idx) => {
                 const isActive = location.pathname === link.path;
+                const isExternal = link.path.startsWith("http");
+
+                if (isExternal) {
+                  return (
+                    <a
+                      key={link.label}
+                      href={link.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-semibold text-text-muted hover:bg-bg-surface hover:text-text-main transition-all"
+                    >
+                      <span className="text-gold-primary text-xs font-mono">
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
+                      {link.label}
+                    </a>
+                  );
+                }
+
                 return (
                   <Link
                     key={link.label}

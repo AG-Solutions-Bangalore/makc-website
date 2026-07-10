@@ -119,11 +119,10 @@ export default function ServicesSection() {
             <SectionLabel text="OUR SERVICES" />
           </div>
           <h2 className="services-header heading-display text-h2 text-white mt-4">
-            OUR SERVICES
+            Smart Home Automation Services
           </h2>
           <p className="services-header text-body text-white/65 font-body max-w-2xl mx-auto mt-6 leading-relaxed">
-            Discover the wide range of services MAKc Automation offers, your
-            one-stop destination for home automation in Bangalore.
+            Discover complete smart home automation solutions designed to simplify your everyday life while improving comfort, security, and energy efficiency.
           </p>
         </div>
 

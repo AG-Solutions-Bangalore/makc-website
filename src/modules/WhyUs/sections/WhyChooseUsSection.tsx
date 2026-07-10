@@ -5,28 +5,28 @@ export default function WhyChooseUsSection() {
   const features = [
     {
       icon: Compass,
-      title: "Custom Solution",
-      description: "Tailored to your lifestyle.",
+      title: "Customized Smart Home Solutions",
+      description: "Tailored smart systems designed to fit your unique lifestyle, preferences, and home layout perfectly.",
     },
     {
       icon: Cpu,
-      title: "Premium Materials",
-      description: "Only globally trusted brands.",
+      title: "Premium Automation Brands",
+      description: "We partner with globally trusted, premium smart home brands to deliver reliable and luxurious systems.",
     },
     {
       icon: Link,
-      title: "Seamless Integration",
-      description: "Everything works together beautifully.",
+      title: "Certified Automation Experts",
+      description: "Our experienced, certified integration engineers design and configure every automation touchpoint.",
     },
     {
       icon: Ruler,
-      title: "Clean Installations",
-      description: "Stress-free. Invisible wiring.",
+      title: "Professional Installation",
+      description: "Stress-free, clean installation with zero-friction configuration and clean wiring execution.",
     },
     {
       icon: ShieldCheck,
-      title: "Personalized Support",
-      description: "Long after installation.",
+      title: "Dedicated After-Sales Support",
+      description: "Round-the-clock support, maintenance, and system health checks for long-term peace of mind.",
     },
   ];
 
@@ -64,8 +64,8 @@ export default function WhyChooseUsSection() {
                 WHY HOMEOWNERS CHOOSE MAKC
               </span>
               <h2 className="mt-4 font-serif text-3xl sm:text-4xl font-extrabold text-text-main tracking-tight leading-tight max-w-lg">
-                Designed Around You, <br />
-                Not Around Technology.
+                Why Choose <br />
+                MAKc Automation?
               </h2>
             </div>
 
