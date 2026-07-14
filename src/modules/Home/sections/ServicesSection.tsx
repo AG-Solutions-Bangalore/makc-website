@@ -2,6 +2,8 @@ import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionLabel from "@/components/common/SectionLabel";
+import { getImageUrl } from "@/utils/image";
+
 import {
   Thermometer,
   Headphones,
@@ -21,7 +23,7 @@ const services = [
     gridClass: "lg:col-span-3",
     color: "bg-[#CFFCE9]",
     textColor: "text-[#1a1a1a]",
-    image: "/images/Home/3d-icon-weather-conditions.png",
+    image: getImageUrl("3d-icon-weather-conditions.webp"),
   },
   {
     icon: Headphones,
@@ -31,7 +33,7 @@ const services = [
     gridClass: "lg:col-span-3",
     color: "bg-[#F4FCCF]",
     textColor: "text-[#1a1a1a]",
-    image: "/images/Home/Entertainment.png",
+    image: getImageUrl("Entertainment.webp"),
   },
   {
     icon: Shield,

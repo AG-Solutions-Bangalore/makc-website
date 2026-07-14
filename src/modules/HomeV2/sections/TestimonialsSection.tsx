@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Star, Home, Star as StarIcon, ShieldCheck, Headphones, ChevronLeft, ChevronRight } from "lucide-react";
-import imgVillaNight from "../../../assets/images/home_v2/contact_villa_night.png";
-import imgAvatar1 from "../../../assets/images/home_v2/why_choose_us.png";
-import imgAvatar2 from "../../../assets/images/home_v2/project_apartments.png";
-import imgAvatar3 from "../../../assets/images/home_v2/project_villas.png";
+import { getImageUrl } from "@/utils/image";
+
+const imgVillaNight = getImageUrl("contact_villa_night.webp");
+const imgAvatar1 = getImageUrl("why_choose_us.webp");
+const imgAvatar2 = getImageUrl("project_apartments.webp");
+const imgAvatar3 = getImageUrl("project_villas.webp");
 
 export default function TestimonialsSection() {
   const [current, setCurrent] = useState(0);

@@ -1,6 +1,8 @@
 import { Star } from "lucide-react";
-import imgTestimonial1 from "../../../assets/images/home_v2/why_choose_us.png";
-import imgTestimonial2 from "../../../assets/images/home_v2/project_apartments.png";
+import { getImageUrl } from "@/utils/image";
+
+const imgTestimonial1 = getImageUrl("why_choose_us.webp");
+const imgTestimonial2 = getImageUrl("project_apartments.webp");
 
 export default function ClientTestimonialsSection() {
   const testimonials = [

@@ -1,9 +1,12 @@
 import { ArrowRight } from "lucide-react";
-import imgVillas from "../../../assets/images/home_v2/project_villas.png";
-import imgApartments from "../../../assets/images/home_v2/project_apartments.png";
-import imgFarmhouses from "../../../assets/images/home_v2/project_farmhouses.png";
-import imgPenthouses from "../../../assets/images/home_v2/project_penthouses.png";
-import imgCommercial from "../../../assets/images/home_v2/project_commercial.png";
+const imgVillas = getImageUrl("project_villas.webp");
+const imgApartments = getImageUrl("project_apartments.webp");
+const imgFarmhouses = getImageUrl("project_farmhouses.webp");
+const imgPenthouses = getImageUrl("project_penthouses.webp");
+const imgCommercial = getImageUrl("project_commercial.webp");
+import { Link } from "react-router";
+import { getImageUrl } from "@/utils/image";
+
 
 export default function ProjectsSection() {
   const projects = [
@@ -76,10 +79,10 @@ export default function ProjectsSection() {
 
         {/* Explore Button */}
         <div className="flex justify-center mt-12">
-          <button className="home-wave-cta cursor-pointer apple-border-shine flex rounded-full items-center gap-2 border border-border-main text-text-main px-8 py-3.5 uppercase text-[10px] sm:text-[11px] font-bold tracking-widest bg-transparent" style={{ '--cta-accent': '#0A84FF' } as React.CSSProperties}>
+          <Link to="/projects" className="home-wave-cta cursor-pointer apple-border-shine flex rounded-full items-center gap-2 border border-border-main text-text-main px-8 py-3.5 uppercase text-[10px] sm:text-[11px] font-bold tracking-widest bg-transparent" style={{ '--cta-accent': '#0A84FF' } as React.CSSProperties}>
             <span className="relative z-10">Explore All Projects</span>
             <ArrowRight className="h-5 w-5 relative z-10" />
-          </button>
+          </Link>
         </div>
 
       </div>

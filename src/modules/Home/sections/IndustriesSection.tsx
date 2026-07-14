@@ -3,6 +3,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionLabel from "@/components/common/SectionLabel";
 import { Link } from "react-router-dom";
+import { getImageUrl } from "@/utils/image";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,35 +12,35 @@ const services = [
   {
     id: "automation",
     name: "AUTOMATION",
-    image: "/assets/industrial-automation-overview.jpg",
+    image: getImageUrl("industrial-automation-overview.webp"),
     link: "#automation",
     gridClass: "col-span-1 md:col-span-2 lg:col-span-2 lg:row-span-2 aspect-square md:aspect-auto md:min-h-[350px] lg:min-h-0 lg:h-full w-full",
   },
   {
     id: "security",
     name: "SECURITY",
-    image: "/assets/industrial-cybersecurity.jpg",
+    image: getImageUrl("industrial-cybersecurity.webp"),
     link: "#security",
     gridClass: "col-span-1 aspect-square lg:aspect-auto lg:h-full w-full",
   },
   {
     id: "lighting",
     name: "LIGHTING",
-    image: "/assets/electrical-design.jpg",
+    image: getImageUrl("electrical-design.webp"),
     link: "#lighting",
     gridClass: "col-span-1 aspect-square lg:aspect-auto lg:h-full w-full",
   },
   {
     id: "networking",
     name: "NETWORKING",
-    image: "/assets/system-integration.jpg",
+    image: getImageUrl("system-integration.webp"),
     link: "#networking",
     gridClass: "col-span-1 aspect-square lg:aspect-auto lg:h-full w-full",
   },
   {
     id: "interior",
     name: "INTERIOR",
-    image: "/assets/smart-interior.png",
+    image: getImageUrl("smart-interior.webp"),
     link: "#interior",
     gridClass: "col-span-1 lg:col-span-2 aspect-square lg:aspect-auto lg:h-full w-full",
   },

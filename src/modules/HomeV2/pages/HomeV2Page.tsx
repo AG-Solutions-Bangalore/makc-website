@@ -9,6 +9,7 @@ import TestimonialsSection from "../sections/TestimonialsSection";
 import SmarterWaySection from "../sections/SmarterWaySection";
 import GetInTouchSection from "../sections/GetInTouchSection";
 import CtaSection from "../sections/CtaSection";
+import SolutionsGallery from "@/components/common/SolutionsGallery";
 
 export default function HomeV2Page() {
   useSEO({
@@ -35,6 +36,9 @@ export default function HomeV2Page() {
 
       {/* V2 Partner Logos Section */}
       <PartnerLogosSection />
+
+      {/* Solutions Gallery Showcase */}
+      <SolutionsGallery />
 
       {/* V2 Smarter Way Section */}
       <SmarterWaySection />

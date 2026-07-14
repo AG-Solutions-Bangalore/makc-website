@@ -1,5 +1,7 @@
 import { Compass, Cpu, Link, Ruler, ShieldCheck } from "lucide-react";
-import imgWhyChooseUs from "../../../assets/images/home_v2/why_choose_us.png";
+import { getImageUrl } from "@/utils/image";
+
+const imgWhyChooseUs = getImageUrl("why_choose_us.webp");
 
 export default function WhyChooseUsSection() {
   const features = [

@@ -1,3 +1,4 @@
+import { getImageUrl } from "@/utils/image";
 export interface FAQItem {
   question: string;
   answer: string;
@@ -33,7 +34,7 @@ export const servicesData: ServiceData[] = [
         id: 'overview',
         heading: 'OVERVIEW',
         body: 'Industrial automation is the backbone of modern manufacturing. At Makc Automations, we deliver comprehensive automation solutions that streamline production workflows, reduce human error, and maximize equipment utilization. Our team of certified engineers has extensive experience across multiple industries including oil & gas, manufacturing, water treatment, and energy.',
-        image: '/assets/industrial-automation-overview.jpg',
+        image: getImageUrl("industrial-automation-overview.webp"),
       },
       {
         id: 'process-optimization',
@@ -52,7 +53,7 @@ export const servicesData: ServiceData[] = [
         id: 'system-integration',
         heading: 'SYSTEM INTEGRATION',
         body: 'We specialize in integrating disparate systems into unified automation architectures. From legacy equipment retrofits to greenfield installations, our integration expertise ensures seamless communication between all components of your automation ecosystem.',
-        image: '/assets/system-integration.jpg',
+        image: getImageUrl("system-integration.webp"),
       },
       {
         id: 'benefits',
@@ -100,7 +101,7 @@ export const servicesData: ServiceData[] = [
         id: 'scada-development',
         heading: 'SCADA DEVELOPMENT',
         body: 'We design and implement SCADA systems that provide complete visibility and control over your industrial processes. Our SCADA solutions integrate real-time data acquisition, alarm management, historical trending, and reporting into a unified platform accessible from control rooms and mobile devices.',
-        image: '/assets/scada-development.jpg',
+        image: getImageUrl("scada-development.webp"),
       },
       {
         id: 'hmi-design',
@@ -140,7 +141,7 @@ export const servicesData: ServiceData[] = [
         id: 'system-design',
         heading: 'CONTROL SYSTEM DESIGN',
         body: 'We engineer control systems that form the intelligence layer of industrial automation. From single-loop controllers to distributed control systems managing thousands of I/O points, our designs prioritize reliability, maintainability, and scalability. Every design undergoes rigorous peer review and follows industry best practices.',
-        image: '/assets/control-system-design.jpg',
+        image: getImageUrl("control-system-design.webp"),
       },
       {
         id: 'dcs-solutions',
@@ -193,7 +194,7 @@ export const servicesData: ServiceData[] = [
         id: 'electrical-design',
         heading: 'ELECTRICAL SYSTEM DESIGN',
         body: 'Our electrical engineering team designs power distribution systems, motor control centers, and instrumentation networks that form the physical infrastructure of automation systems. We ensure all designs comply with local electrical codes (DEWA, ADDC) and international standards (IEC, NEC).',
-        image: '/assets/electrical-design.jpg',
+        image: getImageUrl("electrical-design.webp"),
       },
       {
         id: 'safety-compliance',
@@ -217,7 +218,7 @@ export const servicesData: ServiceData[] = [
         id: 'installation',
         heading: 'INSTALLATION & COMMISSIONING',
         body: 'Our field services team executes electrical installations with precision and safety. We manage cable routing, termination, testing, and commissioning to deliver systems that perform reliably in harsh industrial environments.',
-        image: '/assets/electrical-installation.jpg',
+        image: getImageUrl("electrical-installation.webp"),
       },
     ],
     faqs: [
@@ -252,7 +253,7 @@ export const servicesData: ServiceData[] = [
         id: 'cybersecurity',
         heading: 'INDUSTRIAL CYBERSECURITY',
         body: 'Protecting critical infrastructure from cyber threats is essential. We implement defense-in-depth cybersecurity strategies following IEC 62443 and NIST CSF frameworks. Our solutions include network segmentation, intrusion detection, access control, and security monitoring.',
-        image: '/assets/industrial-cybersecurity.jpg',
+        image: getImageUrl("industrial-cybersecurity.webp"),
       },
       {
         id: 'protocols',
@@ -292,7 +293,7 @@ export const servicesData: ServiceData[] = [
         id: 'smart-manufacturing',
         heading: 'SMART MANUFACTURING',
         body: 'Industry 4.0 is transforming manufacturing through interconnected systems, real-time analytics, and intelligent automation. Our smart manufacturing solutions integrate sensors, edge computing, and cloud platforms to create connected production environments that adapt and optimize autonomously.',
-        image: '/assets/smart-manufacturing.jpg',
+        image: getImageUrl("smart-manufacturing.webp"),
       },
       {
         id: 'predictive-maintenance',
@@ -316,7 +317,7 @@ export const servicesData: ServiceData[] = [
         id: 'cloud-integration',
         heading: 'CLOUD INTEGRATION',
         body: 'We integrate industrial systems with cloud platforms including AWS IoT, Microsoft Azure IoT, and Siemens MindSphere. Our cloud solutions enable remote monitoring, centralized data analytics, and scalable computing for complex industrial applications.',
-        image: '/assets/cloud-integration.jpg',
+        image: getImageUrl("cloud-integration.webp"),
       },
     ],
     faqs: [

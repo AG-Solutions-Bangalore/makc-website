@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import BrandLogo from "@/components/common/BrandLogo";
 import {
-  Instagram,
-  Linkedin,
-  Facebook,
-  Youtube,
+  // Instagram,
+  // Linkedin,
+
+  // Youtube,
   Phone,
   Mail,
   Sun,
@@ -240,7 +240,7 @@ export default function Footer() {
                 <span className="break-all">info@makcautomations.com</span>
               </a>
               <div className="flex items-center gap-2.5 mt-2">
-                <a
+                {/* <a
                   href="https://instagram.com"
                   target="_blank"
                   rel="noreferrer"
@@ -248,8 +248,8 @@ export default function Footer() {
                   aria-label="Instagram"
                 >
                   <Instagram className="h-4.5 w-4.5 stroke-[1.5]" />
-                </a>
-                <a
+                </a> */}
+                {/* <a
                   href="https://facebook.com"
                   target="_blank"
                   rel="noreferrer"
@@ -257,8 +257,8 @@ export default function Footer() {
                   aria-label="Facebook"
                 >
                   <Facebook className="h-4.5 w-4.5 stroke-[1.5]" />
-                </a>
-                <a
+                </a> */}
+                {/* <a
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noreferrer"
@@ -275,7 +275,7 @@ export default function Footer() {
                   aria-label="YouTube"
                 >
                   <Youtube className="h-4.5 w-4.5 stroke-[1.5]" />
-                </a>
+                </a> */}
               </div>
             </div>
           </div>

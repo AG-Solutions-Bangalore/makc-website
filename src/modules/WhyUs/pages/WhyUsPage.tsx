@@ -3,6 +3,8 @@ import WhyChooseUsSection from "../sections/WhyChooseUsSection";
 import LifestyleSection from "../sections/LifestyleSection";
 import ProcessSection from "../sections/ProcessSection";
 import ConnectBanner from "@/components/common/ConnectBanner";
+import { getImageUrl } from "@/utils/image";
+
 
 export default function WhyUsPage() {
   useSEO({
@@ -21,7 +23,7 @@ export default function WhyUsPage() {
         {/* Background Image */}
         <div className="absolute inset-0 bg-black/60 z-0">
           <img
-            src="/images/about/about-us.jpg"
+            src={getImageUrl("about-us.webp")}
             alt="MAKc Automation Team"
             className="w-full h-full object-cover scale-105 filter brightness-[45%] contrast-110"
           />

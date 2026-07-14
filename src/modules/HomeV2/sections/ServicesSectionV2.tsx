@@ -1,13 +1,15 @@
 import { Sun, ShieldCheck, Volume2, Wifi, Zap } from "lucide-react";
 import React from "react";
+import { getImageUrl } from "@/utils/image";
+
 
 // Import images
-import imgAutomation from "../../../assets/images/home_v2/service_automation.png";
-import imgLighting from "../../../assets/images/home_v2/service_lighting.png";
-import imgSecurity from "../../../assets/images/home_v2/service_security.png";
-import imgNetworking from "../../../assets/images/home_v2/service_networking.png";
-import imgAudio from "../../../assets/images/home_v2/service_theatre.png";
-import imgEnergy from "../../../assets/images/home_v2/service_energy.png";
+const imgAutomation = getImageUrl("service_automation.webp");
+const imgLighting = getImageUrl("service_lighting.webp");
+const imgSecurity = getImageUrl("service_security.webp");
+const imgNetworking = getImageUrl("service_networking.webp");
+const imgAudio = getImageUrl("service_theatre.webp");
+const imgEnergy = getImageUrl("service_energy.webp");
 
 // Custom icons matching luxury styles
 function SmartHomeIcon(props: React.SVGProps<SVGSVGElement>) {

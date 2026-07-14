@@ -1,6 +1,9 @@
 import { Headphones, Calendar, ShieldCheck, Handshake, Phone, Mail, Globe, MapPin, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import GlowingLine from "@/components/common/GlowingLine";
-import imgContactBg from "../../../assets/images/home_v2/contact_villa_night.png";
+import { getImageUrl } from "@/utils/image";
+
+const imgContactBg = getImageUrl("contact_villa_night.webp");
 
 export default function GetInTouchSection() {
   const features = [
@@ -182,13 +185,13 @@ export default function GetInTouchSection() {
               </div>
 
               {/* Consultation CTA button */}
-              <a
-                href="/contact"
-                className="w-full mt-8 py-3.5 px-4 apple-border-shine bg-accent-blue hover:bg-accent-blue/90 text-white font-bold text-[10px] sm:text-xs tracking-wide sm:tracking-widest uppercase rounded-full transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer shadow-[0_4px_15px_rgba(10,132,255,0.3)] text-center"
+              <Link
+                to="/contact"
+                className="w-full mt-8 py-3.5 px-4 apple-border-shine bg-accent-blue hover:bg-accent-blue/90 text-white font-bold text-[10px] sm:text-xs tracking-wide sm:tracking-widest uppercase rounded-full transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer shadow-[0_4px_15px_rgba(10,132,255,0.3)] text-center animate-none"
               >
                 <span className="leading-snug">Book a Free Smart Home Consultation</span>
                 <ArrowRight className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
+              </Link>
             </div>
           </div>
 

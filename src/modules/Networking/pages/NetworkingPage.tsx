@@ -10,19 +10,27 @@ import {
 } from "lucide-react";
 
 // Import shared common components
-import SolutionHero from "@/components/common/SolutionHero";
+// Import shared common components
 import TrendingCarousel from "@/components/common/TrendingCarousel";
 import ConnectBanner from "@/components/common/ConnectBanner";
 
+// Import module-specific components
+import NetworkingHero from "../components/NetworkingHero";
+import WhatIsNetworking from "../components/WhatIsNetworking";
+import WiredNetworkSection from "../components/WiredNetworkSection";
+import MeshWifiSolutionsSection from "../components/MeshWifiSolutionsSection";
+
 // Import images
-import serviceNetworkingImg from "@/assets/images/home_v2/service_networking.png";
-import whyChooseUsImg from "@/assets/images/home_v2/why_choose_us.png";
-import projectApartmentsImg from "@/assets/images/home_v2/project_apartments.png";
-import projectFarmhousesImg from "@/assets/images/home_v2/project_farmhouses.png";
-import projectPenthousesImg from "@/assets/images/home_v2/project_penthouses.png";
-import projectCommercialImg from "@/assets/images/home_v2/project_commercial.png";
+// const serviceNetworkingImg = getImageUrl("service_networking.webp");
+const whyChooseUsImg = getImageUrl("why_choose_us.webp");
+const projectApartmentsImg = getImageUrl("project_apartments.webp");
+const projectFarmhousesImg = getImageUrl("project_farmhouses.webp");
+const projectPenthousesImg = getImageUrl("project_penthouses.webp");
+const projectCommercialImg = getImageUrl("project_commercial.webp");
 
 import useSEO from "@/hooks/useSEO";
+import { getImageUrl } from "@/utils/image";
+
 
 export default function NetworkingPage() {
   useSEO({
@@ -106,25 +114,19 @@ export default function NetworkingPage() {
   ];
 
   return (
-    <div className="pt-24 lg:pt-32 pb-16 min-h-screen bg-bg-main text-text-main overflow-hidden transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* REUSABLE HERO SECTION */}
-        <SolutionHero 
-          badgeText="#1 Choice for Home Automation"
-          badgeIcon={Wifi}
-          headingNormal="Smart Networking"
-          headingHighlighted="Solutions"
-          subtitle="A smart home or office is only as good as its network. With professionally designed networking solutions in Bangalore, MAKc Automation ensures strong, secure, and uninterrupted connectivity across every corner of your space. Designed for homes, villas, apartments, offices, and commercial spaces."
-          imageSrc={serviceNetworkingImg}
-          imageTag="Mesh Wi-Fi Access Points"
-          imageTitle="High-Speed Mesh Network"
-          imageDesc="Experience zero dead zones and seamless gigabit speeds across all levels."
-          formTitle="Request Network Survey"
-          formSubtitle="Plan a seamless mesh Wi-Fi network layout with our network engineers."
-          formButtonText="Optimize Connection"
-          formToastMessage="Network consultation requested. Our connection specialist will call you shortly."
-        />
+    <div className="min-h-screen bg-bg-main text-text-main overflow-hidden transition-colors duration-300">
+      {/* CUSTOM HERO SECTION */}
+      <NetworkingHero />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24 pb-16">
+        {/* WHAT IS NETWORKING SECTION */}
+        <WhatIsNetworking />
+
+        {/* WIRED NETWORK PLANNING SECTION */}
+        <WiredNetworkSection />
+
+        {/* MESH WI-FI NETWORK SOLUTIONS SECTION */}
+        <MeshWifiSolutionsSection />
 
         {/* WIRELESS & WIRED FEATURES SECTION (3 CARDS) */}
         <section className="border-t border-border-main/50 pt-20 mb-24">

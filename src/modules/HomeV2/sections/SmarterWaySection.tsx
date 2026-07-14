@@ -16,7 +16,9 @@ import {
   Eye,
 } from "lucide-react";
 import GlowingLine from "@/components/common/GlowingLine";
-import imgSmarterWayBg from "../../../assets/images/home_v2/smarter_way_bg.png";
+import { getImageUrl } from "@/utils/image";
+
+const imgSmarterWayBg = getImageUrl("smarter_way_bg.webp");
 
 // Custom SVG Garage icon
 function GarageIcon(props: React.SVGProps<SVGSVGElement>) {
