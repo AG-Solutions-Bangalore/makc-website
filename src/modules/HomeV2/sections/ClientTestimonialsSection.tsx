@@ -1,6 +1,6 @@
 import { Star } from "lucide-react";
-import imgTestimonial1 from "../../../assets/images/home_v2/why_choose_us.png";
-import imgTestimonial2 from "../../../assets/images/home_v2/project_apartments.png";
+import imgTestimonial1 from "../../../assets/images/home_v2/why_choose_us.webp";
+import imgTestimonial2 from "../../../assets/images/home_v2/project_apartments.webp";
 
 export default function ClientTestimonialsSection() {
   const testimonials = [

@@ -28,6 +28,12 @@ export function useScrollReveal() {
       const images = document.querySelectorAll("section:not(.no-reveal) img:not(.no-reveal)");
       images.forEach((img) => {
         const htmlImg = img as HTMLElement;
+        // Skip images that have hover-zoom or group-hover zoom classes to prevent transition lock conflict
+        const hasHoverZoom = Array.from(htmlImg.classList).some(cls => 
+          cls.includes("hover:scale") || cls.includes("group-hover:scale")
+        );
+        if (hasHoverZoom) return;
+
         if (!htmlImg.classList.contains("reveal-on-scroll")) {
           htmlImg.classList.add("reveal-on-scroll", "reveal-fade");
           htmlImg.setAttribute("data-reveal-duration", "0.8s");

@@ -1,7 +1,7 @@
-import imgConsultation from "../../../assets/images/home_v2/process_consultation.png";
-import imgDesign from "../../../assets/images/home_v2/process_design.png";
-import imgInstallation from "../../../assets/images/home_v2/process_installation.png";
-import imgSupport from "../../../assets/images/home_v2/process_support.png";
+import imgConsultation from "../../../assets/images/home_v2/process_consultation.webp";
+import imgDesign from "../../../assets/images/home_v2/process_design.webp";
+import imgInstallation from "../../../assets/images/home_v2/process_installation.webp";
+import imgSupport from "../../../assets/images/home_v2/process_support.webp";
 
 export default function ProcessSection() {
   const steps = [

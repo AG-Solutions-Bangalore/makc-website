@@ -9,7 +9,7 @@ export default function BrandLogo({ className = "h-10 w-auto" }: { className?: s
       />
       {/* Dark Mode Logo: Official White PNG */}
       <img
-        src="/icons/MAKc-Logo-white.png"
+        src="/icons/MAKc-Logo-white.webp"
         alt="MAKc Automation Logo"
         className={`${className} hidden dark:block object-contain`}
       />

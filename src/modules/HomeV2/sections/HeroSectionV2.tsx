@@ -6,7 +6,7 @@ import {
   Blinds,
 } from "lucide-react";
 import WaveButton from "@/components/common/WaveButton";
-import heroBg from "../../../assets/images/home_v2/hero_bg.png";
+import heroBg from "../../../assets/images/home_v2/hero_bg.webp";
 
 export default function HeroSectionV2() {
   const statusItems = [

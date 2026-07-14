@@ -24,35 +24,35 @@ export default function AboutPage() {
   ];
 
   const clientLogos = [
-    "/images/about/client-04-q973yadybx3esxnjyeias1xijm81e9ufszb7iuhaeg.jpeg",
-    "/images/about/client-05-q973y9g45324hbox3w3o7k61y8co6kqpgunq1kioko.jpeg",
-    "/images/about/client-08-q973y7kfrezju3rnevaf2kn4rglxr6j8slcr30lgx4.jpeg",
-    "/images/about/client-10-q973y6mlkky9iht0kcvsi2vo62qkjhfiggp9lqmv3c.jpeg",
-    "/images/about/mack-logo-12-q99691wi5yn8iger7l1n233otynezih2vu28askwdk.jpeg",
-    "/images/about/mack-logo-13-q99692uccsoiu2de23g9mkv5fcis77kt7ypps2ji7c.jpeg",
-    "/images/about/mack-logo-15-q99693s6jmpt5oc0wluw72mm0qe5ewojk3d79ci414.jpeg",
+    "/images/about/client-04-q973yadybx3esxnjyeias1xijm81e9ufszb7iuhaeg.webp",
+    "/images/about/client-05-q973y9g45324hbox3w3o7k61y8co6kqpgunq1kioko.webp",
+    "/images/about/client-08-q973y7kfrezju3rnevaf2kn4rglxr6j8slcr30lgx4.webp",
+    "/images/about/client-10-q973y6mlkky9iht0kcvsi2vo62qkjhfiggp9lqmv3c.webp",
+    "/images/about/mack-logo-12-q99691wi5yn8iger7l1n233otynezih2vu28askwdk.webp",
+    "/images/about/mack-logo-13-q99692uccsoiu2de23g9mkv5fcis77kt7ypps2ji7c.webp",
+    "/images/about/mack-logo-15-q99693s6jmpt5oc0wluw72mm0qe5ewojk3d79ci414.webp",
   ];
 
   const teamMembers = [
     {
       name: "Abhay Kumar",
       role: "Chief Executive Officer",
-      img: "/images/about/name_01-1.jpeg"
+      img: "/images/about/name_01-1.webp"
     },
     {
       name: "Manan Abhay Kumar",
       role: "Chief Technical Officer",
-      img: "/images/about/name_03-1-1.jpeg"
+      img: "/images/about/name_03-1-1.webp"
     },
     {
       name: "Charu Agarwal",
       role: "Director Operations",
-      img: "/images/about/name_02-2.jpg"
+      img: "/images/about/name_02-2.webp"
     },
     {
       name: "Amit Didwania",
       role: "Sales Consultant",
-      img: "/images/about/name-4.jpeg"
+      img: "/images/about/name-4.webp"
     }
   ];
 
@@ -62,7 +62,7 @@ export default function AboutPage() {
       {/* HERO SECTION BANNER */}
       <section className="relative h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden">
         <img 
-          src="/images/about/about-us.jpg" 
+          src="/images/about/about-us.webp" 
           alt="MAKc Automation Team" 
           className="absolute inset-0 w-full h-full object-cover scale-102 filter brightness-[45%] contrast-110"
         />
@@ -126,7 +126,7 @@ export default function AboutPage() {
           <div className="lg:col-span-5 reveal-on-scroll reveal-right" data-reveal-duration="0.8s">
             <div className="rounded-3xl overflow-hidden border border-border-main aspect-[4/3] bg-bg-surface relative group shadow-2xl">
               <img 
-                src="/images/about/embedded-banner.jpg" 
+                src="/images/about/embedded-banner.webp" 
                 alt="Smart home console automation panel room" 
                 className="w-full h-full object-cover transform group-hover:scale-102 transition-transform duration-700" 
               />

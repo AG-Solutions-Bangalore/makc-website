@@ -2,6 +2,7 @@ import { Outlet, useLocation } from "react-router";
 import { useEffect } from "react";
 import Header from "../layouts/navbar/Header";
 import Footer from "../layouts/footer/Footer";
+import FooterV2 from "../layouts/footer/FooterV2";
 import { Toaster } from "@/components/ui/sonner";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
@@ -31,6 +32,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <FooterV2 />
       <Toaster />
     </div>
   );

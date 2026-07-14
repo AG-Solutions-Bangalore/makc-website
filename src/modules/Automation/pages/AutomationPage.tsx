@@ -1,12 +1,17 @@
-import { useState, useEffect } from "react";
-import { 
-  Play, 
-  Pause, 
-  X, 
-  Sparkles, 
-  CheckCircle2, 
-  Loader2, 
-  Info,
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
+import {
+  Play,
+  Pause,
+  X,
+  Sparkles,
+  CheckCircle2,
+  Loader2,
+  // Info,
   CalendarClock,
   Sliders,
   Lock,
@@ -17,9 +22,8 @@ import {
   ShieldAlert,
   BellRing,
   Smartphone,
-  ChevronRight
+  ChevronRight,
 } from "lucide-react";
-
 
 // Import custom UI components
 import {
@@ -30,35 +34,84 @@ import {
 } from "@/components/ui/accordion";
 
 // Import shared common components
-import SolutionHero from "@/components/common/SolutionHero";
-import OneTouchSection from "@/components/common/OneTouchSection";
-import TrendingCarousel from "@/components/common/TrendingCarousel";
+// import OneTouchSection from "@/components/common/OneTouchSection";
+import GateAutomationSection from "@/components/common/GateAutomationSection";
+import ElectricalAutomationSection from "@/components/common/ElectricalAutomationSection";
+import CurtainAutomationSection from "@/components/common/CurtainAutomationSection";
+// import TrendingCarousel from "@/components/common/TrendingCarousel";
 import ConnectBanner from "@/components/common/ConnectBanner";
 
 // Import images
-import serviceAutomationImg from "@/assets/images/home_v2/service_automation.png";
-import villaNightImg from "@/assets/images/home_v2/contact_villa_night.png";
-import serviceLightingImg from "@/assets/images/home_v2/service_lighting.png";
-import whyChooseUsImg from "@/assets/images/home_v2/why_choose_us.png";
-import projectVillasImg from "@/assets/images/home_v2/project_villas.png";
-import projectApartmentsImg from "@/assets/images/home_v2/project_apartments.png";
-import projectFarmhousesImg from "@/assets/images/home_v2/project_farmhouses.png";
-import projectPenthousesImg from "@/assets/images/home_v2/project_penthouses.png";
-import projectCommercialImg from "@/assets/images/home_v2/project_commercial.png";
+import villaNightImg from "@/assets/images/home_v2/contact_villa_night.webp";
+import serviceLightingImg from "@/assets/images/home_v2/service_lighting.webp";
+import whyChooseUsImg from "@/assets/images/home_v2/why_choose_us.webp";
+import projectVillasImg from "@/assets/images/home_v2/project_villas.webp";
+import projectApartmentsImg from "@/assets/images/home_v2/project_apartments.webp";
+import projectFarmhousesImg from "@/assets/images/home_v2/project_farmhouses.webp";
+import projectPenthousesImg from "@/assets/images/home_v2/project_penthouses.webp";
+import projectCommercialImg from "@/assets/images/home_v2/project_commercial.webp";
 
 import useSEO from "@/hooks/useSEO";
 
 export default function AutomationPage() {
   useSEO({
     title: "Smart Home Automation in Bangalore | MAKc Automation",
-    description: "Smart panels, voice control, dimmers, scheduling, and automation devices for modern homes. MAKc delivers complete smart home automation solutions in Bangalore.",
+    description:
+      "Smart panels, voice control, dimmers, scheduling, and automation devices for modern homes. MAKc delivers complete smart home automation solutions in Bangalore.",
     keywords: "smart home devices, home automation system, smart home gadgets",
     canonicalUrl: "https://makcautomations.com/index.php/automation/",
-    robots: "INDEX, FOLLOW, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1, MAX-IMAGE-PREVIEW:LARGE",
+    robots:
+      "INDEX, FOLLOW, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1, MAX-IMAGE-PREVIEW:LARGE",
   });
 
   const [activeFeature, setActiveFeature] = useState("scheduling");
-  
+  const [activeAutomatedCard, setActiveAutomatedCard] = useState<number>(0);
+
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ hero ref for GSAP scope Ã¢â€â‚¬Ã¢â€â‚¬ */
+  const heroRef = useRef<HTMLElement>(null);
+
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({
+        defaults: { ease: "power3.out", duration: 0.7 },
+      });
+
+      /* Badge slides down from above */
+      tl.from(
+        ".hero-badge",
+        { y: -24, autoAlpha: 0, duration: 0.5, ease: "back.out(1.5)" },
+        0.2,
+      );
+
+      /* Headline Ã¢â‚¬â€ each line staggers up */
+      tl.from(
+        ".hero-heading",
+        { y: 60, autoAlpha: 0, duration: 0.9, ease: "expo.out" },
+        0.4,
+      );
+
+      /* Subtitle fades + rises */
+      tl.from(".hero-subtitle", { y: 28, autoAlpha: 0 }, "-=0.55");
+
+      /* Checklist items stagger */
+      tl.from(
+        ".hero-check",
+        {
+          x: -24,
+          autoAlpha: 0,
+          stagger: 0.12,
+          duration: 0.5,
+          ease: "power2.out",
+        },
+        "-=0.45",
+      );
+
+      /* Breadcrumb fades in last */
+      tl.from(".hero-breadcrumb", { autoAlpha: 0, duration: 0.4 }, "-=0.2");
+    },
+    { scope: heroRef },
+  );
+
   // Mock video player states
   const [isPlaying, setIsPlaying] = useState(false);
   const [videoProgress, setVideoProgress] = useState(0);
@@ -126,13 +179,15 @@ export default function AutomationPage() {
       title: "Simplify All Your Daily Routine Tasks",
       desc: "With a single click, manage your lights, thermostats, and more, streamlining your daily chores.",
       icon: Sparkles,
-      iconColorClass: "text-accent-blue bg-accent-blue/10 border-accent-blue/20",
+      iconColorClass:
+        "text-accent-blue bg-accent-blue/10 border-accent-blue/20",
     },
     {
       title: "Remain Stress-Free",
       desc: "Monitor your devices from anywhere, anytime, ensuring that your home is always secure and energy-efficient.",
       icon: CheckCircle2,
-      iconColorClass: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20",
+      iconColorClass:
+        "text-emerald-500 bg-emerald-500/10 border-emerald-500/20",
     },
     {
       title: "Your Security is Our Priority",
@@ -198,43 +253,229 @@ export default function AutomationPage() {
   };
 
   return (
-    <div className="pt-24 lg:pt-32 pb-16 min-h-screen bg-bg-main text-text-main overflow-hidden transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* REUSABLE HERO SECTION */}
-        <SolutionHero 
-          badgeText="#1 Choice for Home Automation"
-          badgeIcon={Sparkles}
-          headingNormal="Smart Home"
-          headingHighlighted="Automation"
-          subtitle="A smart home or office is only as good as its network. With professionally designed networking solutions in Bangalore, MAKc Automation ensures strong, secure, and uninterrupted connectivity across every corner of your space. Designed for homes, villas, apartments, offices, and commercial spaces."
-          imageSrc={serviceAutomationImg}
-          imageTag="Premium Switch series"
-          imageTitle="THE_6605 Glass Dimmer"
-          imageDesc="Our modern brush finish luxury switch interfaces designed to elevate modern interior styles."
-          formTitle="Request Consultation"
-          formSubtitle="Connect with our design engineers to plan your automated smart space."
-          formButtonText="Schedule Consultation"
-          formToastMessage="Thank you! Our home automation experts will contact you shortly."
-        />
+    <div className="min-h-screen bg-bg-main text-text-main overflow-hidden transition-colors duration-300">
+      {/* FULL-WIDTH HERO SECTION */}
+      <section
+        ref={heroRef}
+        className="relative min-h-[90vh] lg:min-h-screen w-full flex items-center justify-start bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url('/images/2151349208.webp')` }}
+      >
+        {/* Dark overlay for contrast */}
+        <div className="absolute inset-0 bg-black/65" />
+
+        {/* Smooth transition gradient to blend into the next section */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 md:h-48 bg-gradient-to-t from-bg-main to-transparent pointer-events-none" />
+
+        {/* Hero content container */}
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10 pt-32 pb-20 flex flex-col justify-center min-h-[90vh] lg:min-h-screen">
+          <div className="max-w-3xl space-y-6 md:space-y-8">
+            {/* Badge */}
+            <div className="hero-badge text-[11px] sm:text-xs tracking-widest uppercase font-bold text-white/90 flex items-center gap-1.5">
+              <span className="text-emerald-500 font-extrabold text-sm">
+                #1
+              </span>{" "}
+              Choice for Home Automation
+            </div>
+
+            {/* Main Heading */}
+            <h1 className="hero-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold font-sans tracking-tight text-white leading-[1.05]">
+              Smart Home <br />
+              Automation
+            </h1>
+
+            {/* Subtitle */}
+            <div className="hero-subtitle max-w-2xl">
+              <p className="text-base sm:text-lg text-white/80 leading-relaxed">
+                Smart homes aren't about gadgets — they're about how you live.
+                With almost a decade of experience and 700+ projects delivered
+                across homes and select commercial spaces, here's what you can
+                expect from us.
+                <img
+                  src="/images/automation/star.webp"
+                  alt=""
+                  aria-hidden="true"
+                  className="w-6 h-6 inline-block ml-2 mb-1 select-none"
+                />
+              </p>
+            </div>
+
+            {/* Features check list */}
+            <div className="space-y-4 pt-2">
+              {[
+                "Thoughtful design & planning",
+                "Professional execution, installation & configuration",
+                "Seamless delivery with reliable after-sales support",
+              ].map((text, idx) => (
+                <div key={idx} className="hero-check flex items-center gap-3">
+                  <div className="flex items-center justify-center w-6 h-6 rounded-full bg-emerald-500 text-white shrink-0 shadow-md">
+                    <svg
+                      className="w-3.5 h-3.5 stroke-[3]"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
+                  <span className="text-white/90 font-medium text-sm sm:text-base">
+                    {text}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* REST OF THE CONTENT WRAPPED IN MAX-W-7XL CONTAINER */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24 pb-16">
+        {/* WHAT WE AUTOMATE SECTION */}
+        <section className="mb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
+            <div className="lg:col-span-7">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-text-main leading-[1.15]">
+                What we Automate Smart Solutions for modern living
+              </h2>
+            </div>
+            <div className="lg:col-span-5 pt-2">
+              <p className="text-text-muted text-sm sm:text-base leading-relaxed font-normal">
+                Smart automation solutions designed to enhance comfort,
+                security, and convenience in your home. We connect intelligent
+                technologies to create a seamless and effortless living
+                experience.
+              </p>
+            </div>
+          </div>
+
+          <div
+            className="flex flex-col lg:flex-row gap-6 w-full items-stretch"
+            onMouseLeave={() => setActiveAutomatedCard(0)}
+          >
+            {[
+              {
+                title: "Electrical Automation",
+                img: "/images/automation/Electrical Automation.webp",
+              },
+              {
+                title: "Smart Door Automation",
+                img: "/images/automation/Smart Door Automation.webp",
+              },
+              {
+                title: "Curtain Automation",
+                img: "/images/automation/Curtain Automation.webp",
+              },
+              {
+                title: "Gate Automation",
+                img: "/images/automation/Gate Automation.webp",
+              },
+            ].map((item, idx) => {
+              const isActive = activeAutomatedCard === idx;
+              return (
+                <div
+                  key={idx}
+                  onMouseEnter={() => setActiveAutomatedCard(idx)}
+                  className={`relative rounded-3xl overflow-hidden h-[200px] lg:h-[450px] w-full border border-border-main/55 group shadow-md hover:shadow-xl transition-all duration-500 ease-in-out cursor-pointer ${
+                    isActive ? "lg:flex-[1.6]" : "lg:flex-1"
+                  }`}
+                >
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out ${
+                      isActive ? "grayscale-0 scale-105" : "grayscale scale-100"
+                    }`}
+                  />
+                  {/* Bottom gradient overlay - fades in when active */}
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent transition-opacity duration-500 ${
+                      isActive ? "opacity-100" : "opacity-0"
+                    }`}
+                  />
+
+                  {/* Text centered at the bottom - slides up when active */}
+                  <div
+                    className={`absolute bottom-8 left-0 right-0 text-center transition-all duration-500 ease-out ${
+                      isActive
+                        ? "translate-y-0 opacity-100"
+                        : "translate-y-6 opacity-0"
+                    }`}
+                  >
+                    <h3 className="text-white text-lg sm:text-xl font-bold tracking-wide">
+                      {item.title}
+                    </h3>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* ── ELECTRICAL AUTOMATION SECTION ── */}
+        <ElectricalAutomationSection />
+
+        {/* ── GATE AUTOMATION SECTION ── */}
+        <GateAutomationSection />
+
+        {/* ── CURTAIN AUTOMATION SECTION ── */}
+        <CurtainAutomationSection />
 
         {/* CORE CONCEPTS SECTION */}
         <section className="border-t border-border-main/50 pt-20 mb-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div>
-              <span className="text-accent-blue text-xs font-bold uppercase tracking-widest block mb-3">Core Technology</span>
-              <h2 className="text-4xl sm:text-5xl font-serif font-bold tracking-tight text-text-main mb-6 leading-tight">
+            <div className="space-y-6">
+              <span className="text-accent-blue text-xs font-bold uppercase tracking-widest block">
+                Core Technology
+              </span>
+              <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-text-main leading-tight font-sans">
                 What is a Smart Home Device and How it Works?
               </h2>
-              <p className="text-text-muted text-base sm:text-lg leading-relaxed mb-6 font-medium">
-                The heart of modern living – Smart Home Devices. But what exactly are they, and how do they work?
+              <p className="text-text-muted text-base leading-relaxed">
+                Smart Home Devices connect to your home network, allowing you to
+                control them remotely via your smartphone, tablet, or voice
+                commands. From lights to locks, thermostats to cameras, they are
+                designed to make your daily life simpler, safer, and more
+                enjoyable.
               </p>
-              
-              <div className="space-y-6 text-sm text-text-muted leading-relaxed">
-                <div className="border-l-2 border-accent-blue pl-4">
-                  <h4 className="font-bold text-text-main mb-1.5 text-sm uppercase tracking-wide">Introducing Smart Home Devices</h4>
-                  <p>
-                    Smart Home Devices, often called the “magic” behind home automation, are the brainy gadgets that turn your living space into an intelligent haven. These ingenious devices connect to your home network, allowing you to control them remotely via your smartphone, tablet, or voice commands. From lights to locks, thermostats to cameras, they are designed to make your daily life simpler, safer, and more enjoyable.
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-border-main/40">
+                <div className="space-y-2">
+                  <div className="w-8 h-8 rounded-lg bg-accent-blue/10 flex items-center justify-center text-accent-blue">
+                    <Smartphone className="w-4.5 h-4.5" />
+                  </div>
+                  <h4 className="font-bold text-text-main text-xs uppercase tracking-wider">
+                    Intelligent Control
+                  </h4>
+                  <p className="text-[11px] text-text-muted leading-relaxed">
+                    Connect and manage your entire system remotely via
+                    smartphone or voice commands.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+                    <Sliders className="w-4.5 h-4.5" />
+                  </div>
+                  <h4 className="font-bold text-text-main text-xs uppercase tracking-wider">
+                    Custom Scenes
+                  </h4>
+                  <p className="text-[11px] text-text-muted leading-relaxed">
+                    Automate lighting, temperature, and power settings to align
+                    with your daily schedules.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <div className="w-8 h-8 rounded-lg bg-red-500/10 flex items-center justify-center text-red-500">
+                    <Lock className="w-4.5 h-4.5" />
+                  </div>
+                  <h4 className="font-bold text-text-main text-xs uppercase tracking-wider">
+                    Enhanced Security
+                  </h4>
+                  <p className="text-[11px] text-text-muted leading-relaxed">
+                    Integrate smart locks and security alerts to safeguard your
+                    space 24/7.
                   </p>
                 </div>
               </div>
@@ -242,25 +483,34 @@ export default function AutomationPage() {
 
             <div className="relative">
               {/* Mock video card */}
-              <div 
-                onClick={() => { if(!isPlaying) setIsPlaying(true); }}
-                className="relative rounded-3xl overflow-hidden aspect-video lg:aspect-[4/3] bg-bg-surface border border-border-main apple-border-shine shadow-xl group cursor-pointer"
+              <div
+                onClick={() => {
+                  if (!isPlaying) setIsPlaying(true);
+                }}
+                className="relative rounded-3xl overflow-hidden aspect-video lg:aspect-[4/3] bg-bg-surface border border-border-main/60 shadow-xl group cursor-pointer transition-all duration-300 hover:border-accent-blue/30"
               >
                 {!isPlaying ? (
                   <>
-                    <img 
-                      src={villaNightImg} 
-                      alt="Smart Experience Villa Video" 
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    <img
+                      src={villaNightImg}
+                      alt="Smart Experience Villa Video"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:blur-[1px]"
                     />
-                    <div className="absolute inset-0 bg-black/55 backdrop-blur-[1px] transition-all duration-300 group-hover:bg-black/45" />
-                    
+                    <div className="absolute inset-0 bg-black/55 backdrop-blur-[0.5px] transition-all duration-300 group-hover:bg-black/45" />
+
                     <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                      <div className="w-16 h-16 rounded-full bg-accent-blue/95 hover:bg-accent-blue text-white flex items-center justify-center shadow-[0_4px_25px_rgba(10,132,255,0.4)] group-hover:scale-110 active:scale-95 transition-all duration-300 mb-4 cursor-pointer">
-                        <Play className="w-7 h-7 fill-current translate-x-0.5" />
+                      <div className="relative mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <div className="absolute inset-0 rounded-full bg-accent-blue/30 animate-ping pointer-events-none" />
+                        <div className="w-16 h-16 rounded-full bg-accent-blue text-white flex items-center justify-center shadow-[0_4px_25px_rgba(10,132,255,0.4)] hover:bg-accent-blue/90 relative z-10 transition-all duration-300">
+                          <Play className="w-7 h-7 fill-current translate-x-0.5" />
+                        </div>
                       </div>
-                      <span className="text-white text-xs font-bold uppercase tracking-widest">Watch How It Works</span>
-                      <span className="text-white/60 text-[10px] mt-1">1:30 min experience video</span>
+                      <span className="text-white text-xs font-bold uppercase tracking-widest">
+                        Watch How It Works
+                      </span>
+                      <span className="text-white/60 text-[10px] mt-1 font-mono">
+                        1:30 min experience video
+                      </span>
                     </div>
                   </>
                 ) : (
@@ -271,7 +521,7 @@ export default function AutomationPage() {
                         <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
                         <span>SIMULATED VIDEO PLAYBACK</span>
                       </div>
-                      <button 
+                      <button
                         onClick={(e) => {
                           e.stopPropagation();
                           setIsPlaying(false);
@@ -288,19 +538,30 @@ export default function AutomationPage() {
                       {videoProgress < 20 ? (
                         <div className="space-y-2">
                           <Loader2 className="w-8 h-8 text-accent-blue animate-spin mx-auto" />
-                          <p className="text-xs text-white/50">Establishing connection to Villa CCTV & Lights...</p>
+                          <p className="text-xs text-white/50">
+                            Establishing connection to Villa CCTV & Lights...
+                          </p>
                         </div>
                       ) : videoProgress < 60 ? (
                         <div className="space-y-1">
                           <Sparkles className="w-10 h-10 text-gold-primary animate-bounce mx-auto" />
-                          <p className="text-sm font-serif font-bold text-white">Scene Action: "Welcome Home" Mode</p>
-                          <p className="text-xs text-white/60">System lighting levels fading to 40% & climate active</p>
+                          <p className="text-sm font-bold text-white">
+                            Scene Action: "Welcome Home" Mode
+                          </p>
+                          <p className="text-xs text-white/60">
+                            System lighting levels fading to 40% & climate
+                            active
+                          </p>
                         </div>
                       ) : (
                         <div className="space-y-1">
                           <CheckCircle2 className="w-10 h-10 text-green-500 animate-pulse mx-auto" />
-                          <p className="text-sm font-serif font-bold text-white">Security Verification Active</p>
-                          <p className="text-xs text-white/60">Perimeter locks engaged. Smart sensors online.</p>
+                          <p className="text-sm font-bold text-white">
+                            Security Verification Active
+                          </p>
+                          <p className="text-xs text-white/60">
+                            Perimeter locks engaged. Smart sensors online.
+                          </p>
                         </div>
                       )}
                     </div>
@@ -308,19 +569,33 @@ export default function AutomationPage() {
                     {/* Controls overlay */}
                     <div className="bg-black/60 border border-white/10 rounded-xl p-3 backdrop-blur-md space-y-2">
                       <div className="w-full bg-white/20 h-1 rounded-full overflow-hidden">
-                        <div className="bg-accent-blue h-full transition-all duration-300" style={{ width: `${videoProgress}%` }} />
+                        <div
+                          className="bg-accent-blue h-full transition-all duration-300"
+                          style={{ width: `${videoProgress}%` }}
+                        />
                       </div>
                       <div className="flex items-center justify-between text-[10px] text-white/60">
                         <div className="flex items-center gap-3">
-                          <button 
-                            onClick={(e) => { e.stopPropagation(); setIsPlaying(!isPlaying); }} 
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setIsPlaying(!isPlaying);
+                            }}
                             className="text-white hover:text-accent-blue transition-colors"
                           >
-                            {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 fill-current" />}
+                            {isPlaying ? (
+                              <Pause className="w-4 h-4" />
+                            ) : (
+                              <Play className="w-4 h-4 fill-current" />
+                            )}
                           </button>
-                          <span className="text-white/50 font-sans">{formatTime(videoTime)} / 0:35</span>
+                          <span className="text-white/50 font-sans">
+                            {formatTime(videoTime)} / 0:35
+                          </span>
                         </div>
-                        <span className="text-[9px] bg-accent-blue/20 text-accent-blue border border-accent-blue/30 px-2 py-0.5 rounded font-sans uppercase">Demo Stream</span>
+                        <span className="text-[9px] bg-accent-blue/20 text-accent-blue border border-accent-blue/30 px-2 py-0.5 rounded font-sans uppercase">
+                          Demo Stream
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -331,261 +606,431 @@ export default function AutomationPage() {
         </section>
 
         {/* HOW SMART DEVICES OPERATE SECTION */}
-        <section className="mb-24">
+        {/* <section className="mb-24">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             
-            {/* Card A: How Smart Devices Operate */}
-            <div className="bg-accent-blue/5 border border-accent-blue/15 hover:border-accent-blue/30 p-8 sm:p-10 rounded-3xl apple-border-shine flex flex-col justify-between transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
+            
+            <div className="bg-accent-blue/5 border border-accent-blue/15 hover:border-accent-blue/35 hover:-translate-y-1 p-8 sm:p-10 rounded-3xl flex flex-col justify-between transition-all duration-500 shadow-md hover:shadow-xl group">
               <div>
-                <div className="w-12 h-12 rounded-full bg-accent-blue/10 border border-accent-blue/20 flex items-center justify-center text-accent-blue mb-6">
+                <div className="w-12 h-12 rounded-full bg-accent-blue/10 border border-accent-blue/20 flex items-center justify-center text-accent-blue mb-6 group-hover:scale-105 transition-transform duration-300">
                   <Sparkles className="w-6 h-6" />
                 </div>
-                <h3 className="text-2xl font-serif font-bold text-text-main mb-4">How Smart Devices Operate?</h3>
-                <p className="text-sm text-text-muted leading-relaxed">
-                  Have you ever heard of smart devices? They’re like little digital helpers that do what you want them to do. They use fancy wireless tech like Wi-Fi, Bluetooth, or Zigbee to talk to a central hub or your phone. And they’re super smart – they have sensors and processors that let them collect data, process it, and respond in a flash. Like a thermostat that learns your temperature preferences or a smart lock that keeps your home safe with just a tap on your phone. Pretty cool, huh?
+                <h3 className="text-2xl font-bold text-text-main mb-4 font-sans">How Smart Devices Operate?</h3>
+                <p className="text-sm text-text-muted leading-relaxed font-medium">
+                  Smart devices act as digital helpers, talking to a central hub or phone via wireless protocols like Wi-Fi, Zigbee, or Bluetooth. Equipped with internal sensors and processors, they collect ambient data, process it in real-time, and act instantly. Whether it's a thermostat auto-tuning your climate or a lock verifying your identity, it happens with zero friction.
                 </p>
               </div>
               <div className="mt-8 pt-4 border-t border-border-main/40 flex items-center gap-2 text-xs font-bold text-accent-blue tracking-wider uppercase">
                 <span>Local Edge Computing</span>
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
               </div>
             </div>
 
-            {/* Card B: Ecosystem offerings */}
-            <div className="bg-bg-surface border border-border-main hover:border-border-main/80 p-8 sm:p-10 rounded-3xl apple-border-shine flex flex-col justify-between transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
+            <div className="bg-bg-surface border border-border-main hover:border-border-main/80 hover:-translate-y-1 p-8 sm:p-10 rounded-3xl flex flex-col justify-between transition-all duration-500 shadow-md hover:shadow-xl group">
               <div>
-                <div className="w-12 h-12 rounded-full bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-500 mb-6">
+                <div className="w-12 h-12 rounded-full bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-500 mb-6 group-hover:scale-105 transition-transform duration-300">
                   <Info className="w-6 h-6" />
                 </div>
-                <h3 className="text-2xl font-serif font-bold text-text-main mb-4">MAKc Automation Offerings</h3>
-                <p className="text-sm text-text-muted leading-relaxed">
-                  MAKc Automation offers a wide range of Smart Home Devices that can turn your home into an innovative and convenient space. Our devices can assist you in enhancing your security, reducing energy consumption, and making your daily routine smoother. We focus on seamless protocol integrations so you can control your entire architecture with absolutely zero friction.
+                <h3 className="text-2xl font-bold text-text-main mb-4 font-sans">MAKc Automation Offerings</h3>
+                <p className="text-sm text-text-muted leading-relaxed font-medium">
+                  MAKc Automation delivers highly-scalable Smart Home Devices designed to unify security, climate, lighting, and everyday tasks. We focus on seamless protocol integrations to tie your entire layout together. Control your whole environment from a single responsive screen or with simple hands-free voice requests.
                 </p>
               </div>
               <div className="mt-8 pt-4 border-t border-border-main/40 flex items-center gap-2 text-xs font-bold text-cyan-500 tracking-wider uppercase">
                 <span>Multi-Protocol Integrations</span>
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
               </div>
             </div>
 
           </div>
-        </section>
+        </section> */}
 
-        {/* DO MORE WITH OUR SMART SOLUTIONS (INTERACTIVE BENTO TABS) */}
-        <section className="mb-24">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-accent-blue text-xs font-bold uppercase tracking-widest block mb-3">Custom Features</span>
-            <h2 className="text-4xl font-serif font-bold tracking-tight text-text-main mb-4">Do More with Our Smart Solutions</h2>
-            <p className="text-text-muted text-sm leading-relaxed">
-              Our Smart Home Devices open up a world of endless possibilities. Dive into the extraordinary, where control and customization know no bounds.
+        {/* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â SECTION 3 */}
+        <section className="mb-28">
+          {/* Header Ã¢â‚¬â€ no eyebrow, strong typographic contrast */}
+          {/* <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
+            <h2 className="text-4xl sm:text-5xl font-bold text-text-main leading-[1.1] tracking-tight max-w-sm">
+              Do More with Our Smart Solutions
+            </h2>
+            <p className="text-text-muted text-sm leading-relaxed max-w-[28ch] sm:text-right">
+              Where control meets customization Ã¢â‚¬â€ every feature designed around how you actually live.
             </p>
-          </div>
+          </div> */}
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-            
-            {/* Left Image Card */}
-            <div className="lg:col-span-5 relative rounded-3xl overflow-hidden min-h-[300px] lg:min-h-full border border-border-main apple-border-shine group">
-              <img 
-                src={serviceLightingImg} 
-                alt="Cozy Smart Lighting Room" 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+          {/* Bento grid Ã¢â‚¬â€ 3-col, left spans 2 rows */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            {/* Left: tall image card Ã¢â‚¬â€ no ghost border+shadow, image IS the card */}
+            <div className="lg:row-span-2 relative rounded-2xl overflow-hidden min-h-[400px] lg:min-h-0 group">
+              <img
+                src={serviceLightingImg}
+                alt="Personalized smart lighting atmosphere"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent" />
-              <div className="absolute bottom-8 left-8 right-8 z-10">
-                <span className="text-[10px] text-accent-blue font-bold uppercase tracking-widest">Active Scenario</span>
-                <h4 className="text-white text-2xl font-serif font-bold mt-2">Personalized Atmosphere</h4>
-                <p className="text-white/80 text-xs mt-1.5 leading-relaxed">
-                  Dim lighting, adjust acoustics, and set the perfect thermostat parameters automatically based on preset behaviors.
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+              <div className="absolute bottom-7 left-7 right-7">
+                <span className="inline-block text-[11px] text-white/60 font-medium uppercase tracking-widest mb-3">
+                  Live Scene
+                </span>
+                <h3 className="text-white text-2xl font-bold leading-snug mb-2">
+                  Personalized
+                  <br />
+                  Atmosphere
+                </h3>
+                <p className="text-white/65 text-sm leading-relaxed">
+                  Dim lighting, adjust acoustics, and set the perfect thermostat
+                  parameters Ã¢â‚¬â€ automatically.
                 </p>
               </div>
             </div>
 
-            {/* Right Tabs Panel */}
-            <div className="lg:col-span-7 bg-bg-surface border border-border-main rounded-3xl p-6 sm:p-8 lg:p-10 apple-border-shine flex flex-col justify-between">
-              <div>
-                <h3 className="text-xl font-serif font-bold text-text-main mb-6 pb-3 border-b border-border-main/50">Feature Control Hub</h3>
-                
-                {/* Horizontal / Grid selectors */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
-                  {features.map((feat) => {
-                    const IconComponent = feat.icon;
-                    const isActive = activeFeature === feat.id;
-                    return (
-                      <button
-                        key={feat.id}
-                        onClick={() => setActiveFeature(feat.id)}
-                        className={`flex items-center gap-3 p-3 rounded-xl border text-xs font-semibold tracking-wide transition-all cursor-pointer select-none text-left ${
-                          isActive 
-                            ? "bg-accent-blue border-accent-blue text-white shadow-[0_4px_12px_rgba(10,132,255,0.25)]" 
-                            : "bg-bg-main border-border-main hover:border-accent-blue/30 text-text-muted hover:text-text-main"
-                        }`}
-                      >
-                        <IconComponent className={`w-4.5 h-4.5 shrink-0 ${isActive ? "text-white" : "text-text-muted group-hover:text-accent-blue"}`} />
-                        <span>{feat.title}</span>
-                      </button>
-                    );
-                  })}
-                </div>
+            {/* Right top: Feature hub panel */}
+            <div className="lg:col-span-2 bg-bg-surface border border-border-main/40 rounded-2xl p-7">
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-base font-semibold text-text-main">
+                  Feature Control Hub
+                </h3>
+                <span className="flex gap-1.5 items-center text-xs text-text-muted">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block animate-pulse" />
+                  Active
+                </span>
+              </div>
 
-                {/* Display active feature details */}
+              {/* Tab pills Ã¢â‚¬â€ tighter, cleaner */}
+              <div className="flex flex-wrap gap-2 mb-6">
                 {features.map((feat) => {
-                  if (feat.id !== activeFeature) return null;
+                  const isActive = activeFeature === feat.id;
+                  const IconComponent = feat.icon;
                   return (
-                    <div key={feat.id} className="animate-in fade-in slide-in-from-bottom-2 duration-300 space-y-4">
-                      <div className="flex items-center gap-3">
-                        <span className="w-2.5 h-2.5 rounded-full bg-accent-blue animate-ping" />
-                        <h4 className="text-lg font-serif font-bold text-text-main">{feat.title} Operation</h4>
-                      </div>
-                      <p className="text-sm text-text-muted leading-relaxed font-medium">
-                        {feat.desc}
-                      </p>
-                    </div>
+                    <button
+                      key={feat.id}
+                      onClick={() => setActiveFeature(feat.id)}
+                      className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer ${
+                        isActive
+                          ? "bg-accent-blue text-white shadow-[0_2px_10px_rgba(10,132,255,0.25)]"
+                          : "text-text-muted hover:text-text-main bg-bg-main border border-border-main/50 hover:border-border-main"
+                      }`}
+                    >
+                      <IconComponent className="w-3.5 h-3.5 shrink-0" />
+                      {feat.title}
+                    </button>
                   );
                 })}
               </div>
 
-              <div className="mt-8 pt-6 border-t border-border-main/50 flex flex-wrap items-center justify-between gap-4 text-xs">
-                <span className="text-text-muted font-medium">Want to integrate customized control?</span>
-                <a 
-                  href="#lead-form-scroll" 
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.getElementById("phone")?.focus();
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }}
-                  className="flex items-center gap-1.5 font-bold text-accent-blue hover:underline uppercase tracking-wider"
-                >
-                  <span>Build custom layout</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
+              {/* Active feature detail */}
+              {features.map((feat) => {
+                if (feat.id !== activeFeature) return null;
+                const IconComponent = feat.icon;
+                return (
+                  <div
+                    key={feat.id}
+                    className="animate-in fade-in duration-200"
+                  >
+                    <div className="flex items-start gap-4 p-4 rounded-xl bg-bg-main border border-border-main/30">
+                      <div className="w-9 h-9 rounded-lg bg-accent-blue/10 flex items-center justify-center text-accent-blue shrink-0">
+                        <IconComponent className="w-4.5 h-4.5" />
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-semibold text-text-main mb-1">
+                          {feat.title}
+                        </h4>
+                        <p className="text-sm text-text-muted leading-relaxed">
+                          {feat.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
 
+            {/* Right bottom: two side-by-side info cells */}
+            <div className="lg:col-span-2 grid grid-cols-2 gap-4">
+              {/* Stat Ã¢â‚¬â€ plain surface, no gradient hero-metric */}
+              <div className="bg-bg-surface border border-border-main/40 rounded-2xl p-6 flex flex-col justify-between">
+                <span className="text-text-muted text-xs font-medium mb-4">
+                  Experience
+                </span>
+                <div>
+                  <p className="text-text-main text-5xl font-bold leading-none">
+                    700
+                    <span className="text-2xl font-semibold text-text-muted">
+                      +
+                    </span>
+                  </p>
+                  <p className="text-text-muted text-sm mt-1">
+                    Projects delivered
+                  </p>
+                </div>
+              </div>
+
+              {/* CTA cell */}
+              <div className="bg-accent-blue rounded-2xl p-6 flex flex-col justify-between">
+                <span className="text-white/70 text-xs font-medium mb-4">
+                  Ready to start?
+                </span>
+                <div>
+                  <p className="text-white text-base font-bold leading-snug mb-4">
+                    Build your custom automation layout
+                  </p>
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center gap-2 text-xs font-bold text-white/90 hover:text-white transition-colors duration-150 group"
+                  >
+                    Get a Quote
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-150" />
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* REUSABLE ONE-TOUCH GRID */}
-        <OneTouchSection 
-          title="Enjoy One-Touch Control of Everyday Life"
-          subtitle="MAKc Automation offers Smart Home Devices that aim to make your life easier, safer and more enjoyable. Elevate your daily routine with these devices."
-          items={oneTouchItems}
-        />
+        {/* ---------------------------------------------------- SECTION 4 */}
+        <section className="mb-28">
+          {/* Header */}
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <h2
+              className="text-4xl sm:text-5xl font-bold text-text-main mb-4 leading-[1.1] tracking-tight"
+              style={{ textWrap: "balance" } as React.CSSProperties}
+            >
+              One Touch. Total Control.
+            </h2>
+            <p className="text-text-muted text-base leading-relaxed">
+              MAKc smart home devices make your life easier, safer, and more
+              enjoyable. Elevate every room, every routine.
+            </p>
+          </div>
 
-        {/* 3-CARD HIGHLIGHTS */}
+          {/* 2-col: feature list left, photo strip right */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left: vertical feature list with dividers */}
+            <div className="divide-y divide-border-main/40">
+              {oneTouchItems.map((item, idx) => {
+                const IconComponent = item.icon;
+                return (
+                  <div key={idx} className="flex items-start gap-5 py-6 group">
+                    <div
+                      className={`w-9 h-9 rounded-xl flex items-center justify-center border shrink-0 mt-0.5 transition-transform duration-200 group-hover:scale-105 ${item.iconColorClass}`}
+                    >
+                      <IconComponent className="w-[18px] h-[18px]" />
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-semibold text-text-main mb-1">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-text-muted leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Right: stacked photo composition */}
+            <div className="flex flex-col gap-4">
+              {/* Wide banner image with title + subtitle */}
+              <div className="relative rounded-2xl overflow-hidden aspect-[16/9] group">
+                <img
+                  src={whyChooseUsImg}
+                  alt="Smart home switch panel blending seamlessly into a modern interior"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5">
+                  <h3 className="text-white text-lg font-bold leading-snug">
+                    Blends Any Interior
+                  </h3>
+                  <p className="text-white/85 text-sm mt-1 leading-relaxed">
+                    Customized to match your finishes and palette perfectly.
+                  </p>
+                </div>
+              </div>
+
+              {/* Two square images — purely visual, no floating label */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="relative rounded-2xl overflow-hidden aspect-square group">
+                  <img
+                    src={serviceLightingImg}
+                    alt="Ambient smart lighting creating a warm living room atmosphere"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" />
+                  <p className="absolute bottom-4 left-4 right-4 text-white text-xs font-semibold leading-snug">
+                    Seamless Control
+                  </p>
+                </div>
+                <div className="relative rounded-2xl overflow-hidden aspect-square group">
+                  <img
+                    src={projectVillasImg}
+                    alt="Luxury smart villa exterior with automated lighting at entrance"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" />
+                  <p className="absolute bottom-4 left-4 right-4 text-white text-xs font-semibold leading-snug">
+                    Luxurious Finish
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â SECTION 5 */}
+
+        {/* Products */}
+        <section className="mb-28">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+            <h2 className="text-3xl sm:text-4xl font-bold text-text-main tracking-tight">
+              Trending Smart Components
+            </h2>
+            <p className="text-text-muted text-sm max-w-[26ch] sm:text-right leading-relaxed">
+              Handpicked hardware, installed by our certified engineers.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {trendingProducts.map((product) => (
+              <div
+                key={product.id}
+                className="group bg-bg-surface rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)] border border-border-main/30 hover:border-border-main/60"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={product.img}
+                    alt={product.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" />
+                  <span className="absolute bottom-3 left-3 text-[11px] bg-black/50 backdrop-blur-sm text-white/90 font-medium px-2.5 py-1 rounded-md">
+                    {product.tag}
+                  </span>
+                </div>
+                <div className="p-5">
+                  <h3 className="text-sm font-semibold text-text-main mb-1.5">
+                    {product.name}
+                  </h3>
+                  <p className="text-sm text-text-muted leading-relaxed line-clamp-3">
+                    {product.desc}
+                  </p>
+                  <div className="mt-4 pt-3 border-t border-border-main/30 flex items-center justify-between">
+                    <span className="text-xs text-text-muted/60">
+                      {product.id}
+                    </span>
+                    <button className="text-xs font-semibold text-accent-blue flex items-center gap-1 hover:gap-2 transition-all duration-150">
+                      Details <ChevronRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* FAQ + CTA */}
         <section className="mb-24">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            
-            {/* Highlight 1: Seamless Control */}
-            <div className="relative rounded-3xl overflow-hidden aspect-[4/3] md:aspect-[3/4] border border-border-main apple-border-shine group shadow-xl">
-              <img 
-                src={serviceLightingImg} 
-                alt="Seamless Control Interface" 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent" />
-              
-              <div className="absolute bottom-6 left-6 right-6 z-10">
-                <span className="text-[9px] bg-accent-blue text-white font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full mb-2.5 inline-block">Integration</span>
-                <h3 className="text-xl font-serif font-bold text-white mb-2">Seamless Control</h3>
-                <p className="text-white/80 text-xs leading-relaxed">
-                  No more arguments over who should turn OFF the Lights. Complete automation at your fingertips.
-                </p>
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
+            {/* FAQ Ã¢â‚¬â€ left 3 cols */}
+            <div className="lg:col-span-3">
+              <h2 className="text-3xl font-bold text-text-main mb-2 tracking-tight">
+                Common Questions
+              </h2>
+              <p className="text-text-muted text-sm leading-relaxed mb-8">
+                Everything you need to know before getting started.
+              </p>
+
+              <div className="bg-bg-surface border border-border-main/30 rounded-2xl overflow-hidden divide-y divide-border-main/30">
+                <Accordion type="single" collapsible className="w-full">
+                  <AccordionItem value="faq-1" className="border-0 px-6">
+                    <AccordionTrigger className="text-sm font-semibold text-text-main hover:text-accent-blue hover:no-underline py-5 text-left">
+                      What distinguishes Smart Home Devices from regular
+                      devices?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-sm text-text-muted leading-relaxed pb-5">
+                      Smart home devices carry internal processors, sensors, and
+                      wireless radios (Wi-Fi, Bluetooth, or Zigbee). They
+                      capture data, schedule events, and connect with other
+                      household units Ã¢â‚¬â€ all manageable remotely via
+                      smartphone or voice. Regular devices need manual switches
+                      and have no network awareness.
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem value="faq-2" className="border-0 px-6">
+                    <AccordionTrigger className="text-sm font-semibold text-text-main hover:text-accent-blue hover:no-underline py-5 text-left">
+                      Can I integrate smart devices with voice assistants?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-sm text-text-muted leading-relaxed pb-5">
+                      Yes. All our systems are engineered for full
+                      cross-platform compatibility Ã¢â‚¬â€ seamlessly
+                      integrating with Apple Siri (HomeKit), Amazon Alexa, and
+                      Google Assistant for hands-free control.
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem
+                    value="faq-3"
+                    className="border-0 border-b-0 px-6"
+                  >
+                    <AccordionTrigger className="text-sm font-semibold text-text-main hover:text-accent-blue hover:no-underline py-5 text-left">
+                      How do I set up and control my smart devices?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-sm text-text-muted leading-relaxed pb-5">
+                      MAKc's certified field engineers handle all configuration
+                      and network setup. Once installed, you control everything
+                      via our mobile app, wall-mounted touch panels, or voice
+                      integration.
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
               </div>
             </div>
 
-            {/* Highlight 2: Blend with Interior */}
-            <div className="relative rounded-3xl overflow-hidden aspect-[4/3] md:aspect-[3/4] border border-border-main apple-border-shine group shadow-xl">
-              <img 
-                src={whyChooseUsImg} 
-                alt="Minimalist Living Space design" 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent" />
-              
-              <div className="absolute bottom-6 left-6 right-6 z-10">
-                <span className="text-[9px] bg-cyan-500 text-white font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full mb-2.5 inline-block">Design</span>
-                <h3 className="text-xl font-serif font-bold text-white mb-2">Blend with any Interior</h3>
-                <p className="text-white/80 text-xs leading-relaxed">
-                  Right combination for any Interior Space. Keypads and dimmers customized to match your colors.
-                </p>
+            {/* CTA card Ã¢â‚¬â€ right 2 cols */}
+            <div className="lg:col-span-2 lg:sticky lg:top-28">
+              <div className="relative rounded-2xl overflow-hidden">
+                <img
+                  src={projectVillasImg}
+                  alt="Smart luxury villa exterior"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/75 to-black/60" />
+                <div className="relative z-10 p-8 flex flex-col min-h-[380px] justify-between">
+                  <div>
+                    <h3 className="text-white text-2xl font-bold leading-tight mb-3">
+                      Ready to automate your home?
+                    </h3>
+                    <p className="text-white/65 text-sm leading-relaxed">
+                      Our experts design a custom plan tailored to your space,
+                      lifestyle, and budget Ã¢â‚¬â€ at no obligation.
+                    </p>
+                  </div>
+                  <div className="space-y-3 mt-8">
+                    <a
+                      href="tel:+919948432444"
+                      className="flex items-center justify-center gap-2 h-11 w-full rounded-xl bg-accent-blue text-white text-sm font-bold hover:bg-accent-blue/90 transition-all duration-200 hover:scale-[1.02] active:scale-[0.97]"
+                    >
+                      Call Us Now
+                    </a>
+                    <a
+                      href="mailto:info@makcautomations.com"
+                      className="flex items-center justify-center gap-2 h-11 w-full rounded-xl border border-white/25 text-white text-sm font-medium hover:bg-white/8 transition-all duration-200"
+                    >
+                      Send an Email
+                    </a>
+                    <p className="text-center text-white/40 text-xs tracking-wider">
+                      +91 99484 32444
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
-
-            {/* Highlight 3: Luxurious Design */}
-            <div className="relative rounded-3xl overflow-hidden aspect-[4/3] md:aspect-[3/4] border border-border-main apple-border-shine group shadow-xl">
-              <img 
-                src={projectVillasImg} 
-                alt="Luxury Smart Villa exterior" 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent" />
-              
-              <div className="absolute bottom-6 left-6 right-6 z-10">
-                <span className="text-[9px] bg-amber-500 text-white font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full mb-2.5 inline-block">Aesthetics</span>
-                <h3 className="text-xl font-serif font-bold text-white mb-2">Luxurious Design</h3>
-                <p className="text-white/80 text-xs leading-relaxed">
-                  Gives your home an aesthetic design. Sleek metallic finishes and elegant customizable glass switches.
-                </p>
-              </div>
-            </div>
-
           </div>
         </section>
 
-        {/* REUSABLE PRODUCT CAROUSEL */}
-        <TrendingCarousel 
-          title="Trending smart components"
-          brandLabel="MAKc System v2"
-          products={trendingProducts}
-        />
-
-        {/* FAQs SECTION */}
-        <section className="mb-24 max-w-4xl mx-auto border-t border-border-main/50 pt-20">
-          <div className="text-center mb-12">
-            <span className="text-accent-blue text-xs font-bold uppercase tracking-widest block mb-3">Support Center</span>
-            <h2 className="text-4xl font-serif font-bold tracking-tight text-text-main mb-4">Frequently Asked Questions (FAQs)</h2>
-          </div>
-
-          <div className="bg-bg-surface/50 border border-border-main rounded-3xl p-6 sm:p-8 apple-border-shine">
-            <Accordion type="single" collapsible className="w-full">
-              
-              <AccordionItem value="faq-1" className="border-border-main/50">
-                <AccordionTrigger className="text-base font-semibold text-text-main hover:text-accent-blue hover:no-underline py-5 text-left">
-                  What distinguishes Smart Home Devices from regular devices?
-                </AccordionTrigger>
-                <AccordionContent className="text-sm text-text-muted leading-relaxed pb-5">
-                  Smart home devices are equipped with internal processors, sensors, and wireless radios (Wi-Fi, Bluetooth, or Zigbee). This enables them to capture data, schedule events, communicate with other household units, and be configured or triggered remotely via smartphones or voice commands. Regular devices lack networking features and require manual switches.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="faq-2" className="border-border-main/50">
-                <AccordionTrigger className="text-base font-semibold text-text-main hover:text-accent-blue hover:no-underline py-5 text-left">
-                  Can I integrate smart devices with voice assistants?
-                </AccordionTrigger>
-                <AccordionContent className="text-sm text-text-muted leading-relaxed pb-5">
-                  Yes, absolutely. All our premium smart home systems are engineered for full cross-platform compatibility, integrating seamlessly with popular digital hubs including Apple Siri (HomeKit), Amazon Alexa, and Google Assistant for fluid hands-free voice commands.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="faq-3" className="border-b-0">
-                <AccordionTrigger className="text-base font-semibold text-text-main hover:text-accent-blue hover:no-underline py-5 text-left">
-                  How do I set up and control my smart devices?
-                </AccordionTrigger>
-                <AccordionContent className="text-sm text-text-muted leading-relaxed pb-5">
-                  The initial technical configuration and network setup are entirely managed by MAKc Automation's certified design and field engineers. Once the installation is complete, you can control and customize all features using our sleek mobile application, wall-mounted touch panels, or intuitive voice integration.
-                </AccordionContent>
-              </AccordionItem>
-
-            </Accordion>
-          </div>
-        </section>
-
-        {/* REUSABLE BANNER CTA */}
-        <ConnectBanner 
+        <ConnectBanner
           title="Connect With Us"
           description="Our experts are ready to design your automated home. Contact us via phone or email for custom architecture pricing."
         />
-
       </div>
     </div>
   );

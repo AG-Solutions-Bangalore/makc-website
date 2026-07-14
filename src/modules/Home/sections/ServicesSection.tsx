@@ -21,7 +21,7 @@ const services = [
     gridClass: "lg:col-span-3",
     color: "bg-[#CFFCE9]",
     textColor: "text-[#1a1a1a]",
-    image: "/images/Home/3d-icon-weather-conditions.png",
+    image: "/images/Home/3d-icon-weather-conditions.webp",
   },
   {
     icon: Headphones,
@@ -31,7 +31,7 @@ const services = [
     gridClass: "lg:col-span-3",
     color: "bg-[#F4FCCF]",
     textColor: "text-[#1a1a1a]",
-    image: "/images/Home/Entertainment.png",
+    image: "/images/Home/Entertainment.webp",
   },
   {
     icon: Shield,

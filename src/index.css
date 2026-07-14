@@ -299,6 +299,8 @@
   body {
     @apply bg-bg-main text-text-main font-body transition-colors duration-300;
     overflow-x: hidden;
+    /* Prevent scrollbar-appearance from shifting layout (CLS fix) */
+    scrollbar-gutter: stable;
   }
 
   * {

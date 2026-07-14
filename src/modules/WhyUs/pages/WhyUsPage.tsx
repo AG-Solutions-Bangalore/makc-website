@@ -21,7 +21,7 @@ export default function WhyUsPage() {
         {/* Background Image */}
         <div className="absolute inset-0 bg-black/60 z-0">
           <img
-            src="/images/about/about-us.jpg"
+            src="/images/about/about-us.webp"
             alt="MAKc Automation Team"
             className="w-full h-full object-cover scale-105 filter brightness-[45%] contrast-110"
           />

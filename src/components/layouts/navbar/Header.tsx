@@ -1,356 +1,363 @@
+/**
+ * Header.tsx — Premium animated navbar with GSAP-powered drawer
+ *
+ * Skills applied:
+ *  • gsap-core    — gsap.to/from/fromTo, autoAlpha, x/y transforms, ease strings
+ *  • gsap-react   — useGSAP() hook with scope ref, contextSafe for event callbacks
+ *  • gsap-timeline — gsap.timeline() with position param, defaults, stagger
+ *  • gsap-performance — only x/y/autoAlpha (no layout props), will-change via GSAP
+ */
+
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Phone, X, ChevronRight } from "lucide-react";
+import { Phone, ArrowUpRight } from "lucide-react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import BrandLogo from "@/components/common/BrandLogo";
 
-// 3x3 dot grid icon matching the mockup
-function GridIcon({ className = "h-5 w-5" }: { className?: string }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-    >
-      <circle cx="6" cy="6" r="2" />
-      <circle cx="12" cy="6" r="2" />
-      <circle cx="18" cy="6" r="2" />
-      <circle cx="6" cy="12" r="2" />
-      <circle cx="12" cy="12" r="2" />
-      <circle cx="18" cy="12" r="2" />
-      <circle cx="6" cy="18" r="2" />
-      <circle cx="12" cy="18" r="2" />
-      <circle cx="18" cy="18" r="2" />
-    </svg>
-  );
-}
+gsap.registerPlugin(useGSAP);
+
+/* ─────────────────────────── data ─────────────────────────── */
+
+const allLinks = [
+  { label: "Home",       path: "/" },
+  { label: "Automation", path: "/automation" },
+  { label: "Security",   path: "/security" },
+  { label: "Lighting",   path: "/lighting" },
+  { label: "Networking", path: "/networking" },
+  { label: "Interior",   path: "https://www.saavidesignstudio.com/", external: true },
+  { label: "Contact Us", path: "/contact" },
+];
+
+const moreLinks = [
+  { label: "About",      path: "/about",      desc: "Our story & mission" },
+  { label: "Why Us",     path: "/why-us",     desc: "What sets us apart" },
+  { label: "Service",    path: "/service",    desc: "Full solution catalog" },
+  { label: "Blog",       path: "/blog",       desc: "Insights & updates" },
+  { label: "Experience", path: "/experience", desc: "Visit our experience zone" },
+];
+
+/* ─────────────────────────── component ─────────────────────────── */
 
 export default function Header() {
-  const location = useLocation();
+  const location   = useLocation();
+  const [isScrolled,  setScrolled]  = useState(() => typeof window !== "undefined" && window.scrollY > 20);
+  const [drawerOpen,  setDrawer]    = useState(false);
 
-  // Scroll & Menu States
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setMenuOpen] = useState(false);
-  const [showGridDropdown, setShowGridDropdown] = useState(false);
+  /* refs — GSAP targets */
+  const headerRef     = useRef<HTMLElement>(null);
+  const navLinksRef   = useRef<HTMLElement>(null);
+  const drawerRef     = useRef<HTMLElement>(null);
+  const backdropRef   = useRef<HTMLDivElement>(null);
+  const drawerTlRef   = useRef<gsap.core.Timeline | null>(null);
 
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  /* ── header mount animation ── */
+  useGSAP(() => {
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-  const mainLinks = [
-    { label: "Home", path: "/" },
-    { label: "Automation", path: "/automation" },
-    { label: "Security", path: "/security" },
-    { label: "Lighting", path: "/lighting" },
-    { label: "Networking", path: "/networking" },
-    { label: "Interior", path: "https://www.saavidesignstudio.com/" },
-    { label: "Contact Us", path: "/contact" },
-  ];
+    tl.from(headerRef.current, {
+      y: -80,
+      autoAlpha: 0,
+      duration: 0.7,
+    });
 
-  const gridDropdownLinks = [
-    { label: "About", path: "/about" },
-    { label: "Why Us", path: "/why-us" },
-    { label: "Service", path: "/service" },
-    { label: "Blog", path: "/blog" },
-    { label: "Experience", path: "/experience" },
-  ];
+    if (navLinksRef.current) {
+      tl.from(navLinksRef.current.querySelectorAll("a, [data-nav]"), {
+        y: -12,
+        autoAlpha: 0,
+        stagger: 0.06,
+        duration: 0.45,
+      }, "-=0.3");
+    }
+  }, { scope: headerRef });
 
-  // Monitor scroll height for sticky background
+  /* ── drawer open/close timeline ── */
+  const { contextSafe } = useGSAP(() => {
+    /* build the drawer timeline once (paused) */
+    const tl = gsap.timeline({
+      paused: true,
+      defaults: { ease: "power4.out" },
+    });
+
+    if (!drawerRef.current || !backdropRef.current) return;
+
+    /* backdrop fade */
+    tl.to(backdropRef.current, {
+      autoAlpha: 1,
+      duration: 0.35,
+    }, 0);
+
+    /* panel slide-in */
+    tl.fromTo(
+      drawerRef.current,
+      { x: "100%", autoAlpha: 0 },
+      { x: "0%",   autoAlpha: 1, duration: 0.5, ease: "expo.out" },
+      0,
+    );
+
+    /* header label — immediateRender:false prevents from() snapping to hidden on a paused tl */
+    tl.from(drawerRef.current.querySelector(".drawer-header"), {
+      y: -16,
+      autoAlpha: 0,
+      duration: 0.35,
+      immediateRender: false,
+    }, 0.15);
+
+    /* staggered nav items */
+    tl.from(drawerRef.current.querySelectorAll(".drawer-item"), {
+      x: 40,
+      autoAlpha: 0,
+      stagger: 0.07,
+      duration: 0.4,
+      ease: "back.out(1.4)",
+      immediateRender: false,
+    }, 0.2);
+
+    /* footer CTA */
+    tl.from(drawerRef.current.querySelector(".drawer-footer"), {
+      y: 20,
+      autoAlpha: 0,
+      duration: 0.4,
+      immediateRender: false,
+    }, 0.35);
+
+    drawerTlRef.current = tl;
+  }, { scope: drawerRef });
+
+  /* play/reverse on state change */
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    if (!drawerTlRef.current) return;
+    if (drawerOpen) {
+      drawerTlRef.current.play();
+    } else {
+      drawerTlRef.current.reverse();
+    }
+  }, [drawerOpen]);
 
-  // Close menus on path navigation
-  useEffect(() => {
-    setMenuOpen(false);
-    setShowGridDropdown(false);
-  }, [location.pathname]);
+  /* ── hamburger bar GSAP refs ── */
+  const bar1 = useRef<HTMLSpanElement>(null);
+  const bar2 = useRef<HTMLSpanElement>(null);
+  const bar3 = useRef<HTMLSpanElement>(null);
 
-  // Click outside grid dropdown closes it
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setShowGridDropdown(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  const animateHamburger = contextSafe?.((open: boolean) => {
+    if (!bar1.current || !bar2.current || !bar3.current) return;
+    if (open) {
+      gsap.to(bar1.current, { rotation: 45,  y: 8,  duration: 0.35, ease: "power2.inOut" });
+      gsap.to(bar2.current, { autoAlpha: 0,  x: 10, duration: 0.2,  ease: "power2.in"   });
+      gsap.to(bar3.current, { rotation: -45, y: -8, duration: 0.35, ease: "power2.inOut" });
+    } else {
+      gsap.to(bar1.current, { rotation: 0,  y: 0, duration: 0.35, ease: "power2.inOut" });
+      gsap.to(bar2.current, { autoAlpha: 1, x: 0, duration: 0.3,  ease: "power2.out"   });
+      gsap.to(bar3.current, { rotation: 0,  y: 0, duration: 0.35, ease: "power2.inOut" });
+    }
+  }) ?? (() => {});
 
-  // Lock body scroll when mobile menu drawer is open
-  useEffect(() => {
-    document.body.style.overflow = isMenuOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isMenuOpen]);
-
-  const handleLinkClick = () => {
-    setMenuOpen(false);
-    setShowGridDropdown(false);
+  const toggle = () => {
+    const next = !drawerOpen;
+    setDrawer(next);
+    animateHamburger(next);
+    document.body.style.overflow = next ? "hidden" : "";
   };
 
+  const close = contextSafe?.(() => {
+    setDrawer(false);
+    animateHamburger(false);
+    document.body.style.overflow = "";
+  }) ?? (() => { setDrawer(false); });
+
+  /* ── scroll ── */
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", fn, { passive: true });
+    return () => window.removeEventListener("scroll", fn);
+  }, []);
+
+  /* ── close on navigation ── */
+  useEffect(() => { close(); }, [location.pathname]); // eslint-disable-line
+
+  /* ── cleanup body scroll ── */
+  useEffect(() => () => { document.body.style.overflow = ""; }, []);
+
+  /* ──────────────────────────── JSX ──────────────────────────── */
   return (
     <>
+      {/* ═══════════════ HEADER BAR ═══════════════ */}
       <header
-        className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+        ref={headerRef}
+        className={`fixed top-0 z-50 w-full transition-[background,box-shadow,border-color] duration-500 ${
           isScrolled
-            ? "py-4 bg-bg-surface/90 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.05)] border-b border-border-main/50"
-            : "py-4 border-b border-transparent bg-transparent"
+            ? "bg-bg-surface/85 backdrop-blur-2xl border-b border-border-main/40 shadow-[0_1px_40px_rgba(0,0,0,0.18)]"
+            : "bg-transparent border-b border-transparent"
         }`}
+        style={{ willChange: "transform", visibility: "hidden" }}
       >
-        <div className="mx-auto flex max-w-8xl h-[64px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-16">
-          {/* Logo Section */}
-          <div className="flex items-center gap-3 shrink-0">
-            <Link to="/" className="flex items-center">
-              <BrandLogo className="h-10 w-auto" />
-            </Link>
-          </div>
+        <div className="mx-auto flex max-w-8xl h-24 items-center justify-between gap-4 px-4 sm:px-6 lg:px-16">
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {mainLinks.map((link) => {
+          {/* Logo */}
+          <Link to="/" className="flex items-center shrink-0 group">
+            <BrandLogo className="h-10 w-auto transition-transform duration-300 group-hover:scale-[1.03]" />
+          </Link>
+
+          {/* Desktop nav */}
+          <nav ref={navLinksRef} className="hidden lg:flex items-center gap-0.5">
+            {allLinks.map((link) => {
               const isActive = location.pathname === link.path;
-              const isExternal = link.path.startsWith("http");
-
-              if (isExternal) {
+              if (link.external) {
                 return (
                   <a
                     key={link.label}
                     href={link.path}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3.5 py-1.5 text-sm font-semibold rounded-full transition-all duration-200 text-text-muted hover:text-text-main"
+                    data-nav
+                    className="relative px-4 py-2 text-sm font-medium rounded-full transition-colors duration-200 text-text-muted hover:text-text-main"
                   >
                     {link.label}
                   </a>
                 );
               }
-
               return (
                 <Link
                   key={link.label}
                   to={link.path}
-                  onClick={handleLinkClick}
-                  className={`px-3.5 py-1.5 text-sm font-semibold rounded-full transition-all duration-200 ${
+                  data-nav
+                  className={`relative px-4 py-2 text-sm font-medium rounded-full transition-colors duration-200 ${
                     isActive
-                      ? "text-gold-primary"
+                      ? "text-accent-blue"
                       : "text-text-muted hover:text-text-main"
                   }`}
                 >
                   {link.label}
+                 
                 </Link>
               );
             })}
           </nav>
 
-          {/* Desktop Right Side Action Buttons */}
-          <div className="flex items-center gap-3 shrink-0 relative">
-            {/* Phone button */}
+          {/* Right controls */}
+          <div className="flex items-center gap-2.5 shrink-0">
+
+            {/* Phone pill — desktop only */}
             <a
               href="tel:+919948432444"
-              className="flex h-9 w-9 items-center apple-border-shine justify-center rounded-full bg-gold-primary text-white transition-all hover:scale-105 active:scale-95 focus:outline-none shadow-[0_4px_15px_rgba(10,132,255,0.3)] cursor-pointer"
+              className="hidden sm:flex items-center gap-2 h-9 px-4 rounded-full bg-accent-blue text-white text-xs font-semibold tracking-wide hover:bg-accent-blue/90 hover:scale-[1.03] active:scale-95 transition-all duration-200 shadow-[0_4px_18px_rgba(10,132,255,0.35)] cursor-pointer"
               title="Call Us"
             >
-              <Phone className="h-4.5 w-4.5 stroke-[1.8]" />
+              <Phone className="h-3.5 w-3.5 stroke-[2]" />
+              <span>Call Now</span>
             </a>
 
-            {/* Grid Icon dropdown menu trigger */}
-            <div ref={dropdownRef} className="relative hidden lg:block">
-              <button
-                onClick={() => setShowGridDropdown(!showGridDropdown)}
-                className={`flex h-9 w-9 items-center justify-center rounded-full text-text-muted transition-all hover:bg-bg-surface hover:text-text-main focus:outline-none cursor-pointer ${
-                  showGridDropdown ? "bg-bg-surface text-text-main" : ""
-                }`}
-                aria-label="More navigation"
-                title="Explore More"
-              >
-                <GridIcon className="h-4.5 w-4.5" />
-              </button>
-
-              {/* Grid Dropdown Panel */}
-              {showGridDropdown && (
-                <div className="absolute right-0 top-12 z-50 w-[200px] overflow-hidden rounded-2xl border border-border-main/50 dark:border-[#0A84FF]/25 bg-white/95 dark:bg-[#061121]/90 backdrop-blur-xl p-2 shadow-2xl transition-all duration-300 animate-in fade-in slide-in-from-top-2">
-                  <div className="px-3 py-1.5 text-[10px] font-bold tracking-wider text-text-muted/65 uppercase border-b border-border-main/40 dark:border-white/10 mb-1 select-none">
-                    More Navigation
-                  </div>
-                  {gridDropdownLinks.map((link) => {
-                    const isActive = location.pathname === link.path;
-                    return (
-                      <Link
-                        key={link.label}
-                        to={link.path}
-                        onClick={handleLinkClick}
-                        className={`flex items-center justify-between rounded-xl px-3.5 py-2.5 text-xs font-semibold hover:bg-[#0A84FF]/5 dark:hover:bg-[#0A84FF]/10 transition-all duration-200 ${
-                          isActive ? "text-gold-primary" : "text-text-muted hover:text-text-main"
-                        }`}
-                      >
-                        <span>{link.label}</span>
-                        <ChevronRight className="h-4 w-4 opacity-50" />
-                      </Link>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-
-            {/* Mobile Hamburger menu trigger */}
-            <button
-              onClick={() => setMenuOpen(!isMenuOpen)}
-              className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-text-muted transition-all hover:bg-bg-surface hover:text-text-main focus:outline-none lg:hidden ${
-                isMenuOpen ? "bg-bg-surface text-text-main" : ""
-              }`}
-              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            {/* Phone icon — mobile only */}
+            <a
+              href="tel:+919948432444"
+              className="flex sm:hidden h-9 w-9 items-center justify-center rounded-full bg-accent-blue text-white hover:scale-105 active:scale-95 transition-all duration-200 shadow-[0_4px_15px_rgba(10,132,255,0.35)] cursor-pointer"
+              title="Call Us"
             >
-              <div className="relative flex h-4.5 w-4.5 flex-col justify-between transition-all duration-300">
-                <span
-                  className={`h-0.5 w-full bg-current rounded-full transition-all duration-300 origin-left ${
-                    isMenuOpen
-                      ? "rotate-45 translate-x-[2.2px] translate-y-[-0.2px]"
-                      : ""
-                  }`}
-                />
-                <span
-                  className={`h-0.5 w-full bg-current rounded-full transition-all duration-300 ${
-                    isMenuOpen ? "opacity-0 translate-x-2" : ""
-                  }`}
-                />
-                <span
-                  className={`h-0.5 w-full bg-current rounded-full transition-all duration-300 origin-left ${
-                    isMenuOpen
-                      ? "-rotate-45 translate-x-[2.2px] translate-y-[0.2px]"
-                      : ""
-                  }`}
-                />
-              </div>
+              <Phone className="h-4 w-4 stroke-[1.8]" />
+            </a>
+
+            {/* ── Hamburger ── */}
+            <button
+              onClick={toggle}
+              aria-label={drawerOpen ? "Close menu" : "Open menu"}
+              className="flex h-9 w-9 flex-col items-center justify-center rounded-full border border-border-main/60 hover:border-accent-blue/40 hover:bg-bg-surface transition-all duration-300 focus:outline-none cursor-pointer gap-[5px]"
+              style={{ willChange: "transform" }}
+            >
+              <span ref={bar1} className="block h-[1.5px] w-[18px] rounded-full bg-text-main origin-center" />
+              <span ref={bar2} className="block h-[1.5px] w-[14px] rounded-full bg-text-main origin-center" />
+              <span ref={bar3} className="block h-[1.5px] w-[18px] rounded-full bg-text-main origin-center" />
             </button>
           </div>
         </div>
       </header>
 
-      {/* Drawer Overlay (Mobile Navigation Drawer) */}
+      {/* ═══════════════ BACKDROP ═══════════════ */}
       <div
-        className={`fixed inset-0 z-50 transition-opacity duration-300 ${
-          isMenuOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-        }`}
+        ref={backdropRef}
+        onClick={close}
+        style={{ opacity: 0, visibility: "hidden", willChange: "opacity" }}
+        className="fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm"
+      />
+
+      {/* ═══════════════ DRAWER PANEL ═══════════════ */}
+      <aside
+        ref={drawerRef}
+        style={{ transform: "translateX(100%)", opacity: 0, visibility: "hidden", willChange: "transform, opacity" }}
+        className="fixed right-0 top-0 bottom-0 z-[70] w-[320px] max-w-[92vw] flex flex-col overflow-hidden"
       >
-        {/* Backdrop overlay */}
-        <div
-          className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-          onClick={() => setMenuOpen(false)}
-        />
+        {/* Panel background — subtle surface, no decorative blobs */}
+        <div className="absolute inset-0 bg-bg-surface border-l border-border-main/30" />
 
-        {/* Drawer slide-out panel */}
-        <div
-          className={`absolute right-0 top-0 bottom-0 z-50 w-[300px] max-w-[80vw] bg-bg-surface p-6 shadow-2xl transition-transform duration-300 ease-out border-l border-border-main flex flex-col justify-between ${
-            isMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
-        >
-          <div>
-            <div className="flex items-center justify-between pb-5 border-b border-border-main">
-              <Link
-                to="/"
-                onClick={() => setMenuOpen(false)}
-                className="flex items-center"
-              >
-                <BrandLogo className="h-7 w-auto" />
-              </Link>
-              <button
-                onClick={() => setMenuOpen(false)}
-                className="flex h-8 w-8 items-center justify-center rounded-full text-text-muted transition-colors hover:bg-bg-surface hover:text-text-main"
-              >
-                <X className="h-6 w-6" />
-              </button>
-            </div>
-
-            {/* Navigation links inside drawer */}
-            <nav className="mt-5 flex flex-col gap-0.5">
-              {/* Primary Solutions Links */}
-              {mainLinks.map((link, idx) => {
-                const isActive = location.pathname === link.path;
-                const isExternal = link.path.startsWith("http");
-
-                if (isExternal) {
-                  return (
-                    <a
-                      key={link.label}
-                      href={link.path}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-semibold text-text-muted hover:bg-bg-surface hover:text-text-main transition-all"
-                    >
-                      <span className="text-gold-primary text-xs font-mono">
-                        {String(idx + 1).padStart(2, "0")}
-                      </span>
-                      {link.label}
-                    </a>
-                  );
-                }
-
-                return (
-                  <Link
-                    key={link.label}
-                    to={link.path}
-                    onClick={handleLinkClick}
-                    className={`flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all ${
-                      isActive
-                        ? "text-gold-primary bg-gold-primary/5"
-                        : "text-text-muted hover:bg-bg-surface hover:text-text-main"
-                    }`}
-                  >
-                    <span className="text-gold-primary text-xs font-mono">
-                      {String(idx + 1).padStart(2, "0")}
-                    </span>
-                    {link.label}
-                  </Link>
-                );
-              })}
-
-              <div className="h-[1px] bg-border-main my-3" />
-
-              <div className="px-4 pb-1 text-[10px] font-bold uppercase tracking-wider text-text-muted/65">
-                More Navigation
-              </div>
-
-              {/* Grid Menu Links */}
-              {gridDropdownLinks.map((link) => {
-                const isActive = location.pathname === link.path;
-                return (
-                  <Link
-                    key={link.label}
-                    to={link.path}
-                    onClick={handleLinkClick}
-                    className={`flex items-center gap-3.5 rounded-xl px-4 py-2 text-sm font-semibold transition-all ${
-                      isActive ? "text-gold-primary" : "text-text-muted hover:text-text-main"
-                    }`}
-                  >
-                    <ChevronRight className="h-4 w-4 opacity-50" />
-                    {link.label}
-                  </Link>
-                );
-              })}
-            </nav>
-          </div>
-
-          {/* Drawer Footer Call Shortcut */}
-          <div className="mt-auto border-t border-border-main pt-4">
-            <a
-              href="tel:+919948432444"
-              className="flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-gold-primary text-sm font-bold text-black transition-all hover:bg-gold-hover hover:text-black shadow-[0_4px_15px_rgba(10,132,255,0.3)]"
-            >
-              <Phone className="h-4 w-4" />
-              <span>CALL NOW</span>
-            </a>
-          </div>
+        {/* ── Drawer Header ── */}
+        <div className="drawer-header relative flex items-center justify-between px-6 pt-6 pb-5 border-b border-border-main/20">
+          <Link to="/" onClick={close} className="flex items-center">
+            <BrandLogo className="h-7 w-auto" />
+          </Link>
+          <button
+            onClick={close}
+            aria-label="Close menu"
+            className="relative flex h-8 w-8 items-center justify-center rounded-lg border border-border-main/40 hover:border-border-main hover:bg-bg-main transition-all duration-200 focus:outline-none cursor-pointer group"
+          >
+            <span className="absolute block h-[1.5px] w-3.5 rounded-full bg-text-muted rotate-45" />
+            <span className="absolute block h-[1.5px] w-3.5 rounded-full bg-text-muted -rotate-45" />
+          </button>
         </div>
-      </div>
+
+        {/* ── Nav items ── */}
+        <nav className="relative flex-1 overflow-y-auto px-4 py-5">
+
+          {/* Section label — single, plain, not repeated per-item */}
+          <p className="text-xs font-medium text-text-muted px-2 mb-3 uppercase tracking-widest">Explore</p>
+
+          <ul className="space-y-0.5">
+            {moreLinks.map((link) => {
+              const isActive = location.pathname === link.path;
+              return (
+                <li key={link.label}>
+                  <Link
+                    to={link.path}
+                    onClick={close}
+                    className={`drawer-item group flex items-center gap-3 rounded-xl px-3 py-3 transition-all duration-200 ${
+                      isActive
+                        ? "bg-accent-blue/10 text-accent-blue"
+                        : "text-text-main hover:bg-bg-main"
+                    }`}
+                  >
+                    <div className="flex-1 min-w-0">
+                      <p className={`text-sm font-semibold leading-tight ${isActive ? "text-accent-blue" : "text-text-main"}`}>
+                        {link.label}
+                      </p>
+                      <p className="text-xs text-text-muted mt-0.5 leading-tight truncate">{link.desc}</p>
+                    </div>
+                    <ArrowUpRight
+                      className={`w-3.5 h-3.5 shrink-0 transition-all duration-200 ${
+                        isActive
+                          ? "text-accent-blue"
+                          : "text-text-muted/40 group-hover:text-text-muted group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                      }`}
+                    />
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+
+        {/* ── Footer CTA ── */}
+        <div className="drawer-footer relative px-4 pb-7 pt-4 border-t border-border-main/20 space-y-2.5">
+          <a
+            href="tel:+919948432444"
+            className="flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-accent-blue text-sm font-bold text-white transition-all duration-200 hover:bg-accent-blue/90 hover:scale-[1.01] active:scale-[0.98] cursor-pointer"
+          >
+            <Phone className="h-4 w-4 stroke-[2]" />
+            Call Now
+          </a>
+          <p className="text-center text-xs text-text-muted tracking-wide">
+            +91 99484 32444
+          </p>
+        </div>
+      </aside>
     </>
   );
 }
+

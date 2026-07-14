@@ -10,19 +10,19 @@ import {
 
 const carouselItems = [
   {
-    image: "/assets/industrial-automation-overview.jpg",
+    image: "/assets/industrial-automation-overview.webp",
   },
   {
-    image: "/assets/industrial-cybersecurity.jpg",
+    image: "/assets/industrial-cybersecurity.webp",
   },
   {
-    image: "/assets/electrical-design.jpg",
+    image: "/assets/electrical-design.webp",
   },
   {
-    image: "/assets/system-integration.jpg",
+    image: "/assets/system-integration.webp",
   },
   {
-    image: "/assets/smart-interior.png",
+    image: "/assets/smart-interior.webp",
   },
 ];
 

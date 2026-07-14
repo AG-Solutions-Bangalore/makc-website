@@ -1,22 +1,22 @@
 import { useState, useEffect } from "react";
-import { 
-  Shield, 
-  Bell, 
-  Users, 
-  CheckCircle2, 
-  Activity, 
-  Volume2, 
-  Camera, 
-  Settings, 
-  Flame, 
-  Moon, 
-  Eye, 
-  Unlock, 
+import {
+  Shield,
+  Bell,
+  Users,
+  CheckCircle2,
+  Activity,
+  Volume2,
+  Camera,
+  Settings,
+  Flame,
+  Moon,
+  Eye,
+  Unlock,
   Sparkles,
   ShieldAlert,
   BellRing,
   Smartphone,
-  CalendarClock
+  CalendarClock,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -29,30 +29,39 @@ import {
 } from "@/components/ui/accordion";
 
 // Import shared common components
-import SolutionHero from "@/components/common/SolutionHero";
 import OneTouchSection from "@/components/common/OneTouchSection";
 import TrendingCarousel from "@/components/common/TrendingCarousel";
 import ConnectBanner from "@/components/common/ConnectBanner";
 
+// Import module-specific components
+import SecurityHero from "../components/SecurityHero";
+import WhatIsSecurity from "../components/WhatIsSecurity";
+import SensorBasedProtection from "../components/SensorBasedProtection";
+import CCTVMonitoringSection from "../components/CCTVMonitoringSection";
+import SmartSecurityModes from "../components/SmartSecurityModes";
+
 // Import images
-import serviceSecurityImg from "@/assets/images/home_v2/service_security.png";
-import whyChooseUsImg from "@/assets/images/home_v2/why_choose_us.png";
-import villaNightImg from "@/assets/images/home_v2/contact_villa_night.png";
-import projectVillasImg from "@/assets/images/home_v2/project_villas.png";
-import projectApartmentsImg from "@/assets/images/home_v2/project_apartments.png";
-import projectFarmhousesImg from "@/assets/images/home_v2/project_farmhouses.png";
-import projectPenthousesImg from "@/assets/images/home_v2/project_penthouses.png";
-import projectCommercialImg from "@/assets/images/home_v2/project_commercial.png";
+// import serviceSecurityImg from "@/assets/images/home_v2/service_security.webp";
+import whyChooseUsImg from "@/assets/images/home_v2/why_choose_us.webp";
+import villaNightImg from "@/assets/images/home_v2/contact_villa_night.webp";
+import projectVillasImg from "@/assets/images/home_v2/project_villas.webp";
+import projectApartmentsImg from "@/assets/images/home_v2/project_apartments.webp";
+import projectFarmhousesImg from "@/assets/images/home_v2/project_farmhouses.webp";
+import projectPenthousesImg from "@/assets/images/home_v2/project_penthouses.webp";
+import projectCommercialImg from "@/assets/images/home_v2/project_commercial.webp";
 
 import useSEO from "@/hooks/useSEO";
 
 export default function SecurityPage() {
   useSEO({
     title: "Home Security System Bangalore | MAKc Automation",
-    description: "Secure your home with advanced security systems from MAKc Automation, including smart door locks, CCTV cameras, gas leakage detection systems, and more.",
-    keywords: "home security system bangalore, home security camera system, digital door locks",
+    description:
+      "Secure your home with advanced security systems from MAKc Automation, including smart door locks, CCTV cameras, gas leakage detection systems, and more.",
+    keywords:
+      "home security system bangalore, home security camera system, digital door locks",
     canonicalUrl: "https://makcautomations.com/index.php/security/",
-    robots: "INDEX, FOLLOW, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1, MAX-IMAGE-PREVIEW:LARGE",
+    robots:
+      "INDEX, FOLLOW, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1, MAX-IMAGE-PREVIEW:LARGE",
   });
 
   const [activeCam, setActiveCam] = useState(0);
@@ -62,7 +71,9 @@ export default function SecurityPage() {
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      setTimeString(now.toLocaleTimeString() + " - " + now.toLocaleDateString());
+      setTimeString(
+        now.toLocaleTimeString() + " - " + now.toLocaleDateString(),
+      );
     };
     updateTime();
     const interval = setInterval(updateTime, 1000);
@@ -70,10 +81,30 @@ export default function SecurityPage() {
   }, []);
 
   const cameraFeeds = [
-    { id: 0, name: "CAM-01: Main Entrance Gate", status: "Live Feed", image: villaNightImg },
-    { id: 1, name: "CAM-02: Backyard & Perimeter", status: "Infrared Active", image: whyChooseUsImg },
-    { id: 2, name: "CAM-03: Living Room Zone A", status: "No Motion", image: projectVillasImg },
-    { id: 3, name: "CAM-04: Driveway & Garage", status: "Live Feed", image: projectCommercialImg },
+    {
+      id: 0,
+      name: "CAM-01: Main Entrance Gate",
+      status: "Live Feed",
+      image: villaNightImg,
+    },
+    {
+      id: 1,
+      name: "CAM-02: Backyard & Perimeter",
+      status: "Infrared Active",
+      image: whyChooseUsImg,
+    },
+    {
+      id: 2,
+      name: "CAM-03: Living Room Zone A",
+      status: "No Motion",
+      image: projectVillasImg,
+    },
+    {
+      id: 3,
+      name: "CAM-04: Driveway & Garage",
+      status: "Live Feed",
+      image: projectCommercialImg,
+    },
   ];
 
   const oneTouchItems = [
@@ -81,13 +112,15 @@ export default function SecurityPage() {
       title: "Simplify All Your Daily Routine Tasks",
       desc: "With a single click, manage your lights, thermostats, and more, streamlining your daily chores.",
       icon: Sparkles,
-      iconColorClass: "text-accent-blue bg-accent-blue/10 border-accent-blue/20",
+      iconColorClass:
+        "text-accent-blue bg-accent-blue/10 border-accent-blue/20",
     },
     {
       title: "Remain Stress-Free",
       desc: "Monitor your devices from anywhere, anytime, ensuring that your home is always secure and energy-efficient.",
       icon: CheckCircle2,
-      iconColorClass: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20",
+      iconColorClass:
+        "text-emerald-500 bg-emerald-500/10 border-emerald-500/20",
     },
     {
       title: "Your Security is Our Priority",
@@ -147,43 +180,43 @@ export default function SecurityPage() {
   ];
 
   return (
-    <div className="pt-24 lg:pt-32 pb-16 min-h-screen bg-bg-main text-text-main overflow-hidden transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* REUSABLE HERO SECTION */}
-        <SolutionHero 
-          badgeText="#1 Choice for Home Automation"
-          badgeIcon={Shield}
-          headingNormal="Security System"
-          headingHighlighted="Home - Commercial"
-          subtitle="Security isn't just about cameras - it's about knowing your home or business is protected, even when you're not there. With professionally designed smart home and commercial security systems in Bangalore, MAKc Automation helps you monitor, control, and secure your residential and commercial spaces from anywhere."
-          imageSrc={serviceSecurityImg}
-          imageTag="System Armed"
-          imageTitle="MAKc Alarm Ecosystem"
-          imageDesc="Multi-layered smart hardware including motion modules, window triggers, and carbon alarms."
-          formTitle="Request Security Audit"
-          formSubtitle="Provide your coordinates to schedule a free vulnerability assessment."
-          formButtonText="Secure My Home"
-          formToastMessage="Security consultation requested. Our safety specialist will call you shortly."
-        />
+    <div className="min-h-screen bg-bg-main text-text-main overflow-hidden transition-colors duration-300">
+      {/* CUSTOM HERO SECTION */}
+      <SecurityHero />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24 pb-16">
+        {/* WHAT IS SECURITY SYSTEM SECTION */}
+        <WhatIsSecurity />
+
+        {/* CCTV & VIDEO MONITORING SECTION */}
+        <CCTVMonitoringSection />
+
+        {/* SENSOR-BASED PROTECTION SECTION */}
+        <SensorBasedProtection />
+
+        {/* SMART SECURITY MODES SECTION */}
+        <SmartSecurityModes />
 
         {/* CAMERA SYSTEM & DOOR LOCKS */}
         <section className="border-t border-border-main/50 pt-20 mb-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            
             <div className="lg:col-span-5">
-              <span className="text-accent-blue text-xs font-bold uppercase tracking-widest block mb-3">Surveillance & Control</span>
+              <span className="text-accent-blue text-xs font-bold uppercase tracking-widest block mb-3">
+                Surveillance & Control
+              </span>
               <h2 className="text-4xl sm:text-5xl font-serif font-bold tracking-tight text-text-main mb-6 leading-tight">
                 Easy Control and Monitoring
               </h2>
               <p className="text-text-muted text-base leading-relaxed mb-6 font-medium">
-                Unlock the power of seamless control and vigilant monitoring with our Home Security System in Bangalore. Gain peace of mind knowing that your home is secure no matter where you are.
+                Unlock the power of seamless control and vigilant monitoring
+                with our Home Security System in Bangalore. Gain peace of mind
+                knowing that your home is secure no matter where you are.
               </p>
-              
+
               <div className="rounded-3xl overflow-hidden border border-border-main aspect-video bg-bg-surface relative group">
-                <img 
-                  src={whyChooseUsImg} 
-                  alt="Monitoring room integration" 
+                <img
+                  src={whyChooseUsImg}
+                  alt="Monitoring room integration"
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-102 transition-transform duration-750"
                 />
                 <div className="absolute inset-0 bg-black/30" />
@@ -191,16 +224,19 @@ export default function SecurityPage() {
             </div>
 
             <div className="lg:col-span-7 space-y-6">
-              
               {/* Point 1 */}
               <div className="bg-bg-surface border border-border-main rounded-3xl p-6 sm:p-8 flex gap-5 items-start transition-all hover:border-accent-blue/10">
                 <div className="w-12 h-12 rounded-full border border-border-main bg-bg-main flex items-center justify-center text-accent-blue shrink-0 apple-border-shine">
                   <Unlock className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-serif font-bold text-text-main mb-2">Unlock Your Doors From Anywhere</h3>
+                  <h3 className="text-lg font-serif font-bold text-text-main mb-2">
+                    Unlock Your Doors From Anywhere
+                  </h3>
                   <p className="text-sm text-text-muted leading-relaxed">
-                    Remotely control your door locks from anywhere in the world. Provide instant access to surprise visitors and your loved ones, ensuring your home is always welcoming and secure.
+                    Remotely control your door locks from anywhere in the world.
+                    Provide instant access to surprise visitors and your loved
+                    ones, ensuring your home is always welcoming and secure.
                   </p>
                 </div>
               </div>
@@ -211,9 +247,13 @@ export default function SecurityPage() {
                   <Bell className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-serif font-bold text-text-main mb-2">Instant Alerts and Notifications</h3>
+                  <h3 className="text-lg font-serif font-bold text-text-main mb-2">
+                    Instant Alerts and Notifications
+                  </h3>
                   <p className="text-sm text-text-muted leading-relaxed">
-                    Receive immediate alerts on your mobile device in case of any security breach. Take swift action with instant alarms, allowing you to respond promptly.
+                    Receive immediate alerts on your mobile device in case of
+                    any security breach. Take swift action with instant alarms,
+                    allowing you to respond promptly.
                   </p>
                 </div>
               </div>
@@ -224,36 +264,45 @@ export default function SecurityPage() {
                   <Users className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-serif font-bold text-text-main mb-2">Talk to your guests from anywhere</h3>
+                  <h3 className="text-lg font-serif font-bold text-text-main mb-2">
+                    Talk to your guests from anywhere
+                  </h3>
                   <p className="text-sm text-text-muted leading-relaxed">
-                    Stay connected with your home no matter where you are in the world. Communicate with your guests, instruct delivery personnel, and deter suspicious individuals easily.
+                    Stay connected with your home no matter where you are in the
+                    world. Communicate with your guests, instruct delivery
+                    personnel, and deter suspicious individuals easily.
                   </p>
                 </div>
               </div>
-
             </div>
-
           </div>
         </section>
 
         {/* FINGERTIPS GRID (4 GRID CARDS) */}
         <section className="mb-24">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-accent-blue text-xs font-bold uppercase tracking-widest block mb-3">Total Operations</span>
-            <h2 className="text-4xl font-serif font-bold tracking-tight text-text-main">Control your Home at your fingertips</h2>
+            <span className="text-accent-blue text-xs font-bold uppercase tracking-widest block mb-3">
+              Total Operations
+            </span>
+            <h2 className="text-4xl font-serif font-bold tracking-tight text-text-main">
+              Control your Home at your fingertips
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            
             {/* Card 1: Detectors */}
             <div className="bg-bg-surface border border-border-main p-6 sm:p-8 rounded-3xl flex flex-col justify-between transition-all hover:-translate-y-1 shadow-md">
               <div>
                 <div className="w-12 h-12 rounded-full border border-border-main bg-bg-main flex items-center justify-center text-accent-blue mb-6 apple-border-shine">
                   <Activity className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-serif font-bold text-text-main mb-3">Detectors</h3>
+                <h3 className="text-xl font-serif font-bold text-text-main mb-3">
+                  Detectors
+                </h3>
                 <p className="text-xs text-text-muted leading-relaxed">
-                  Including motion detectors, door-opening detectors, and glass-breaking detectors, as well as smoke, temperature, and leakage detectors.
+                  Including motion detectors, door-opening detectors, and
+                  glass-breaking detectors, as well as smoke, temperature, and
+                  leakage detectors.
                 </p>
               </div>
             </div>
@@ -264,9 +313,13 @@ export default function SecurityPage() {
                 <div className="w-12 h-12 rounded-full border border-border-main bg-bg-main flex items-center justify-center text-accent-blue mb-6 apple-border-shine">
                   <Volume2 className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-serif font-bold text-text-main mb-3">Sirens</h3>
+                <h3 className="text-xl font-serif font-bold text-text-main mb-3">
+                  Sirens
+                </h3>
                 <p className="text-xs text-text-muted leading-relaxed">
-                  Our high-volume, dust and moisture-resistant sirens provide effective audible alerts. Choose from indoor, street, or outdoor sirens for added security.
+                  Our high-volume, dust and moisture-resistant sirens provide
+                  effective audible alerts. Choose from indoor, street, or
+                  outdoor sirens for added security.
                 </p>
               </div>
             </div>
@@ -277,9 +330,12 @@ export default function SecurityPage() {
                 <div className="w-12 h-12 rounded-full border border-border-main bg-bg-main flex items-center justify-center text-accent-blue mb-6 apple-border-shine">
                   <Camera className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-serif font-bold text-text-main mb-3">CCTV Cameras</h3>
+                <h3 className="text-xl font-serif font-bold text-text-main mb-3">
+                  CCTV Cameras
+                </h3>
                 <p className="text-xs text-text-muted leading-relaxed">
-                  Experience high-quality surveillance with our CCTV cameras, delivering complete HD video monitoring for your home.
+                  Experience high-quality surveillance with our CCTV cameras,
+                  delivering complete HD video monitoring for your home.
                 </p>
               </div>
             </div>
@@ -290,34 +346,43 @@ export default function SecurityPage() {
                 <div className="w-12 h-12 rounded-full border border-border-main bg-bg-main flex items-center justify-center text-accent-blue mb-6 apple-border-shine">
                   <Settings className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-serif font-bold text-text-main mb-3">Control Panel</h3>
+                <h3 className="text-xl font-serif font-bold text-text-main mb-3">
+                  Control Panel
+                </h3>
                 <p className="text-xs text-text-muted leading-relaxed">
-                  Our complete monitoring and easy-to-use wireless control panel and our mobile app give you seamless control over your home security.
+                  Our complete monitoring and easy-to-use wireless control panel
+                  and our mobile app give you seamless control over your home
+                  security.
                 </p>
               </div>
             </div>
-
           </div>
         </section>
 
         {/* MONITORING 24x7 & INTERACTIVE CCTV FEED */}
         <section className="bg-bg-surface/30 border-y border-border-main/50 py-20 mb-24 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
             <div className="lg:col-span-5 space-y-6">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full border border-border-main bg-accent-blue/10 flex items-center justify-center text-accent-blue apple-border-shine">
                   <Eye className="w-5 h-5" />
                 </div>
-                <span className="text-accent-blue text-xs font-bold uppercase tracking-widest">Real-Time Vigilance</span>
+                <span className="text-accent-blue text-xs font-bold uppercase tracking-widest">
+                  Real-Time Vigilance
+                </span>
               </div>
               <h2 className="text-4xl font-serif font-bold tracking-tight text-text-main leading-tight">
                 Monitoring 24×7
               </h2>
               <p className="text-sm text-text-muted leading-relaxed">
-                Our home security devices are equipped with night vision cameras, ensuring 24/7 monitoring of your home. Video doorbells with built-in motion detection sensors alert you to any suspicious activity at your main door. You can also integrate third-party devices to activate lights when detecting motion, enhancing your security.
+                Our home security devices are equipped with night vision
+                cameras, ensuring 24/7 monitoring of your home. Video doorbells
+                with built-in motion detection sensors alert you to any
+                suspicious activity at your main door. You can also integrate
+                third-party devices to activate lights when detecting motion,
+                enhancing your security.
               </p>
-              
+
               <div className="pt-4 border-t border-border-main/50 space-y-3">
                 <div className="flex items-center gap-2 text-xs font-semibold text-text-main">
                   <CheckCircle2 className="w-4.5 h-4.5 text-accent-blue" />
@@ -333,32 +398,37 @@ export default function SecurityPage() {
             {/* Interactive CCTV dashboard */}
             <div className="lg:col-span-7">
               <div className="bg-black border border-white/10 rounded-3xl p-4 sm:p-6 shadow-2xl font-mono text-white/80 select-none">
-                
                 {/* Header info bar */}
                 <div className="flex flex-wrap items-center justify-between gap-4 mb-4 pb-4 border-b border-white/10 text-xs">
                   <div className="flex items-center gap-2">
-                    <span className={`w-2.5 h-2.5 rounded-full bg-red-600 ${isRecording ? "animate-pulse" : ""}`} />
-                    <span className="font-bold tracking-wider text-white">SYSTEM MON-04</span>
+                    <span
+                      className={`w-2.5 h-2.5 rounded-full bg-red-600 ${isRecording ? "animate-pulse" : ""}`}
+                    />
+                    <span className="font-bold tracking-wider text-white">
+                      SYSTEM MON-04
+                    </span>
                   </div>
                   <div className="text-[10px] text-white/50">{timeString}</div>
                 </div>
 
                 {/* Main active feed screen */}
                 <div className="relative rounded-2xl overflow-hidden aspect-video bg-neutral-900 border border-white/10 mb-4 group">
-                  <img 
-                    src={cameraFeeds[activeCam].image} 
-                    alt="Active Security Camera Feed" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102 filter grayscale brightness-90 contrast-110" 
+                  <img
+                    src={cameraFeeds[activeCam].image}
+                    alt="Active Security Camera Feed"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102 filter grayscale brightness-90 contrast-110"
                   />
                   <div className="absolute inset-0 bg-cyan-500/5 mix-blend-overlay" />
-                  
+
                   {/* CCTV Scan Lines Overlay */}
                   <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[size:100%_4px,3px_100%] opacity-40" />
 
                   {/* Feed Status overlay */}
                   <div className="absolute top-4 left-4 bg-black/60 px-3 py-1 rounded border border-white/10 backdrop-blur-md text-[10px] flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-ping" />
-                    <span className="text-white uppercase font-bold tracking-wider">{cameraFeeds[activeCam].status}</span>
+                    <span className="text-white uppercase font-bold tracking-wider">
+                      {cameraFeeds[activeCam].status}
+                    </span>
                   </div>
 
                   <div className="absolute top-4 right-4 bg-black/60 px-2.5 py-1 rounded border border-white/10 backdrop-blur-md text-[9px] text-white/70">
@@ -366,7 +436,9 @@ export default function SecurityPage() {
                   </div>
 
                   <div className="absolute bottom-4 left-4 right-4 bg-black/70 p-3 rounded-lg border border-white/10 backdrop-blur-md flex justify-between items-center text-[10px]">
-                    <span className="font-bold text-white uppercase">{cameraFeeds[activeCam].name}</span>
+                    <span className="font-bold text-white uppercase">
+                      {cameraFeeds[activeCam].name}
+                    </span>
                     <span className="text-white/50">SECURE LINK V2</span>
                   </div>
                 </div>
@@ -380,17 +452,19 @@ export default function SecurityPage() {
                         key={feed.id}
                         onClick={() => setActiveCam(feed.id)}
                         className={`relative rounded-xl overflow-hidden aspect-[4/3] border text-left cursor-pointer transition-all ${
-                          isActive 
-                            ? "border-accent-blue ring-1 ring-accent-blue" 
+                          isActive
+                            ? "border-accent-blue ring-1 ring-accent-blue"
                             : "border-white/10 hover:border-white/30"
                         }`}
                       >
-                        <img 
-                          src={feed.image} 
-                          alt={feed.name} 
-                          className="w-full h-full object-cover filter grayscale contrast-125" 
+                        <img
+                          src={feed.image}
+                          alt={feed.name}
+                          className="w-full h-full object-cover filter grayscale contrast-125"
                         />
-                        <div className={`absolute inset-0 transition-colors ${isActive ? "bg-accent-blue/10" : "bg-black/40 hover:bg-black/20"}`} />
+                        <div
+                          className={`absolute inset-0 transition-colors ${isActive ? "bg-accent-blue/10" : "bg-black/40 hover:bg-black/20"}`}
+                        />
                         <div className="absolute bottom-1.5 left-1.5 right-1.5 bg-black/60 px-1 py-0.5 rounded text-[8px] truncate text-white/80">
                           CAM-0{feed.id + 1}
                         </div>
@@ -398,22 +472,20 @@ export default function SecurityPage() {
                     );
                   })}
                 </div>
-
               </div>
             </div>
-
           </div>
         </section>
 
         {/* REUSABLE ONE-TOUCH GRID */}
-        <OneTouchSection 
+        <OneTouchSection
           title="Enjoy One-Touch Control of Everyday Life"
           subtitle="MAKc Automation offers Smart Home Devices that aim to make your life easier, safer and more enjoyable. Elevate your daily routine with these devices."
           items={oneTouchItems}
         />
 
         {/* REUSABLE TRENDING CAROUSEL */}
-        <TrendingCarousel 
+        <TrendingCarousel
           title="Trending smart security tech"
           brandLabel="MAKc Secure"
           products={trendingSecurity}
@@ -422,27 +494,36 @@ export default function SecurityPage() {
         {/* INTRUDER & FIRE PROTECTION */}
         <section className="mb-24">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            
             {/* Card A: Protection from Intruder */}
             <div className="bg-bg-surface border border-border-main p-8 sm:p-10 rounded-3xl flex flex-col justify-between transition-all hover:border-accent-blue/15 shadow-md">
               <div>
                 <div className="w-12 h-12 rounded-full border border-border-main bg-bg-main flex items-center justify-center text-accent-blue mb-6 apple-border-shine">
                   <Shield className="w-5 h-5" />
                 </div>
-                <h3 className="text-2xl font-serif font-bold text-text-main mb-4">Protection from Intruder</h3>
+                <h3 className="text-2xl font-serif font-bold text-text-main mb-4">
+                  Protection from Intruder
+                </h3>
                 <p className="text-sm text-text-muted leading-relaxed mb-6">
-                  We use renowned brand sensors to identify threats and trigger sirens and automatic lighting to deter intruders. Our indoor and outdoor security systems provide comprehensive protection.
+                  We use renowned brand sensors to identify threats and trigger
+                  sirens and automatic lighting to deter intruders. Our indoor
+                  and outdoor security systems provide comprehensive protection.
                 </p>
                 <div className="border-t border-border-main/50 pt-5">
-                  <h4 className="font-bold text-text-main mb-2 text-xs uppercase tracking-wider">Indoor Security Features</h4>
+                  <h4 className="font-bold text-text-main mb-2 text-xs uppercase tracking-wider">
+                    Indoor Security Features
+                  </h4>
                   <p className="text-xs text-text-muted leading-relaxed">
-                    Our indoor security features include motion detectors, window or door opening detectors, and window or door break detectors.
+                    Our indoor security features include motion detectors,
+                    window or door opening detectors, and window or door break
+                    detectors.
                   </p>
                 </div>
               </div>
               <div className="mt-8 pt-4 flex flex-wrap gap-4">
-                <button 
-                  onClick={() => toast.success("Simulated Event: Perimeter Armed")}
+                <button
+                  onClick={() =>
+                    toast.success("Simulated Event: Perimeter Armed")
+                  }
                   className="bg-accent-blue hover:bg-[#0055d4] text-white text-xs font-bold py-2.5 px-5 rounded-xl cursor-pointer transition-colors"
                 >
                   Configure Intruder Barriers
@@ -456,9 +537,16 @@ export default function SecurityPage() {
                 <div className="w-12 h-12 rounded-full border border-border-main bg-bg-main flex items-center justify-center text-accent-blue mb-6 apple-border-shine">
                   <Flame className="w-5 h-5" />
                 </div>
-                <h3 className="text-2xl font-serif font-bold text-text-main mb-4">Protect Against Signs of Fire</h3>
+                <h3 className="text-2xl font-serif font-bold text-text-main mb-4">
+                  Protect Against Signs of Fire
+                </h3>
                 <p className="text-sm text-text-muted leading-relaxed mb-6">
-                  Our intelligent sensors can detect fire signs, such as smoke, increased carbon dioxide levels, or a rapid temperature rise. Our system activates alarms to notify you promptly when a threat is identified. Sensors are smart enough to assess the severity of smoke or temperature and trigger warnings accordingly.
+                  Our intelligent sensors can detect fire signs, such as smoke,
+                  increased carbon dioxide levels, or a rapid temperature rise.
+                  Our system activates alarms to notify you promptly when a
+                  threat is identified. Sensors are smart enough to assess the
+                  severity of smoke or temperature and trigger warnings
+                  accordingly.
                 </p>
                 <div className="border-t border-border-main/50 pt-5">
                   <div className="flex items-center gap-2 text-xs font-bold text-accent-blue tracking-wide uppercase">
@@ -466,44 +554,55 @@ export default function SecurityPage() {
                     <span>Night Guard Preset</span>
                   </div>
                   <p className="text-xs text-text-muted leading-relaxed mt-2">
-                    Activate specific sensors and detectors for a secure night’s sleep.
+                    Activate specific sensors and detectors for a secure night’s
+                    sleep.
                   </p>
                 </div>
               </div>
               <div className="mt-8 pt-4">
                 <button
                   onClick={() => {
-                    toast.success("Night Mode Guard Activated. Select sensors configured.");
+                    toast.success(
+                      "Night Mode Guard Activated. Select sensors configured.",
+                    );
                   }}
                   className="w-full bg-bg-main border border-border-main hover:border-accent-blue text-text-main hover:text-accent-blue text-xs font-bold py-3 px-6 rounded-xl cursor-pointer transition-all"
                 >
                   Activate Night Mode Sensors
                 </button>
                 <p className="text-[10px] text-text-muted mt-3 text-center">
-                  With our Home Security System in Bangalore, safeguarding your home is no longer a concern. Experience advanced security, control, and peace of mind with MAKc Automation. Your security is our promise.
+                  With our Home Security System in Bangalore, safeguarding your
+                  home is no longer a concern. Experience advanced security,
+                  control, and peace of mind with MAKc Automation. Your security
+                  is our promise.
                 </p>
               </div>
             </div>
-
           </div>
         </section>
 
         {/* SMART SECURITY SOLUTIONS ACCORDION */}
         <section className="mb-24 max-w-4xl mx-auto border-t border-border-main/50 pt-20">
           <div className="text-center mb-12">
-            <span className="text-accent-blue text-xs font-bold uppercase tracking-widest block mb-3">Presets & Solutions</span>
-            <h2 className="text-4xl font-serif font-bold tracking-tight text-text-main mb-4">Smart Home Security Solution</h2>
+            <span className="text-accent-blue text-xs font-bold uppercase tracking-widest block mb-3">
+              Presets & Solutions
+            </span>
+            <h2 className="text-4xl font-serif font-bold tracking-tight text-text-main mb-4">
+              Smart Home Security Solution
+            </h2>
           </div>
 
           <div className="bg-bg-surface/50 border border-border-main rounded-3xl p-6 sm:p-8">
             <Accordion type="single" collapsible className="w-full">
-              
               <AccordionItem value="sec-1" className="border-border-main/50">
                 <AccordionTrigger className="text-base font-semibold text-text-main hover:text-accent-blue hover:no-underline py-5 text-left">
                   Schedule Night Mode
                 </AccordionTrigger>
                 <AccordionContent className="text-sm text-text-muted leading-relaxed pb-5">
-                  Automatically configure perimeter sensors to active state while shutting down interior motion sensors. Enables full security barrier protection during night sleep while allowing occupancy movement in bedrooms.
+                  Automatically configure perimeter sensors to active state
+                  while shutting down interior motion sensors. Enables full
+                  security barrier protection during night sleep while allowing
+                  occupancy movement in bedrooms.
                 </AccordionContent>
               </AccordionItem>
 
@@ -512,7 +611,9 @@ export default function SecurityPage() {
                   Spot the Trespassers
                 </AccordionTrigger>
                 <AccordionContent className="text-sm text-text-muted leading-relaxed pb-5">
-                  Our advanced AI-infused camera systems detect human shapes, filtering out neighborhood pets, swaying foliage, or wind debris to reduce false warning counts.
+                  Our advanced AI-infused camera systems detect human shapes,
+                  filtering out neighborhood pets, swaying foliage, or wind
+                  debris to reduce false warning counts.
                 </AccordionContent>
               </AccordionItem>
 
@@ -521,7 +622,9 @@ export default function SecurityPage() {
                   Schedule Vacation Mode
                 </AccordionTrigger>
                 <AccordionContent className="text-sm text-text-muted leading-relaxed pb-5">
-                  Activates simulation sequences, randomly flipping lights and playing audio logs to make the property appear occupied while you are away, complemented by continuous push alarms.
+                  Activates simulation sequences, randomly flipping lights and
+                  playing audio logs to make the property appear occupied while
+                  you are away, complemented by continuous push alarms.
                 </AccordionContent>
               </AccordionItem>
 
@@ -530,20 +633,21 @@ export default function SecurityPage() {
                   Fire Protection
                 </AccordionTrigger>
                 <AccordionContent className="text-sm text-text-muted leading-relaxed pb-5">
-                  Links smart smoke modules, carbon oxide monitors, and temperature threshold sensors. Upon fire signs, it rings local sirens, shuts main gas gates, unlocks exit paths, and notifies emergency cascades.
+                  Links smart smoke modules, carbon oxide monitors, and
+                  temperature threshold sensors. Upon fire signs, it rings local
+                  sirens, shuts main gas gates, unlocks exit paths, and notifies
+                  emergency cascades.
                 </AccordionContent>
               </AccordionItem>
-
             </Accordion>
           </div>
         </section>
 
         {/* REUSABLE BANNER CTA */}
-        <ConnectBanner 
+        <ConnectBanner
           title="Connect With Us"
           description="Our safety engineers are ready to design your home security systems. Contact us via phone or email for pricing options."
         />
-
       </div>
     </div>
   );

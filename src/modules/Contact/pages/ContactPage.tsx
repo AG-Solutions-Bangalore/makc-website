@@ -5,15 +5,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Phone,
   Mail,
-  Facebook,
-  Linkedin,
-  Instagram,
   ArrowRight,
   Loader2,
   MapPin,
+  ChevronDown,
 } from "lucide-react";
 import { toast } from "sonner";
-import bgImage from "@/assets/images/home_v2/contact_villa_night.png";
+import bgImage from "@/assets/images/home_v2/contact_villa_night.webp";
 
 // Custom Google Plus SVG to match legacy requirement
 function GooglePlusIcon({ className = "w-5 h-5" }: { className?: string }) {
@@ -29,10 +27,39 @@ function GooglePlusIcon({ className = "w-5 h-5" }: { className?: string }) {
   );
 }
 
+// Local SVG icon components to bypass lucide-react brand icons removal
+function Facebook({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+    </svg>
+  );
+}
+
+function Linkedin({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect x="2" y="9" width="4" height="12" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  );
+}
+
+function Instagram({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </svg>
+  );
+}
+
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   phone: z.string().min(8, "Valid phone number is required"),
-  subject: z.string().min(3, "Subject must be at least 3 characters"),
+  subject: z.string().min(1, "Please select a service"),
   message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
@@ -175,13 +202,36 @@ export default function ContactPage() {
                 >
                   Subject
                 </label>
-                <input
-                  {...register("subject")}
-                  type="text"
-                  id="subject"
-                  className="w-full bg-bg-main/30 border border-border-main/70 focus:border-accent-blue focus:ring-4 focus:ring-accent-blue/10 rounded-xl px-4 py-3 text-text-main transition-all duration-300 outline-none text-sm shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]"
-                  placeholder="How can we help?"
-                />
+                <div className="relative">
+                  <select
+                    {...register("subject")}
+                    id="subject"
+                    className="w-full bg-bg-main/30 border border-border-main/70 focus:border-accent-blue focus:ring-4 focus:ring-accent-blue/10 rounded-xl px-4 py-3 text-text-main transition-all duration-300 outline-none text-sm shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] appearance-none cursor-pointer pr-10"
+                    defaultValue=""
+                  >
+                    <option value="" disabled className="bg-bg-surface text-text-muted">
+                      Select a service...
+                    </option>
+                    <option value="Automation" className="bg-bg-surface text-text-main">
+                      Automation
+                    </option>
+                    <option value="Security" className="bg-bg-surface text-text-main">
+                      Security
+                    </option>
+                    <option value="Lighting" className="bg-bg-surface text-text-main">
+                      Lighting
+                    </option>
+                    <option value="Networking" className="bg-bg-surface text-text-main">
+                      Networking
+                    </option>
+                    <option value="General Inquiry" className="bg-bg-surface text-text-main">
+                      General Inquiry
+                    </option>
+                  </select>
+                  <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-text-muted">
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
+                </div>
                 {errors.subject && (
                   <p
                     role="alert"
