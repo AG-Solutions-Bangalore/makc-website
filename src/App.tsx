@@ -1,8 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/common/Layout";
-// Lazy load HomeV2Page to separate it from the core vendor bundle
-const HomeV2Page = lazy(() => import("./modules/HomeV2/pages/HomeV2Page"));
+import HomeV2Page from "./modules/HomeV2/pages/HomeV2Page";
 
 // Lazy load secondary pages to shrink the initial JS bundle
 const HomePage = lazy(() => import("./modules/Home/pages/HomePage"));

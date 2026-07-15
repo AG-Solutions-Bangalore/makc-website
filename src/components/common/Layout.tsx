@@ -1,12 +1,10 @@
 import { Toaster } from "@/components/ui/sonner";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { useEffect, Suspense, lazy } from "react";
+import { useEffect, Suspense } from "react";
 import { Outlet, useLocation } from "react-router";
+import Footer from "../layouts/footer/Footer";
 import Header from "../layouts/navbar/Header";
-
-// Lazy load layout components that are visually below-the-fold or non-essential for initial frame paint
-const Footer = lazy(() => import("../layouts/footer/Footer"));
-const FloatingActionGroup = lazy(() => import("./FloatingActionGroup"));
+import FloatingActionGroup from "./FloatingActionGroup";
 
 export default function Layout() {
   const location = useLocation();
@@ -46,12 +44,8 @@ export default function Layout() {
           <Outlet />
         </Suspense>
       </main>
-      <Suspense fallback={null}>
-        <Footer />
-      </Suspense>
-      <Suspense fallback={null}>
-        <FloatingActionGroup />
-      </Suspense>
+      <Footer />
+      <FloatingActionGroup />
       <Toaster />
     </div>
   );
