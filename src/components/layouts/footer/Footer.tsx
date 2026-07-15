@@ -54,7 +54,7 @@ export default function Footer() {
                   href="/#solutions"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
-                  Home Automation
+                  Automation
                 </a>
               </li>
               <li>
@@ -70,14 +70,6 @@ export default function Footer() {
                   href="/#solutions"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
-                  Security
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/#solutions"
-                  className="hover:text-accent-blue transition-colors duration-200"
-                >
                   Networking
                 </a>
               </li>
@@ -86,7 +78,7 @@ export default function Footer() {
                   href="/#solutions"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
-                  Home Theatre
+                  Security
                 </a>
               </li>
               <li>
@@ -94,7 +86,7 @@ export default function Footer() {
                   href="/#solutions"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
-                  Energy Management
+                  Audio
                 </a>
               </li>
             </ul>
@@ -191,7 +183,7 @@ export default function Footer() {
           </div>
 
           {/* Column 5: Locations */}
-          <div className="flex flex-col text-left lg:px-6">
+          {/* <div className="flex flex-col text-left lg:px-6">
             <h4 className=" text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-6 select-none">
               Locations
             </h4>
@@ -217,7 +209,7 @@ export default function Footer() {
                 </span>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Column 6: Contact */}
           <div className="flex flex-col text-left lg:pl-6 lg:pr-0">

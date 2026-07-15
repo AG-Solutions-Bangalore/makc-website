@@ -15,6 +15,7 @@ import BlogPage from "./modules/Blogs/pages/BlogPage";
 import ExperiencePage from "./modules/Experience/pages/ExperiencePage";
 import WhyUsPage from "./modules/WhyUs/pages/WhyUsPage";
 import NotFound from "./components/common/NotFound";
+import TestPage from "./modules/Test/pages/TestPage";
 
 export default function App() {
   return (
@@ -38,6 +39,7 @@ export default function App() {
         <Route path="/experience" element={<ExperiencePage />} />
         <Route path="*" element={<NotFound />} />
       </Route>
+      <Route path="/test" element={<TestPage />} />
     </Routes>
   );
 }

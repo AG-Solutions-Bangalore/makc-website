@@ -61,7 +61,7 @@ export default function ElectricalAutomationSection() {
   return (
     <section ref={sectionRef} className="mb-28 no-reveal">
       {/* Premium indigo rounded container card */}
-      <div className="ea-card bg-[#3A4CB4] rounded-[2.5rem] relative overflow-hidden p-8 sm:p-12 lg:p-16 border border-[#5263d5]/20 shadow-2xl">
+      <div className="dark ea-card bg-[#3A4CB4] rounded-[2.5rem] relative overflow-hidden p-8 sm:p-12 lg:p-16 border border-[#5263d5]/20 shadow-2xl">
         
         {/* Faded watermark icon in the background */}
         <Lightbulb className="absolute -left-12 -bottom-12 w-96 h-96 text-white/5 pointer-events-none transform -rotate-12 select-none" />
@@ -73,10 +73,10 @@ export default function ElectricalAutomationSection() {
             
             {/* Title & Subtitle */}
             <div className="space-y-4">
-              <h2 className="ea-text-fade text-3.5xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-[1.1] font-sans">
+              <h2 className="ea-text-fade text-3.5xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white! leading-[1.1] font-sans">
                 Electrical Automation
               </h2>
-              <p className="ea-text-fade text-white/80 text-sm sm:text-base leading-relaxed font-normal">
+              <p className="ea-text-fade text-white/80! text-sm sm:text-base leading-relaxed font-normal">
                 Control your lighting and electrical systems with ease using touch panels, 
                 mobile apps, or voice commands.
               </p>

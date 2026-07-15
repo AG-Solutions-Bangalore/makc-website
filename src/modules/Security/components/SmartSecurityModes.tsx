@@ -63,7 +63,7 @@ export default function SmartSecurityModes() {
   return (
     <section ref={sectionRef} className="mb-28 no-reveal">
       {/* Premium indigo rounded container card */}
-      <div className="ssm-card bg-[#3A4CB4] rounded-[2.5rem] relative overflow-hidden p-10 sm:p-14 lg:p-16 border border-[#5263d5]/20 shadow-2xl text-center">
+      <div className="dark ssm-card bg-[#3A4CB4] rounded-[2.5rem] relative overflow-hidden p-10 sm:p-14 lg:p-16 border border-[#5263d5]/20 shadow-2xl text-center">
         
         {/* Decorative subtle ambient lights */}
         <div className="absolute top-0 left-1/4 w-72 h-72 bg-white/5 rounded-full blur-3xl pointer-events-none select-none" />

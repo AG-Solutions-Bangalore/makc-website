@@ -4,11 +4,10 @@ import StatsSectionV2 from "../sections/StatsSectionV2";
 import ServicesSectionV2 from "../sections/ServicesSectionV2";
 import ProjectsSection from "../sections/ProjectsSection";
 import PartnerLogosSection from "../sections/PartnerLogosSection";
-import ClientTestimonialsSection from "../sections/ClientTestimonialsSection";
+// import ClientTestimonialsSection from "../sections/ClientTestimonialsSection";
 import TestimonialsSection from "../sections/TestimonialsSection";
 import SmarterWaySection from "../sections/SmarterWaySection";
 import GetInTouchSection from "../sections/GetInTouchSection";
-import CtaSection from "../sections/CtaSection";
 import SolutionsGallery from "@/components/common/SolutionsGallery";
 
 export default function HomeV2Page() {
@@ -44,7 +43,7 @@ export default function HomeV2Page() {
       <SmarterWaySection />
 
       {/* V2 Client Testimonials Grid Section */}
-      <ClientTestimonialsSection />
+      {/* <ClientTestimonialsSection /> */}
 
       {/* V2 Testimonials Section */}
       <TestimonialsSection />
@@ -53,7 +52,7 @@ export default function HomeV2Page() {
       <GetInTouchSection />
 
       {/* V2 Call To Action Banner Section */}
-      <CtaSection />
+      {/* <CtaSection /> */}
     </div>
   );
 }

@@ -234,53 +234,53 @@
 
   /* Dynamic overrides to adapt legacy hardcoded white colors in light mode */
   :root:not(.dark) {
-    .text-white {
+    .text-white:not(.dark *, .dark, [class*="!text-white"]) {
       color: var(--text-main) !important;
     }
-    .text-white\/80 {
+    .text-white\/80:not(.dark *, .dark, [class*="!text-white/80"]) {
       color: color-mix(in srgb, var(--text-main) 80%, transparent) !important;
     }
-    .text-white\/65 {
+    .text-white\/65:not(.dark *, .dark, [class*="!text-white/65"]) {
       color: color-mix(in srgb, var(--text-main) 65%, transparent) !important;
     }
-    .text-white\/50 {
+    .text-white\/50:not(.dark *, .dark, [class*="!text-white/50"]) {
       color: color-mix(in srgb, var(--text-main) 50%, transparent) !important;
     }
-    .text-white\/95 {
+    .text-white\/95:not(.dark *, .dark, [class*="!text-white/95"]) {
       color: color-mix(in srgb, var(--text-main) 95%, transparent) !important;
     }
-    .hover\:text-white:hover {
+    .hover\:text-white:hover:not(.dark *, .dark, [class*="!text-white"]) {
       color: var(--text-main) !important;
     }
-    .border-white\/5 {
+    .border-white\/5:not(.dark *, .dark, [class*="!border-white/5"]) {
       border-color: color-mix(
         in srgb,
         var(--text-main) 5%,
         transparent
       ) !important;
     }
-    .border-white\/10 {
+    .border-white\/10:not(.dark *, .dark, [class*="!border-white/10"]) {
       border-color: color-mix(
         in srgb,
         var(--text-main) 10%,
         transparent
       ) !important;
     }
-    .bg-white\/5 {
+    .bg-white\/5:not(.dark *, .dark, [class*="!bg-white/5"]) {
       background-color: color-mix(
         in srgb,
         var(--text-main) 5%,
         transparent
       ) !important;
     }
-    .bg-white\/10 {
+    .bg-white\/10:not(.dark *, .dark, [class*="!bg-white/10"]) {
       background-color: color-mix(
         in srgb,
         var(--text-main) 10%,
         transparent
       ) !important;
     }
-    .hover\:bg-white\/10:hover {
+    .hover\:bg-white\/10:hover:not(.dark *, .dark, [class*="!bg-white/10"]) {
       background-color: color-mix(
         in srgb,
         var(--text-main) 10%,

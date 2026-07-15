@@ -28,10 +28,8 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 
-// Import shared common components
 import OneTouchSection from "@/components/common/OneTouchSection";
 import TrendingCarousel from "@/components/common/TrendingCarousel";
-import ConnectBanner from "@/components/common/ConnectBanner";
 
 // Import module-specific components
 import SecurityHero from "../components/SecurityHero";
@@ -646,10 +644,10 @@ export default function SecurityPage() {
         </section>
 
         {/* REUSABLE BANNER CTA */}
-        <ConnectBanner
+        {/* <ConnectBanner
           title="Connect With Us"
           description="Our safety engineers are ready to design your home security systems. Contact us via phone or email for pricing options."
-        />
+        /> */}
       </div>
     </div>
   );

@@ -64,7 +64,7 @@ export default function SensorBasedProtection() {
   return (
     <section ref={sectionRef} className="mb-28 no-reveal">
       {/* Premium indigo rounded container card */}
-      <div className="sbp-card bg-[#3A4CB4] rounded-[2.5rem] relative overflow-hidden p-8 sm:p-12 lg:p-16 border border-[#5263d5]/20 shadow-2xl">
+      <div className="dark sbp-card bg-[#3A4CB4] rounded-[2.5rem] relative overflow-hidden p-8 sm:p-12 lg:p-16 border border-[#5263d5]/20 shadow-2xl">
         
         {/* Faded watermark icon in the background */}
         <Shield className="absolute -left-12 -bottom-12 w-96 h-96 text-white/5 pointer-events-none transform -rotate-12 select-none" />

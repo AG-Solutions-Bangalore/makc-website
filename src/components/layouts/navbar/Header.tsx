@@ -19,13 +19,20 @@ gsap.registerPlugin(useGSAP);
 
 /* ─────────────────────────── data ─────────────────────────── */
 
-const allLinks = [
+interface NavLink {
+  label: string;
+  path: string;
+  external?: boolean;
+}
+
+const allLinks: NavLink[] = [
   { label: "Home",       path: "/" },
   { label: "Automation", path: "/automation" },
-  { label: "Security",   path: "/security" },
   { label: "Lighting",   path: "/lighting" },
   { label: "Networking", path: "/networking" },
-  { label: "Interior",   path: "https://www.saavidesignstudio.com/", external: true },
+  { label: "Security",   path: "/security" },
+  { label: "Audio",      path: "/audio" },
+  // { label: "Interior",   path: "https://www.saavidesignstudio.com/", external: true },
   { label: "Contact Us", path: "/contact" },
 ];
 
@@ -210,7 +217,11 @@ export default function Header() {
                     target="_blank"
                     rel="noopener noreferrer"
                     data-nav
-                    className="relative px-4 py-2 text-sm font-medium rounded-full transition-colors duration-200 text-text-muted hover:text-text-main"
+                    className={`relative px-4 py-2 text-sm font-medium rounded-full transition-colors duration-200 ${
+                      isScrolled || drawerOpen
+                        ? "text-text-muted hover:text-text-main"
+                        : "text-white/70 hover:text-white"
+                    }`}
                   >
                     {link.label}
                   </a>
@@ -224,7 +235,9 @@ export default function Header() {
                   className={`relative px-4 py-2 text-sm font-medium rounded-full transition-colors duration-200 ${
                     isActive
                       ? "text-accent-blue"
-                      : "text-text-muted hover:text-text-main"
+                      : isScrolled || drawerOpen
+                        ? "text-text-muted hover:text-text-main"
+                        : "text-white/70 hover:text-white"
                   }`}
                 >
                   {link.label}
@@ -260,12 +273,16 @@ export default function Header() {
             <button
               onClick={toggle}
               aria-label={drawerOpen ? "Close menu" : "Open menu"}
-              className="flex h-9 w-9 flex-col items-center justify-center rounded-full border border-border-main/60 hover:border-accent-blue/40 hover:bg-bg-surface transition-all duration-300 focus:outline-none cursor-pointer gap-[5px]"
+              className={`flex h-9 w-9 flex-col items-center justify-center rounded-full border transition-all duration-300 focus:outline-none cursor-pointer gap-[5px] ${
+                isScrolled || drawerOpen
+                  ? "border-border-main/60 hover:border-accent-blue/40 hover:bg-bg-surface"
+                  : "border-white/25 hover:border-white/50 hover:bg-white/10"
+              }`}
               style={{ willChange: "transform" }}
             >
-              <span ref={bar1} className="block h-[1.5px] w-[18px] rounded-full bg-text-main origin-center" />
-              <span ref={bar2} className="block h-[1.5px] w-[14px] rounded-full bg-text-main origin-center" />
-              <span ref={bar3} className="block h-[1.5px] w-[18px] rounded-full bg-text-main origin-center" />
+              <span ref={bar1} className={`block h-[1.5px] w-[18px] rounded-full origin-center ${isScrolled || drawerOpen ? "bg-text-main" : "bg-white"}`} />
+              <span ref={bar2} className={`block h-[1.5px] w-[14px] rounded-full origin-center ${isScrolled || drawerOpen ? "bg-text-main" : "bg-white"}`} />
+              <span ref={bar3} className={`block h-[1.5px] w-[18px] rounded-full origin-center ${isScrolled || drawerOpen ? "bg-text-main" : "bg-white"}`} />
             </button>
           </div>
         </div>

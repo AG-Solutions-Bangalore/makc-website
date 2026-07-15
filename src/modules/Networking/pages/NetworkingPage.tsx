@@ -1,24 +1,20 @@
-import { 
-  Wifi, 
-  Layers, 
-  Cable, 
-  Search, 
-  PenTool, 
-  CheckCircle2, 
-  Wrench, 
-  Sparkles 
+import {
+  Cable,
+  CheckCircle2,
+  Layers,
+  PenTool,
+  Search,
+  Sparkles,
+  Wifi,
+  Wrench,
 } from "lucide-react";
 
-// Import shared common components
-// Import shared common components
 import TrendingCarousel from "@/components/common/TrendingCarousel";
-import ConnectBanner from "@/components/common/ConnectBanner";
 
 // Import module-specific components
-import NetworkingHero from "../components/NetworkingHero";
-import WhatIsNetworking from "../components/WhatIsNetworking";
-import WiredNetworkSection from "../components/WiredNetworkSection";
 import MeshWifiSolutionsSection from "../components/MeshWifiSolutionsSection";
+import NetworkingHero from "../components/NetworkingHero";
+import WiredNetworkSection from "../components/WiredNetworkSection";
 
 // Import images
 // const serviceNetworkingImg = getImageUrl("service_networking.webp");
@@ -31,16 +27,17 @@ const projectCommercialImg = getImageUrl("project_commercial.webp");
 import useSEO from "@/hooks/useSEO";
 import { getImageUrl } from "@/utils/image";
 
-
 export default function NetworkingPage() {
   useSEO({
     title: "Home WiFi Extender | MAKc Automation",
-    description: "Looking for the best home WiFi extender? MAKc Automation offers budget-friendly WiFi extenders and mesh wireless networking solutions for seamless connectivity.",
+    description:
+      "Looking for the best home WiFi extender? MAKc Automation offers budget-friendly WiFi extenders and mesh wireless networking solutions for seamless connectivity.",
     keywords: "home wifi extender, best wifi extender, mesh wireless network",
     canonicalUrl: "https://makcautomations.com/index.php/networking/",
-    robots: "INDEX, FOLLOW, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1, MAX-IMAGE-PREVIEW:LARGE",
+    robots:
+      "INDEX, FOLLOW, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1, MAX-IMAGE-PREVIEW:LARGE",
   });
-  
+
   const mainFeatures = [
     {
       title: "Wireless and Wired",
@@ -119,9 +116,6 @@ export default function NetworkingPage() {
       <NetworkingHero />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24 pb-16">
-        {/* WHAT IS NETWORKING SECTION */}
-        <WhatIsNetworking />
-
         {/* WIRED NETWORK PLANNING SECTION */}
         <WiredNetworkSection />
 
@@ -131,21 +125,30 @@ export default function NetworkingPage() {
         {/* WIRELESS & WIRED FEATURES SECTION (3 CARDS) */}
         <section className="border-t border-border-main/50 pt-20 mb-24">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-accent-blue text-xs font-bold uppercase tracking-widest block mb-3">Core Connectivity</span>
-            <h2 className="text-4xl font-serif font-bold tracking-tight text-text-main">Wired & Wireless Architecture</h2>
+            <span className="text-accent-blue text-xs font-bold uppercase tracking-widest block mb-3">
+              Core Connectivity
+            </span>
+            <h2 className="text-4xl font-serif font-bold tracking-tight text-text-main">
+              Wired & Wireless Architecture
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {mainFeatures.map((feat, index) => {
               const IconComponent = feat.icon;
               return (
-                <div key={index} className="bg-bg-surface border border-border-main p-8 rounded-3xl flex flex-col justify-between transition-all hover:-translate-y-1 shadow-md group">
+                <div
+                  key={index}
+                  className="bg-bg-surface border border-border-main p-8 rounded-3xl flex flex-col justify-between transition-all hover:-translate-y-1 shadow-md group"
+                >
                   <div>
                     {/* Clean Rounded-Full Icon wrapper with Apple Shine */}
                     <div className="w-12 h-12 rounded-full border border-border-main bg-bg-main flex items-center justify-center text-accent-blue mb-6 group-hover:scale-105 transition-transform duration-300 apple-border-shine">
                       <IconComponent className="w-5 h-5" />
                     </div>
-                    <h3 className="text-xl font-serif font-bold text-text-main mb-3">{feat.title}</h3>
+                    <h3 className="text-xl font-serif font-bold text-text-main mb-3">
+                      {feat.title}
+                    </h3>
                     <p className="text-xs text-text-muted leading-relaxed">
                       {feat.desc}
                     </p>
@@ -159,21 +162,30 @@ export default function NetworkingPage() {
         {/* CONSULTANCY & IMPLEMENTATION GRID (4 CARDS) */}
         <section className="mb-24">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-accent-blue text-xs font-bold uppercase tracking-widest block mb-3">Process Workflow</span>
-            <h2 className="text-4xl font-serif font-bold tracking-tight text-text-main">From Blueprint to Delivery</h2>
+            <span className="text-accent-blue text-xs font-bold uppercase tracking-widest block mb-3">
+              Process Workflow
+            </span>
+            <h2 className="text-4xl font-serif font-bold tracking-tight text-text-main">
+              From Blueprint to Delivery
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {processFeatures.map((feat, index) => {
               const IconComponent = feat.icon;
               return (
-                <div key={index} className="bg-bg-surface border border-border-main p-6 sm:p-8 rounded-3xl flex flex-col justify-between transition-all hover:-translate-y-1 shadow-md group">
+                <div
+                  key={index}
+                  className="bg-bg-surface border border-border-main p-6 sm:p-8 rounded-3xl flex flex-col justify-between transition-all hover:-translate-y-1 shadow-md group"
+                >
                   <div>
                     {/* Clean Rounded-Full Icon wrapper with Apple Shine */}
                     <div className="w-12 h-12 rounded-full border border-border-main bg-bg-main flex items-center justify-center text-accent-blue mb-6 group-hover:scale-105 transition-transform duration-300 apple-border-shine">
                       <IconComponent className="w-5 h-5" />
                     </div>
-                    <h3 className="text-lg font-serif font-bold text-text-main mb-2.5">{feat.title}</h3>
+                    <h3 className="text-lg font-serif font-bold text-text-main mb-2.5">
+                      {feat.title}
+                    </h3>
                     <p className="text-xs text-text-muted leading-relaxed">
                       {feat.desc}
                     </p>
@@ -187,23 +199,40 @@ export default function NetworkingPage() {
         {/* ALIGN YOUR NETWORKING SOLUTIONS */}
         <section className="bg-bg-surface/30 border-y border-border-main/50 py-20 mb-24 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
             <div className="lg:col-span-7 space-y-6">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full border border-border-main bg-accent-blue/10 flex items-center justify-center text-accent-blue apple-border-shine">
                   <Sparkles className="w-5 h-5" />
                 </div>
-                <span className="text-accent-blue text-xs font-bold uppercase tracking-widest">Enterprise Integration</span>
+                <span className="text-accent-blue text-xs font-bold uppercase tracking-widest">
+                  Enterprise Integration
+                </span>
               </div>
               <h2 className="text-4xl font-serif font-bold tracking-tight text-text-main leading-tight">
                 Align Your Networking Solutions as Required
               </h2>
               <div className="space-y-4 text-sm text-text-muted leading-relaxed">
                 <p>
-                  MAKc Automation and Solution is one of the best Home Wi-Fi extender and Networking Service Providers in Bangalore. We specialize in delivering the most preferred and out-of-the-box networking system integration, including the top IT Infrastructure Partners. Our solutions are designed to simplify complex connectivity needs, aligning your networking solutions with your business goals and objectives. We ensure cost-effective and convenient services that comply with the requirements of any industry.
+                  MAKc Automation and Solution is one of the best Home Wi-Fi
+                  extender and Networking Service Providers in Bangalore. We
+                  specialize in delivering the most preferred and out-of-the-box
+                  networking system integration, including the top IT
+                  Infrastructure Partners. Our solutions are designed to
+                  simplify complex connectivity needs, aligning your networking
+                  solutions with your business goals and objectives. We ensure
+                  cost-effective and convenient services that comply with the
+                  requirements of any industry.
                 </p>
                 <p>
-                  MAKc Automation and Solution offers a comprehensive solution for networking services, where we deploy, operate, manage, optimize, and, most importantly, integrate it seamlessly with virtualization. Our planning and process methodologies are designed to enhance the productivity of work performances while reducing operational costs. Furthermore, we prioritize real-time business intelligence, making us the go-to choice as the Best wifi extender and networking solution provider in Bangalore.
+                  MAKc Automation and Solution offers a comprehensive solution
+                  for networking services, where we deploy, operate, manage,
+                  optimize, and, most importantly, integrate it seamlessly with
+                  virtualization. Our planning and process methodologies are
+                  designed to enhance the productivity of work performances
+                  while reducing operational costs. Furthermore, we prioritize
+                  real-time business intelligence, making us the go-to choice as
+                  the Best wifi extender and networking solution provider in
+                  Bangalore.
                 </p>
               </div>
             </div>
@@ -211,31 +240,29 @@ export default function NetworkingPage() {
             {/* Visual Panel Cabling */}
             <div className="lg:col-span-5">
               <div className="rounded-3xl overflow-hidden border border-border-main aspect-square bg-bg-surface relative group">
-                <img 
-                  src={whyChooseUsImg} 
-                  alt="Structured rack cabling interface" 
+                <img
+                  src={whyChooseUsImg}
+                  alt="Structured rack cabling interface"
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-102 transition-transform duration-750"
                 />
                 <div className="absolute inset-0 bg-black/25" />
               </div>
             </div>
-
           </div>
         </section>
 
         {/* REUSABLE TRENDING CAROUSEL */}
-        <TrendingCarousel 
+        <TrendingCarousel
           title="Trending connectivity components"
           brandLabel="MAKc Connect"
           products={trendingNetworking}
         />
 
         {/* REUSABLE BANNER CTA */}
-        <ConnectBanner 
+        {/* <ConnectBanner 
           title="Connect With Us"
           description="Our connectivity specialists are ready to audit your property network requirements. Contact us via phone or email for customized estimates."
-        />
-
+        /> */}
       </div>
     </div>
   );

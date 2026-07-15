@@ -1,10 +1,10 @@
-import { Outlet, useLocation } from "react-router";
-import { useEffect } from "react";
-import Header from "../layouts/navbar/Header";
-import Footer from "../layouts/footer/Footer";
-import FooterV2 from "../layouts/footer/FooterV2";
 import { Toaster } from "@/components/ui/sonner";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useEffect } from "react";
+import { Outlet, useLocation } from "react-router";
+import Footer from "../layouts/footer/Footer";
+import Header from "../layouts/navbar/Header";
+import FloatingActionGroup from "./FloatingActionGroup";
 
 export default function Layout() {
   const location = useLocation();
@@ -32,7 +32,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
-      <FooterV2 />
+      <FloatingActionGroup />
       <Toaster />
     </div>
   );

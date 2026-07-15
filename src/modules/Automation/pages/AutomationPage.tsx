@@ -19,10 +19,7 @@ import {
   Bell,
   Layers,
   ArrowRight,
-  ShieldAlert,
-  BellRing,
   Smartphone,
-  ChevronRight,
 } from "lucide-react";
 
 // Import custom UI components
@@ -39,21 +36,15 @@ import GateAutomationSection from "@/components/common/GateAutomationSection";
 import ElectricalAutomationSection from "@/components/common/ElectricalAutomationSection";
 import CurtainAutomationSection from "@/components/common/CurtainAutomationSection";
 // import TrendingCarousel from "@/components/common/TrendingCarousel";
-import ConnectBanner from "@/components/common/ConnectBanner";
 
 // Import images
 const villaNightImg = getImageUrl("contact_villa_night.webp");
 const serviceLightingImg = getImageUrl("service_lighting.webp");
-const whyChooseUsImg = getImageUrl("why_choose_us.webp");
+
 const projectVillasImg = getImageUrl("project_villas.webp");
-const projectApartmentsImg = getImageUrl("project_apartments.webp");
-const projectFarmhousesImg = getImageUrl("project_farmhouses.webp");
-const projectPenthousesImg = getImageUrl("project_penthouses.webp");
-const projectCommercialImg = getImageUrl("project_commercial.webp");
 
 import useSEO from "@/hooks/useSEO";
 import { getImageUrl } from "@/utils/image";
-
 
 export default function AutomationPage() {
   useSEO({
@@ -85,7 +76,7 @@ export default function AutomationPage() {
         0.2,
       );
 
-      /* Headline Ã¢â‚¬â€ each line staggers up */
+      /* Headline each line staggers up */
       tl.from(
         ".hero-heading",
         { y: 60, autoAlpha: 0, duration: 0.9, ease: "expo.out" },
@@ -176,77 +167,9 @@ export default function AutomationPage() {
     },
   ];
 
-  const oneTouchItems = [
-    {
-      title: "Simplify All Your Daily Routine Tasks",
-      desc: "With a single click, manage your lights, thermostats, and more, streamlining your daily chores.",
-      icon: Sparkles,
-      iconColorClass:
-        "text-accent-blue bg-accent-blue/10 border-accent-blue/20",
-    },
-    {
-      title: "Remain Stress-Free",
-      desc: "Monitor your devices from anywhere, anytime, ensuring that your home is always secure and energy-efficient.",
-      icon: CheckCircle2,
-      iconColorClass:
-        "text-emerald-500 bg-emerald-500/10 border-emerald-500/20",
-    },
-    {
-      title: "Your Security is Our Priority",
-      desc: "Our smart security solutions provide robust protection for your home and your peace of mind.",
-      icon: ShieldAlert,
-      iconColorClass: "text-red-500 bg-red-500/10 border-red-500/20",
-    },
-    {
-      title: "Get Real-Time Updates",
-      desc: "Stay informed with instant updates and alerts, keeping you connected to your home no matter where you are.",
-      icon: BellRing,
-      iconColorClass: "text-amber-500 bg-amber-500/10 border-amber-500/20",
-    },
-    {
-      title: "Automate Everyday Events",
-      desc: "Save time and energy by automating repetitive tasks, like turning on lights as you approach home.",
-      icon: CalendarClock,
-      iconColorClass: "text-cyan-500 bg-cyan-500/10 border-cyan-500/20",
-    },
-    {
-      title: "Access Anywhere, Anytime",
-      desc: "Control your devices remotely, ensuring your home is ready to welcome you, no matter when you arrive.",
-      icon: Smartphone,
-      iconColorClass: "text-indigo-500 bg-indigo-500/10 border-indigo-500/20",
-    },
-  ];
 
-  const trendingProducts = [
-    {
-      id: "cl-7",
-      name: "CL-7 Elite",
-      tag: "Interactive Touch Panel",
-      img: projectApartmentsImg,
-      desc: "A stunning bezel-less control console featuring high-definition haptic response, allowing effortless management of lighting, climate, and security with a single interface.",
-    },
-    {
-      id: "KB3_2651",
-      name: "KB3_2651",
-      tag: "Tactile Smart Keypad",
-      img: projectFarmhousesImg,
-      desc: "Premium mechanical smart switches with back-lit indicators, finished in brush champagne metal. Perfectly integrates with premium custom scenes.",
-    },
-    {
-      id: "automation-4",
-      name: "Automation-4 Hub",
-      tag: "Central Processor Unit",
-      img: projectPenthousesImg,
-      desc: "The hyper-fast central brain of your smart home network. Seamlessly processes Zigbee, Wi-Fi, and Bluetooth devices with zero latency and robust local processing.",
-    },
-    {
-      id: "THE_6605",
-      name: "THE_6605 Panel",
-      tag: "Premium Glass Dimmer",
-      img: projectCommercialImg,
-      desc: "An elegant glass-surface interface specifically designed for fluid dimming operations, multi-room zoning, and automated lighting profiles.",
-    },
-  ];
+
+
 
   const formatTime = (secs: number) => {
     const minutes = Math.floor(secs / 60);
@@ -259,7 +182,7 @@ export default function AutomationPage() {
       {/* FULL-WIDTH HERO SECTION */}
       <section
         ref={heroRef}
-        className="relative min-h-[90vh] lg:min-h-screen w-full flex items-center justify-start bg-cover bg-center bg-no-repeat"
+        className="dark relative min-h-[90vh] lg:min-h-screen w-full flex items-center justify-start bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url('${getImageUrl("2151349208.webp")}')` }}
       >
         {/* Dark overlay for contrast */}
@@ -649,19 +572,19 @@ export default function AutomationPage() {
 
         {/* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â SECTION 3 */}
         <section className="mb-28">
-          {/* Header Ã¢â‚¬â€ no eyebrow, strong typographic contrast */}
+          {/* Header no eyebrow, strong typographic contrast */}
           {/* <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
             <h2 className="text-4xl sm:text-5xl font-bold text-text-main leading-[1.1] tracking-tight max-w-sm">
               Do More with Our Smart Solutions
             </h2>
             <p className="text-text-muted text-sm leading-relaxed max-w-[28ch] sm:text-right">
-              Where control meets customization Ã¢â‚¬â€ every feature designed around how you actually live.
+              Where control meets customization every feature designed around how you actually live.
             </p>
           </div> */}
 
-          {/* Bento grid Ã¢â‚¬â€ 3-col, left spans 2 rows */}
+          {/* Bento grid 3-col, left spans 2 rows */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            {/* Left: tall image card Ã¢â‚¬â€ no ghost border+shadow, image IS the card */}
+            {/* Left: tall image card no ghost border+shadow, image IS the card */}
             <div className="lg:row-span-2 relative rounded-2xl overflow-hidden min-h-[400px] lg:min-h-0 group">
               <img
                 src={serviceLightingImg}
@@ -673,14 +596,14 @@ export default function AutomationPage() {
                 <span className="inline-block text-[11px] text-white/60 font-medium uppercase tracking-widest mb-3">
                   Live Scene
                 </span>
-                <h3 className="text-white text-2xl font-bold leading-snug mb-2">
+                <h3 className="dark:text-white text-2xl text-white! font-bold leading-snug mb-2">
                   Personalized
                   <br />
                   Atmosphere
                 </h3>
-                <p className="text-white/65 text-sm leading-relaxed">
+                <p className="text-white/95 text-sm leading-relaxed">
                   Dim lighting, adjust acoustics, and set the perfect thermostat
-                  parameters Ã¢â‚¬â€ automatically.
+                  parameters automatically.
                 </p>
               </div>
             </div>
@@ -697,7 +620,7 @@ export default function AutomationPage() {
                 </span>
               </div>
 
-              {/* Tab pills Ã¢â‚¬â€ tighter, cleaner */}
+              {/* Tab pills tighter, cleaner */}
               <div className="flex flex-wrap gap-2 mb-6">
                 {features.map((feat) => {
                   const isActive = activeFeature === feat.id;
@@ -748,7 +671,7 @@ export default function AutomationPage() {
 
             {/* Right bottom: two side-by-side info cells */}
             <div className="lg:col-span-2 grid grid-cols-2 gap-4">
-              {/* Stat Ã¢â‚¬â€ plain surface, no gradient hero-metric */}
+              {/* Stat plain surface, no gradient hero-metric */}
               <div className="bg-bg-surface border border-border-main/40 rounded-2xl p-6 flex flex-col justify-between">
                 <span className="text-text-muted text-xs font-medium mb-4">
                   Experience
@@ -789,8 +712,8 @@ export default function AutomationPage() {
         </section>
 
         {/* ---------------------------------------------------- SECTION 4 */}
-        <section className="mb-28">
-          {/* Header */}
+        {/* <section className="mb-28">
+          
           <div className="text-center max-w-2xl mx-auto mb-14">
             <h2
               className="text-4xl sm:text-5xl font-bold text-text-main mb-4 leading-[1.1] tracking-tight"
@@ -804,9 +727,9 @@ export default function AutomationPage() {
             </p>
           </div>
 
-          {/* 2-col: feature list left, photo strip right */}
+         
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left: vertical feature list with dividers */}
+           
             <div className="divide-y divide-border-main/40">
               {oneTouchItems.map((item, idx) => {
                 const IconComponent = item.icon;
@@ -830,9 +753,8 @@ export default function AutomationPage() {
               })}
             </div>
 
-            {/* Right: stacked photo composition */}
+           
             <div className="flex flex-col gap-4">
-              {/* Wide banner image with title + subtitle */}
               <div className="relative rounded-2xl overflow-hidden aspect-[16/9] group">
                 <img
                   src={whyChooseUsImg}
@@ -850,7 +772,6 @@ export default function AutomationPage() {
                 </div>
               </div>
 
-              {/* Two square images — purely visual, no floating label */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="relative rounded-2xl overflow-hidden aspect-square group">
                   <img
@@ -877,63 +798,12 @@ export default function AutomationPage() {
               </div>
             </div>
           </div>
-        </section>
-
-        {/* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â SECTION 5 */}
-
-        {/* Products */}
-        <section className="mb-28">
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
-            <h2 className="text-3xl sm:text-4xl font-bold text-text-main tracking-tight">
-              Trending Smart Components
-            </h2>
-            <p className="text-text-muted text-sm max-w-[26ch] sm:text-right leading-relaxed">
-              Handpicked hardware, installed by our certified engineers.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {trendingProducts.map((product) => (
-              <div
-                key={product.id}
-                className="group bg-bg-surface rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)] border border-border-main/30 hover:border-border-main/60"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img
-                    src={product.img}
-                    alt={product.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" />
-                  <span className="absolute bottom-3 left-3 text-[11px] bg-black/50 backdrop-blur-sm text-white/90 font-medium px-2.5 py-1 rounded-md">
-                    {product.tag}
-                  </span>
-                </div>
-                <div className="p-5">
-                  <h3 className="text-sm font-semibold text-text-main mb-1.5">
-                    {product.name}
-                  </h3>
-                  <p className="text-sm text-text-muted leading-relaxed line-clamp-3">
-                    {product.desc}
-                  </p>
-                  <div className="mt-4 pt-3 border-t border-border-main/30 flex items-center justify-between">
-                    <span className="text-xs text-text-muted/60">
-                      {product.id}
-                    </span>
-                    <button className="text-xs font-semibold text-accent-blue flex items-center gap-1 hover:gap-2 transition-all duration-150">
-                      Details <ChevronRight className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+        </section> */}
 
         {/* FAQ + CTA */}
         <section className="mb-24">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
-            {/* FAQ Ã¢â‚¬â€ left 3 cols */}
+            {/* FAQ left 3 cols */}
             <div className="lg:col-span-3">
               <h2 className="text-3xl font-bold text-text-main mb-2 tracking-tight">
                 Common Questions
@@ -953,9 +823,9 @@ export default function AutomationPage() {
                       Smart home devices carry internal processors, sensors, and
                       wireless radios (Wi-Fi, Bluetooth, or Zigbee). They
                       capture data, schedule events, and connect with other
-                      household units Ã¢â‚¬â€ all manageable remotely via
-                      smartphone or voice. Regular devices need manual switches
-                      and have no network awareness.
+                      household units all manageable remotely via smartphone or
+                      voice. Regular devices need manual switches and have no
+                      network awareness.
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem value="faq-2" className="border-0 px-6">
@@ -964,9 +834,9 @@ export default function AutomationPage() {
                     </AccordionTrigger>
                     <AccordionContent className="text-sm text-text-muted leading-relaxed pb-5">
                       Yes. All our systems are engineered for full
-                      cross-platform compatibility Ã¢â‚¬â€ seamlessly
-                      integrating with Apple Siri (HomeKit), Amazon Alexa, and
-                      Google Assistant for hands-free control.
+                      cross-platform compatibility seamlessly integrating with
+                      Apple Siri (HomeKit), Amazon Alexa, and Google Assistant
+                      for hands-free control.
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
@@ -987,7 +857,7 @@ export default function AutomationPage() {
               </div>
             </div>
 
-            {/* CTA card Ã¢â‚¬â€ right 2 cols */}
+            {/* CTA card right 2 cols */}
             <div className="lg:col-span-2 lg:sticky lg:top-28">
               <div className="relative rounded-2xl overflow-hidden">
                 <img
@@ -998,12 +868,12 @@ export default function AutomationPage() {
                 <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/75 to-black/60" />
                 <div className="relative z-10 p-8 flex flex-col min-h-[380px] justify-between">
                   <div>
-                    <h3 className="text-white text-2xl font-bold leading-tight mb-3">
+                    <h3 className="text-white! text-2xl font-bold leading-tight mb-3">
                       Ready to automate your home?
                     </h3>
-                    <p className="text-white/65 text-sm leading-relaxed">
+                    <p className="text-white/65! text-sm leading-relaxed">
                       Our experts design a custom plan tailored to your space,
-                      lifestyle, and budget Ã¢â‚¬â€ at no obligation.
+                      lifestyle, and budget at no obligation.
                     </p>
                   </div>
                   <div className="space-y-3 mt-8">
@@ -1015,7 +885,7 @@ export default function AutomationPage() {
                     </a>
                     <a
                       href="mailto:info@makcautomations.com"
-                      className="flex items-center justify-center gap-2 h-11 w-full rounded-xl border border-white/25 text-white text-sm font-medium hover:bg-white/8 transition-all duration-200"
+                      className="flex items-center justify-center gap-2 h-11 w-full rounded-xl border border-white/25 text-white! text-sm font-medium hover:bg-white/8 transition-all duration-200"
                     >
                       Send an Email
                     </a>
@@ -1029,10 +899,10 @@ export default function AutomationPage() {
           </div>
         </section>
 
-        <ConnectBanner
+        {/* <ConnectBanner
           title="Connect With Us"
           description="Our experts are ready to design your automated home. Contact us via phone or email for custom architecture pricing."
-        />
+        /> */}
       </div>
     </div>
   );

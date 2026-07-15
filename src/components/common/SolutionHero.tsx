@@ -77,7 +77,7 @@ export default function SolutionHero({
  
       {/* Visual device panel mockup - Clean border, no apple shine */}
       <div className="lg:col-span-5 relative reveal-on-scroll reveal-right" data-reveal-duration="0.9s">
-        <div className="relative rounded-3xl overflow-hidden border border-border-main shadow-2xl group">
+        <div className="dark relative rounded-3xl overflow-hidden border border-border-main shadow-2xl group">
           <img 
             src={imageSrc} 
             alt={imageTitle} 
