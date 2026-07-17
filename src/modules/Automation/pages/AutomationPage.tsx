@@ -1,50 +1,67 @@
-import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
-import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(useGSAP);
+import gsap from "gsap";
 import {
-  Play,
-  Pause,
-  X,
-  Sparkles,
-  CheckCircle2,
-  Loader2,
+  ArrowRight,
   // Info,
   CalendarClock,
-  Sliders,
-  Lock,
   Fan,
-  Bell,
   Layers,
-  ArrowRight,
-  Smartphone,
+  Lock,
+  Sliders,
 } from "lucide-react";
+import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
+
+gsap.registerPlugin(useGSAP);
 
 // Import custom UI components
 import {
   Accordion,
+  AccordionContent,
   AccordionItem,
   AccordionTrigger,
-  AccordionContent,
 } from "@/components/ui/accordion";
 
 // Import shared common components
 // import OneTouchSection from "@/components/common/OneTouchSection";
-import GateAutomationSection from "@/components/common/GateAutomationSection";
-import ElectricalAutomationSection from "@/components/common/ElectricalAutomationSection";
 import CurtainAutomationSection from "@/components/common/CurtainAutomationSection";
+import ElectricalAutomationSection from "@/components/common/ElectricalAutomationSection";
+import GateAutomationSection from "@/components/common/GateAutomationSection";
+import WhatWeAutomateSection from "@/components/common/WhatWeAutomateSection";
 // import TrendingCarousel from "@/components/common/TrendingCarousel";
 
 // Import images
-const villaNightImg = getImageUrl("contact_villa_night.webp");
 const serviceLightingImg = getImageUrl("service_lighting.webp");
 
 const projectVillasImg = getImageUrl("project_villas.webp");
 
 import useSEO from "@/hooks/useSEO";
 import { getImageUrl } from "@/utils/image";
+
+const automationSystems = [
+  {
+    title: "Electrical Automation",
+    detail: "Lighting, switches, and scenes respond to the rhythm of your day.",
+    img: getImageUrl("Electrical Automation.webp"),
+  },
+  {
+    title: "Smart Door Automation",
+    detail:
+      "Welcome the right people in with intelligent, secure access control.",
+    img: getImageUrl("Smart Door Automation.webp"),
+  },
+  {
+    title: "Curtain Automation",
+    detail:
+      "Shape daylight, privacy, and ambience with a single, effortless routine.",
+    img: getImageUrl("Curtain Automation.webp"),
+  },
+  {
+    title: "Gate Automation",
+    detail: "Make every arrival smoother with dependable perimeter control.",
+    img: getImageUrl("Gate Automation.webp"),
+  },
+];
 
 export default function AutomationPage() {
   useSEO({
@@ -58,9 +75,7 @@ export default function AutomationPage() {
   });
 
   const [activeFeature, setActiveFeature] = useState("scheduling");
-  const [activeAutomatedCard, setActiveAutomatedCard] = useState<number>(0);
 
-  /* Ã¢â€â‚¬Ã¢â€â‚¬ hero ref for GSAP scope Ã¢â€â‚¬Ã¢â€â‚¬ */
   const heroRef = useRef<HTMLElement>(null);
 
   useGSAP(
@@ -106,27 +121,6 @@ export default function AutomationPage() {
   );
 
   // Mock video player states
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [videoProgress, setVideoProgress] = useState(0);
-  const [videoTime, setVideoTime] = useState(0);
-
-  useEffect(() => {
-    let interval: ReturnType<typeof setInterval>;
-    if (isPlaying) {
-      interval = setInterval(() => {
-        setVideoProgress((prev) => {
-          if (prev >= 100) {
-            setIsPlaying(false);
-            setVideoTime(0);
-            return 0;
-          }
-          return prev + 1.5;
-        });
-        setVideoTime((prev) => prev + 1);
-      }, 500);
-    }
-    return () => clearInterval(interval);
-  }, [isPlaying]);
 
   const features = [
     {
@@ -153,12 +147,7 @@ export default function AutomationPage() {
       icon: Fan,
       desc: "Multi-stage automated control for ceiling fans and climate fans. Synchronize motor speeds dynamically with humidity and ambient temperature sensors for absolute comfort.",
     },
-    {
-      id: "notifications",
-      title: "Live Notifications",
-      icon: Bell,
-      desc: "Get real-time push alerts when motion is detected, doors are unlocked, or energy usage spikes, keeping you connected and in control of your home's integrity 24/7.",
-    },
+
     {
       id: "scenes",
       title: "Custom Scenes",
@@ -167,23 +156,13 @@ export default function AutomationPage() {
     },
   ];
 
-
-
-
-
-  const formatTime = (secs: number) => {
-    const minutes = Math.floor(secs / 60);
-    const seconds = secs % 60;
-    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-  };
-
   return (
     <div className="min-h-screen bg-bg-main text-text-main overflow-hidden transition-colors duration-300">
       {/* FULL-WIDTH HERO SECTION */}
       <section
         ref={heroRef}
         className="dark relative min-h-[90vh] lg:min-h-screen w-full flex items-center justify-start bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url('${getImageUrl("2151349208.webp")}')` }}
+        style={{ backgroundImage: `url('${getImageUrl("automation_banner.webp")}')` }}
       >
         {/* Dark overlay for contrast */}
         <div className="absolute inset-0 bg-black/65" />
@@ -259,85 +238,10 @@ export default function AutomationPage() {
       {/* REST OF THE CONTENT WRAPPED IN MAX-W-7XL CONTAINER */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24 pb-16">
         {/* WHAT WE AUTOMATE SECTION */}
-        <section className="mb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
-            <div className="lg:col-span-7">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-text-main leading-[1.15]">
-                What we Automate Smart Solutions for modern living
-              </h2>
-            </div>
-            <div className="lg:col-span-5 pt-2">
-              <p className="text-text-muted text-sm sm:text-base leading-relaxed font-normal">
-                Smart automation solutions designed to enhance comfort,
-                security, and convenience in your home. We connect intelligent
-                technologies to create a seamless and effortless living
-                experience.
-              </p>
-            </div>
-          </div>
-
-          <div
-            className="flex flex-col lg:flex-row gap-6 w-full items-stretch"
-            onMouseLeave={() => setActiveAutomatedCard(0)}
-          >
-            {[
-              {
-                title: "Electrical Automation",
-                img: getImageUrl("Electrical Automation.webp"),
-              },
-              {
-                title: "Smart Door Automation",
-                img: getImageUrl("Smart Door Automation.webp"),
-              },
-              {
-                title: "Curtain Automation",
-                img: getImageUrl("Curtain Automation.webp"),
-              },
-              {
-                title: "Gate Automation",
-                img: getImageUrl("Gate Automation.webp"),
-              },
-            ].map((item, idx) => {
-              const isActive = activeAutomatedCard === idx;
-              return (
-                <div
-                  key={idx}
-                  onMouseEnter={() => setActiveAutomatedCard(idx)}
-                  className={`relative rounded-3xl overflow-hidden h-[200px] lg:h-[450px] w-full border border-border-main/55 group shadow-md hover:shadow-xl transition-all duration-500 ease-in-out cursor-pointer ${
-                    isActive ? "lg:flex-[1.6]" : "lg:flex-1"
-                  }`}
-                >
-                  <img
-                    src={item.img}
-                    alt={item.title}
-                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out ${
-                      isActive ? "grayscale-0 scale-105" : "grayscale scale-100"
-                    }`}
-                  />
-                  {/* Bottom gradient overlay - fades in when active */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent transition-opacity duration-500 ${
-                      isActive ? "opacity-100" : "opacity-0"
-                    }`}
-                  />
-
-                  {/* Text centered at the bottom - slides up when active */}
-                  <div
-                    className={`absolute bottom-8 left-0 right-0 text-center transition-all duration-500 ease-out ${
-                      isActive
-                        ? "translate-y-0 opacity-100"
-                        : "translate-y-6 opacity-0"
-                    }`}
-                  >
-                    <h3 className="text-white text-lg sm:text-xl font-bold tracking-wide">
-                      {item.title}
-                    </h3>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </section>
+        <WhatWeAutomateSection
+          systems={automationSystems}
+          imagePosition="right"
+        />
 
         {/* ── ELECTRICAL AUTOMATION SECTION ── */}
         <ElectricalAutomationSection />
@@ -349,186 +253,6 @@ export default function AutomationPage() {
         <CurtainAutomationSection />
 
         {/* CORE CONCEPTS SECTION */}
-        <section className="border-t border-border-main/50 pt-20 mb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="space-y-6">
-              <span className="text-accent-blue text-xs font-bold uppercase tracking-widest block">
-                Core Technology
-              </span>
-              <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-text-main leading-tight font-sans">
-                What is a Smart Home Device and How it Works?
-              </h2>
-              <p className="text-text-muted text-base leading-relaxed">
-                Smart Home Devices connect to your home network, allowing you to
-                control them remotely via your smartphone, tablet, or voice
-                commands. From lights to locks, thermostats to cameras, they are
-                designed to make your daily life simpler, safer, and more
-                enjoyable.
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-border-main/40">
-                <div className="space-y-2">
-                  <div className="w-8 h-8 rounded-lg bg-accent-blue/10 flex items-center justify-center text-accent-blue">
-                    <Smartphone className="w-4.5 h-4.5" />
-                  </div>
-                  <h4 className="font-bold text-text-main text-xs uppercase tracking-wider">
-                    Intelligent Control
-                  </h4>
-                  <p className="text-[11px] text-text-muted leading-relaxed">
-                    Connect and manage your entire system remotely via
-                    smartphone or voice commands.
-                  </p>
-                </div>
-                <div className="space-y-2">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-500">
-                    <Sliders className="w-4.5 h-4.5" />
-                  </div>
-                  <h4 className="font-bold text-text-main text-xs uppercase tracking-wider">
-                    Custom Scenes
-                  </h4>
-                  <p className="text-[11px] text-text-muted leading-relaxed">
-                    Automate lighting, temperature, and power settings to align
-                    with your daily schedules.
-                  </p>
-                </div>
-                <div className="space-y-2">
-                  <div className="w-8 h-8 rounded-lg bg-red-500/10 flex items-center justify-center text-red-500">
-                    <Lock className="w-4.5 h-4.5" />
-                  </div>
-                  <h4 className="font-bold text-text-main text-xs uppercase tracking-wider">
-                    Enhanced Security
-                  </h4>
-                  <p className="text-[11px] text-text-muted leading-relaxed">
-                    Integrate smart locks and security alerts to safeguard your
-                    space 24/7.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="relative">
-              {/* Mock video card */}
-              <div
-                onClick={() => {
-                  if (!isPlaying) setIsPlaying(true);
-                }}
-                className="relative rounded-3xl overflow-hidden aspect-video lg:aspect-[4/3] bg-bg-surface border border-border-main/60 shadow-xl group cursor-pointer transition-all duration-300 hover:border-accent-blue/30"
-              >
-                {!isPlaying ? (
-                  <>
-                    <img
-                      src={villaNightImg}
-                      alt="Smart Experience Villa Video"
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:blur-[1px]"
-                    />
-                    <div className="absolute inset-0 bg-black/55 backdrop-blur-[0.5px] transition-all duration-300 group-hover:bg-black/45" />
-
-                    <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                      <div className="relative mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <div className="absolute inset-0 rounded-full bg-accent-blue/30 animate-ping pointer-events-none" />
-                        <div className="w-16 h-16 rounded-full bg-accent-blue text-white flex items-center justify-center shadow-[0_4px_25px_rgba(10,132,255,0.4)] hover:bg-accent-blue/90 relative z-10 transition-all duration-300">
-                          <Play className="w-7 h-7 fill-current translate-x-0.5" />
-                        </div>
-                      </div>
-                      <span className="text-white text-xs font-bold uppercase tracking-widest">
-                        Watch How It Works
-                      </span>
-                      <span className="text-white/60 text-[10px] mt-1 font-mono">
-                        1:30 min experience video
-                      </span>
-                    </div>
-                  </>
-                ) : (
-                  // Active Interactive Mock Video Player UI
-                  <div className="absolute inset-0 bg-black flex flex-col justify-between p-4 font-mono select-none">
-                    <div className="flex items-center justify-between text-white/70 text-xs">
-                      <div className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full backdrop-blur-md">
-                        <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-                        <span>SIMULATED VIDEO PLAYBACK</span>
-                      </div>
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setIsPlaying(false);
-                          setVideoProgress(0);
-                          setVideoTime(0);
-                        }}
-                        className="p-1 hover:bg-white/10 rounded-full transition-all"
-                      >
-                        <X className="w-5 h-5 text-white" />
-                      </button>
-                    </div>
-
-                    <div className="flex flex-col items-center text-center p-4">
-                      {videoProgress < 20 ? (
-                        <div className="space-y-2">
-                          <Loader2 className="w-8 h-8 text-accent-blue animate-spin mx-auto" />
-                          <p className="text-xs text-white/50">
-                            Establishing connection to Villa CCTV & Lights...
-                          </p>
-                        </div>
-                      ) : videoProgress < 60 ? (
-                        <div className="space-y-1">
-                          <Sparkles className="w-10 h-10 text-gold-primary animate-bounce mx-auto" />
-                          <p className="text-sm font-bold text-white">
-                            Scene Action: "Welcome Home" Mode
-                          </p>
-                          <p className="text-xs text-white/60">
-                            System lighting levels fading to 40% & climate
-                            active
-                          </p>
-                        </div>
-                      ) : (
-                        <div className="space-y-1">
-                          <CheckCircle2 className="w-10 h-10 text-green-500 animate-pulse mx-auto" />
-                          <p className="text-sm font-bold text-white">
-                            Security Verification Active
-                          </p>
-                          <p className="text-xs text-white/60">
-                            Perimeter locks engaged. Smart sensors online.
-                          </p>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Controls overlay */}
-                    <div className="bg-black/60 border border-white/10 rounded-xl p-3 backdrop-blur-md space-y-2">
-                      <div className="w-full bg-white/20 h-1 rounded-full overflow-hidden">
-                        <div
-                          className="bg-accent-blue h-full transition-all duration-300"
-                          style={{ width: `${videoProgress}%` }}
-                        />
-                      </div>
-                      <div className="flex items-center justify-between text-[10px] text-white/60">
-                        <div className="flex items-center gap-3">
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setIsPlaying(!isPlaying);
-                            }}
-                            className="text-white hover:text-accent-blue transition-colors"
-                          >
-                            {isPlaying ? (
-                              <Pause className="w-4 h-4" />
-                            ) : (
-                              <Play className="w-4 h-4 fill-current" />
-                            )}
-                          </button>
-                          <span className="text-white/50 font-sans">
-                            {formatTime(videoTime)} / 0:35
-                          </span>
-                        </div>
-                        <span className="text-[9px] bg-accent-blue/20 text-accent-blue border border-accent-blue/30 px-2 py-0.5 rounded font-sans uppercase">
-                          Demo Stream
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* HOW SMART DEVICES OPERATE SECTION */}
         {/* <section className="mb-24">

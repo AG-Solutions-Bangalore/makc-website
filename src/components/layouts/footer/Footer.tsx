@@ -23,7 +23,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-bg-main border-t border-border-main">
-      <div className="px-5 lg:px-10 py-16 lg:py-20">
+      <div className="px-5 lg:px-10 py-10">
         {/* 6 Column Layout with Vertical Dividers on Desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-0 lg:divide-x lg:divide-border-main/40">
           {/* Column 1: Logo & Description */}

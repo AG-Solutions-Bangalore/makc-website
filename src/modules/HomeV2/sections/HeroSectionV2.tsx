@@ -77,14 +77,23 @@ export default function HeroSectionV2() {
       <div className="relative z-20 mx-auto max-w-8xl w-full px-4 sm:px-14 flex flex-col lg:flex-row items-start lg:items-stretch justify-between gap-12 sm:gap-16">
         {/* Hero Left Content */}
         <div className="flex-1 flex flex-col justify-center text-left max-w-2xl reveal-on-scroll reveal-left" data-reveal-duration="0.9s">
-          <span className=" text-[10px] sm:text-xs font-bold tracking-[0.25em] text-gold-primary uppercase">
-            DESIGNED FOR MODERN LUXURY LIVING
-          </span>
+          <div className="mb-4">
+            <div className="inline-flex items-center gap-2.5 border border-white/20  backdrop-blur-md rounded-full px-3 py-1.5 select-none pointer-events-none">
+              <img
+                src="/images/iso-image.svg"
+                alt="ISO Certified Logo"
+                className="h-5.5 w-5.5 object-contain"
+              />
+              <span className="text-[11px] sm:text-xs font-sans font-medium tracking-wide text-white leading-none">
+                ISO <span className="text-[#00A551] font-semibold">2015</span> Certified Company
+              </span>
+            </div>
+          </div>
 
           <h1 className="mt-4 sm:mt-6  text-4xl sm:text-5xl lg:text-6xl font-extrabold text-text-main tracking-tight leading-[1.15]">
-            Experience Intelligent Living <br />
+            Experience the <br />
             <span className=" italic font-normal text-gold-primary">
-              with Smart Home Automation
+              Smart Living
             </span>
           </h1>
 

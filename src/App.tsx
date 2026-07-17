@@ -27,6 +27,8 @@ const ExperiencePage = lazy(
   () => import("./modules/Experience/pages/ExperiencePage"),
 );
 const WhyUsPage = lazy(() => import("./modules/WhyUs/pages/WhyUsPage"));
+const OldPage = lazy(() => import("./modules/old/pages/OldPage"));
+const AudioPage = lazy(() => import("./modules/Audio/pages/AudioPage"));
 const NotFound = lazy(() => import("./components/common/NotFound"));
 
 export default function App() {
@@ -35,12 +37,14 @@ export default function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<HomeV2Page />} />
         <Route path="/v1" element={<HomePage />} />
+        <Route path="/old" element={<OldPage />} />
 
         {/* Solutions routes */}
         <Route path="/automation" element={<AutomationPage />} />
         <Route path="/security" element={<SecurityPage />} />
         <Route path="/lighting" element={<LightingPage />} />
         <Route path="/networking" element={<NetworkingPage />} />
+        <Route path="/audio" element={<AudioPage />} />
 
         {/* Additional links routes */}
         <Route path="/contact" element={<ContactPage />} />

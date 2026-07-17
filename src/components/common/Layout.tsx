@@ -4,7 +4,8 @@ import Header from "../layouts/navbar/Header";
 
 const Footer = lazy(() => import("../layouts/footer/Footer"));
 const FloatingActionGroup = lazy(() => import("./FloatingActionGroup"));
-const Toaster = lazy(() => import("@/components/ui/sonner").then((module) => ({ default: module.Toaster })));
+
+import { Toaster } from "react-hot-toast";
 
 function FooterWhenVisible() {
   const ref = useRef<HTMLDivElement>(null);
@@ -101,11 +102,19 @@ export default function Layout() {
       </main>
       <FooterWhenVisible />
       <FloatingActionsWhenIdle />
-      {location.pathname !== "/" ? (
-        <Suspense fallback={null}>
-          <Toaster />
-        </Suspense>
-      ) : null}
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          style: {
+            background: "var(--bg-surface)",
+            color: "var(--text-main)",
+            border: "1px solid var(--border-main)",
+            borderRadius: "12px",
+            fontFamily: "var(--font-sans)",
+            fontSize: "14px",
+          },
+        }}
+      />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 // Reusable Trending carousel
 import { ChevronRight } from "lucide-react";
-import { toast } from "sonner";
+import { toast } from "react-hot-toast";
 import {
   Carousel,
   CarouselContent,
@@ -70,7 +70,7 @@ export default function TrendingCarousel({
                         onClick={() => {
                           document.getElementById("phone")?.focus();
                           window.scrollTo({ top: 0, behavior: "smooth" });
-                          toast.info(`Inquiring about ${product.name}. Please enter your number.`);
+                          toast(`Inquiring about ${product.name}. Please enter your number.`);
                         }}
                         className="text-xs font-bold text-accent-blue hover:text-[#0055d4] flex items-center gap-1 cursor-pointer"
                       >

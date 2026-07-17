@@ -3,14 +3,14 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSearchParams } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
-import { toast } from "sonner";
+import { toast } from "react-hot-toast";
 import { submitEnquiry } from "../api/contact.api";
 
 export const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   phone: z.string().min(8, "Valid phone number is required"),
   email: z.string().email("Invalid email address"),
-  subject: z.string().min(1, "Please select a service"),
+  services: z.array(z.string()).min(1, "Please select at least one service"),
   message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
@@ -27,6 +27,9 @@ export const useContactForm = () => {
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
     mode: "onBlur",
+    defaultValues: {
+      services: [],
+    },
   });
 
   const mutation = useMutation({
@@ -47,7 +50,7 @@ export const useContactForm = () => {
       enquiryFullName: data.name,
       enquiryMobile: data.phone,
       enquiryEmail: data.email,
-      enquiryProduct: data.subject,
+      enquiryProduct: data.services.join(", "),
       enquiryMessage: data.message,
       utm_medium: searchParams.get("utm_medium") || "",
       utm_source: searchParams.get("utm_source") || "",

@@ -50,7 +50,7 @@ export default function SecurityHero() {
     <section
       ref={heroRef}
       className="dark relative min-h-[90vh] lg:min-h-screen w-full flex items-center justify-start bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url('${getImageUrl("2151349208.webp")}')` }}
+      style={{ backgroundImage: `url('${getImageUrl("security_banner.webp")}')` }}
     >
       {/* Dark overlay for contrast */}
       <div className="absolute inset-0 bg-black/65" />

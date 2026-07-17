@@ -1,17 +1,17 @@
-import { lazy, Suspense, useEffect, useRef, useState } from "react";
-import type { ReactNode } from "react";
 import useSEO from "@/hooks/useSEO";
+import type { ReactNode } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import HeroSectionV2 from "../sections/HeroSectionV2";
 import StatsSectionV2 from "../sections/StatsSectionV2";
 
 // Lazy load below-the-fold sections to shrink the initial page load JS payload
 const ServicesSectionV2 = lazy(() => import("../sections/ServicesSectionV2"));
-const ProjectsSection = lazy(() => import("../sections/ProjectsSection"));
-const PartnerLogosSection = lazy(() => import("../sections/PartnerLogosSection"));
-const SolutionsGallery = lazy(() => import("@/components/common/SolutionsGallery"));
-const SmarterWaySection = lazy(() => import("../sections/SmarterWaySection"));
-const TestimonialsSection = lazy(() => import("../sections/TestimonialsSection"));
-const GetInTouchSection = lazy(() => import("../sections/GetInTouchSection"));
+const PartnerLogosSection = lazy(
+  () => import("../sections/PartnerLogosSection"),
+);
+const SolutionsGallery = lazy(
+  () => import("@/components/common/SolutionsGallery"),
+);
 
 function LazyOnView({
   children,
@@ -53,10 +53,13 @@ function LazyOnView({
 export default function HomeV2Page() {
   useSEO({
     title: "Home Automation Company in Bangalore | MAKc Automation",
-    description: "MAKc Automation is a leading home automation company in Bangalore. Get complete smart home automation solutions for enhanced security, safety, comfort, and convenience.",
-    keywords: "home automation company in bangalore, home automation bangalore, smart home automation",
+    description:
+      "MAKc Automation is a leading home automation company in Bangalore. Get complete smart home automation solutions for enhanced security, safety, comfort, and convenience.",
+    keywords:
+      "home automation company in bangalore, home automation bangalore, smart home automation",
     canonicalUrl: "https://makcautomations.com/",
-    robots: "INDEX, FOLLOW, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1, MAX-IMAGE-PREVIEW:LARGE",
+    robots:
+      "INDEX, FOLLOW, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1, MAX-IMAGE-PREVIEW:LARGE",
   });
 
   return (
@@ -71,28 +74,12 @@ export default function HomeV2Page() {
         <ServicesSectionV2 />
       </LazyOnView>
 
-      <LazyOnView minHeight={360}>
-        <ProjectsSection />
-      </LazyOnView>
-
-      <LazyOnView minHeight={260}>
-        <PartnerLogosSection />
-      </LazyOnView>
-
       <LazyOnView minHeight={520}>
         <SolutionsGallery />
       </LazyOnView>
 
-      <LazyOnView minHeight={760}>
-        <SmarterWaySection />
-      </LazyOnView>
-
-      <LazyOnView minHeight={640}>
-        <TestimonialsSection />
-      </LazyOnView>
-
-      <LazyOnView minHeight={640}>
-        <GetInTouchSection />
+      <LazyOnView minHeight={260}>
+        <PartnerLogosSection />
       </LazyOnView>
     </div>
   );

@@ -21,8 +21,8 @@ export default function FloatingActionGroup() {
           : "translate-y-10 opacity-0 pointer-events-none"
       } @media (prefers-reduced-motion: reduce) { transition: none; transform: none; opacity: 1; }`}
     >
-      <FloatingBot />
       <FloatingContactMenu />
+      <FloatingBot />
     </div>
   );
 }
