@@ -3,6 +3,7 @@ import { Star, Home, Star as StarIcon, ShieldCheck, Headphones, ChevronLeft, Che
 import { getImageUrl } from "@/utils/image";
 
 const imgVillaNight = getImageUrl("contact_villa_night.webp");
+const imgVillaNightAvif = getImageUrl("contact_villa_night.avif");
 const imgAvatar1 = getImageUrl("why_choose_us.webp");
 const imgAvatar2 = getImageUrl("project_apartments.webp");
 const imgAvatar3 = getImageUrl("project_villas.webp");
@@ -119,11 +120,18 @@ export default function TestimonialsSection() {
         {/* Right Column: Villa Night View & Floating Card */}
         <div className="lg:col-span-7 relative min-h-[450px] lg:min-h-full flex items-end justify-end p-6 sm:p-10 lg:p-12 overflow-hidden bg-black">
           {/* Villa Night Underlay */}
-          <img
-            src={imgVillaNight}
-            alt="Luxury Villa Night View"
-            className="absolute inset-0 w-full h-full object-cover object-center z-0"
-          />
+          <picture>
+            <source srcSet={imgVillaNightAvif} type="image/avif" />
+            <img
+              src={imgVillaNight}
+              alt="Luxury Villa Night View"
+              className="absolute inset-0 w-full h-full object-cover object-center z-0"
+              width={1024}
+              height={1024}
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/30 z-0" />
           <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black/60 to-transparent z-0 hidden lg:block" />
 
@@ -161,6 +169,10 @@ export default function TestimonialsSection() {
                     src={testimonials[current].image}
                     alt={testimonials[current].author}
                     className="w-full h-full object-cover object-center"
+                    width={1024}
+                    height={1024}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 
@@ -182,10 +194,13 @@ export default function TestimonialsSection() {
                 {testimonials.map((_, idx) => (
                   <button
                     key={idx}
+                    type="button"
                     onClick={() => setCurrent(idx)}
-                    className={`h-2 w-2 rounded-full transition-all duration-300 cursor-pointer ${
-                      idx === current ? "bg-[#0A84FF] w-4" : "bg-text-muted/30 dark:bg-white/20 hover:bg-text-muted/50"
+                    className={`h-6 w-6 rounded-full transition-all duration-300 cursor-pointer flex items-center justify-center ${
+                      idx === current ? "bg-[#0A84FF]/10" : "hover:bg-text-muted/10"
                     }`}
+                    aria-label={`Show testimonial ${idx + 1}`}
+                    aria-current={idx === current}
                   />
                 ))}
               </div>
@@ -193,16 +208,20 @@ export default function TestimonialsSection() {
               {/* Arrows */}
               <div className="flex items-center gap-2">
                 <button
+                  type="button"
                   onClick={prevTestimonial}
-                  className="w-8 h-8 rounded-full border border-border-main dark:border-white/10 bg-bg-surface dark:bg-white/5 flex items-center justify-center text-text-main hover:bg-[#0A84FF] hover:text-white hover:border-transparent hover:shadow-[0_0_10px_rgba(10,132,255,0.6)] transition-all duration-200 cursor-pointer"
+                  className="w-9 h-9 rounded-full border border-border-main dark:border-white/10 bg-bg-surface dark:bg-white/5 flex items-center justify-center text-text-main hover:bg-[#0A84FF] hover:text-white hover:border-transparent hover:shadow-[0_0_10px_rgba(10,132,255,0.6)] transition-all duration-200 cursor-pointer"
+                  aria-label="Show previous testimonial"
                 >
-                  <ChevronLeft className="h-4.5 w-4.5" />
+                  <ChevronLeft className="h-4.5 w-4.5" aria-hidden="true" />
                 </button>
                 <button
+                  type="button"
                   onClick={nextTestimonial}
-                  className="w-8 h-8 rounded-full border border-border-main dark:border-white/10 bg-bg-surface dark:bg-white/5 flex items-center justify-center text-text-main hover:bg-[#0A84FF] hover:text-white hover:border-transparent hover:shadow-[0_0_10px_rgba(10,132,255,0.6)] transition-all duration-200 cursor-pointer"
+                  className="w-9 h-9 rounded-full border border-border-main dark:border-white/10 bg-bg-surface dark:bg-white/5 flex items-center justify-center text-text-main hover:bg-[#0A84FF] hover:text-white hover:border-transparent hover:shadow-[0_0_10px_rgba(10,132,255,0.6)] transition-all duration-200 cursor-pointer"
+                  aria-label="Show next testimonial"
                 >
-                  <ChevronRight className="h-4.5 w-4.5" />
+                  <ChevronRight className="h-4.5 w-4.5" aria-hidden="true" />
                 </button>
               </div>
 

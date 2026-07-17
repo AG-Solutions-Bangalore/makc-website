@@ -6,9 +6,11 @@ import {
   Blinds,
 } from "lucide-react";
 import WaveButton from "@/components/common/WaveButton";
-import { getImageUrl } from "@/utils/image";
+import { getImageUrl, getResponsiveHomeImageUrl } from "@/utils/image";
 
 const heroBg = getImageUrl("hero_bg.webp");
+const heroBgAvif = getResponsiveHomeImageUrl("hero_bg.avif", 768);
+const heroBgAvifMobile = getResponsiveHomeImageUrl("hero_bg.avif", 480);
 
 export default function HeroSectionV2() {
   const statusItems = [
@@ -51,11 +53,20 @@ export default function HeroSectionV2() {
     >
       {/* Background Image with Theme-aware Overlays */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={heroBg}
-          alt="Smart Home Automation Installation in Bangalore"
-          className="w-full h-full object-cover object-center scale-105 transition-all duration-500 opacity-95 dark:opacity-85"
-        />
+        <picture>
+          <source media="(max-width: 640px)" srcSet={heroBgAvifMobile} type="image/avif" />
+          <source srcSet={heroBgAvif} type="image/avif" />
+          <img
+            src={heroBg}
+            alt="Smart Home Automation Installation in Bangalore"
+            className="w-full h-full object-cover object-center scale-105 transition-all duration-500 opacity-95 dark:opacity-85"
+            width={1024}
+            height={1024}
+            fetchPriority="high"
+            loading="eager"
+            decoding="sync"
+          />
+        </picture>
         {/* Dynamic theme-aware gradients for premium readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-bg-main via-bg-main/40 to-transparent z-10" />
         <div className="absolute inset-0 bg-gradient-to-t from-bg-main via-transparent to-bg-main/40 z-10" />
@@ -66,14 +77,23 @@ export default function HeroSectionV2() {
       <div className="relative z-20 mx-auto max-w-8xl w-full px-4 sm:px-14 flex flex-col lg:flex-row items-start lg:items-stretch justify-between gap-12 sm:gap-16">
         {/* Hero Left Content */}
         <div className="flex-1 flex flex-col justify-center text-left max-w-2xl reveal-on-scroll reveal-left" data-reveal-duration="0.9s">
-          <span className=" text-[10px] sm:text-xs font-bold tracking-[0.25em] text-gold-primary uppercase">
-            DESIGNED FOR MODERN LUXURY LIVING
-          </span>
+          <div className="mb-4">
+            <div className="inline-flex items-center gap-2.5 border border-white/20  backdrop-blur-md rounded-full px-3 py-1.5 select-none pointer-events-none">
+              <img
+                src="/images/iso-image.svg"
+                alt="ISO Certified Logo"
+                className="h-5.5 w-5.5 object-contain"
+              />
+              <span className="text-[11px] sm:text-xs font-sans font-medium tracking-wide text-white leading-none">
+                ISO <span className="text-[#00A551] font-semibold">2015</span> Certified Company
+              </span>
+            </div>
+          </div>
 
           <h1 className="mt-4 sm:mt-6  text-4xl sm:text-5xl lg:text-6xl font-extrabold text-text-main tracking-tight leading-[1.15]">
-            Experience Intelligent Living <br />
+            Experience the <br />
             <span className=" italic font-normal text-gold-primary">
-              with Smart Home Automation
+              Smart Living
             </span>
           </h1>
 
@@ -87,7 +107,7 @@ export default function HeroSectionV2() {
             {/* CTA 1: Solid Gold */}
             <a
               href="#contact"
-              className="w-full sm:w-auto px-4 py-3.5 sm:px-8 sm:py-4 bg-gold-primary text-white font-bold text-[10px] sm:text-xs tracking-wide sm:tracking-[0.15em] uppercase hover:bg-gold-hover transition-colors duration-300 rounded-none shadow-[0_4px_20px_rgba(10,132,255,0.35)] flex items-center justify-center gap-2 group text-center"
+              className="w-full sm:w-auto px-4 py-3.5 sm:px-8 sm:py-4 bg-[#006ed6] text-white font-bold text-xs tracking-wide sm:tracking-[0.15em] uppercase hover:bg-[#005fba] transition-colors duration-300 rounded-none shadow-[0_4px_20px_rgba(10,132,255,0.35)] flex items-center justify-center gap-2 group text-center"
             >
               <span className="leading-snug">Book a Free Smart Home Consultation</span>
             </a>

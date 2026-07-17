@@ -49,8 +49,8 @@ export default function NetworkingHero() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-[90vh] lg:min-h-screen w-full flex items-center justify-start bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url('${getImageUrl("2151349208.webp")}')` }}
+      className="dark relative min-h-[90vh] lg:min-h-screen w-full flex items-center justify-start bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url('${getImageUrl("networking_banner.webp")}')` }}
     >
       {/* Dark overlay for contrast */}
       <div className="absolute inset-0 bg-black/65" />

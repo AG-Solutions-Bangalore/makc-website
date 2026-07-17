@@ -7,9 +7,6 @@ import {
 } from "lucide-react";
 import Marquee from "react-fast-marquee";
 
-// Import shared common components
-import ConnectBanner from "@/components/common/ConnectBanner";
-
 import useSEO from "@/hooks/useSEO";
 import { getImageUrl } from "@/utils/image";
 
@@ -286,10 +283,10 @@ export default function AboutPage() {
         </section>
 
         {/* REUSABLE BANNER CTA */}
-        <ConnectBanner 
+        {/* <ConnectBanner 
           title="Connect With Us"
           description="Our design specialists are ready to consult on your home automation needs. Contact us via phone or email for customized estimates."
-        />
+        /> */}
 
       </div>
     </div>

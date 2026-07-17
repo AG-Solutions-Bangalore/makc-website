@@ -1,23 +1,65 @@
 import useSEO from "@/hooks/useSEO";
+import type { ReactNode } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import HeroSectionV2 from "../sections/HeroSectionV2";
 import StatsSectionV2 from "../sections/StatsSectionV2";
-import ServicesSectionV2 from "../sections/ServicesSectionV2";
-import ProjectsSection from "../sections/ProjectsSection";
-import PartnerLogosSection from "../sections/PartnerLogosSection";
-import ClientTestimonialsSection from "../sections/ClientTestimonialsSection";
-import TestimonialsSection from "../sections/TestimonialsSection";
-import SmarterWaySection from "../sections/SmarterWaySection";
-import GetInTouchSection from "../sections/GetInTouchSection";
-import CtaSection from "../sections/CtaSection";
-import SolutionsGallery from "@/components/common/SolutionsGallery";
+
+// Lazy load below-the-fold sections to shrink the initial page load JS payload
+const ServicesSectionV2 = lazy(() => import("../sections/ServicesSectionV2"));
+const PartnerLogosSection = lazy(
+  () => import("../sections/PartnerLogosSection"),
+);
+const SolutionsGallery = lazy(
+  () => import("@/components/common/SolutionsGallery"),
+);
+
+function LazyOnView({
+  children,
+  minHeight = 520,
+}: {
+  children: ReactNode;
+  minHeight?: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [shouldRender, setShouldRender] = useState(false);
+
+  useEffect(() => {
+    if (shouldRender) return;
+
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldRender(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "700px 0px" },
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [shouldRender]);
+
+  return (
+    <div ref={ref} style={shouldRender ? undefined : { minHeight }}>
+      {shouldRender ? <Suspense fallback={null}>{children}</Suspense> : null}
+    </div>
+  );
+}
 
 export default function HomeV2Page() {
   useSEO({
     title: "Home Automation Company in Bangalore | MAKc Automation",
-    description: "MAKc Automation is a leading home automation company in Bangalore. Get complete smart home automation solutions for enhanced security, safety, comfort, and convenience.",
-    keywords: "home automation company in bangalore, home automation bangalore, smart home automation",
+    description:
+      "MAKc Automation is a leading home automation company in Bangalore. Get complete smart home automation solutions for enhanced security, safety, comfort, and convenience.",
+    keywords:
+      "home automation company in bangalore, home automation bangalore, smart home automation",
     canonicalUrl: "https://makcautomations.com/",
-    robots: "INDEX, FOLLOW, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1, MAX-IMAGE-PREVIEW:LARGE",
+    robots:
+      "INDEX, FOLLOW, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1, MAX-IMAGE-PREVIEW:LARGE",
   });
 
   return (
@@ -28,32 +70,17 @@ export default function HomeV2Page() {
       {/* V2 Stats Section */}
       <StatsSectionV2 />
 
-      {/* V2 Services Section */}
-      <ServicesSectionV2 />
+      <LazyOnView minHeight={720}>
+        <ServicesSectionV2 />
+      </LazyOnView>
 
-      {/* V2 Featured Projects Section */}
-      <ProjectsSection />
+      <LazyOnView minHeight={520}>
+        <SolutionsGallery />
+      </LazyOnView>
 
-      {/* V2 Partner Logos Section */}
-      <PartnerLogosSection />
-
-      {/* Solutions Gallery Showcase */}
-      <SolutionsGallery />
-
-      {/* V2 Smarter Way Section */}
-      <SmarterWaySection />
-
-      {/* V2 Client Testimonials Grid Section */}
-      <ClientTestimonialsSection />
-
-      {/* V2 Testimonials Section */}
-      <TestimonialsSection />
-
-      {/* V2 Get In Touch Section */}
-      <GetInTouchSection />
-
-      {/* V2 Call To Action Banner Section */}
-      <CtaSection />
+      <LazyOnView minHeight={260}>
+        <PartnerLogosSection />
+      </LazyOnView>
     </div>
   );
 }

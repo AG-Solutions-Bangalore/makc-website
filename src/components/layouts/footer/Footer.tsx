@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import BrandLogo from "@/components/common/BrandLogo";
 import {
   // Instagram,
@@ -11,12 +10,10 @@ import {
   Sun,
   Moon,
 } from "lucide-react";
-import OceanAnimation from "@/components/common/OceanAnimation";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
 
 export default function Footer() {
-  const scrollRef = useScrollAnimation();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -25,13 +22,10 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer ref={scrollRef} className="bg-bg-main border-t border-border-main">
-      <div className="px-5 lg:px-10 py-16 lg:py-20">
+    <footer className="bg-bg-main border-t border-border-main">
+      <div className="px-5 lg:px-10 py-10">
         {/* 6 Column Layout with Vertical Dividers on Desktop */}
-        <div
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-0 lg:divide-x lg:divide-border-main/40"
-          data-scroll-animate="fade-in-up"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-0 lg:divide-x lg:divide-border-main/40">
           {/* Column 1: Logo & Description */}
           <div className="flex flex-col text-left lg:pr-8 lg:pl-0">
             <Link to="/" className="flex items-center">
@@ -45,16 +39,16 @@ export default function Footer() {
 
           {/* Column 2: Solutions */}
           <div className="flex flex-col text-left lg:px-6">
-            <h4 className=" text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-6 select-none">
+            <h3 className=" text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-6 select-none">
               Solutions
-            </h4>
+            </h3>
             <ul className="flex flex-col gap-3  text-xs text-text-muted">
               <li>
                 <a
                   href="/#solutions"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
-                  Home Automation
+                  Automation
                 </a>
               </li>
               <li>
@@ -70,14 +64,6 @@ export default function Footer() {
                   href="/#solutions"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
-                  Security
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/#solutions"
-                  className="hover:text-accent-blue transition-colors duration-200"
-                >
                   Networking
                 </a>
               </li>
@@ -86,7 +72,7 @@ export default function Footer() {
                   href="/#solutions"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
-                  Home Theatre
+                  Security
                 </a>
               </li>
               <li>
@@ -94,7 +80,7 @@ export default function Footer() {
                   href="/#solutions"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
-                  Energy Management
+                  Audio
                 </a>
               </li>
             </ul>
@@ -102,9 +88,9 @@ export default function Footer() {
 
           {/* Column 3: Projects */}
           <div className="flex flex-col text-left lg:px-6">
-            <h4 className=" text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-6 select-none">
+            <h3 className=" text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-6 select-none">
               Projects
-            </h4>
+            </h3>
             <ul className="flex flex-col gap-3  text-xs text-text-muted">
               <li>
                 <a
@@ -151,9 +137,9 @@ export default function Footer() {
 
           {/* Column 4: About */}
           <div className="flex flex-col text-left lg:px-6">
-            <h4 className=" text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-6 select-none">
+            <h3 className=" text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-6 select-none">
               About
-            </h4>
+            </h3>
             <ul className="flex flex-col gap-3  text-xs text-text-muted">
               <li>
                 <a
@@ -191,7 +177,7 @@ export default function Footer() {
           </div>
 
           {/* Column 5: Locations */}
-          <div className="flex flex-col text-left lg:px-6">
+          {/* <div className="flex flex-col text-left lg:px-6">
             <h4 className=" text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-6 select-none">
               Locations
             </h4>
@@ -217,13 +203,13 @@ export default function Footer() {
                 </span>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Column 6: Contact */}
           <div className="flex flex-col text-left lg:pl-6 lg:pr-0">
-            <h4 className=" text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-6 select-none">
+            <h3 className=" text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-6 select-none">
               Contact
-            </h4>
+            </h3>
             <div className="flex flex-col gap-4  text-xs text-text-muted">
               <a
                 href="tel:+919948432444"
@@ -285,11 +271,7 @@ export default function Footer() {
         <div className="h-px bg-border-main my-10 lg:my-16" />
 
         {/* Bottom Row */}
-        <div
-          className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4"
-          data-scroll-animate="fade-in-up"
-          data-scroll-delay="0.1"
-        >
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <p className="text-tiny text-text-muted">
             &copy; {new Date().getFullYear()} Makc Automations. All rights
             reserved.
@@ -300,6 +282,7 @@ export default function Footer() {
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className="flex h-9 w-9 items-center justify-center border border-border-main text-text-main hover:bg-bg-surface hover:text-accent-blue transition-all duration-300 rounded-none shrink-0 cursor-pointer"
               title="Toggle Theme"
+              aria-label="Toggle Theme"
             >
               {mounted && theme === "dark" ? (
                 <Sun className="h-5.5 w-5.5" />
@@ -324,10 +307,6 @@ export default function Footer() {
             </a>
           </div>
         </div>
-      </div>
-      <div className="relative h-[200px] lg:h-[200px] overflow-hidden">
-        <OceanAnimation />
-        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-bg-main/60 to-bg-main pointer-events-none" />
       </div>
     </footer>
   );

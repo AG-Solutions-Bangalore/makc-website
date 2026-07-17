@@ -1,20 +1,35 @@
+import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/common/Layout";
-import HomePage from "./modules/Home/pages/HomePage";
 import HomeV2Page from "./modules/HomeV2/pages/HomeV2Page";
 
-// New modules pages imports
-import AutomationPage from "./modules/Automation/pages/AutomationPage";
-import SecurityPage from "./modules/Security/pages/SecurityPage";
-import LightingPage from "./modules/Lighting/pages/LightingPage";
-import NetworkingPage from "./modules/Networking/pages/NetworkingPage";
-import ContactPage from "./modules/Contact/pages/ContactPage";
-import AboutPage from "./modules/About/pages/AboutPage";
-import ServicePage from "./modules/Service/pages/ServicePage";
-import BlogPage from "./modules/Blogs/pages/BlogPage";
-import ExperiencePage from "./modules/Experience/pages/ExperiencePage";
-import WhyUsPage from "./modules/WhyUs/pages/WhyUsPage";
-import NotFound from "./components/common/NotFound";
+// Lazy load secondary pages to shrink the initial JS bundle
+const HomePage = lazy(() => import("./modules/Home/pages/HomePage"));
+const AutomationPage = lazy(
+  () => import("./modules/Automation/pages/AutomationPage"),
+);
+const SecurityPage = lazy(
+  () => import("./modules/Security/pages/SecurityPage"),
+);
+const LightingPage = lazy(
+  () => import("./modules/Lighting/pages/LightingPage"),
+);
+const NetworkingPage = lazy(
+  () => import("./modules/Networking/pages/NetworkingPage"),
+);
+const ContactPage = lazy(
+  () => import("./modules/Contact/pages/ContactPageRoute"),
+);
+const AboutPage = lazy(() => import("./modules/About/pages/AboutPage"));
+const ServicePage = lazy(() => import("./modules/Service/pages/ServicePage"));
+const BlogPage = lazy(() => import("./modules/Blogs/pages/BlogPage"));
+const ExperiencePage = lazy(
+  () => import("./modules/Experience/pages/ExperiencePage"),
+);
+const WhyUsPage = lazy(() => import("./modules/WhyUs/pages/WhyUsPage"));
+const OldPage = lazy(() => import("./modules/old/pages/OldPage"));
+const AudioPage = lazy(() => import("./modules/Audio/pages/AudioPage"));
+const NotFound = lazy(() => import("./components/common/NotFound"));
 
 export default function App() {
   return (
@@ -22,12 +37,14 @@ export default function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<HomeV2Page />} />
         <Route path="/v1" element={<HomePage />} />
+        <Route path="/old" element={<OldPage />} />
 
         {/* Solutions routes */}
         <Route path="/automation" element={<AutomationPage />} />
         <Route path="/security" element={<SecurityPage />} />
         <Route path="/lighting" element={<LightingPage />} />
         <Route path="/networking" element={<NetworkingPage />} />
+        <Route path="/audio" element={<AudioPage />} />
 
         {/* Additional links routes */}
         <Route path="/contact" element={<ContactPage />} />

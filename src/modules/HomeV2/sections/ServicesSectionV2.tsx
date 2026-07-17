@@ -1,15 +1,20 @@
 import { Sun, ShieldCheck, Volume2, Wifi, Zap } from "lucide-react";
 import React from "react";
-import { getImageUrl } from "@/utils/image";
-
+import { getImageUrl, getResponsiveHomeImageUrl } from "@/utils/image";
 
 // Import images
 const imgAutomation = getImageUrl("service_automation.webp");
+const imgAutomationAvif = getImageUrl("service_automation.avif");
 const imgLighting = getImageUrl("service_lighting.webp");
+const imgLightingAvif = getImageUrl("service_lighting.avif");
 const imgSecurity = getImageUrl("service_security.webp");
+const imgSecurityAvif = getImageUrl("service_security.avif");
 const imgNetworking = getImageUrl("service_networking.webp");
+const imgNetworkingAvif = getImageUrl("service_networking.avif");
 const imgAudio = getImageUrl("service_theatre.webp");
+const imgAudioAvif = getImageUrl("service_theatre.avif");
 const imgEnergy = getImageUrl("service_energy.webp");
+const imgEnergyAvif = getImageUrl("service_energy.avif");
 
 // Custom icons matching luxury styles
 function SmartHomeIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -38,6 +43,15 @@ export default function ServicesSectionV2() {
       title: "Smart Home Automation",
       description: "One-touch control for your entire home.",
       bgImage: imgAutomation,
+      avifImage: imgAutomationAvif,
+      avifImageMobile: getResponsiveHomeImageUrl(
+        "service_automation.avif",
+        480,
+      ),
+      avifImageDesktop: getResponsiveHomeImageUrl(
+        "service_automation.avif",
+        768,
+      ),
     },
     {
       id: "lighting",
@@ -45,6 +59,9 @@ export default function ServicesSectionV2() {
       title: "Smart Lighting",
       description: "Create moods with intelligent lighting scenes.",
       bgImage: imgLighting,
+      avifImage: imgLightingAvif,
+      avifImageMobile: getResponsiveHomeImageUrl("service_lighting.avif", 480),
+      avifImageDesktop: getResponsiveHomeImageUrl("service_lighting.avif", 768),
     },
     {
       id: "security",
@@ -53,6 +70,9 @@ export default function ServicesSectionV2() {
       description:
         "AI-powered surveillance, smart locks and intrusion protection.",
       bgImage: imgSecurity,
+      avifImage: imgSecurityAvif,
+      avifImageMobile: getResponsiveHomeImageUrl("service_security.avif", 480),
+      avifImageDesktop: getResponsiveHomeImageUrl("service_security.avif", 768),
     },
     {
       id: "networking",
@@ -60,6 +80,15 @@ export default function ServicesSectionV2() {
       title: "Networking",
       description: "Enterprise-grade WiFi designed for luxury villas.",
       bgImage: imgNetworking,
+      avifImage: imgNetworkingAvif,
+      avifImageMobile: getResponsiveHomeImageUrl(
+        "service_networking.avif",
+        480,
+      ),
+      avifImageDesktop: getResponsiveHomeImageUrl(
+        "service_networking.avif",
+        768,
+      ),
     },
     {
       id: "audio",
@@ -67,20 +96,27 @@ export default function ServicesSectionV2() {
       title: "Home Audio",
       description: "Multi-room sound that fills every corner with clarity.",
       bgImage: imgAudio,
+      avifImage: imgAudioAvif,
+      avifImageMobile: getResponsiveHomeImageUrl("service_theatre.avif", 480),
+      avifImageDesktop: getResponsiveHomeImageUrl("service_theatre.avif", 768),
     },
     {
       id: "electric",
       icon: Zap,
-      title: "Home Electric",
-      description: "Intelligent power distribution, backups and energy monitoring.",
+      title: "Home Electrical",
+      description:
+        "Intelligent power distribution, backups and energy monitoring.",
       bgImage: imgEnergy,
+      avifImage: imgEnergyAvif,
+      avifImageMobile: getResponsiveHomeImageUrl("service_energy.avif", 480),
+      avifImageDesktop: getResponsiveHomeImageUrl("service_energy.avif", 768),
     },
   ];
 
   return (
     <section
       id="solutions"
-      className="relative w-full py-20 lg:py-28 border-t border-border-main overflow-hidden"
+      className="relative w-full py-20 border-t border-border-main overflow-hidden"
     >
       {/* Gradient background overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-[#F5F7FA] to-[#EBEFF5] dark:from-[#07152D] dark:via-[#051022] dark:to-[#01050E] transition-colors duration-300 pointer-events-none" />
@@ -91,12 +127,15 @@ export default function ServicesSectionV2() {
         {/* Main Grid Layout: Intro Card + 3x2 Services Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 border border-border-main backdrop-blur-sm">
           {/* Left Column: Intro Section (Spans 4/12 cols) */}
-          <div className="lg:col-span-4 flex flex-col justify-between p-8 sm:p-12 lg:p-14 bg-bg-main/40 dark:bg-bg-main/20 backdrop-blur-md border-b lg:border-b-0 lg:border-r border-border-main text-left reveal-on-scroll reveal-up" data-reveal-duration="0.8s">
+          <div
+            className="lg:col-span-4 flex flex-col justify-between p-8 sm:p-12 lg:p-14 bg-bg-main/40 dark:bg-bg-main/20 backdrop-blur-md border-b lg:border-b-0 lg:border-r border-border-main text-left reveal-on-scroll reveal-up"
+            data-reveal-duration="0.8s"
+          >
             <div className="flex flex-col">
               <span className="font-sans text-[10px] font-bold tracking-[0.2em] text-accent-blue uppercase">
                 EXPERIENCE SMART LIVING
               </span>
- 
+
               <h2 className="mt-4 font-serif text-3xl sm:text-4xl font-extrabold text-text-main tracking-tight leading-tight">
                 The Future <br />
                 Doesn't Wait. <br />
@@ -106,7 +145,7 @@ export default function ServicesSectionV2() {
                 </span>
               </h2>
             </div>
- 
+
             <p className="mt-8 lg:mt-0 font-sans text-xs sm:text-sm text-text-muted leading-relaxed">
               Every room should anticipate your needs. <br />
               Walk in. Lights welcome you. <br />
@@ -117,7 +156,7 @@ export default function ServicesSectionV2() {
               without looking technological.
             </p>
           </div>
- 
+
           {/* Right Column: 6 Services Grid (Spans 8/12 cols with clean border gap) */}
           <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 bg-border-main gap-[1px]">
             {services.map((service, index) => {
@@ -132,11 +171,33 @@ export default function ServicesSectionV2() {
                 >
                   {/* Card Background Image with Hover Zoom */}
                   <div className="absolute inset-0 z-0 group-hover:scale-105 transition-all duration-500">
-                    <img
-                      src={service.bgImage}
-                      alt={service.id === "security" ? "Smart Home Security System" : service.id === "networking" ? "Home Networking Solutions" : service.title}
-                      className="w-full h-full object-cover object-center filter transition-all duration-500"
-                    />
+                    <picture>
+                      <source
+                        media="(max-width: 640px)"
+                        srcSet={service.avifImageMobile}
+                        type="image/avif"
+                      />
+                      <source
+                        srcSet={service.avifImageDesktop}
+                        type="image/avif"
+                      />
+                      <img
+                        src={service.bgImage}
+                        alt={
+                          service.id === "security"
+                            ? "Smart Home Security System"
+                            : service.id === "networking"
+                              ? "Home Networking Solutions"
+                              : service.title
+                        }
+                        className="w-full h-full object-cover object-center filter transition-all duration-500"
+                        width={1024}
+                        height={1024}
+                        loading="lazy"
+                        decoding="async"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                    </picture>
                     {/* Shadow overlay */}
                     <div className="absolute inset-0 bg-gradient-to-r from-bg-main via-bg-main/80 to-transparent" />
                   </div>

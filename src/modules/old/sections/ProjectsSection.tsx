@@ -5,7 +5,7 @@ const imgFarmhouses = getImageUrl("project_farmhouses.webp");
 const imgPenthouses = getImageUrl("project_penthouses.webp");
 const imgCommercial = getImageUrl("project_commercial.webp");
 import { Link } from "react-router";
-import { getImageUrl } from "@/utils/image";
+import { getImageUrl, getResponsiveHomeImageUrl } from "@/utils/image";
 
 
 export default function ProjectsSection() {
@@ -13,22 +13,32 @@ export default function ProjectsSection() {
     {
       name: "Luxury Villas",
       image: imgVillas,
+      imageMobile: getResponsiveHomeImageUrl("project_villas.webp", 480),
+      imageDesktop: getResponsiveHomeImageUrl("project_villas.webp", 768),
     },
     {
       name: "Apartments",
       image: imgApartments,
+      imageMobile: getResponsiveHomeImageUrl("project_apartments.webp", 480),
+      imageDesktop: getResponsiveHomeImageUrl("project_apartments.webp", 768),
     },
     {
       name: "Farmhouses",
       image: imgFarmhouses,
+      imageMobile: getResponsiveHomeImageUrl("project_farmhouses.webp", 480),
+      imageDesktop: getResponsiveHomeImageUrl("project_farmhouses.webp", 768),
     },
     {
       name: "Penthouses",
       image: imgPenthouses,
+      imageMobile: getResponsiveHomeImageUrl("project_penthouses.webp", 480),
+      imageDesktop: getResponsiveHomeImageUrl("project_penthouses.webp", 768),
     },
     {
       name: "Commercial Spaces",
       image: imgCommercial,
+      imageMobile: getResponsiveHomeImageUrl("project_commercial.webp", 480),
+      imageDesktop: getResponsiveHomeImageUrl("project_commercial.webp", 768),
     },
   ];
 
@@ -59,11 +69,20 @@ export default function ProjectsSection() {
                 data-reveal-duration="0.7s"
               >
                 {/* Project Image with Zoom Effect */}
-                <img
-                  src={project.image}
-                  alt={project.name}
-                  className="w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-105"
-                />
+                <picture>
+                  <source media="(max-width: 640px)" srcSet={project.imageMobile} type="image/avif" />
+                  <source srcSet={project.imageDesktop} type="image/avif" />
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    className="w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-105"
+                    width={1024}
+                    height={1024}
+                    loading="lazy"
+                    decoding="async"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                  />
+                </picture>
                 
                 {/* Semi-transparent Dark overlay */}
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-all duration-300" />

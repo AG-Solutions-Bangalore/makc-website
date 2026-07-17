@@ -1,0 +1,12 @@
+# MAKc Automation
+
+> Premium smart home automation, lighting, security, networking, and entertainment systems for luxury residences.
+
+## Pages
+
+- [Home](https://makcautomations.com/)
+- [Automation](https://makcautomations.com/automation)
+- [Lighting](https://makcautomations.com/lighting)
+- [Networking](https://makcautomations.com/networking)
+- [Security](https://makcautomations.com/security)
+- [Contact](https://makcautomations.com/contact)

@@ -15,7 +15,7 @@
  *  • strokeWidth as string per SVG spec
  */
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -39,6 +39,56 @@ const features = [
 
 export default function GateAutomationSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const [mediaData, setMediaData] = useState<{
+    type: "Reel" | "Image";
+    url: string;
+  } | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchMedia = async () => {
+      try {
+        const res = await fetch("https://agsdemo.in/macapi/public/api/getWebReel");
+        if (!res.ok) throw new Error("API error");
+        const json = await res.json();
+        
+        // Find the "Gate Automation" service
+        const gateService = json.data?.find(
+          (item: any) => item.services === "Gate Automation"
+        );
+        
+        if (gateService) {
+          if (gateService.services_type === "Reel") {
+            setMediaData({
+              type: "Reel",
+              url: gateService.services_url_image,
+            });
+          } else {
+            // Find base image url for Reels
+            const reelsBase = json.image_url?.find(
+              (img: any) => img.image_for === "Reels"
+            )?.image_url || "https://agsdemo.in/macapi/public/assets/images/reels_images/";
+            
+            setMediaData({
+              type: "Image",
+              url: `${reelsBase}${gateService.services_url_image}`,
+            });
+          }
+        }
+      } catch (err) {
+        console.error("Failed to load gate automation media:", err);
+        // Graceful fallback to default Instagram Reel
+        setMediaData({
+          type: "Reel",
+          url: "https://www.instagram.com/reel/DTp5xiDj82a/",
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMedia();
+  }, []);
 
   useGSAP(
     () => {
@@ -80,15 +130,35 @@ export default function GateAutomationSection() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
         {/* ── Left: image mosaic ── */}
         <div className="grid grid-cols-2 gap-3">
-          {/* Tall left image */}
-          <div className="gate-img row-span-2 relative rounded-2xl overflow-hidden group">
-            <div className="absolute inset-0">
-              <img
-                src={getImageUrl("getAuto1.webp")}
-                alt="Smart villa entrance with automated gate, illuminated at night"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
+          {/* Tall left image - Dynamic content from API (Reel or Image) */}
+          <div className="gate-img row-span-2 relative rounded-2xl overflow-hidden bg-bg-surface border border-border-main/30 shadow-inner">
+            <div className="absolute inset-0 overflow-hidden">
+              {loading ? (
+                <div className="w-full h-full flex items-center justify-center bg-bg-surface">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-accent-blue" />
+                </div>
+              ) : mediaData?.type === "Reel" ? (
+                (() => {
+                  const match = mediaData.url.match(/\/reel\/([a-zA-Z0-9_-]+)/) || mediaData.url.match(/\/p\/([a-zA-Z0-9_-]+)/);
+                  const id = match ? match[1] : "DTp5xiDj82a";
+                  return (
+                    <iframe
+                      src={`https://www.instagram.com/reel/${id}/embed`}
+                      className="absolute w-full h-[calc(100%+120px)] -top-[60px] left-0 lg:w-[150%] lg:h-[150%] lg:-top-[25%] lg:-left-[25%] border-0"
+                      allowFullScreen
+                      scrolling="no"
+                      allow="encrypted-media"
+                      title="Gate Automation Video Demonstration"
+                    />
+                  );
+                })()
+              ) : (
+                <img
+                  src={mediaData?.url || getImageUrl("getAuto1.webp")}
+                  alt="Gate automation static demonstration"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.04]"
+                />
+              )}
             </div>
             <div className="aspect-[9/16] lg:aspect-[3/4]" />
           </div>

@@ -5,17 +5,31 @@ import GlowingLine from "./GlowingLine";
 interface ComingSoonProps {
   pageTitle: string;
   description?: string;
+  bgImage?: string;
 }
 
 export default function ComingSoon({
   pageTitle,
   description = "We are currently crafting a premium digital showcase for this solution. Stay tuned for a refined experience.",
+  bgImage,
 }: ComingSoonProps) {
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center justify-center py-20 px-4 overflow-hidden">
-      {/* Ambient Radial Glows */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-[#F5F7FA] to-[#EBEFF5] dark:from-[#07152D] dark:via-[#051022] dark:to-[#01050E] transition-colors duration-300 pointer-events-none z-0" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(10,132,255,0.08)_0%,rgba(10,132,255,0.03)_35%,transparent_70%)] dark:bg-[radial-gradient(circle_at_center,rgba(32,120,255,0.25)_0%,rgba(12,65,190,0.12)_22%,rgba(6,25,60,0.04)_48%,transparent_72%)] pointer-events-none z-0" />
+    <div
+      className="relative w-full min-h-screen flex flex-col items-center justify-center py-20 px-4 overflow-hidden bg-cover bg-center bg-no-repeat"
+      style={bgImage ? { backgroundImage: `url('${bgImage}')` } : undefined}
+    >
+      {/* Dark overlay for contrast when bgImage is active */}
+      {bgImage && <div className="absolute inset-0 bg-black/75 z-0" />}
+
+      {/* Ambient Radial Glows (only show if no bgImage to keep contrast high) */}
+      {!bgImage ? (
+        <>
+          <div className="absolute inset-0 bg-gradient-to-b from-white via-[#F5F7FA] to-[#EBEFF5] dark:from-[#07152D] dark:via-[#051022] dark:to-[#01050E] transition-colors duration-300 pointer-events-none z-0" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(10,132,255,0.08)_0%,rgba(10,132,255,0.03)_35%,transparent_70%)] dark:bg-[radial-gradient(circle_at_center,rgba(32,120,255,0.25)_0%,rgba(12,65,190,0.12)_22%,rgba(6,25,60,0.04)_48%,transparent_72%)] pointer-events-none z-0" />
+        </>
+      ) : (
+        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-bg-main to-transparent pointer-events-none z-0" />
+      )}
 
       <div className="relative z-10 max-w-lg w-full text-center flex flex-col items-center reveal-on-scroll reveal-up" data-reveal-duration="0.8s">
         {/* Glowing Pulsing Icon Frame */}

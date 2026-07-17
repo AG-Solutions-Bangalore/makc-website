@@ -4,6 +4,7 @@ import GlowingLine from "@/components/common/GlowingLine";
 import { getImageUrl } from "@/utils/image";
 
 const imgContactBg = getImageUrl("contact_villa_night.webp");
+const imgContactBgAvif = getImageUrl("contact_villa_night.avif");
 
 export default function GetInTouchSection() {
   const features = [
@@ -33,11 +34,18 @@ export default function GetInTouchSection() {
     <section id="contact" className="relative w-full bg-bg-main py-20 lg:py-28 border-t border-border-main overflow-hidden">
       {/* Background Image Container */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
-        <img
-          src={imgContactBg}
-          alt="Luxury Villa Night Scene"
-          className="w-full h-full object-cover object-center filter opacity-20 dark:opacity-60 transition-opacity duration-300"
-        />
+        <picture>
+          <source srcSet={imgContactBgAvif} type="image/avif" />
+          <img
+            src={imgContactBg}
+            alt="Luxury Villa Night Scene"
+            className="w-full h-full object-cover object-center filter opacity-20 dark:opacity-60 transition-opacity duration-300"
+            width={1024}
+            height={1024}
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
         {/* Responsive theme-friendly gradient overlays for highest text contrast */}
         <div className="absolute inset-0 bg-gradient-to-r from-bg-main via-bg-main/85 to-bg-main/30 md:bg-gradient-to-r md:from-bg-main md:via-bg-main/80 md:to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-bg-main via-transparent to-bg-main/20" />
@@ -91,9 +99,9 @@ export default function GetInTouchSection() {
                       <Icon className="h-6 w-6 stroke-[1.5]" />
                     </div>
 
-                    <h4 className="font-sans text-xs font-bold text-text-main tracking-wider uppercase mb-2">
+                    <h3 className="font-sans text-xs font-bold text-text-main tracking-wider uppercase mb-2">
                       {item.title}
-                    </h4>
+                    </h3>
                     <p className="font-sans text-[11px] text-text-muted leading-relaxed">
                       {item.description}
                     </p>

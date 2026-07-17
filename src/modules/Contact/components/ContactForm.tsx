@@ -1,4 +1,4 @@
-import { Loader2, ChevronDown } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { useContactForm } from "../hooks/useContactForm";
 
 export function ContactForm() {
@@ -84,45 +84,35 @@ export function ContactForm() {
         </div>
 
         <div>
-          <label
-            htmlFor="subject"
-            className="block text-text-muted text-[10px] font-bold uppercase tracking-wider mb-1.5"
-          >
-            Subject
-          </label>
-          <div className="relative">
-            <select
-              {...register("subject")}
-              id="subject"
-              className="w-full bg-bg-main/30 border border-border-main/70 focus:border-accent-blue focus:ring-4 focus:ring-accent-blue/10 rounded-xl px-4 py-3 text-text-main transition-all duration-300 outline-none text-sm shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] appearance-none cursor-pointer pr-10"
-              defaultValue=""
-            >
-              <option value="" disabled className="bg-bg-surface text-text-muted">
-                Select a service...
-              </option>
-              <option value="Automation" className="bg-bg-surface text-text-main">
-                Automation
-              </option>
-              <option value="Security" className="bg-bg-surface text-text-main">
-                Security
-              </option>
-              <option value="Lighting" className="bg-bg-surface text-text-main">
-                Lighting
-              </option>
-              <option value="Networking" className="bg-bg-surface text-text-main">
-                Networking
-              </option>
-              <option value="General Inquiry" className="bg-bg-surface text-text-main">
-                General Inquiry
-              </option>
-            </select>
-            <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-text-muted">
-              <ChevronDown className="w-4 h-4" />
-            </div>
+          <span className="block text-text-muted text-[10px] font-bold uppercase tracking-wider mb-2.5">
+            Services
+          </span>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {[
+              { id: "automation", label: "Automation" },
+              { id: "security", label: "Security" },
+              { id: "lighting", label: "Lighting" },
+              { id: "networking", label: "Networking" },
+              { id: "audio", label: "Audio & Video" },
+              { id: "general", label: "General Inquiry" },
+            ].map((service) => (
+              <label
+                key={service.id}
+                className="flex items-center gap-2.5 bg-bg-main/30 border border-border-main/70 hover:border-accent-blue/50 has-[:checked]:border-accent-blue/80 has-[:checked]:bg-accent-blue/5 rounded-xl px-3.5 py-3 cursor-pointer select-none transition-all duration-300 text-text-main text-xs sm:text-sm font-medium"
+              >
+                <input
+                  type="checkbox"
+                  value={service.label}
+                  {...register("services")}
+                  className="rounded border-border-main/80 text-accent-blue focus:ring-accent-blue/30 h-4 w-4 cursor-pointer accent-accent-blue"
+                />
+                <span>{service.label}</span>
+              </label>
+            ))}
           </div>
-          {errors.subject && (
+          {errors.services && (
             <p role="alert" className="text-red-500 text-xs mt-1.5 font-medium">
-              {errors.subject.message}
+              {errors.services.message}
             </p>
           )}
         </div>

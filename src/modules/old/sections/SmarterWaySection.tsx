@@ -19,6 +19,7 @@ import GlowingLine from "@/components/common/GlowingLine";
 import { getImageUrl } from "@/utils/image";
 
 const imgSmarterWayBg = getImageUrl("smarter_way_bg.webp");
+const imgSmarterWayBgAvif = getImageUrl("smarter_way_bg.avif");
 
 // Custom SVG Garage icon
 function GarageIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -119,11 +120,18 @@ export default function SmarterWaySection() {
     >
       {/* Background Parallax Asset */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
-        <img
-          src={imgSmarterWayBg}
-          alt="Smart Home At Night"
-          className="w-full h-full object-cover object-center filter opacity-15 dark:opacity-40 transition-opacity duration-300"
-        />
+        <picture>
+          <source srcSet={imgSmarterWayBgAvif} type="image/avif" />
+          <img
+            src={imgSmarterWayBg}
+            alt="Smart Home At Night"
+            className="w-full h-full object-cover object-center filter opacity-15 dark:opacity-40 transition-opacity duration-300"
+            width={1024}
+            height={1024}
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
         {/* Gradients to blend sections */}
         <div className="absolute inset-0 bg-gradient-to-r from-bg-main via-bg-main/80 to-bg-main/20 md:bg-gradient-to-r md:from-bg-main md:via-bg-main/75 md:to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-bg-main via-transparent to-bg-main/30" />
@@ -189,9 +197,9 @@ export default function SmarterWaySection() {
                       <Icon className="h-9 w-9 stroke-[1.5]" />
                     </div>
 
-                    <h4 className="font-sans text-xs font-bold text-text-main tracking-wider uppercase mb-2">
+                    <h3 className="font-sans text-xs font-bold text-text-main tracking-wider uppercase mb-2">
                       {item.title}
-                    </h4>
+                    </h3>
                     <p className="font-sans text-[11px] text-text-muted leading-relaxed">
                       {item.description}
                     </p>
