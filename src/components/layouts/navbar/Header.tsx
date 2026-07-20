@@ -33,7 +33,6 @@ export default function Header() {
     () => typeof window !== "undefined" && window.scrollY > 20,
   );
   const [drawerOpen, setDrawer] = useState(false);
-  const isHomeRoute = location.pathname === "/";
 
   const close = () => {
     setDrawer(false);
@@ -87,9 +86,9 @@ export default function Header() {
               const className = `relative px-4 py-2 text-sm font-medium rounded-full transition-colors duration-200 ${
                 isActive
                   ? "text-accent-blue"
-                  : isHomeRoute
+                  : isScrolled
                     ? "text-text-main hover:text-accent-blue"
-                    : "text-[#ffffff]/90 hover:text-[#ffffff] drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
+                    : "!text-white/90 hover:!text-white"
               }`;
 
               if (link.external) {
@@ -140,7 +139,7 @@ export default function Header() {
               className={`flex h-9 w-9 flex-col items-center justify-center rounded-full border transition-all duration-300 focus:outline-none cursor-pointer gap-[5px] ${
                 isScrolled || drawerOpen
                   ? "border-border-main/60 hover:border-accent-blue/40 hover:bg-bg-surface"
-                  : "border-white/25 hover:border-white/50 hover:bg-white/10"
+                  : "border-white/25 hover:border-white/50 hover:!bg-white/10"
               }`}
             >
               <span

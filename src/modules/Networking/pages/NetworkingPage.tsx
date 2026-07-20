@@ -11,10 +11,10 @@ import useSEO from "@/hooks/useSEO";
 
 export default function NetworkingPage() {
   useSEO({
-    title: "Home WiFi Extender | MAKc Automation",
+    title: "Home wifi extender - Makcautomations",
     description:
-      "Looking for the best home WiFi extender? MAKc Automation offers budget-friendly WiFi extenders and mesh wireless networking solutions for seamless connectivity.",
-    keywords: "home wifi extender, best wifi extender, mesh wireless network",
+      "Are you looking for the best home wifi extender? Mac Automation is the perfect choice if you look for a budget-friendly wifi Extenders. Best mesh wifi extender",
+    keywords: "Home wifi extender, best wifi extender, mesh wireless network",
     canonicalUrl: "https://makcautomations.com/index.php/networking/",
     robots:
       "INDEX, FOLLOW, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1, MAX-IMAGE-PREVIEW:LARGE",

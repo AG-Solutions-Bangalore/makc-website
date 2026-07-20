@@ -28,6 +28,7 @@ import CurtainAutomationSection from "@/components/common/CurtainAutomationSecti
 import ElectricalAutomationSection from "@/components/common/ElectricalAutomationSection";
 import GateAutomationSection from "@/components/common/GateAutomationSection";
 import WhatWeAutomateSection from "@/components/common/WhatWeAutomateSection";
+import AutomationShowcase from "@/components/common/AutomationShowcase";
 // import TrendingCarousel from "@/components/common/TrendingCarousel";
 
 // Import images
@@ -65,11 +66,12 @@ const automationSystems = [
 
 export default function AutomationPage() {
   useSEO({
-    title: "Smart Home Automation in Bangalore | MAKc Automation",
+    title: "Future of Living with Smart Home Devices",
     description:
-      "Smart panels, voice control, dimmers, scheduling, and automation devices for modern homes. MAKc delivers complete smart home automation solutions in Bangalore.",
-    keywords: "smart home devices, home automation system, smart home gadgets",
-    canonicalUrl: "https://makcautomations.com/index.php/automation/",
+      "Mac Automation - Best Home Automation company in Bangalore. Get all smart home automation solutions with security, safety, and convenient solutions.",
+    keywords:
+      "home automation company in bangalore, home automation bangalore, smart home automation",
+    canonicalUrl: "https://makcautomations.com/",
     robots:
       "INDEX, FOLLOW, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1, MAX-IMAGE-PREVIEW:LARGE",
   });
@@ -165,10 +167,10 @@ export default function AutomationPage() {
         style={{ backgroundImage: `url('${getImageUrl("automation_banner.webp")}')` }}
       >
         {/* Dark overlay for contrast */}
-        <div className="absolute inset-0 bg-black/65" />
+        {/* <div className="absolute inset-0 bg-black/65" /> */}
 
         {/* Smooth transition gradient to blend into the next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 md:h-48 bg-gradient-to-t from-bg-main to-transparent pointer-events-none" />
+        {/* <div className="absolute bottom-0 left-0 right-0 h-32 md:h-48 bg-gradient-to-t from-bg-main to-transparent pointer-events-none" /> */}
 
         {/* Hero content container */}
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10 pt-32 pb-20 flex flex-col justify-center min-h-[90vh] lg:min-h-screen">
@@ -236,13 +238,18 @@ export default function AutomationPage() {
       </section>
 
       {/* REST OF THE CONTENT WRAPPED IN MAX-W-7XL CONTAINER */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24 pb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24 pb-0">
         {/* WHAT WE AUTOMATE SECTION */}
         <WhatWeAutomateSection
           systems={automationSystems}
           imagePosition="right"
         />
+      </div>
 
+      {/* FULL WIDTH AUTOMATION SHOWCASE SECTION */}
+      <AutomationShowcase />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24 pb-16">
         {/* ── ELECTRICAL AUTOMATION SECTION ── */}
         <ElectricalAutomationSection />
 

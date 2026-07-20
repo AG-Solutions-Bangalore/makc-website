@@ -79,6 +79,13 @@ export default function FloatingBot() {
     }
   }, [isOpen]);
 
+  // Focus input when bot finishes typing (isTyping becomes false)
+  useEffect(() => {
+    if (isOpen && !isTyping) {
+      inputRef.current?.focus();
+    }
+  }, [isTyping, isOpen]);
+
   // Function to show a new random quote in speech bubble
   const cycleQuote = () => {
     const currentIndex = BOT_QUOTES.indexOf(message);

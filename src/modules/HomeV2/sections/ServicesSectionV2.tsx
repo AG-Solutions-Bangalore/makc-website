@@ -1,20 +1,14 @@
-import { Sun, ShieldCheck, Volume2, Wifi, Zap } from "lucide-react";
+import { Sun, ShieldCheck, Volume2, Wifi, Zap, ArrowRight } from "lucide-react";
 import React from "react";
-import { getImageUrl, getResponsiveHomeImageUrl } from "@/utils/image";
+import { Link } from "react-router-dom";
 
-// Import images
-const imgAutomation = getImageUrl("service_automation.webp");
-const imgAutomationAvif = getImageUrl("service_automation.avif");
-const imgLighting = getImageUrl("service_lighting.webp");
-const imgLightingAvif = getImageUrl("service_lighting.avif");
-const imgSecurity = getImageUrl("service_security.webp");
-const imgSecurityAvif = getImageUrl("service_security.avif");
-const imgNetworking = getImageUrl("service_networking.webp");
-const imgNetworkingAvif = getImageUrl("service_networking.avif");
-const imgAudio = getImageUrl("service_theatre.webp");
-const imgAudioAvif = getImageUrl("service_theatre.avif");
-const imgEnergy = getImageUrl("service_energy.webp");
-const imgEnergyAvif = getImageUrl("service_energy.avif");
+// New images paths from public/images
+const imgAutomation = "/images/automation.avif";
+const imgLighting = "/images/ligting.avif";
+const imgSecurity = "/images/security.avif";
+const imgNetworking = "/images/networking.avif";
+const imgAudio = "/images/audio.avif";
+const imgElectricals = "/images/electricals.avif";
 
 // Custom icons matching luxury styles
 function SmartHomeIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -43,15 +37,10 @@ export default function ServicesSectionV2() {
       title: "Smart Home Automation",
       description: "One-touch control for your entire home.",
       bgImage: imgAutomation,
-      avifImage: imgAutomationAvif,
-      avifImageMobile: getResponsiveHomeImageUrl(
-        "service_automation.avif",
-        480,
-      ),
-      avifImageDesktop: getResponsiveHomeImageUrl(
-        "service_automation.avif",
-        768,
-      ),
+      avifImage: imgAutomation,
+      avifImageMobile: imgAutomation,
+      avifImageDesktop: imgAutomation,
+      link: "/automation",
     },
     {
       id: "lighting",
@@ -59,9 +48,10 @@ export default function ServicesSectionV2() {
       title: "Smart Lighting",
       description: "Create moods with intelligent lighting scenes.",
       bgImage: imgLighting,
-      avifImage: imgLightingAvif,
-      avifImageMobile: getResponsiveHomeImageUrl("service_lighting.avif", 480),
-      avifImageDesktop: getResponsiveHomeImageUrl("service_lighting.avif", 768),
+      avifImage: imgLighting,
+      avifImageMobile: imgLighting,
+      avifImageDesktop: imgLighting,
+      link: "/lighting",
     },
     {
       id: "security",
@@ -70,9 +60,10 @@ export default function ServicesSectionV2() {
       description:
         "AI-powered surveillance, smart locks and intrusion protection.",
       bgImage: imgSecurity,
-      avifImage: imgSecurityAvif,
-      avifImageMobile: getResponsiveHomeImageUrl("service_security.avif", 480),
-      avifImageDesktop: getResponsiveHomeImageUrl("service_security.avif", 768),
+      avifImage: imgSecurity,
+      avifImageMobile: imgSecurity,
+      avifImageDesktop: imgSecurity,
+      link: "/security",
     },
     {
       id: "networking",
@@ -80,15 +71,10 @@ export default function ServicesSectionV2() {
       title: "Networking",
       description: "Enterprise-grade WiFi designed for luxury villas.",
       bgImage: imgNetworking,
-      avifImage: imgNetworkingAvif,
-      avifImageMobile: getResponsiveHomeImageUrl(
-        "service_networking.avif",
-        480,
-      ),
-      avifImageDesktop: getResponsiveHomeImageUrl(
-        "service_networking.avif",
-        768,
-      ),
+      avifImage: imgNetworking,
+      avifImageMobile: imgNetworking,
+      avifImageDesktop: imgNetworking,
+      link: "/networking",
     },
     {
       id: "audio",
@@ -96,9 +82,10 @@ export default function ServicesSectionV2() {
       title: "Home Audio",
       description: "Multi-room sound that fills every corner with clarity.",
       bgImage: imgAudio,
-      avifImage: imgAudioAvif,
-      avifImageMobile: getResponsiveHomeImageUrl("service_theatre.avif", 480),
-      avifImageDesktop: getResponsiveHomeImageUrl("service_theatre.avif", 768),
+      avifImage: imgAudio,
+      avifImageMobile: imgAudio,
+      avifImageDesktop: imgAudio,
+      link: "/audio",
     },
     {
       id: "electric",
@@ -106,10 +93,11 @@ export default function ServicesSectionV2() {
       title: "Home Electrical",
       description:
         "Intelligent power distribution, backups and energy monitoring.",
-      bgImage: imgEnergy,
-      avifImage: imgEnergyAvif,
-      avifImageMobile: getResponsiveHomeImageUrl("service_energy.avif", 480),
-      avifImageDesktop: getResponsiveHomeImageUrl("service_energy.avif", 768),
+      bgImage: imgElectricals,
+      avifImage: imgElectricals,
+      avifImageMobile: imgElectricals,
+      avifImageDesktop: imgElectricals,
+      link: "/automation",
     },
   ];
 
@@ -162,10 +150,11 @@ export default function ServicesSectionV2() {
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
-                <div
+                <Link
                   key={index}
+                  to={service.link}
                   id={service.id}
-                  className="relative group min-h-[260px] flex flex-col justify-start items-start p-6 sm:p-8 bg-bg-main overflow-hidden cursor-pointer transition-all duration-300 hover:bg-bg-surface reveal-on-scroll reveal-up"
+                  className="relative group min-h-[280px] flex flex-col justify-between items-start p-6 sm:p-8 bg-bg-main overflow-hidden cursor-pointer transition-all duration-300 hover:bg-bg-surface reveal-on-scroll reveal-up"
                   data-reveal-delay={`${index * 80}ms`}
                   data-reveal-duration="0.7s"
                 >
@@ -202,23 +191,31 @@ export default function ServicesSectionV2() {
                     <div className="absolute inset-0 bg-gradient-to-r from-bg-main via-bg-main/80 to-transparent" />
                   </div>
 
-                  {/* Card Top: Icon (Accent Blue) */}
-                  <div className="relative z-10 text-left">
-                    <div className="text-accent-blue group-hover:text-accent-blue/80 transition-all duration-300 shrink-0 flex items-center justify-start w-12 h-12">
-                      <Icon className="h-10 w-10 stroke-[1.25]" />
+                  <div className="relative z-10 w-full flex-1 flex flex-col justify-start">
+                    {/* Card Top: Icon (Accent Blue) */}
+                    <div className="text-left">
+                      <div className="text-accent-blue group-hover:text-accent-blue/80 transition-all duration-300 shrink-0 flex items-center justify-start w-12 h-12">
+                        <Icon className="h-10 w-10 stroke-[1.25]" />
+                      </div>
+                    </div>
+
+                    {/* Card Body: Text info (Stacked right below icon) */}
+                    <div className="text-left mt-4 flex flex-col justify-start w-full max-w-[210px]">
+                      <h3 className="font-sans text-lg font-bold text-text-main group-hover:text-accent-blue transition-colors duration-300 max-w-[160px]">
+                        {service.title}
+                      </h3>
+                      <p className="mt-3 font-sans text-xs sm:text-[13px] text-text-muted leading-relaxed font-normal group-hover:text-text-main transition-colors duration-300">
+                        {service.description}
+                      </p>
                     </div>
                   </div>
 
-                  {/* Card Body: Text info (Stacked right below icon) */}
-                  <div className="relative z-10 text-left mt-4 flex-1 flex flex-col justify-start w-full max-w-[210px]">
-                    <h3 className="font-sans text-lg font-bold text-text-main group-hover:text-accent-blue transition-colors duration-300 max-w-[160px]">
-                      {service.title}
-                    </h3>
-                    <p className="mt-3 font-sans text-xs sm:text-[13px] text-text-muted leading-relaxed font-normal group-hover:text-text-main transition-colors duration-300">
-                      {service.description}
-                    </p>
+                  {/* Card Bottom: View More Button */}
+                  <div className="relative z-10 mt-6 flex items-center gap-1.5 text-xs font-bold tracking-wider text-accent-blue group-hover:text-accent-blue/80 transition-colors duration-300 uppercase">
+                    <span>View More</span>
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>

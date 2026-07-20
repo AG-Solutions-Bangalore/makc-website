@@ -52,9 +52,9 @@ function LazyOnView({
 
 export default function HomeV2Page() {
   useSEO({
-    title: "Home Automation Company in Bangalore | MAKc Automation",
+    title: "Home automation company in bangalore - Makcautomations",
     description:
-      "MAKc Automation is a leading home automation company in Bangalore. Get complete smart home automation solutions for enhanced security, safety, comfort, and convenience.",
+      "Mac Automation - Best Home Automation company in Bangalore. Get all smart home automation solutions with security, safety, and convenient solutions.",
     keywords:
       "home automation company in bangalore, home automation bangalore, smart home automation",
     canonicalUrl: "https://makcautomations.com/",

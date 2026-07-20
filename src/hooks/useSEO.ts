@@ -29,36 +29,42 @@ export default function useSEO({
     metaDesc.setAttribute("content", description);
 
     // 3. Set Keywords
+    let metaKeywords = document.querySelector('meta[name="keywords"]');
     if (keywords) {
-      let metaKeywords = document.querySelector('meta[name="keywords"]');
       if (!metaKeywords) {
         metaKeywords = document.createElement("meta");
         metaKeywords.setAttribute("name", "keywords");
         document.head.appendChild(metaKeywords);
       }
       metaKeywords.setAttribute("content", keywords);
+    } else if (metaKeywords) {
+      metaKeywords.remove();
     }
 
     // 4. Set Canonical URL
+    let linkCanonical = document.querySelector('link[rel="canonical"]');
     if (canonicalUrl) {
-      let linkCanonical = document.querySelector('link[rel="canonical"]');
       if (!linkCanonical) {
         linkCanonical = document.createElement("link");
         linkCanonical.setAttribute("rel", "canonical");
         document.head.appendChild(linkCanonical);
       }
       linkCanonical.setAttribute("href", canonicalUrl);
+    } else if (linkCanonical) {
+      linkCanonical.remove();
     }
 
     // 5. Set Robots Tag
+    let metaRobots = document.querySelector('meta[name="robots"]');
     if (robots) {
-      let metaRobots = document.querySelector('meta[name="robots"]');
       if (!metaRobots) {
         metaRobots = document.createElement("meta");
         metaRobots.setAttribute("name", "robots");
         document.head.appendChild(metaRobots);
       }
       metaRobots.setAttribute("content", robots);
+    } else if (metaRobots) {
+      metaRobots.remove();
     }
   }, [title, description, keywords, canonicalUrl, robots]);
 }

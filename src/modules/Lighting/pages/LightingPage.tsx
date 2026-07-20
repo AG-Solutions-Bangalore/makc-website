@@ -42,7 +42,7 @@ export default function LightingPage() {
   useSEO({
     title: "Smart LED Lighting for Home in Bangalore | MAKc Automation",
     description:
-      "Smart LED lights, dimmers, energy-saving lighting, and automation for modern homes. MAKc Automation provides expert smart lighting solutions in Bangalore.",
+      "Smart LED lights, dimmers, energy-saving lighting and automation for modern homes. MAKc Automation offers expert LED selection and smart lighting solutions in Bangalore.",
     keywords: "led lights for home, home smart light",
     canonicalUrl: "https://makcautomations.com/index.php/lighting/",
     robots:

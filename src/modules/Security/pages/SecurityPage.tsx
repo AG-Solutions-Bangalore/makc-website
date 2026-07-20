@@ -4,6 +4,7 @@ import SecurityHero from "../components/SecurityHero";
 import SensorBasedProtection from "../components/SensorBasedProtection";
 
 import WhatWeAutomateSection from "@/components/common/WhatWeAutomateSection";
+import AutomationShowcase from "@/components/common/AutomationShowcase";
 import { getImageUrl } from "@/utils/image";
 import useSEO from "@/hooks/useSEO";
 
@@ -36,11 +37,11 @@ const securitySystems = [
 
 export default function SecurityPage() {
   useSEO({
-    title: "Home Security System Bangalore | MAKc Automation",
+    title: "Home security system bangalore - Makcautomations",
     description:
-      "Secure your home with advanced security systems from MAKc Automation, including smart door locks, CCTV cameras, gas leakage detection systems, and more.",
+      "Secure your home with the home security system from Mac Automation. Get your Secured Door Locks, Gas leakage detection system...",
     keywords:
-      "home security system bangalore, home security camera system, digital door locks",
+      "home security system Bangalore, home security camera system, digital door locks",
     canonicalUrl: "https://makcautomations.com/index.php/security/",
     robots:
       "INDEX, FOLLOW, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1, MAX-IMAGE-PREVIEW:LARGE",
@@ -51,7 +52,7 @@ export default function SecurityPage() {
       {/* CUSTOM HERO SECTION */}
       <SecurityHero />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24 pb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24 pb-0">
         {/* WHAT IS SECURITY SYSTEM SECTION */}
         <WhatWeAutomateSection
           systems={securitySystems}
@@ -60,7 +61,12 @@ export default function SecurityPage() {
           badgeText="Intelligent Surveillance"
           className="mb-24"
         />
+      </div>
 
+      {/* FULL WIDTH AUTOMATION SHOWCASE SECTION */}
+      <AutomationShowcase initialSlideId="02" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24 pb-16">
         {/* CCTV & VIDEO MONITORING SECTION */}
         <CCTVMonitoringSection />
 
