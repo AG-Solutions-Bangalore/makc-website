@@ -1,4 +1,5 @@
 import useSEO from "@/hooks/useSEO";
+import AutomationShowcase from "@/components/common/AutomationShowcase";
 import SmarterWaySection from "../sections/SmarterWaySection";
 import OldLightingSection from "../sections/OldLightingSection";
 import OldNetworkingSection from "../sections/OldNetworkingSection";
@@ -21,6 +22,9 @@ export default function OldPage() {
 
   return (
     <div className="relative bg-bg-main min-h-screen text-text-main pt-20 lg:pt-24">
+      {/* Custom Interactive Automation Showcase */}
+      <AutomationShowcase />
+
       {/* Smarter Way Interactive Control Section */}
       <SmarterWaySection />
       {/* SMART SECURITY MODES SECTION */}

@@ -55,7 +55,7 @@ export default function ContactStrip({
             {cta.href.startsWith("http") || cta.href.startsWith("mailto:") || cta.href.startsWith("tel:") ? (
               <a
                 href={cta.href}
-                className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#0055ff] to-[#0A84FF] text-white font-bold text-xs sm:text-sm tracking-wider uppercase rounded-xl shadow-[0_4px_20px_rgba(10,132,255,0.45)] hover:shadow-[0_6px_25px_rgba(10,132,255,0.65)] hover:scale-[1.02] hover:border-[#0A84FF]/80 transition-all duration-300 flex items-center justify-center gap-3 group cursor-pointer"
+                className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#0055ff] to-[#0A84FF] text-white! font-bold text-xs sm:text-sm tracking-wider uppercase rounded-xl shadow-[0_4px_20px_rgba(10,132,255,0.45)] hover:shadow-[0_6px_25px_rgba(10,132,255,0.65)] hover:scale-[1.02] hover:border-[#0A84FF]/80 transition-all duration-300 flex items-center justify-center gap-3 group cursor-pointer"
               >
                 <span>{cta.label}</span>
                 <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -63,7 +63,7 @@ export default function ContactStrip({
             ) : (
               <Link
                 to={cta.href}
-                className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#0055ff] to-[#0A84FF] text-white font-bold text-xs sm:text-sm tracking-wider uppercase rounded-xl shadow-[0_4px_20px_rgba(10,132,255,0.45)] hover:shadow-[0_6px_25px_rgba(10,132,255,0.65)] hover:scale-[1.02] hover:border-[#0A84FF]/80 transition-all duration-300 flex items-center justify-center gap-3 group cursor-pointer"
+                className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#0055ff] to-[#0A84FF] text-white! font-bold text-xs sm:text-sm tracking-wider uppercase rounded-xl shadow-[0_4px_20px_rgba(10,132,255,0.45)] hover:shadow-[0_6px_25px_rgba(10,132,255,0.65)] hover:scale-[1.02] hover:border-[#0A84FF]/80 transition-all duration-300 flex items-center justify-center gap-3 group cursor-pointer"
               >
                 <span>{cta.label}</span>
                 <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />

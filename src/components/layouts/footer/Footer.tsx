@@ -1,17 +1,79 @@
 import { Link } from "react-router-dom";
 import BrandLogo from "@/components/common/BrandLogo";
-import {
-  // Instagram,
-  // Linkedin,
-
-  // Youtube,
-  Phone,
-  Mail,
-  Sun,
-  Moon,
-} from "lucide-react";
+import { Phone, Mail, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
+import ContactStrip from "@/components/common/ContactStrip";
+
+// Local SVG icon components for social media
+function Facebook({ className = "w-4.5 h-4.5" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+    </svg>
+  );
+}
+
+function Linkedin({ className = "w-4.5 h-4.5" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect x="2" y="9" width="4" height="12" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  );
+}
+
+function Instagram({ className = "w-4.5 h-4.5" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </svg>
+  );
+}
+
+function GooglePlusSquareIcon({
+  className = "w-4.5 h-4.5",
+}: {
+  className?: string;
+}) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7.3 11.23c-1.53 0-2.77-1.24-2.77-2.77s1.24-2.77 2.77-2.77c.68 0 1.3.25 1.78.67l-1.32 1.32c-.1-.1-.28-.27-.46-.27-.53 0-.96.44-.96.96s.43.96.96.96c.64 0 .9-.41.97-.66H11.7V9.75h2.15c.03.11.05.25.05.41 0 1.35-.91 2.22-2.2 2.22zM18 11.5h-1.5V13H15v-1.5h-1.5V10H15V8.5h1.5V10H18v1.5z" />
+    </svg>
+  );
+}
 
 export default function Footer() {
   const { theme, setTheme } = useTheme();
@@ -23,15 +85,18 @@ export default function Footer() {
 
   return (
     <footer className="bg-bg-main border-t border-border-main">
+      <div className="my-8 px-4">
+        <ContactStrip />
+      </div>
       <div className="px-5 lg:px-10 py-10">
-        {/* 6 Column Layout with Vertical Dividers on Desktop */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-0 lg:divide-x lg:divide-border-main/40">
+        {/* 5 Column Layout with Vertical Dividers on Desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-0 lg:divide-x lg:divide-border-main/40">
           {/* Column 1: Logo & Description */}
           <div className="flex flex-col text-left lg:pr-8 lg:pl-0">
             <Link to="/" className="flex items-center">
               <BrandLogo className="h-11 w-auto" />
             </Link>
-            <p className="mt-5  text-xs text-text-muted leading-relaxed">
+            <p className="mt-5 text-xs text-text-muted leading-relaxed">
               Crafting intelligent living experiences through innovative
               automation, seamless design, and world-class technology.
             </p>
@@ -39,10 +104,10 @@ export default function Footer() {
 
           {/* Column 2: Solutions */}
           <div className="flex flex-col text-left lg:px-6">
-            <h3 className=" text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-6 select-none">
+            <h3 className="text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-6 select-none">
               Solutions
             </h3>
-            <ul className="flex flex-col gap-3  text-xs text-text-muted">
+            <ul className="flex flex-col gap-3 text-xs text-text-muted">
               <li>
                 <a
                   href="/#solutions"
@@ -88,10 +153,10 @@ export default function Footer() {
 
           {/* Column 3: Projects */}
           <div className="flex flex-col text-left lg:px-6">
-            <h3 className=" text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-6 select-none">
+            <h3 className="text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-6 select-none">
               Projects
             </h3>
-            <ul className="flex flex-col gap-3  text-xs text-text-muted">
+            <ul className="flex flex-col gap-3 text-xs text-text-muted">
               <li>
                 <a
                   href="/#projects"
@@ -137,16 +202,16 @@ export default function Footer() {
 
           {/* Column 4: About */}
           <div className="flex flex-col text-left lg:px-6">
-            <h3 className=" text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-6 select-none">
+            <h3 className="text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-6 select-none">
               About
             </h3>
-            <ul className="flex flex-col gap-3  text-xs text-text-muted">
+            <ul className="flex flex-col gap-3 text-xs text-text-muted">
               <li>
                 <a
                   href="/why-us#about"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
-                  About MAKC
+                  About MAKc
                 </a>
               </li>
               <li>
@@ -176,99 +241,88 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 5: Locations */}
-          {/* <div className="flex flex-col text-left lg:px-6">
-            <h4 className=" text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-6 select-none">
-              Locations
-            </h4>
-            <ul className="flex flex-col gap-3  text-xs text-text-muted">
-              <li>
-                <span className="hover:text-text-main transition-colors duration-200 cursor-default">
-                  Hyderabad
-                </span>
-              </li>
-              <li>
-                <span className="hover:text-text-main transition-colors duration-200 cursor-default">
-                  Bangalore
-                </span>
-              </li>
-              <li>
-                <span className="hover:text-text-main transition-colors duration-200 cursor-default">
-                  Mumbai
-                </span>
-              </li>
-              <li>
-                <span className="hover:text-text-main transition-colors duration-200 cursor-default">
-                  Delhi
-                </span>
-              </li>
-            </ul>
-          </div> */}
-
-          {/* Column 6: Contact */}
+          {/* Column 5: Let's Talk & Contact Info */}
           <div className="flex flex-col text-left lg:pl-6 lg:pr-0">
-            <h3 className=" text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-6 select-none">
-              Contact
+            <h3 className="text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-4 select-none">
+              Let’s Connect
             </h3>
-            <div className="flex flex-col gap-4  text-xs text-text-muted">
-              <a
-                href="tel:+919948432444"
-                className="flex items-center gap-3 hover:text-accent-blue transition-colors duration-200"
-              >
-                <Phone className="h-5 w-5 shrink-0 text-accent-blue stroke-[1.5]" />
-                <span>+91 99484 32444</span>
-              </a>
-              <a
-                href="mailto:info@makcautomations.com"
-                className="flex items-center gap-3 hover:text-accent-blue transition-colors duration-200"
-              >
-                <Mail className="h-5 w-5 shrink-0 text-accent-blue stroke-[1.5]" />
-                <span className="break-all">info@makcautomations.com</span>
-              </a>
-              <div className="flex items-center gap-2.5 mt-2">
-                {/* <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-8 h-8 rounded-full apple-border-shine border border-border-main flex items-center justify-center text-text-muted hover:text-accent-blue hover:border-accent-blue transition-all duration-300"
-                  aria-label="Instagram"
+            <div className="flex flex-col gap-3 text-xs text-text-muted">
+              {/* Phone Sub-section */}
+              <div className="mt-2">
+                <div className="flex flex-col gap-2">
+                  <a
+                    href="tel:+919324226077"
+                    className="flex items-center gap-2 hover:text-accent-blue transition-colors duration-200"
+                  >
+                    <Phone className="h-4 w-4 shrink-0 text-accent-blue stroke-[1.5]" />
+                    <span>+91-9324226077</span>
+                  </a>
+                  <a
+                    href="tel:+918197783287"
+                    className="flex items-center gap-2 hover:text-accent-blue transition-colors duration-200"
+                  >
+                    <Phone className="h-4 w-4 shrink-0 text-accent-blue stroke-[1.5]" />
+                    <span>+91-8197783287</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Email Sub-section */}
+              <div className="mt-2">
+                <a
+                  href="mailto:info@makcautomations.com"
+                  className="flex items-center gap-2 hover:text-accent-blue transition-colors duration-200"
                 >
-                  <Instagram className="h-4.5 w-4.5 stroke-[1.5]" />
-                </a> */}
-                {/* <a
+                  <Mail className="h-4 w-4 shrink-0 text-accent-blue stroke-[1.5]" />
+                  <span className="break-all">info@makcautomations.com</span>
+                </a>
+              </div>
+
+              {/* Social Media Links */}
+              <div className="flex items-center gap-2 mt-3">
+                <a
                   href="https://facebook.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="w-8 h-8 rounded-full apple-border-shine border border-border-main flex items-center justify-center text-text-muted hover:text-accent-blue hover:border-accent-blue transition-all duration-300"
                   aria-label="Facebook"
+                  className="w-8 h-8 rounded-lg border border-border-main bg-bg-surface/30 flex items-center justify-center text-text-muted hover:text-white hover:bg-[#1877F2] hover:border-transparent hover:shadow-[0_0_10px_rgba(24,119,242,0.4)] transition-all duration-300"
                 >
-                  <Facebook className="h-4.5 w-4.5 stroke-[1.5]" />
-                </a> */}
-                {/* <a
+                  <Facebook />
+                </a>
+                <a
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="w-8 h-8 rounded-full apple-border-shine border border-border-main flex items-center justify-center text-text-muted hover:text-accent-blue hover:border-accent-blue transition-all duration-300"
                   aria-label="LinkedIn"
+                  className="w-8 h-8 rounded-lg border border-border-main bg-bg-surface/30 flex items-center justify-center text-text-muted hover:text-white hover:bg-[#0A66C2] hover:border-transparent hover:shadow-[0_0_10px_rgba(10,102,194,0.4)] transition-all duration-300"
                 >
-                  <Linkedin className="h-4.5 w-4.5 stroke-[1.5]" />
+                  <Linkedin />
                 </a>
                 <a
-                  href="https://youtube.com"
+                  href="https://instagram.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="w-8 h-8 apple-border-shine rounded-full border border-border-main flex items-center justify-center text-text-muted hover:text-accent-blue hover:border-accent-blue transition-all duration-300"
-                  aria-label="YouTube"
+                  aria-label="Instagram"
+                  className="w-8 h-8 rounded-lg border border-border-main bg-bg-surface/30 flex items-center justify-center text-text-muted hover:text-white hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] hover:border-transparent hover:shadow-[0_0_10px_rgba(238,42,123,0.4)] transition-all duration-300"
                 >
-                  <Youtube className="h-4.5 w-4.5 stroke-[1.5]" />
-                </a> */}
+                  <Instagram />
+                </a>
+                <a
+                  href="https://plus.google.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Google Plus"
+                  className="w-8 h-8 rounded-lg border border-border-main bg-bg-surface/30 flex items-center justify-center text-text-muted hover:text-white hover:bg-[#db4a39] hover:border-transparent hover:shadow-[0_0_10px_rgba(219,74,57,0.4)] transition-all duration-300"
+                >
+                  <GooglePlusSquareIcon />
+                </a>
               </div>
             </div>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-border-main my-10 lg:my-16" />
+        <div className="h-px bg-border-main my-10" />
 
         {/* Bottom Row */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">

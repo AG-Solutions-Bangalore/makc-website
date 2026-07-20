@@ -11,7 +11,7 @@ import { getImageUrl } from "@/utils/image";
 
 export default function ContactPage() {
   useSEO({
-    title: "Contact Us | MAKc Automation",
+    title: "Contact Us - Makc Automation",
     description: "Reach MAKc Automation for smart home automation, lighting, security, and networking solutions in Bangalore. Our team is here to assist you with your smart home needs.",
     canonicalUrl: "https://makcautomations.com/contact-us/",
     robots: "INDEX, FOLLOW",
