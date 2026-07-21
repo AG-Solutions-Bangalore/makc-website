@@ -73,14 +73,18 @@ export default function ContactPage() {
                 </h4>
               </div>
               <p className="text-white/80 text-sm drop-shadow font-light border-accent-blue pl-4 ml-7.5">
-                Dubai Silicon Oasis, UAE <br />
-                Hyderabad & Bangalore, India
+                141/6, 4th Main, 12th Cross Rd, <br />
+                BEML Layout, Brookefield, <br />
+                Bengaluru, Karnataka 560066
               </p>
             </div>
           </div>
 
-          <ContactInfoChips />
-          <SocialMediaBar />
+          {/* 4-card row — all chips + social in one flex nowrap row */}
+          <div className="lg:col-span-12 flex flex-row flex-nowrap gap-4 lg:gap-6">
+            <ContactInfoChips />
+            <SocialMediaBar />
+          </div>
         </div>
 
         <LocationMap />

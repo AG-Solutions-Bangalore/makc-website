@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import FloatingBot from "./FloatingBot";
-import FloatingContactMenu from "./FloatingContactMenu";
+import FloatingCall from "./FloatingCall";
 
 export default function FloatingActionGroup() {
   const [isVisible, setIsVisible] = useState(false);
@@ -21,7 +21,7 @@ export default function FloatingActionGroup() {
           : "translate-y-10 opacity-0 pointer-events-none"
       } @media (prefers-reduced-motion: reduce) { transition: none; transform: none; opacity: 1; }`}
     >
-      <FloatingContactMenu />
+      <FloatingCall />
       <FloatingBot />
     </div>
   );

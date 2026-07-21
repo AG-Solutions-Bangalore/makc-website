@@ -34,6 +34,10 @@ export default function Header() {
   );
   const [drawerOpen, setDrawer] = useState(false);
 
+  // Pages that have a full-bleed dark hero image — white nav text is safe on these
+  const darkHeroRoutes = ["/", "/automation", "/lighting", "/networking", "/security", "/audio", "/about", "/why-us"];
+  const hasDarkHero = darkHeroRoutes.includes(location.pathname);
+
   const close = () => {
     setDrawer(false);
     document.body.style.overflow = "";
@@ -88,7 +92,9 @@ export default function Header() {
                   ? "text-accent-blue"
                   : isScrolled
                     ? "text-text-main hover:text-accent-blue"
-                    : "!text-white/90 hover:!text-white"
+                    : hasDarkHero
+                      ? "!text-white/90 hover:!text-white"
+                      : "text-text-main hover:text-accent-blue"
               }`;
 
               if (link.external) {
@@ -139,23 +145,25 @@ export default function Header() {
               className={`flex h-9 w-9 flex-col items-center justify-center rounded-full border transition-all duration-300 focus:outline-none cursor-pointer gap-[5px] ${
                 isScrolled || drawerOpen
                   ? "border-border-main/60 hover:border-accent-blue/40 hover:bg-bg-surface"
-                  : "border-white/25 hover:border-white/50 hover:!bg-white/10"
+                  : hasDarkHero
+                    ? "border-white/25 hover:border-white/50 hover:!bg-white/10"
+                    : "border-border-main/60 hover:border-accent-blue/40 hover:bg-bg-surface"
               }`}
             >
               <span
                 className={`block h-[1.5px] w-[18px] rounded-full origin-center transition-transform duration-300 ${
                   drawerOpen ? "translate-y-[6.5px] rotate-45" : ""
-                } ${isScrolled || drawerOpen ? "bg-text-main" : "bg-white"}`}
+                } ${isScrolled || drawerOpen || !hasDarkHero ? "bg-text-main" : "bg-white"}`}
               />
               <span
                 className={`block h-[1.5px] w-[14px] rounded-full origin-center transition-all duration-200 ${
                   drawerOpen ? "translate-x-2 opacity-0" : "opacity-100"
-                } ${isScrolled || drawerOpen ? "bg-text-main" : "bg-white"}`}
+                } ${isScrolled || drawerOpen || !hasDarkHero ? "bg-text-main" : "bg-white"}`}
               />
               <span
                 className={`block h-[1.5px] w-[18px] rounded-full origin-center transition-transform duration-300 ${
                   drawerOpen ? "-translate-y-[6.5px] -rotate-45" : ""
-                } ${isScrolled || drawerOpen ? "bg-text-main" : "bg-white"}`}
+                } ${isScrolled || drawerOpen || !hasDarkHero ? "bg-text-main" : "bg-white"}`}
               />
             </button>
           </div>
@@ -193,6 +201,44 @@ export default function Header() {
         </div>
 
         <nav className="relative flex-1 overflow-y-auto px-4 py-5" aria-label="Secondary navigation">
+          {/* Primary nav links — only shown on mobile (hidden on lg+ where desktop nav renders them) */}
+          <div className="lg:hidden">
+            <p className="text-xs font-medium text-text-muted px-2 mb-3 uppercase tracking-widest">
+              Pages
+            </p>
+            <ul className="space-y-0.5 mb-6">
+              {allLinks.map((link) => {
+                const isActive = location.pathname === link.path;
+                return (
+                  <li key={link.label}>
+                    <Link
+                      to={link.path}
+                      onClick={close}
+                      className={`group flex items-center gap-3 rounded-xl px-3 py-3 transition-all duration-200 ${
+                        isActive
+                          ? "bg-accent-blue/10 text-accent-blue"
+                          : "text-text-main hover:bg-bg-main"
+                      }`}
+                    >
+                      <p className={`flex-1 text-sm font-semibold leading-tight ${isActive ? "text-accent-blue" : "text-text-main"}`}>
+                        {link.label}
+                      </p>
+                      <ArrowUpRight
+                        className={`w-3.5 h-3.5 shrink-0 transition-all duration-200 ${
+                          isActive
+                            ? "text-accent-blue"
+                            : "text-text-muted/40 group-hover:text-text-muted group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                        }`}
+                        aria-hidden="true"
+                      />
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          {/* Secondary / more links */}
           <p className="text-xs font-medium text-text-muted px-2 mb-3 uppercase tracking-widest">
             Explore
           </p>

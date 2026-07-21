@@ -7,36 +7,7 @@ import OutdoorLightingSection from "../components/OutdoorLightingSection";
 import RGBMoodLightingSection from "../components/RGBMoodLightingSection";
 import SceneBasedLightingSection from "../components/SceneBasedLightingSection";
 
-import WhatWeAutomateSection from "@/components/common/WhatWeAutomateSection";
-import { getImageUrl } from "@/utils/image";
 import useSEO from "@/hooks/useSEO";
-
-const lightingSystems = [
-  {
-    title: "Touch panels",
-    detail: "Control brightness, mood, and scenes via sleek touch-capacitive wall screens.",
-    img: getImageUrl("Touch panels.webp"),
-    link: "#dimming-tuning",
-  },
-  {
-    title: "Voice Commands",
-    detail: "Adjust lighting hands-free using intuitive voice assistants like Alexa or Google Home.",
-    img: getImageUrl("Voice Commands.webp"),
-    link: "#",
-  },
-  {
-    title: "Mood Lighting",
-    detail: "Dynamically set scenes for dining, movie nights, work, or relaxing periods.",
-    img: getImageUrl("Mood Lighting.webp"),
-    link: "#rgb-mood-lighting",
-  },
-  {
-    title: "Scheduling",
-    detail: "Sync lighting schedules with sunrise, sunset, or your custom daily routine.",
-    img: getImageUrl("Scheduling.webp"),
-    link: "#scene-based-lighting",
-  },
-];
 
 export default function LightingPage() {
   useSEO({
@@ -54,21 +25,12 @@ export default function LightingPage() {
       {/* CUSTOM HERO SECTION */}
       <LightingHero />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24 pb-16">
-        {/* WHAT IS LIGHTING AUTOMATION SECTION */}
-        <WhatWeAutomateSection
-          systems={lightingSystems}
-          title="What is Lighting Automation"
-          description="Lighting automation allows you to control lights using touch panels, mobile apps, sensors, schedules, or voice commands — instead of traditional switches. Lights respond automatically based on time, movement, scenes, or your daily routine."
-          badgeText="Advanced Light Control"
-          className="mb-24"
-        />
-
-        {/* RGB & MOOD LIGHTING SECTION */}
-        <RGBMoodLightingSection />
-
-        {/* SCENE-BASED LIGHTING SECTION */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-20 pb-16">
+        {/* Mood-Based Lighting SECTION */}
         <SceneBasedLightingSection />
+
+        {/* RGB SECTION */}
+        <RGBMoodLightingSection />
 
         {/* DIMMING & TUNING OF LIGHTS SECTION */}
         <DimmingTuningSection />

@@ -25,7 +25,7 @@ export default function StatsSectionV2() {
   ];
 
   return (
-    <div className="relative w-full z-20 bg-bg-main border-y border-border-main py-8 md:py-12">
+    <div className="relative w-full z-20 bg-transperent border-none pb-12">
       <div className="mx-auto max-w-8xl px-4 sm:px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 sm:grid-cols-2 sm:gap-y-10">
           {stats.map((stat, index) => {

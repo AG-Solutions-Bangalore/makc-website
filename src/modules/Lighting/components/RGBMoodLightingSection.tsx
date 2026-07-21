@@ -16,14 +16,14 @@ const images = [
 export default function RGBMoodLightingSection() {
   return (
     <AutomationMosaicSection
-      title="RGB & Mood Lighting"
+      title="RGB Lighting"
       description="Create ambience and personality with dynamic lighting."
       types={types}
       suitableText="Choose colours, brightness, and effects directly from your phone or panel."
       images={images}
       imagePosition="right"
       prefix="rgb"
-      serviceName="RGB & Mood Lighting"
+      serviceName="RGB Lighting"
     />
   );
 }

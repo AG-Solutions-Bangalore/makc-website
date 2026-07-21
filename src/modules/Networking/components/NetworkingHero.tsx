@@ -52,8 +52,7 @@ export default function NetworkingHero() {
 
           {/* Main Heading */}
           <h1 className="hero-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold font-sans tracking-tight text-white leading-[1.05]">
-            Smart Networking <br />
-            Solutions
+            Smart Networking
           </h1>
 
           {/* Subtitle */}

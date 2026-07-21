@@ -77,16 +77,17 @@ export default function LocationSection() {
           <div className="location-left flex items-start gap-3 mb-6">
             <Settings size={20} className="mt-1 shrink-0" />
             <div>
-              <p className="text-body font-body">Dubai Silicon Oasis</p>
-              <p className="text-body font-body">Dubai, United Arab Emirates</p>
+              <p className="text-body font-body">141/6, 4th Main, 12th Cross Rd</p>
+              <p className="text-body font-body">BEML Layout, Brookefield</p>
+              <p className="text-body font-body">Bengaluru, Karnataka 560066</p>
             </div>
           </div>
 
           <a
-            href="tel:+971551234567"
+            href="tel:+918197783287"
             className="location-left block heading-display text-h6 link-underline mb-4"
           >
-            +971 55 123 4567
+            +91-8197783287
           </a>
 
           <a
@@ -104,7 +105,7 @@ export default function LocationSection() {
             className="w-full h-[400px] lg:h-[500px] rounded-lg overflow-hidden opacity-0"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.8678!2d55.3910!3d25.1241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f682829c85c07%3A0xa5eda9fb3c93b69d!2sDubai%20Silicon%20Oasis!5e0!3m2!1sen!2sae!4v1700000000000!5m2!1sen!2sae"
+              src="https://maps.google.com/maps?q=141%2F6%2C+4th+Main%2C+12th+Cross+Rd%2C+BEML+Layout%2C+Brookefield%2C+Bengaluru%2C+Karnataka+560066&output=embed"
               width="100%"
               height="100%"
               style={{

@@ -22,7 +22,7 @@ export default function CurtainAutomationSection() {
       features={features}
       suitableText="Perfect for bedrooms, living rooms, conference rooms, and large window areas."
       images={images}
-      imagePosition="right"
+      imagePosition="left"
       prefix="curt"
       serviceName="Curtain Automation"
     />

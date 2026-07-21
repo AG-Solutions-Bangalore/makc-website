@@ -1,6 +1,7 @@
 import { Sun, ShieldCheck, Volume2, Wifi, Zap, ArrowRight } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
+import StatsSectionV2 from "./StatsSectionV2";
 
 // New images paths from public/images
 const imgAutomation = "/images/automation.avif";
@@ -104,8 +105,9 @@ export default function ServicesSectionV2() {
   return (
     <section
       id="solutions"
-      className="relative w-full py-20 border-t border-border-main overflow-hidden"
+      className="relative w-full py-12 border-t border-border-main overflow-hidden"
     >
+      <StatsSectionV2 />
       {/* Gradient background overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-[#F5F7FA] to-[#EBEFF5] dark:from-[#07152D] dark:via-[#051022] dark:to-[#01050E] transition-colors duration-300 pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(10,132,255,0.08)_0%,rgba(10,132,255,0.03)_35%,transparent_70%)] dark:bg-[radial-gradient(circle_at_25%_25%,rgba(32,120,255,0.32)_0%,rgba(12,65,190,0.18)_22%,rgba(6,25,60,0.08)_48%,transparent_72%)] pointer-events-none" />

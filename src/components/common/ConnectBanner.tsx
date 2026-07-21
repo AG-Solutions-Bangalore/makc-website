@@ -1,11 +1,11 @@
 // Reusable Connect banner
 import { Phone, Mail } from "lucide-react";
 
-// Custom Google Plus SVG to match footer/legacy socials
-function GooglePlusIcon({ className = "w-5 h-5" }: { className?: string }) {
+function YoutubeIcon({ className = "w-5 h-5" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
-      <path d="M12.3 9.92h-4.3v1.85h2.5c-.24 1.26-1.32 2.15-2.5 2.15-1.53 0-2.77-1.24-2.77-2.77s1.24-2.77 2.77-2.77c.68 0 1.3.25 1.78.67l1.32-1.32C10.1 6.88 8.87 6.23 7.5 6.23 4.46 6.23 2 8.69 2 11.73s2.46 5.5 5.5 5.5c3.18 0 5.29-2.24 5.29-5.38 0-.36-.03-.7-.09-1.03h-2.9v1.1h1.5zm8.7 0H19v-2h-1.5v2h-2v1.5h2v2h1.5v-2h2v-1.5z"/>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
+      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
     </svg>
   );
 }
@@ -81,25 +81,7 @@ export default function ConnectBanner({
         {/* Social icons - wrapped in rounded-full apple-border-shine */}
         <div className="flex items-center justify-center gap-4 pt-8">
           <a 
-            href="https://facebook.com" 
-            target="_blank" 
-            rel="noreferrer" 
-            aria-label="Facebook"
-            className="w-10 h-10 rounded-full border border-border-main bg-bg-main flex items-center justify-center text-text-muted hover:text-[#1877F2] hover:border-[#1877F2] transition-all duration-300 apple-border-shine"
-          >
-            <Facebook className="w-4 h-4" />
-          </a>
-          <a 
-            href="https://linkedin.com" 
-            target="_blank" 
-            rel="noreferrer" 
-            aria-label="LinkedIn"
-            className="w-10 h-10 rounded-full border border-border-main bg-bg-main flex items-center justify-center text-text-muted hover:text-[#0A66C2] hover:border-[#0A66C2] transition-all duration-300 apple-border-shine"
-          >
-            <Linkedin className="w-4 h-4" />
-          </a>
-          <a 
-            href="https://instagram.com" 
+            href="https://www.instagram.com/mak_automation/" 
             target="_blank" 
             rel="noreferrer" 
             aria-label="Instagram"
@@ -108,13 +90,31 @@ export default function ConnectBanner({
             <Instagram className="w-4 h-4" />
           </a>
           <a 
-            href="https://plus.google.com" 
+            href="https://www.linkedin.com/company/makc-automations/" 
             target="_blank" 
             rel="noreferrer" 
-            aria-label="Google Plus"
-            className="w-10 h-10 rounded-full border border-border-main bg-bg-main flex items-center justify-center text-text-muted hover:text-[#db4a39] hover:border-[#db4a39] transition-all duration-300 apple-border-shine"
+            aria-label="LinkedIn"
+            className="w-10 h-10 rounded-full border border-border-main bg-bg-main flex items-center justify-center text-text-muted hover:text-[#0A66C2] hover:border-[#0A66C2] transition-all duration-300 apple-border-shine"
           >
-            <GooglePlusIcon className="w-4 h-4" />
+            <Linkedin className="w-4 h-4" />
+          </a>
+          <a 
+            href="https://www.facebook.com/makcautomation" 
+            target="_blank" 
+            rel="noreferrer" 
+            aria-label="Facebook"
+            className="w-10 h-10 rounded-full border border-border-main bg-bg-main flex items-center justify-center text-text-muted hover:text-[#1877F2] hover:border-[#1877F2] transition-all duration-300 apple-border-shine"
+          >
+            <Facebook className="w-4 h-4" />
+          </a>
+          <a 
+            href="https://www.youtube.com/@MAKcAutomation01" 
+            target="_blank" 
+            rel="noreferrer" 
+            aria-label="YouTube"
+            className="w-10 h-10 rounded-full border border-border-main bg-bg-main flex items-center justify-center text-text-muted hover:text-[#FF0000] hover:border-[#FF0000] transition-all duration-300 apple-border-shine"
+          >
+            <YoutubeIcon className="w-4 h-4" />
           </a>
         </div>
 

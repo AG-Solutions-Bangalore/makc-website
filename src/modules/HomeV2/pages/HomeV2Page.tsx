@@ -1,8 +1,8 @@
 import useSEO from "@/hooks/useSEO";
 import type { ReactNode } from "react";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
-import HeroSectionV2 from "../sections/HeroSectionV2";
-import StatsSectionV2 from "../sections/StatsSectionV2";
+import HeroSectionV3 from "../sections/HeroSectionV3";
+// import StatsSectionV2 from "../sections/StatsSectionV2";
 
 // Lazy load below-the-fold sections to shrink the initial page load JS payload
 const ServicesSectionV2 = lazy(() => import("../sections/ServicesSectionV2"));
@@ -64,11 +64,11 @@ export default function HomeV2Page() {
 
   return (
     <div className="relative bg-bg-main min-h-screen text-text-main">
-      {/* V2 Hero Section */}
-      <HeroSectionV2 />
+      {/* V3 Hero Section */}
+      <HeroSectionV3 />
 
       {/* V2 Stats Section */}
-      <StatsSectionV2 />
+      {/* <StatsSectionV2 /> */}
 
       <LazyOnView minHeight={720}>
         <ServicesSectionV2 />

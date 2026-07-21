@@ -58,7 +58,7 @@ function Instagram({ className = "w-4.5 h-4.5" }: { className?: string }) {
   );
 }
 
-function GooglePlusSquareIcon({
+function Youtube({
   className = "w-4.5 h-4.5",
 }: {
   className?: string;
@@ -66,11 +66,15 @@ function GooglePlusSquareIcon({
   return (
     <svg
       viewBox="0 0 24 24"
-      fill="currentColor"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       className={className}
-      aria-hidden="true"
     >
-      <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7.3 11.23c-1.53 0-2.77-1.24-2.77-2.77s1.24-2.77 2.77-2.77c.68 0 1.3.25 1.78.67l-1.32 1.32c-.1-.1-.28-.27-.46-.27-.53 0-.96.44-.96.96s.43.96.96.96c.64 0 .9-.41.97-.66H11.7V9.75h2.15c.03.11.05.25.05.41 0 1.35-.91 2.22-2.2 2.22zM18 11.5h-1.5V13H15v-1.5h-1.5V10H15V8.5h1.5V10H18v1.5z" />
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
+      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
     </svg>
   );
 }
@@ -281,25 +285,7 @@ export default function Footer() {
               {/* Social Media Links */}
               <div className="flex items-center gap-2 mt-3">
                 <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Facebook"
-                  className="w-8 h-8 rounded-lg border border-border-main bg-bg-surface/30 flex items-center justify-center text-text-muted hover:text-white hover:bg-[#1877F2] hover:border-transparent hover:shadow-[0_0_10px_rgba(24,119,242,0.4)] transition-all duration-300"
-                >
-                  <Facebook />
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="LinkedIn"
-                  className="w-8 h-8 rounded-lg border border-border-main bg-bg-surface/30 flex items-center justify-center text-text-muted hover:text-white hover:bg-[#0A66C2] hover:border-transparent hover:shadow-[0_0_10px_rgba(10,102,194,0.4)] transition-all duration-300"
-                >
-                  <Linkedin />
-                </a>
-                <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/mak_automation/"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Instagram"
@@ -308,13 +294,31 @@ export default function Footer() {
                   <Instagram />
                 </a>
                 <a
-                  href="https://plus.google.com"
+                  href="https://www.linkedin.com/company/makc-automations/"
                   target="_blank"
                   rel="noreferrer"
-                  aria-label="Google Plus"
-                  className="w-8 h-8 rounded-lg border border-border-main bg-bg-surface/30 flex items-center justify-center text-text-muted hover:text-white hover:bg-[#db4a39] hover:border-transparent hover:shadow-[0_0_10px_rgba(219,74,57,0.4)] transition-all duration-300"
+                  aria-label="LinkedIn"
+                  className="w-8 h-8 rounded-lg border border-border-main bg-bg-surface/30 flex items-center justify-center text-text-muted hover:text-white hover:bg-[#0A66C2] hover:border-transparent hover:shadow-[0_0_10px_rgba(10,102,194,0.4)] transition-all duration-300"
                 >
-                  <GooglePlusSquareIcon />
+                  <Linkedin />
+                </a>
+                <a
+                  href="https://www.facebook.com/makcautomation"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Facebook"
+                  className="w-8 h-8 rounded-lg border border-border-main bg-bg-surface/30 flex items-center justify-center text-text-muted hover:text-white hover:bg-[#1877F2] hover:border-transparent hover:shadow-[0_0_10px_rgba(24,119,242,0.4)] transition-all duration-300"
+                >
+                  <Facebook />
+                </a>
+                <a
+                  href="https://www.youtube.com/@MAKcAutomation01"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="YouTube"
+                  className="w-8 h-8 rounded-lg border border-border-main bg-bg-surface/30 flex items-center justify-center text-text-muted hover:text-white hover:bg-[#FF0000] hover:border-transparent hover:shadow-[0_0_10px_rgba(255,0,0,0.4)] transition-all duration-300"
+                >
+                  <Youtube />
                 </a>
               </div>
             </div>

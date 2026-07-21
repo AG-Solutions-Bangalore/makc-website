@@ -548,7 +548,12 @@ html.lenis body {
 .reveal-on-scroll {
   opacity: 1;
   will-change: auto;
-  transition: none;
+  /* Removed transition:none — it was blocking all Tailwind hover transitions */
+}
+
+/* Only restrict transition-property before element is revealed (avoids entrance flash) */
+.reveal-on-scroll:not(.is-visible) {
+  transition-property: opacity, transform !important;
 }
 
 .reveal-up {

@@ -1,0 +1,271 @@
+import { useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import WaveButton from "@/components/common/WaveButton";
+import { getImageUrl } from "@/utils/image";
+import type { HotspotType } from "@/components/smarthome/types";
+import Hotspot from "@/components/smarthome/Hotspot";
+import Label from "@/components/smarthome/Label";
+import Connector from "@/components/smarthome/Connector";
+import { useResponsive } from "@/components/smarthome/hooks";
+import {
+  Lightbulb,
+  Video,
+  ShieldCheck,
+  ToggleLeft,
+  Sliders,
+  ShieldAlert,
+  Blinds,
+} from "lucide-react";
+
+const heroBg = getImageUrl("hero_bg.webp");
+
+const hotspotsList: HotspotType[] = [
+  {
+    id: "curtains",
+    label: "Curtains Automation",
+    anchor: { x: 60.5, y: 25.5 },
+    labelPos: { x: 75.2, y: 24 },
+    icon: Blinds,
+  },
+  {
+    id: "lighting",
+    label: "Lightings",
+    anchor: { x: 58.5, y: 36 },
+    labelPos: { x: 72.6, y: 32.4 },
+    icon: Lightbulb,
+  },
+  {
+    id: "switches",
+    label: "Smart Switches",
+    anchor: { x: 77.2, y: 53 },
+    labelPos: { x: 86.2, y: 43.5 },
+    icon: ToggleLeft,
+  },
+  {
+    id: "door",
+    label: "Door Automation",
+    anchor: { x: 61.3, y: 65 },
+    labelPos: { x: 68.2, y: 57.5 },
+    icon: Sliders,
+  },
+  {
+    id: "cctv",
+    label: "CCTV",
+    anchor: { x: 83, y: 69.5 },
+    labelPos: { x: 89, y: 62 },
+    icon: Video,
+  },
+  {
+    id: "security",
+    label: "Security",
+    anchor: { x: 78.3, y: 69 },
+    labelPos: { x: 60.8, y: 74.5 },
+    icon: ShieldCheck,
+  },
+  {
+    id: "gate",
+    label: "Gate Automation",
+    anchor: { x: 73.2, y: 78 },
+    labelPos: { x: 83, y: 75 },
+    icon: ShieldAlert,
+  },
+];
+
+export default function HeroSectionV3() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { isMobile, isTablet } = useResponsive();
+
+  // Interaction states
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const [isInView, setIsInView] = useState(false);
+
+  const handleHotspotClick = (id: string) => {
+    setActiveId(activeId === id ? null : id);
+  };
+
+  return (
+    <motion.section
+      ref={sectionRef}
+      id="home"
+      onViewportEnter={() => setIsInView(true)}
+      viewport={{ once: true, amount: 0.1 }}
+      className="group relative w-full min-h-screen bg-bg-main flex items-center justify-between overflow-hidden py-24 sm:py-32 transition-colors duration-300 no-reveal"
+    >
+      {/* Background Image Container */}
+      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
+        <img
+          src={heroBg}
+          alt="Smart Home Automation Installation in Bangalore"
+          className="w-full h-full object-cover object-center pointer-events-none"
+        />
+      </div>
+
+      {/* Shared SVG Connector Layer */}
+      {isInView && !isMobile && (
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none z-20"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          {hotspotsList.map((hotspot, idx) => (
+            <Connector
+              key={`line-${hotspot.id}`}
+              anchor={hotspot.anchor}
+              labelPos={hotspot.labelPos}
+              isHovered={false}
+              isActive={activeId === hotspot.id}
+              color={hotspot.connectorColor}
+              delay={idx * 0.18}
+            />
+          ))}
+        </svg>
+      )}
+
+      {/* Interactive Hotspots and Labels Layer */}
+      {isInView && (
+        <div className="absolute inset-0 w-full h-full z-30 pointer-events-none">
+          <div className="relative w-full h-full pointer-events-auto">
+            {hotspotsList.map((hotspot, idx) => {
+              const isActive = activeId === hotspot.id;
+              const delay = idx * 0.18;
+
+              return (
+                <div key={hotspot.id}>
+                  {/* Anchor Dot — hidden on mobile */}
+                  {!isMobile && (
+                    <Hotspot
+                      id={hotspot.id}
+                      anchor={hotspot.anchor}
+                      isHovered={false}
+                      isActive={isActive}
+                      onHoverStart={() => {}}
+                      onHoverEnd={() => {}}
+                      onClick={() => handleHotspotClick(hotspot.id)}
+                      index={idx}
+                      delay={delay}
+                      isMobile={isMobile}
+                    />
+                  )}
+
+                  {/* Floating Labels (Hidden on Mobile) */}
+                  {!isMobile && (
+                    <Label
+                      label={hotspot.label}
+                      labelPos={hotspot.labelPos}
+                      icon={hotspot.icon}
+                      isHovered={false}
+                      isActive={isActive}
+                      onHoverStart={() => {}}
+                      onHoverEnd={() => {}}
+                      onClick={() => handleHotspotClick(hotspot.id)}
+                      delay={delay}
+                      isTablet={isTablet}
+                    />
+                  )}
+
+                  {/* Mobile Tooltip (Popup on Tap) */}
+                  {isMobile && (
+                    <AnimatePresence>
+                      {isActive && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                          animate={{ opacity: 1, y: -10, scale: 1 }}
+                          exit={{ opacity: 0, y: 10, scale: 0.9 }}
+                          style={{
+                            position: "absolute",
+                            left: `${hotspot.anchor.x}%`,
+                            top: `${hotspot.anchor.y}%`,
+                            transform: "translate(-50%, -100%)",
+                            zIndex: 100,
+                          }}
+                          className="bg-black/90 border border-[#d4af37] backdrop-blur-md px-3.5 py-1.5 rounded-xl flex items-center gap-2 text-white text-xs shadow-lg whitespace-nowrap"
+                        >
+                          <hotspot.icon className="h-3.5 w-3.5 text-[#d4af37]" />
+                          <span className="font-semibold uppercase tracking-wider">
+                            {hotspot.label}
+                          </span>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Left-Side Content overlays above background and hotspots */}
+      <div className="relative z-40 mx-auto max-w-8xl w-full px-4 sm:px-14 flex flex-col lg:flex-row items-start lg:items-stretch justify-between gap-12 sm:gap-16 pointer-events-none">
+        {/* Hero Left Content */}
+        <div
+          className="flex-1 flex flex-col justify-center text-left max-w-2xl reveal-on-scroll reveal-left pointer-events-auto"
+          data-reveal-duration="0.9s"
+        >
+          <div className="mb-4">
+            <div className="inline-flex items-center gap-2.5 border border-white/20 backdrop-blur-md rounded-full px-3 py-1.5 select-none pointer-events-none">
+              <img
+                src="/images/iso-image.svg"
+                alt="ISO Certified Logo"
+                className="h-5.5 w-5.5 object-contain"
+              />
+              <span className="text-[11px] sm:text-xs font-sans font-medium tracking-wide !text-white leading-none">
+                ISO <span className="text-[#00A551] font-semibold">2015</span>{" "}
+                Certified Company
+              </span>
+            </div>
+          </div>
+
+          <h1 className="mt-4 sm:mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold !text-white tracking-tight leading-[1.15]">
+            Experience the <br />
+            <span className="italic font-normal text-gold-primary">
+              Smart Living
+            </span>
+          </h1>
+
+          <p className="mt-6 text-sm sm:text-base !text-white/80 font-body leading-relaxed max-w-lg">
+            Experience a new standard of living with intelligent automation,
+            luxury lighting, world-class security, and seamless connectivity—all
+            designed exclusively for premium residences.
+          </p>
+
+          <div className="mt-8 sm:mt-10 flex gap-4">
+            <a
+              href="#contact"
+              className="w-full text-nowrap sm:w-auto px-4 py-3.5 sm:px-8 sm:py-4 bg-[#006ed6] text-white! font-bold text-xs tracking-wide sm:tracking-[0.15em] uppercase hover:bg-[#005fba] transition-colors duration-300 rounded-none shadow-[0_4px_20px_rgba(10,132,255,0.35)] flex items-center justify-center gap-2 group text-center"
+            >
+              <span className="leading-snug">
+                Book a Free Smart Home Consultation
+              </span>
+            </a>
+
+            <WaveButton
+              href="#solutions"
+              accentColor="var(--color-gold-primary)"
+              foregroundColor="#fff"
+              className="px-6 py-3.5 sm:px-8 sm:py-4  text-nowrap border border-gold-primary text-gold-primary font-bold text-[10px] sm:text-xs tracking-[0.15em] uppercase transition-all duration-300 rounded-none flex items-center gap-2 group"
+            >
+              EXPLORE SMART HOMES
+              <span className="font-mono text-xs transition-transform duration-300 group-hover:translate-x-1">
+                &gt;
+              </span>
+            </WaveButton>
+          </div>
+        </div>
+
+        {/* Empty Right Column on Desktop to preserve split visual layout */}
+        <div className="w-full lg:max-w-[48%] xl:max-w-[52%] shrink-0 pointer-events-none hidden lg:block" />
+      </div>
+
+      {/* Scroll Down Indicator */}
+      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2.5 pointer-events-none">
+        <span className="text-[8px] font-bold tracking-[0.3em] !text-white/40 uppercase">
+          SCROLL TO DISCOVER
+        </span>
+        <div className="w-[18px] h-[30px] border !border-white/30 rounded-full flex justify-center p-1.5 opacity-100">
+          <div className="w-[4px] h-[6px] bg-gold-primary rounded-full animate-bounce" />
+        </div>
+      </div>
+    </motion.section>
+  );
+}

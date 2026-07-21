@@ -20,7 +20,7 @@ export default function DimmingTuningSection() {
       types={types}
       suitableText="Perfect for bedrooms, living rooms, and conference areas."
       images={images}
-      imagePosition="right"
+      imagePosition="left"
       prefix="dt"
       serviceName="Dimming & Tuning of Lights"
     />

@@ -7,6 +7,17 @@ import { getImageUrl } from "@/utils/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const VIDEO_MAP: Record<string, string> = {
+  "Dimming & Tuning of Lights": "dimming_and _tunning_of_lights.mp4",
+  "Electrical Automation": "electrical_automation.mp4",
+  "Mesh Wi-Fi Network": "mesh_wifi_network_solutions.mp4",
+  "RGB Lighting": "rgb_mood_lighting.mp4",
+  "Scene-Based Lighting": "scene_based_lighting.mp4",
+  "Sensor-Based": "sensor_board_protection.mp4",
+  "Wired Network": "wired_network_planning_and_design.mp4",
+  "Gate Automation": "gate_automation.mp4",
+};
+
 interface AutomationMosaicImage {
   src: string;
   alt?: string;
@@ -43,6 +54,16 @@ export default function AutomationMosaicSection({
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // If the service has a direct mapped MP4 video, use it immediately
+    if (VIDEO_MAP[serviceName]) {
+      setMediaData({
+        type: "Reel",
+        url: `https://agsdemo.in/macapi/public/assets/images/web_images/reels/${VIDEO_MAP[serviceName]}`,
+      });
+      setLoading(false);
+      return;
+    }
+
     const fetchMedia = async () => {
       try {
         const res = await fetch("https://agsdemo.in/macapi/public/api/getWebReel");
@@ -54,26 +75,35 @@ export default function AutomationMosaicSection({
         );
         
         if (serviceData) {
-          if (serviceData.services_type === "Reel") {
+          const reelsBase = json.image_url?.find(
+            (img: any) => img.image_for === "Reels"
+          )?.image_url || "https://agsdemo.in/macapi/public/assets/images/reels_images/";
+          
+          const isFullUrl = serviceData.services_url_image.startsWith("http");
+          const finalUrl = isFullUrl 
+            ? serviceData.services_url_image 
+            : `${reelsBase}${serviceData.services_url_image}`;
+
+          // Check if it's a direct MP4/video link
+          const isDirectVideo = finalUrl.toLowerCase().endsWith(".mp4") || 
+            (serviceData.services_type === "Reel" && 
+             !finalUrl.includes("instagram.com") && 
+             !finalUrl.includes("youtube.com") && 
+             !finalUrl.includes("youtu.be"));
+
+          if (isDirectVideo) {
             setMediaData({
               type: "Reel",
-              url: serviceData.services_url_image,
+              url: finalUrl,
             });
           } else {
-            // Find base image url for Reels
-            const reelsBase = json.image_url?.find(
-              (img: any) => img.image_for === "Reels"
-            )?.image_url || "https://agsdemo.in/macapi/public/assets/images/reels_images/";
-            
-            // If the image path is a URL, use it, else concatenate with base URL
-            const isFullUrl = serviceData.services_url_image.startsWith("http");
+            // Fallback to static image if it is an Instagram/YouTube link
             setMediaData({
               type: "Image",
-              url: isFullUrl ? serviceData.services_url_image : `${reelsBase}${serviceData.services_url_image}`,
+              url: getImageUrl(images[0]?.src || ""),
             });
           }
         } else {
-          // If no matching service, fallback to default props
           setMediaData({
             type: "Image",
             url: getImageUrl(images[0]?.src || ""),
@@ -208,20 +238,14 @@ export default function AutomationMosaicSection({
                   <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-accent-blue" />
                 </div>
               ) : mediaData?.type === "Reel" ? (
-                (() => {
-                  const match = mediaData.url.match(/\/reel\/([a-zA-Z0-9_-]+)/) || mediaData.url.match(/\/p\/([a-zA-Z0-9_-]+)/);
-                  const id = match ? match[1] : "DTp5xiDj82a";
-                  return (
-                    <iframe
-                      src={`https://www.instagram.com/reel/${id}/embed`}
-                      className="absolute w-full h-[calc(100%+120px)] -top-[60px] left-0 lg:w-[150%] lg:h-[150%] lg:-top-[25%] lg:-left-[25%] border-0"
-                      allowFullScreen
-                      scrolling="no"
-                      allow="encrypted-media"
-                      title={`${title} Video Demonstration`}
-                    />
-                  );
-                })()
+                <video
+                  src={mediaData.url}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
               ) : (
                 <img
                   src={mediaData?.url || getImageUrl(images[0]?.src || "")}

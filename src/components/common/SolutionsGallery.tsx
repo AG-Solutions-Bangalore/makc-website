@@ -1,4 +1,6 @@
 import { getImageUrl } from "@/utils/image";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const columns = [
   // Column 1 (Left column in wireframe)
@@ -24,11 +26,11 @@ const columns = [
 
 export default function SolutionsGallery() {
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto no-reveal">
+    <section className="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto no-reveal">
       
       {/* Title */}
       <h2 className="gallery-title text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-text-main text-center mb-16 font-sans">
-        MAKc Automation And <br className="hidden sm:inline" /> Solutions Gallery
+        MAKc Gallery
       </h2>
 
       {/* Masonry Layout: 3 Columns */}
@@ -56,6 +58,18 @@ export default function SolutionsGallery() {
             ))}
           </div>
         ))}
+      </div>
+
+      {/* View More Button */}
+      <div className="flex justify-end mt-12 sm:mt-16">
+        <Link 
+          to="/experience" 
+          className="home-wave-cta cursor-pointer apple-border-shine flex rounded-full items-center gap-2 border border-border-main/50 text-text-main px-8 py-3.5 uppercase text-[10px] sm:text-[11px] font-bold tracking-widest bg-transparent" 
+          style={{ "--cta-accent": "#0A84FF" } as React.CSSProperties}
+        >
+          <span className="relative z-10">View More</span>
+          <ArrowRight className="h-4 w-4 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
+        </Link>
       </div>
 
     </section>

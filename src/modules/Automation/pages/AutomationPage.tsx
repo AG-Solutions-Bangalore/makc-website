@@ -24,12 +24,11 @@ import {
 
 // Import shared common components
 // import OneTouchSection from "@/components/common/OneTouchSection";
+import AutomationShowcase from "@/components/common/AutomationShowcase";
 import CurtainAutomationSection from "@/components/common/CurtainAutomationSection";
 import ElectricalAutomationSection from "@/components/common/ElectricalAutomationSection";
 import GateAutomationSection from "@/components/common/GateAutomationSection";
-import WhatWeAutomateSection from "@/components/common/WhatWeAutomateSection";
-import AutomationShowcase from "@/components/common/AutomationShowcase";
-// import TrendingCarousel from "@/components/common/TrendingCarousel";
+import DoorAutomationSection from "@/components/common/DoorAutomationSection";
 
 // Import images
 const serviceLightingImg = getImageUrl("service_lighting.webp");
@@ -38,31 +37,6 @@ const projectVillasImg = getImageUrl("project_villas.webp");
 
 import useSEO from "@/hooks/useSEO";
 import { getImageUrl } from "@/utils/image";
-
-const automationSystems = [
-  {
-    title: "Electrical Automation",
-    detail: "Lighting, switches, and scenes respond to the rhythm of your day.",
-    img: getImageUrl("Electrical Automation.webp"),
-  },
-  {
-    title: "Smart Door Automation",
-    detail:
-      "Welcome the right people in with intelligent, secure access control.",
-    img: getImageUrl("Smart Door Automation.webp"),
-  },
-  {
-    title: "Curtain Automation",
-    detail:
-      "Shape daylight, privacy, and ambience with a single, effortless routine.",
-    img: getImageUrl("Curtain Automation.webp"),
-  },
-  {
-    title: "Gate Automation",
-    detail: "Make every arrival smoother with dependable perimeter control.",
-    img: getImageUrl("Gate Automation.webp"),
-  },
-];
 
 export default function AutomationPage() {
   useSEO({
@@ -164,7 +138,9 @@ export default function AutomationPage() {
       <section
         ref={heroRef}
         className="dark relative min-h-[90vh] lg:min-h-screen w-full flex items-center justify-start bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url('${getImageUrl("automation_banner.webp")}')` }}
+        style={{
+          backgroundImage: `url('${getImageUrl("automation_banner.webp")}')`,
+        }}
       >
         {/* Dark overlay for contrast */}
         {/* <div className="absolute inset-0 bg-black/65" /> */}
@@ -237,15 +213,6 @@ export default function AutomationPage() {
         </div>
       </section>
 
-      {/* REST OF THE CONTENT WRAPPED IN MAX-W-7XL CONTAINER */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24 pb-0">
-        {/* WHAT WE AUTOMATE SECTION */}
-        <WhatWeAutomateSection
-          systems={automationSystems}
-          imagePosition="right"
-        />
-      </div>
-
       {/* FULL WIDTH AUTOMATION SHOWCASE SECTION */}
       <AutomationShowcase />
 
@@ -255,6 +222,9 @@ export default function AutomationPage() {
 
         {/* ── GATE AUTOMATION SECTION ── */}
         <GateAutomationSection />
+
+        {/* ── DOOR AUTOMATION SECTION ── */}
+        <DoorAutomationSection />
 
         {/* ── CURTAIN AUTOMATION SECTION ── */}
         <CurtainAutomationSection />

@@ -25,8 +25,8 @@ const REMOTE_IMAGE_BASE =
   "https://agsdemo.in/macapi/public/assets/images/web_images";
 
 const LOCAL_IMAGES: Record<string, string> = {
-  "hero_bg.webp": "/images/home_v2/hero_bg.webp",
-  "hero_bg.avif": "/images/home_v2/hero_bg.avif",
+  "hero_bg.webp": "/images/hero_bg.webp",
+  "hero_bg.avif": "/images/hero_bg.avif",
   "service_automation.webp": serviceAutomation,
   "service_automation.avif": serviceAutomationAvif,
   "service_energy.webp": serviceEnergy,
@@ -70,7 +70,8 @@ export const getResponsiveHomeImageUrl = (filename: string, width: 480 | 768) =>
   const baseName = filename.split("/").pop() || filename;
   const name = baseName.replace(/\.(avif|webp)$/i, "");
 
-  if (LOCAL_IMAGES[baseName] && /^(hero_bg|service_|project_)/.test(name)) {
+  // Only use responsive paths for services and projects (hero_bg responsive files were deleted in favor of the high-quality source)
+  if (LOCAL_IMAGES[baseName] && /^(service_|project_)/.test(name)) {
     return `/images/home_v2/responsive/${name}-${width}.avif`;
   }
 

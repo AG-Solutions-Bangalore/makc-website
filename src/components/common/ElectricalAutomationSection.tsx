@@ -10,11 +10,14 @@ const types = [
 const features = [
   "Scheduling and load management",
   "Sensor-based lights",
-  "Scene-based lighting control",
+  "Mood-Based Lighting control",
 ];
 
 const images = [
-  { src: "electric automation.webp", alt: "Bedside wall-mounted tactile smart touch automation panel" },
+  {
+    src: "electric automation.webp",
+    alt: "Bedside wall-mounted tactile smart touch automation panel",
+  },
   { src: "service_automation.webp", alt: "Smart switches and panels setup" },
   { src: "smarter_way_bg.webp", alt: "Modern living room lighting scene" },
 ];
