@@ -103,6 +103,7 @@ export default function HeroSection() {
                   <img
                     src={item.image}
                     alt="Smart Home Automation Installation in Bangalore"
+                    title="Smart Home Automation Installation in Bangalore"
                     className="w-full h-full object-cover select-none pointer-events-none"
                   />
                   {/* Subtle dark tint to unify colors */}

@@ -6,6 +6,8 @@ interface SEOProps {
   keywords?: string;
   canonicalUrl?: string;
   robots?: string;
+  author?: string;
+  publisher?: string;
 }
 
 export default function useSEO({
@@ -14,6 +16,8 @@ export default function useSEO({
   keywords,
   canonicalUrl,
   robots,
+  author = "MAKc Automations",
+  publisher = "MAKc Automations",
 }: SEOProps) {
   useEffect(() => {
     // 1. Set Title
@@ -66,5 +70,23 @@ export default function useSEO({
     } else if (metaRobots) {
       metaRobots.remove();
     }
-  }, [title, description, keywords, canonicalUrl, robots]);
+
+    // 6. Set Author Tag
+    let metaAuthor = document.querySelector('meta[name="author"]');
+    if (!metaAuthor) {
+      metaAuthor = document.createElement("meta");
+      metaAuthor.setAttribute("name", "author");
+      document.head.appendChild(metaAuthor);
+    }
+    metaAuthor.setAttribute("content", author);
+
+    // 7. Set Publisher Tag
+    let metaPublisher = document.querySelector('meta[name="publisher"]');
+    if (!metaPublisher) {
+      metaPublisher = document.createElement("meta");
+      metaPublisher.setAttribute("name", "publisher");
+      document.head.appendChild(metaPublisher);
+    }
+    metaPublisher.setAttribute("content", publisher);
+  }, [title, description, keywords, canonicalUrl, robots, author, publisher]);
 }

@@ -81,6 +81,7 @@ export default function SolutionHero({
           <img 
             src={imageSrc} 
             alt={imageTitle} 
+            title={imageTitle}
             className="w-full object-cover aspect-[4/3] lg:aspect-square transform group-hover:scale-102 transition-transform duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />

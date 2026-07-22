@@ -40,12 +40,12 @@ import { getImageUrl } from "@/utils/image";
 
 export default function AutomationPage() {
   useSEO({
-    title: "Future of Living with Smart Home Devices",
+    title: "Smart Home Automation Services in Bangalore | MAKc Automations",
     description:
-      "Mac Automation - Best Home Automation company in Bangalore. Get all smart home automation solutions with security, safety, and convenient solutions.",
+      "MAKc Automations delivers complete smart home automation services in Bangalore including touch panel controls, gate, curtain & electrical automation.",
     keywords:
-      "home automation company in bangalore, home automation bangalore, smart home automation",
-    canonicalUrl: "https://makcautomations.com/",
+      "smart home automation services, home automation company in bangalore, home automation bangalore, curtain automation, gate automation",
+    canonicalUrl: "https://makcautomations.com/automation",
     robots:
       "INDEX, FOLLOW, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1, MAX-IMAGE-PREVIEW:LARGE",
   });
@@ -214,7 +214,7 @@ export default function AutomationPage() {
       </section>
 
       {/* FULL WIDTH AUTOMATION SHOWCASE SECTION */}
-      <AutomationShowcase />
+      <AutomationShowcase accentColor="#00A551" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24 pb-16">
         {/* ── ELECTRICAL AUTOMATION SECTION ── */}
@@ -401,6 +401,7 @@ export default function AutomationPage() {
                   </p>
                   <Link
                     to="/contact"
+                    title="Contact MAKc Automations"
                     className="inline-flex items-center gap-2 text-xs font-bold text-white/90 hover:text-white transition-colors duration-150 group"
                   >
                     Get a Quote
@@ -580,12 +581,14 @@ export default function AutomationPage() {
                   <div className="space-y-3 mt-8">
                     <a
                       href="tel:+919948432444"
+                      title="Call MAKc Automations at +91 99484 32444"
                       className="flex items-center justify-center gap-2 h-11 w-full rounded-xl bg-accent-blue text-white text-sm font-bold hover:bg-accent-blue/90 transition-all duration-200 hover:scale-[1.02] active:scale-[0.97]"
                     >
                       Call Us Now
                     </a>
                     <a
                       href="mailto:info@makcautomations.com"
+                      title="Email MAKc Automations"
                       className="flex items-center justify-center gap-2 h-11 w-full rounded-xl border border-white/25 text-white! text-sm font-medium hover:bg-white/8 transition-all duration-200"
                     >
                       Send an Email

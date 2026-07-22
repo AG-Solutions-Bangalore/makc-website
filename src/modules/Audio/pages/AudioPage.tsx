@@ -6,9 +6,10 @@ import AudioControlsSection from "../components/AudioControlsSection";
 
 export default function AudioPage() {
   useSEO({
-    title: "Premium Smart Audio Solutions for Luxury Homes | MAKc Automation",
-    description: "High-performance multi-room audio, invisible architectural speakers, and smart sound controls for luxury residences in Bangalore by MAKc Automation.",
-    keywords: "smart audio, multi room audio bangalore, architectural speakers, high fidelity sound, MAKc",
+    title: "Home Audio Solutions in Bangalore | MAKc Automations",
+    description: "High-performance multi-room audio, invisible architectural speakers, and smart sound controls for luxury residences in Bangalore by MAKc Automations.",
+    keywords: "home audio solutions, multi room audio bangalore, architectural speakers, high fidelity sound, MAKc Automations",
+    canonicalUrl: "https://makcautomations.com/audio",
   });
 
   return (

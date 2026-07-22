@@ -11,9 +11,9 @@ import { getImageUrl } from "@/utils/image";
 
 export default function ContactPage() {
   useSEO({
-    title: "Contact Us - Makc Automation",
-    description: "Reach MAKc Automation for smart home automation, lighting, security, and networking solutions in Bangalore. Our team is here to assist you with your smart home needs.",
-    canonicalUrl: "https://makcautomations.com/contact-us/",
+    title: "Contact MAKc Automations | Smart Home Company in Bangalore",
+    description: "Contact MAKc Automations in Bangalore for smart home automation, luxury lighting, security systems, and high-speed networking solutions.",
+    canonicalUrl: "https://makcautomations.com/contact",
     robots: "INDEX, FOLLOW",
   });
 
@@ -60,6 +60,7 @@ export default function ContactPage() {
             <img
               src={bgImage}
               alt="Luxury Villa Integration"
+              title="Luxury Smart Villa Interior & Exterior Integration"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent z-10" />

@@ -12,6 +12,7 @@ export function LocationMap() {
       <div className="absolute top-4 right-4 z-20">
         <a
           href={`https://maps.google.com/?q=${MAPS_QUERY}`}
+          title="View Our Location on Google Maps"
           target="_blank"
           rel="noreferrer"
           className="bg-bg-surface/80 backdrop-blur-xl border border-border-main shadow-[0_4px_15px_rgba(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)] text-text-main hover:text-accent-blue font-semibold text-xs py-2 px-4 rounded-lg flex items-center gap-2 hover:-translate-y-0.5 transition-all duration-300"

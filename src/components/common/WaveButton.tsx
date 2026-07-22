@@ -8,6 +8,11 @@ interface WaveButtonProps {
   href?: string;
 
   /**
+   * Tooltip title attribute for SEO and accessibility.
+   */
+  title?: string;
+
+  /**
    * Click event handler.
    */
   onClick?: (e: React.MouseEvent<HTMLElement>) => void;
@@ -59,6 +64,7 @@ interface WaveButtonProps {
 
 export default function WaveButton({
   href,
+  title,
   onClick,
   className = "",
   accentColor = "var(--color-gold-primary)",
@@ -82,6 +88,7 @@ export default function WaveButton({
     return (
       <a
         href={href}
+        title={title}
         onClick={onClick}
         target={target}
         rel={rel}
@@ -99,6 +106,7 @@ export default function WaveButton({
   return (
     <button
       onClick={onClick}
+      title={title}
       type={type}
       disabled={disabled}
       className={baseClass}

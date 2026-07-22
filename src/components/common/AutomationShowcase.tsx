@@ -92,6 +92,7 @@ export interface AutomationShowcaseProps {
   introduction?: string;
   ctaLabel?: string;
   ctaHref?: string;
+  accentColor?: string;
 }
 
 export default function AutomationShowcase({
@@ -101,10 +102,11 @@ export default function AutomationShowcase({
   heading = (
     <>
       Intelligent automation <br />
-      for a <span className="text-[#7784ff]">smarter life</span>
+      for a <span className="text-[var(--accent-color)]">smarter life</span>
     </>
   ),
   introduction = "Transform your home into a smart, connected space that adapts to your lifestyle.",
+  accentColor = "#7784ff",
 }: AutomationShowcaseProps) {
   const initialIndex = Math.max(
     0,
@@ -113,6 +115,29 @@ export default function AutomationShowcase({
   const [activeIndex, setActiveIndex] = useState(initialIndex);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [cachedIndex, setCachedIndex] = useState(initialIndex);
+
+  // Convert hex color to comma-separated RGB values for opacity/rgba usage
+  const hexToRgb = (hex: string): string => {
+    const cleanHex = hex.replace("#", "");
+    const num = parseInt(cleanHex, 16);
+    const r = (num >> 16) & 255;
+    const g = (num >> 8) & 255;
+    const b = num & 255;
+    return `${r}, ${g}, ${b}`;
+  };
+
+  const accentColorRgb = hexToRgb(accentColor);
+  const accentStyle = {
+    "--accent-color": accentColor,
+    "--accent-color-rgb": accentColorRgb,
+  } as React.CSSProperties;
+
+  const slidesSerialized = slides.map((slide) => slide.id).join(",");
+
+  useEffect(() => {
+    setActiveIndex(initialIndex);
+    setCachedIndex(initialIndex);
+  }, [slidesSerialized, initialSlideId, initialIndex]);
 
   useEffect(() => {
     if (activeIndex >= slides.length) {
@@ -145,7 +170,7 @@ export default function AutomationShowcase({
   };
 
   return (
-    <section className="w-full relative overflow-hidden bg-bg-surface dark:bg-black py-16 lg:py-24 min-h-[600px] lg:h-[650px] flex items-center border-b border-border-main/40 select-none">
+    <section style={accentStyle} className="w-full relative overflow-hidden bg-bg-surface dark:bg-black py-16 lg:py-24 min-h-[600px] lg:h-[650px] flex items-center border-b border-border-main/40 select-none">
       {/* Background Images Crossfade Layer (Only on the right half for desktop, full background for mobile) */}
       {slides.map((tab, idx) => (
         <img
@@ -175,7 +200,7 @@ export default function AutomationShowcase({
           <div className="lg:col-span-7 flex flex-col justify-between text-left">
             <div>
               {/* Eyebrow */}
-              <span className="text-[10px] font-bold text-[#7784ff] uppercase tracking-[0.25em] block mb-4">
+              <span className="text-[10px] font-bold text-[var(--accent-color)] uppercase tracking-[0.25em] block mb-4">
                 {eyebrow}
               </span>
 
@@ -190,7 +215,7 @@ export default function AutomationShowcase({
               </p>
 
               {/* Short Line Divider */}
-              <div className="w-10 h-[2px] bg-[#7784ff]/70 mb-10" />
+              <div className="w-10 h-[2px] bg-[rgba(var(--accent-color-rgb),0.7)] mb-10" />
 
               <div
                 className="flex items-center gap-3 sm:gap-4 mt-8 overflow-x-auto pb-4 -mx-2 px-2 scrollbar-none"
@@ -210,13 +235,13 @@ export default function AutomationShowcase({
                         aria-controls="automation-showcase-detail"
                         className={`flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full apple-border-shine transition-all duration-300 relative cursor-pointer group ${
                           isActive
-                            ? "bg-[#7784ff]/15 border border-[#7784ff] z-10 shadow-[0_0_15px_rgba(119,132,255,0.3)]"
+                            ? "bg-[rgba(var(--accent-color-rgb),0.15)] border border-[var(--accent-color)] z-10 shadow-[0_0_15px_rgba(var(--accent-color-rgb),0.3)]"
                             : "border border-border-main dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5"
                         }`}
                       >
                         <Icon
                           className={`w-7 h-7 sm:w-8 sm:h-8 transition-transform duration-300 group-hover:scale-110 ${
-                            isActive ? "text-[#8f9aff]" : "text-text-muted dark:text-white/50 group-hover:text-text-main dark:group-hover:text-white"
+                            isActive ? "text-[var(--accent-color)]" : "text-text-muted dark:text-white/50 group-hover:text-text-main dark:group-hover:text-white"
                           }`}
                         />
                       </button>
@@ -231,14 +256,14 @@ export default function AutomationShowcase({
               <button
                 onClick={handlePrev}
                 aria-label="Previous Item"
-                className="w-20 h-10 rounded-3xl border border-border-main dark:border-white/15 flex items-center justify-center text-text-muted dark:text-white/55 hover:text-text-main dark:hover:text-white hover:border-[#7784ff] hover:bg-[#7784ff]/10 transition-all duration-300 cursor-pointer"
+                className="w-20 h-10 rounded-3xl border border-border-main dark:border-white/15 flex items-center justify-center text-text-muted dark:text-white/55 hover:text-text-main dark:hover:text-white hover:border-[var(--accent-color)] hover:bg-[rgba(var(--accent-color-rgb),0.1)] transition-all duration-300 cursor-pointer"
               >
                 <ArrowLeft className="w-4.5 h-4.5 stroke-[1.5]" />
               </button>
               <button
                 onClick={handleNext}
                 aria-label="Next Item"
-                className="w-20 h-10 rounded-3xl border border-border-main dark:border-white/15 flex items-center justify-center text-text-muted dark:text-white/55 hover:text-text-main dark:hover:text-white hover:border-[#7784ff] hover:bg-[#7784ff]/10 transition-all duration-300 cursor-pointer"
+                className="w-20 h-10 rounded-3xl border border-border-main dark:border-white/15 flex items-center justify-center text-text-muted dark:text-white/55 hover:text-text-main dark:hover:text-white hover:border-[var(--accent-color)] hover:bg-[rgba(var(--accent-color-rgb),0.1)] transition-all duration-300 cursor-pointer"
               >
                 <ArrowRight className="w-4.5 h-4.5 stroke-[1.5]" />
               </button>
@@ -259,7 +284,7 @@ export default function AutomationShowcase({
               }`}
             >
               {/* Large glowing backdrop number */}
-              <span className="text-8xl lg:text-[110px] font-bold font-display tracking-[-0.04em] text-[#7784ff]/30 dark:text-[#7784ff]/90 select-none leading-none -ml-1.5 block">
+              <span className="text-8xl lg:text-[110px] font-bold font-display tracking-[-0.04em] text-[rgba(var(--accent-color-rgb),0.3)] dark:text-[rgba(var(--accent-color-rgb),0.9)] select-none leading-none -ml-1.5 block">
                 {activeTab.id}
               </span>
 

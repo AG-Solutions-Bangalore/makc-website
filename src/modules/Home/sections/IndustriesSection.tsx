@@ -63,6 +63,7 @@ function ServiceCard({
     <Link
       id={id}
       to={link}
+      title="Explore Smart Home Solutions"
       className={`group relative overflow-hidden block scroll-mt-[120px] ${className}`}
       data-stagger-child
     >
@@ -70,6 +71,7 @@ function ServiceCard({
       <img
         src={image}
         alt={name}
+        title={name}
         className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
         loading="lazy"
       />

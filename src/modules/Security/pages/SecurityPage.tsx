@@ -6,12 +6,12 @@ import useSEO from "@/hooks/useSEO";
 
 export default function SecurityPage() {
   useSEO({
-    title: "Home security system bangalore - Makcautomations",
+    title: "Smart Home Security Systems in Bangalore | MAKc Automations",
     description:
-      "Secure your home with the home security system from Mac Automation. Get your Secured Door Locks, Gas leakage detection system...",
+      "Advanced smart home security systems in Bangalore by MAKc Automations: AI CCTV surveillance, biometric digital door locks, motion & environmental leak detectors.",
     keywords:
-      "home security system Bangalore, home security camera system, digital door locks",
-    canonicalUrl: "https://makcautomations.com/index.php/security/",
+      "smart home security systems, home security system bangalore, cctv surveillance, digital door locks bangalore",
+    canonicalUrl: "https://makcautomations.com/security",
     robots:
       "INDEX, FOLLOW, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1, MAX-IMAGE-PREVIEW:LARGE",
   });

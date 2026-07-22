@@ -5,6 +5,7 @@ export function ContactInfoChips() {
     <>
       <a
         href="tel:+918197783287"
+        title="Call MAKc Automations at +91 81977 83287"
         className="flex-1 min-w-0 bg-bg-surface/50 backdrop-blur-xl border border-border-main/70 rounded-3xl p-5 sm:p-6 flex items-center gap-4 group cursor-pointer transition-all hover:-translate-y-1 duration-300 shadow-[0_4px_15px_rgba(0,0,0,0.015)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.15)] hover:border-accent-blue/40 hover:shadow-[0_8px_20px_rgba(10,132,255,0.06)] reveal-on-scroll reveal-up"
         data-reveal-delay="100ms"
         data-reveal-duration="0.6s"
@@ -29,6 +30,7 @@ export function ContactInfoChips() {
       </a>
       <a
         href="https://wa.me/919948432444?text=Hi%20MAKc%20Team,%20I'm%20interested%20in%20your%20services!"
+        title="Call MAKc Automations at +91 99484 32444"
         target="_blank"
         rel="noopener noreferrer"
         className="flex-1 min-w-0 bg-bg-surface/50 backdrop-blur-xl border border-border-main/70 rounded-3xl p-5 sm:p-6 flex items-center gap-4 group cursor-pointer transition-all hover:-translate-y-1 duration-300 shadow-[0_4px_15px_rgba(0,0,0,0.015)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.15)] hover:border-[#25D366]/40 hover:shadow-[0_8px_20px_rgba(37,211,102,0.06)] reveal-on-scroll reveal-up"
@@ -59,6 +61,7 @@ export function ContactInfoChips() {
 
       <a
         href="mailto:info@makcautomations.com"
+        title="Email MAKc Automations"
         className="flex-1 min-w-0 bg-bg-surface/50 backdrop-blur-xl border border-border-main/70 rounded-3xl p-5 sm:p-6 flex items-center gap-4 group cursor-pointer transition-all hover:-translate-y-1 duration-300 shadow-[0_4px_15px_rgba(0,0,0,0.015)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.15)] hover:border-accent-blue/40 hover:shadow-[0_8px_20px_rgba(10,132,255,0.06)] reveal-on-scroll reveal-up"
         data-reveal-delay="200ms"
         data-reveal-duration="0.6s"
