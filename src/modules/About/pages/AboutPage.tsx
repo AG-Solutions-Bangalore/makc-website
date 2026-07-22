@@ -13,8 +13,10 @@ import { getImageUrl } from "@/utils/image";
 
 export default function AboutPage() {
   useSEO({
-    title: "About Us | MAKc Automation",
-    description: "At MAKc Automation, we transform ordinary homes into intelligent living spaces with innovative smart home technology.",
+    title: "About Us | MAKc Automations",
+    description: "Learn about MAKc Automations - Bangalore's leading smart home automation company providing custom lighting, security, networking and audio integration.",
+    keywords: "about makc automations, home automation company in bangalore, smart home team",
+    canonicalUrl: "https://makcautomations.com/about",
   });
   const stats = [
     { value: "4", label: "Experience Centers" },
@@ -63,6 +65,7 @@ export default function AboutPage() {
         <img 
           src={getImageUrl("about-us.webp")} 
           alt="MAKc Automation Team" 
+          title="About MAKc Automations"
           className="absolute inset-0 w-full h-full object-cover scale-102 filter brightness-[45%] contrast-110"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-bg-main/30 to-bg-main" />
@@ -127,6 +130,7 @@ export default function AboutPage() {
               <img 
                 src={getImageUrl("embedded-banner.webp")} 
                 alt="Smart home console automation panel room" 
+                title="Smart Home Console Automation Panel Room"
                 className="w-full h-full object-cover transform group-hover:scale-102 transition-transform duration-700" 
               />
               <div className="absolute inset-0 bg-black/10 mix-blend-overlay" />
@@ -151,6 +155,7 @@ export default function AboutPage() {
               <div className="pt-4">
                 <Link 
                   to="/contact" 
+                  title="Contact MAKc Automations"
                   className="inline-flex items-center gap-2 cursor-pointer bg-accent-blue hover:bg-[#0055d4] text-white font-bold text-xs tracking-wider uppercase py-3.5 px-6 rounded-xl transition-all duration-300 shadow-md hover:-translate-y-0.5"
                 >
                   <span>Get in Touch</span>

@@ -30,7 +30,7 @@ export default function OutdoorLightingSection() {
       types={includesList}
       suitableText="Lights operate automatically based on time, daylight intensity, or custom schedules."
       images={images}
-      imagePosition="left"
+      imagePosition="right"
       prefix="out"
       serviceName="Outdoor & Landscape Lighting"
     />

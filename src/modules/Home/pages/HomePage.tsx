@@ -33,9 +33,9 @@ const homeFAQs = [
 
 export default function HomePage() {
   useSEO({
-    title: "Home automation company in bangalore - Makcautomations",
-    description: "Mac Automation - Best Home Automation company in Bangalore. Get all smart home automation solutions with security, safety, and convenient solutions.",
-    keywords: "home automation company in bangalore, home automation bangalore, smart home automation",
+    title: "Smart Home Automation Company in Bangalore | MAKc Automations",
+    description: "MAKc Automations is a leading smart home automation company in Bangalore providing luxury touch control, smart lighting, security systems, home audio & networking solutions.",
+    keywords: "home automation company in bangalore, home automation bangalore, smart home automation, luxury smart home, smart lighting bangalore",
     canonicalUrl: "https://makcautomations.com/",
     robots: "INDEX, FOLLOW, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1, MAX-IMAGE-PREVIEW:LARGE",
   });

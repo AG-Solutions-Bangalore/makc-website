@@ -6,25 +6,26 @@ import BrandLogo from "@/components/common/BrandLogo";
 interface NavLink {
   label: string;
   path: string;
+  title: string;
   external?: boolean;
 }
 
 const allLinks: NavLink[] = [
-  { label: "Home", path: "/" },
-  { label: "Automation", path: "/automation" },
-  { label: "Lighting", path: "/lighting" },
-  { label: "Networking", path: "/networking" },
-  { label: "Security", path: "/security" },
-  { label: "Audio", path: "/audio" },
-  { label: "Contact Us", path: "/contact" },
+  { label: "Home", path: "/", title: "MAKc Automations Home" },
+  { label: "Automation", path: "/automation", title: "Smart Home Automation Services" },
+  { label: "Lighting", path: "/lighting", title: "Smart Lighting Solutions" },
+  { label: "Networking", path: "/networking", title: "Home Networking Solutions" },
+  { label: "Security", path: "/security", title: "Smart Home Security Systems" },
+  { label: "Audio", path: "/audio", title: "Home Audio Solutions" },
+  { label: "Contact Us", path: "/contact", title: "Contact MAKc Automations" },
 ];
 
 const moreLinks = [
-  { label: "About", path: "/about", desc: "Our story & mission" },
-  { label: "Why Us", path: "/why-us", desc: "What sets us apart" },
-  { label: "Service", path: "/service", desc: "Full solution catalog" },
-  { label: "Blog", path: "/blog", desc: "Insights & updates" },
-  { label: "Experience", path: "/experience", desc: "Visit our experience zone" },
+  { label: "About", path: "/about", title: "About MAKc Automations", desc: "Our story & mission" },
+  { label: "Why Us", path: "/why-us", title: "Why Choose MAKc Automations", desc: "What sets us apart" },
+  { label: "Service", path: "/service", title: "Our Services", desc: "Full solution catalog" },
+  { label: "Blog", path: "/blog", title: "MAKc Automations Blog", desc: "Insights & updates" },
+  { label: "Experience", path: "/experience", title: "Experience Smart Living", desc: "Visit our experience zone" },
 ];
 
 export default function Header() {
@@ -80,7 +81,7 @@ export default function Header() {
         }`}
       >
         <div className="mx-auto flex max-w-8xl h-24 items-center justify-between gap-4 px-4 sm:px-6 lg:px-16">
-          <Link to="/" className="flex items-center shrink-0 group">
+          <Link to="/" title="MAKc Automations Home" className="flex items-center shrink-0 group">
             <BrandLogo className="h-10 w-auto transition-transform duration-300 group-hover:scale-[1.03]" />
           </Link>
 
@@ -102,6 +103,7 @@ export default function Header() {
                   <a
                     key={link.label}
                     href={link.path}
+                    title={link.title}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={className}
@@ -112,7 +114,7 @@ export default function Header() {
               }
 
               return (
-                <Link key={link.label} to={link.path} className={className}>
+                <Link key={link.label} to={link.path} title={link.title} className={className}>
                   {link.label}
                 </Link>
               );
@@ -122,6 +124,7 @@ export default function Header() {
           <div className="flex items-center gap-2.5 shrink-0">
             <a
               href="tel:+919948432444"
+              title="Call MAKc Automations at +91 99484 32444"
               className="hidden sm:flex items-center gap-2 h-9 px-4 rounded-full bg-accent-blue text-[#ffffff] text-xs font-semibold tracking-wide hover:bg-accent-blue/90 hover:scale-[1.03] active:scale-95 transition-all duration-200 shadow-[0_4px_18px_rgba(10,132,255,0.35)] cursor-pointer"
               aria-label="Call MAKc Automation"
             >
@@ -131,6 +134,7 @@ export default function Header() {
 
             <a
               href="tel:+919948432444"
+              title="Call MAKc Automations at +91 99484 32444"
               className="flex sm:hidden h-9 w-9 items-center justify-center rounded-full bg-accent-blue text-[#ffffff] hover:scale-105 active:scale-95 transition-all duration-200 shadow-[0_4px_15px_rgba(10,132,255,0.35)] cursor-pointer"
               aria-label="Call MAKc Automation"
             >
@@ -186,7 +190,7 @@ export default function Header() {
         <div className="absolute inset-0 bg-bg-surface border-l border-border-main/30" />
 
         <div className="relative flex items-center justify-between px-6 pt-6 pb-5 border-b border-border-main/20">
-          <Link to="/" onClick={close} className="flex items-center">
+          <Link to="/" title="MAKc Automations Home" onClick={close} className="flex items-center">
             <BrandLogo className="h-7 w-auto" />
           </Link>
           <button
@@ -213,6 +217,7 @@ export default function Header() {
                   <li key={link.label}>
                     <Link
                       to={link.path}
+                      title={link.title}
                       onClick={close}
                       className={`group flex items-center gap-3 rounded-xl px-3 py-3 transition-all duration-200 ${
                         isActive
@@ -250,6 +255,7 @@ export default function Header() {
                 <li key={link.label}>
                   <Link
                     to={link.path}
+                    title={link.title}
                     onClick={close}
                     className={`group flex items-center gap-3 rounded-xl px-3 py-3 transition-all duration-200 ${
                       isActive
@@ -283,6 +289,7 @@ export default function Header() {
         <div className="relative px-4 pb-7 pt-4 border-t border-border-main/20 space-y-2.5">
           <a
             href="tel:+919948432444"
+            title="Call MAKc Automations at +91 99484 32444"
             className="flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-accent-blue text-sm font-bold text-white transition-all duration-200 hover:bg-accent-blue/90 hover:scale-[1.01] active:scale-[0.98] cursor-pointer"
           >
             <Phone className="h-4 w-4 stroke-[2]" aria-hidden="true" />

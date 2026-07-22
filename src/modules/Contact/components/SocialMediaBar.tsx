@@ -57,6 +57,7 @@ export function SocialMediaBar() {
       <div className="flex items-center justify-center sm:justify-start gap-3">
         <a
           href="https://www.instagram.com/mak_automation/"
+          title="Follow MAKc Automations on Instagram"
           target="_blank"
           rel="noreferrer"
           aria-label="Follow us on Instagram"
@@ -69,6 +70,7 @@ export function SocialMediaBar() {
         </a>
         <a
           href="https://www.linkedin.com/company/makc-automations/"
+          title="Connect with MAKc Automations on LinkedIn"
           target="_blank"
           rel="noreferrer"
           aria-label="Follow us on LinkedIn"
@@ -81,6 +83,7 @@ export function SocialMediaBar() {
         </a>
         <a
           href="https://www.facebook.com/makcautomation"
+          title="Visit MAKc Automations on Facebook"
           target="_blank"
           rel="noreferrer"
           aria-label="Follow us on Facebook"
@@ -93,6 +96,7 @@ export function SocialMediaBar() {
         </a>
         <a
           href="https://www.youtube.com/@MAKcAutomation01"
+          title="Subscribe to MAKc Automations on YouTube"
           target="_blank"
           rel="noreferrer"
           aria-label="Follow us on YouTube"

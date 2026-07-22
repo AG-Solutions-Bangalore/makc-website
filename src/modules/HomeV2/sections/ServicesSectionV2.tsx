@@ -42,6 +42,8 @@ export default function ServicesSectionV2() {
       avifImageMobile: imgAutomation,
       avifImageDesktop: imgAutomation,
       link: "/automation",
+      linkTitle: "Smart Home Automation Services",
+      imgTitle: "Smart Home Automation Solutions in Bangalore",
     },
     {
       id: "lighting",
@@ -53,6 +55,8 @@ export default function ServicesSectionV2() {
       avifImageMobile: imgLighting,
       avifImageDesktop: imgLighting,
       link: "/lighting",
+      linkTitle: "Smart Lighting Solutions",
+      imgTitle: "Smart Lighting Installation Services",
     },
     {
       id: "security",
@@ -65,6 +69,8 @@ export default function ServicesSectionV2() {
       avifImageMobile: imgSecurity,
       avifImageDesktop: imgSecurity,
       link: "/security",
+      linkTitle: "Smart Home Security Systems",
+      imgTitle: "Advanced Smart Home Security Systems",
     },
     {
       id: "networking",
@@ -76,6 +82,8 @@ export default function ServicesSectionV2() {
       avifImageMobile: imgNetworking,
       avifImageDesktop: imgNetworking,
       link: "/networking",
+      linkTitle: "Home Networking Solutions",
+      imgTitle: "Home Networking Solutions in Bangalore",
     },
     {
       id: "audio",
@@ -87,6 +95,8 @@ export default function ServicesSectionV2() {
       avifImageMobile: imgAudio,
       avifImageDesktop: imgAudio,
       link: "/audio",
+      linkTitle: "Home Audio Solutions",
+      imgTitle: "Premium Home Audio Installation",
     },
     {
       id: "electric",
@@ -99,6 +109,8 @@ export default function ServicesSectionV2() {
       avifImageMobile: imgElectricals,
       avifImageDesktop: imgElectricals,
       link: "/automation",
+      linkTitle: "Smart Home Automation Services",
+      imgTitle: "Smart Home Electrical Solutions",
     },
   ];
 
@@ -155,6 +167,7 @@ export default function ServicesSectionV2() {
                 <Link
                   key={index}
                   to={service.link}
+                  title={service.linkTitle}
                   id={service.id}
                   className="relative group min-h-[280px] flex flex-col justify-between items-start p-6 sm:p-8 bg-bg-main overflow-hidden cursor-pointer transition-all duration-300 hover:bg-bg-surface reveal-on-scroll reveal-up"
                   data-reveal-delay={`${index * 80}ms`}
@@ -174,13 +187,8 @@ export default function ServicesSectionV2() {
                       />
                       <img
                         src={service.bgImage}
-                        alt={
-                          service.id === "security"
-                            ? "Smart Home Security System"
-                            : service.id === "networking"
-                              ? "Home Networking Solutions"
-                              : service.title
-                        }
+                        alt={service.title}
+                        title={service.imgTitle}
                         className="w-full h-full object-cover object-center filter transition-all duration-500"
                         width={1024}
                         height={1024}

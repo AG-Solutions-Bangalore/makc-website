@@ -5,22 +5,21 @@ import { ArrowRight } from "lucide-react";
 const columns = [
   // Column 1 (Left column in wireframe)
   [
-    { src: getImageUrl("Rectangle 54361.webp"), alt: "Cozy interior living room swing and sofa layout" },
-       { src: getImageUrl("Rectangle 54366.webp"), alt: "Smart touch panel control plate on grooved wall panels" },
-    { src: getImageUrl("Rectangle 54367.webp"), alt: "Modern double story villa facade view at sunset" }
+    { src: getImageUrl("Rectangle 54361.webp"), alt: "Cozy interior living room swing and sofa layout", title: "Luxury Smart Living Room Interior Design" },
+    { src: getImageUrl("Rectangle 54366.webp"), alt: "Smart touch panel control plate on grooved wall panels", title: "Smart Touch Panel Control System" },
+    { src: getImageUrl("Rectangle 54367.webp"), alt: "Modern double story villa facade view at sunset", title: "Modern Smart Villa Automation Design" }
   ],
   // Column 2 (Middle column in wireframe)
   [
-    { src: getImageUrl("Rectangle 54360.webp"), alt: "Close up of touch pad switch mounted on wood panels" },
-    { src: getImageUrl("Rectangle 54368.webp"), alt: "Luxury bedroom design with warm cove lights and watermark" },
-    { src: getImageUrl("Rectangle 54364.webp"), alt: "Matte black socket outlets on wood boards with leaves decoration" }
+    { src: getImageUrl("Rectangle 54360.webp"), alt: "Close up of touch pad switch mounted on wood panels", title: "Smart Touch Switch Installation" },
+    { src: getImageUrl("Rectangle 54368.webp"), alt: "Luxury bedroom design with warm cove lights and watermark", title: "Luxury Smart Bedroom Lighting Design" },
+    { src: getImageUrl("Rectangle 54364.webp"), alt: "Matte black socket outlets on wood boards with leaves decoration", title: "Modern Smart Socket and Switch Solutions" }
   ],
   // Column 3 (Right column in wireframe)
   [
-    { src: getImageUrl("Rectangle 54362.webp"), alt: "Sleek biometric finger print door lock panel" },
-
-     { src: getImageUrl("Rectangle 54363.webp"), alt: "Temple room background with backlit wall decoration" },
-    { src: getImageUrl("Group 212355.webp"), alt: "Luxury entrance door lock handle mechanism close up" }
+    { src: getImageUrl("Rectangle 54362.webp"), alt: "Sleek biometric finger print door lock panel", title: "Biometric Smart Door Lock System" },
+    { src: getImageUrl("Rectangle 54363.webp"), alt: "Temple room background with backlit wall decoration", title: "Smart Temple Room Lighting Design" },
+    { src: getImageUrl("Group 212355.webp"), alt: "Luxury entrance door lock handle mechanism close up", title: "Luxury Smart Door Lock Installation" }
   ]
 ];
 
@@ -48,6 +47,7 @@ export default function SolutionsGallery() {
                 <img 
                   src={item.src} 
                   alt={item.alt}
+                  title={item.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   loading="lazy"
                   decoding="async"
@@ -64,6 +64,7 @@ export default function SolutionsGallery() {
       <div className="flex justify-end mt-12 sm:mt-16">
         <Link 
           to="/experience" 
+          title="Experience Smart Living"
           className="home-wave-cta cursor-pointer apple-border-shine flex rounded-full items-center gap-2 border border-border-main/50 text-text-main px-8 py-3.5 uppercase text-[10px] sm:text-[11px] font-bold tracking-widest bg-transparent" 
           style={{ "--cta-accent": "#0A84FF" } as React.CSSProperties}
         >

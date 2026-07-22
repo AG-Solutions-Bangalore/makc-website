@@ -8,8 +8,10 @@ import { getImageUrl } from "@/utils/image";
 
 export default function WhyUsPage() {
   useSEO({
-    title: "Why Choose Us | MAKc Automation",
-    description: "Discover why homeowners choose MAKc Automation: custom smart home integration, premium materials, and a refined five-phase installation process.",
+    title: "Why Choose MAKc Automations | Smart Home Experts Bangalore",
+    description: "Discover why homeowners choose MAKc Automations: custom smart home integration, premium materials, and a refined multi-phase installation process.",
+    keywords: "why choose makc automations, home automation experts bangalore",
+    canonicalUrl: "https://makcautomations.com/why-us",
   });
 
   return (
@@ -25,6 +27,7 @@ export default function WhyUsPage() {
           <img
             src={getImageUrl("about-us.webp")}
             alt="MAKc Automation Team"
+            title="Why Choose MAKc Automations"
             className="w-full h-full object-cover scale-105 filter brightness-[45%] contrast-110"
           />
         </div>

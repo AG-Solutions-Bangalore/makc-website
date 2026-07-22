@@ -97,7 +97,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-0 lg:divide-x lg:divide-border-main/40">
           {/* Column 1: Logo & Description */}
           <div className="flex flex-col text-left lg:pr-8 lg:pl-0">
-            <Link to="/" className="flex items-center">
+            <Link to="/" title="MAKc Automations Home" className="flex items-center">
               <BrandLogo className="h-11 w-auto" />
             </Link>
             <p className="mt-5 text-xs text-text-muted leading-relaxed">
@@ -115,6 +115,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/#solutions"
+                  title="Explore Smart Home Solutions"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
                   Automation
@@ -123,6 +124,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/#solutions"
+                  title="Explore Smart Home Solutions"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
                   Lighting
@@ -131,6 +133,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/#solutions"
+                  title="Explore Smart Home Solutions"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
                   Networking
@@ -139,6 +142,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/#solutions"
+                  title="Explore Smart Home Solutions"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
                   Security
@@ -147,6 +151,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/#solutions"
+                  title="Explore Smart Home Solutions"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
                   Audio
@@ -164,6 +169,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/#projects"
+                  title="View Our Projects"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
                   Luxury Villas
@@ -172,6 +178,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/#projects"
+                  title="View Our Projects"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
                   Apartments
@@ -180,6 +187,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/#projects"
+                  title="View Our Projects"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
                   Farmhouses
@@ -188,6 +196,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/#projects"
+                  title="View Our Projects"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
                   Penthouses
@@ -196,6 +205,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/#projects"
+                  title="View Our Projects"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
                   Commercial Spaces
@@ -213,6 +223,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/why-us#about"
+                  title="About Our Company"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
                   About MAKc
@@ -221,6 +232,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/why-us#process"
+                  title="Our Work Process"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
                   Our Process
@@ -229,6 +241,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/#careers"
+                  title="Careers at MAKc Automations"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
                   Careers
@@ -237,6 +250,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/#blog"
+                  title="Read Our Blog"
                   className="hover:text-accent-blue transition-colors duration-200"
                 >
                   Blog
@@ -256,6 +270,7 @@ export default function Footer() {
                 <div className="flex flex-col gap-2">
                   <a
                     href="tel:+919324226077"
+                    title="Call MAKc Automations at +91 93242 26077"
                     className="flex items-center gap-2 hover:text-accent-blue transition-colors duration-200"
                   >
                     <Phone className="h-4 w-4 shrink-0 text-accent-blue stroke-[1.5]" />
@@ -263,6 +278,7 @@ export default function Footer() {
                   </a>
                   <a
                     href="tel:+918197783287"
+                    title="Call MAKc Automations at +91 81977 83287"
                     className="flex items-center gap-2 hover:text-accent-blue transition-colors duration-200"
                   >
                     <Phone className="h-4 w-4 shrink-0 text-accent-blue stroke-[1.5]" />
@@ -275,6 +291,7 @@ export default function Footer() {
               <div className="mt-2">
                 <a
                   href="mailto:info@makcautomations.com"
+                  title="Email MAKc Automations"
                   className="flex items-center gap-2 hover:text-accent-blue transition-colors duration-200"
                 >
                   <Mail className="h-4 w-4 shrink-0 text-accent-blue stroke-[1.5]" />
@@ -286,6 +303,7 @@ export default function Footer() {
               <div className="flex items-center gap-2 mt-3">
                 <a
                   href="https://www.instagram.com/mak_automation/"
+                  title="Follow MAKc Automations on Instagram"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Instagram"
@@ -295,6 +313,7 @@ export default function Footer() {
                 </a>
                 <a
                   href="https://www.linkedin.com/company/makc-automations/"
+                  title="Connect with MAKc Automations on LinkedIn"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="LinkedIn"
@@ -304,6 +323,7 @@ export default function Footer() {
                 </a>
                 <a
                   href="https://www.facebook.com/makcautomation"
+                  title="Visit MAKc Automations on Facebook"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Facebook"
@@ -313,6 +333,7 @@ export default function Footer() {
                 </a>
                 <a
                   href="https://www.youtube.com/@MAKcAutomation01"
+                  title="Subscribe to MAKc Automations on YouTube"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="YouTube"
@@ -353,12 +374,14 @@ export default function Footer() {
             </span>
             <a
               href="/#privacy"
+              title="Privacy Policy"
               className="text-tiny text-text-muted link-underline"
             >
               Privacy Policy
             </a>
             <a
               href="/#terms"
+              title="Terms and Conditions"
               className="text-tiny text-text-muted link-underline"
             >
               Terms of Service

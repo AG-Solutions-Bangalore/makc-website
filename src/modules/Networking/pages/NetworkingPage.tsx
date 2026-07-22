@@ -11,11 +11,11 @@ import useSEO from "@/hooks/useSEO";
 
 export default function NetworkingPage() {
   useSEO({
-    title: "Home wifi extender - Makcautomations",
+    title: "Home Networking Solutions in Bangalore | MAKc Automations",
     description:
-      "Are you looking for the best home wifi extender? Mac Automation is the perfect choice if you look for a budget-friendly wifi Extenders. Best mesh wifi extender",
-    keywords: "Home wifi extender, best wifi extender, mesh wireless network",
-    canonicalUrl: "https://makcautomations.com/index.php/networking/",
+      "MAKc Automations offers enterprise-grade home networking solutions in Bangalore, including mesh Wi-Fi systems, high-speed wired networks & seamless coverage for luxury villas.",
+    keywords: "home networking solutions in bangalore, mesh wireless network, high speed home wifi, enterprise networking bangalore",
+    canonicalUrl: "https://makcautomations.com/networking",
     robots:
       "INDEX, FOLLOW, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1, MAX-IMAGE-PREVIEW:LARGE",
   });

@@ -6,6 +6,7 @@ export default function BrandLogo({ className = "h-10 w-auto" }: { className?: s
       <img
         src={getImageUrl("MAKc-Logo.svg")}
         alt="MAKc Automation Logo"
+        title="MAKc Automations Official Logo"
         className={`${className} block dark:hidden object-contain`}
         width={1748}
         height={624}
@@ -16,6 +17,7 @@ export default function BrandLogo({ className = "h-10 w-auto" }: { className?: s
         srcSet="/icons/MAKc-Logo-white-180.webp 180w, /icons/MAKc-Logo-white-360.webp 360w"
         sizes="(max-width: 640px) 157px, 220px"
         alt="MAKc Automation Logo"
+        title="MAKc Automations Logo"
         className={`${className} hidden dark:block object-contain`}
         width={1748}
         height={624}

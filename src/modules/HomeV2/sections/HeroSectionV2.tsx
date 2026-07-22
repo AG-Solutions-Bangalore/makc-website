@@ -59,6 +59,7 @@ export default function HeroSectionV2() {
           <img
             src={heroBg}
             alt="Smart Home Automation Installation in Bangalore"
+            title="Smart Home Automation Installation in Bangalore"
             className="w-full h-full object-cover object-center scale-105 transition-all duration-500 opacity-95 dark:opacity-85"
             width={1024}
             height={1024}
@@ -77,6 +78,7 @@ export default function HeroSectionV2() {
               <img
                 src="/images/iso-image.svg"
                 alt="ISO Certified Logo"
+                title="ISO Certified Home Automation Company"
                 className="h-5.5 w-5.5 object-contain"
               />
               <span className="text-[11px] sm:text-xs font-sans font-medium tracking-wide !text-white leading-none">
@@ -102,6 +104,7 @@ export default function HeroSectionV2() {
             {/* CTA 1: Solid Gold */}
             <a
               href="#contact"
+              title="Contact MAKc Automations"
               className="w-full sm:w-auto px-4 py-3.5 sm:px-8 sm:py-4 bg-[#006ed6] text-white! font-bold text-xs tracking-wide sm:tracking-[0.15em] uppercase hover:bg-[#005fba] transition-colors duration-300 rounded-none shadow-[0_4px_20px_rgba(10,132,255,0.35)] flex items-center justify-center gap-2 group text-center"
             >
               <span className="leading-snug">Book a Free Smart Home Consultation</span>
@@ -110,6 +113,7 @@ export default function HeroSectionV2() {
             {/* CTA 2: Outline */}
             <WaveButton
               href="#solutions"
+              title="View Smart Home Solutions"
               accentColor="var(--color-gold-primary)"
               foregroundColor="#fff"
               className="px-6 py-3.5 sm:px-8 sm:py-4 border border-gold-primary text-gold-primary font-bold text-[10px] sm:text-xs tracking-[0.15em] uppercase transition-all duration-300 rounded-none flex items-center gap-2 group"

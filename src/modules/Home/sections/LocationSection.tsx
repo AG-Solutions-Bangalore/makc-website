@@ -85,6 +85,7 @@ export default function LocationSection() {
 
           <a
             href="tel:+918197783287"
+            title="Call MAKc Automations at +91 81977 83287"
             className="location-left block heading-display text-h6 link-underline mb-4"
           >
             +91-8197783287
@@ -92,6 +93,7 @@ export default function LocationSection() {
 
           <a
             href="mailto:info@makcautomations.com"
+            title="Email MAKc Automations"
             className="location-left block heading-display text-h6 link-underline"
           >
             info@makcautomations.com
