@@ -28,11 +28,11 @@ const REEL_MAP: Record<string, string> = {
   "Smart Switches": "https://www.instagram.com/reel/DKHEqiVSl4-/",
   "Wired Network": "https://www.instagram.com/reel/DKeUhreyEct/",
   "Mesh Wi-Fi Network": "https://www.instagram.com/reel/DKeUhreyEct/",
-  "Networking": "https://www.instagram.com/reel/DKeUhreyEct/",
+  Networking: "https://www.instagram.com/reel/DKeUhreyEct/",
   "Sensor-Based": "https://www.instagram.com/reel/DSC30D1jZ1h/",
-  "Security": "https://www.instagram.com/reel/DSC30D1jZ1h/",
+  Security: "https://www.instagram.com/reel/DSC30D1jZ1h/",
   "CCTV & Video": "https://www.instagram.com/reel/DTJNMgzk284/",
-  "Dimming & Tuning of Lights": "https://www.instagram.com/reel/DZICTA9KjuW/",
+  "Dimming & Tuning of Lights": "https://www.instagram.com/reel/Dc_AnDQNJEM/",
 };
 
 interface AutomationMosaicImage {
@@ -136,7 +136,9 @@ export default function AutomationMosaicSection({
       } else if (targetReel.endsWith(".mp4")) {
         setMediaIfActive({
           type: "Reel",
-          url: targetReel.startsWith("http") ? targetReel : `${IMAGE_BASE_URL}/reels/${targetReel}`,
+          url: targetReel.startsWith("http")
+            ? targetReel
+            : `${IMAGE_BASE_URL}/reels/${targetReel}`,
         });
         if (!cancelled) setLoading(false);
         return;
@@ -148,7 +150,9 @@ export default function AutomationMosaicSection({
     if (targetMp4) {
       setMediaIfActive({
         type: "Reel",
-        url: targetMp4.startsWith("http") ? targetMp4 : `${IMAGE_BASE_URL}/reels/${targetMp4}`,
+        url: targetMp4.startsWith("http")
+          ? targetMp4
+          : `${IMAGE_BASE_URL}/reels/${targetMp4}`,
       });
       if (!cancelled) setLoading(false);
       return;
@@ -162,26 +166,27 @@ export default function AutomationMosaicSection({
         });
         if (!res.ok) throw new Error("API error");
         const json = await res.json();
-        
+
         const serviceData = json.data?.find(
-          (item: any) => item.services === serviceName
+          (item: any) => item.services === serviceName,
         );
-        
+
         if (serviceData) {
-          const reelsBase = json.image_url?.find(
-            (img: any) => img.image_for === "Reels"
-          )?.image_url || `${IMAGE_BASE_URL}/reels/`;
-          
+          const reelsBase =
+            json.image_url?.find((img: any) => img.image_for === "Reels")
+              ?.image_url || `${IMAGE_BASE_URL}/reels/`;
+
           const isFullUrl = serviceData.services_url_image.startsWith("http");
-          const finalUrl = isFullUrl 
-            ? serviceData.services_url_image 
+          const finalUrl = isFullUrl
+            ? serviceData.services_url_image
             : `${reelsBase}${serviceData.services_url_image}`;
 
-          const isDirectVideo = finalUrl.toLowerCase().endsWith(".mp4") || 
-            (serviceData.services_type === "Reel" && 
-             !finalUrl.includes("instagram.com") && 
-             !finalUrl.includes("youtube.com") && 
-             !finalUrl.includes("youtu.be"));
+          const isDirectVideo =
+            finalUrl.toLowerCase().endsWith(".mp4") ||
+            (serviceData.services_type === "Reel" &&
+              !finalUrl.includes("instagram.com") &&
+              !finalUrl.includes("youtube.com") &&
+              !finalUrl.includes("youtu.be"));
 
           if (isDirectVideo) {
             setMediaIfActive({
@@ -267,7 +272,9 @@ export default function AutomationMosaicSection({
   );
 
   const renderContent = () => (
-    <div className={`${prefix}-content flex flex-col gap-7 ${imagePosition === "right" ? "lg:order-first" : "lg:order-last"}`}>
+    <div
+      className={`${prefix}-content flex flex-col gap-7 ${imagePosition === "right" ? "lg:order-first" : "lg:order-last"}`}
+    >
       {/* Heading block */}
       <div>
         <h2
@@ -300,9 +307,7 @@ export default function AutomationMosaicSection({
                   />
                 </svg>
               </div>
-              <span className="text-sm font-medium text-text-main">
-                {type}
-              </span>
+              <span className="text-sm font-medium text-text-main">{type}</span>
             </li>
           ))}
         </ul>
@@ -321,7 +326,9 @@ export default function AutomationMosaicSection({
             </ul>
           )}
           {suitableText && (
-            <p className={`text-sm font-semibold text-text-main leading-relaxed ${features.length > 0 ? "border-t border-border-main/30 pt-4" : ""}`}>
+            <p
+              className={`text-sm font-semibold text-text-main leading-relaxed ${features.length > 0 ? "border-t border-border-main/30 pt-4" : ""}`}
+            >
               {suitableText}
             </p>
           )}
@@ -333,10 +340,10 @@ export default function AutomationMosaicSection({
   return (
     <section ref={sectionRef} className="mb-28 no-reveal">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
-        
         {/* Left/Right Column: Reels or Image Mosaic */}
-        <div className={`${reels && reels.length > 0 ? "grid grid-cols-2 gap-3" : "grid grid-cols-2 gap-3"} ${imagePosition === "right" ? "lg:order-last" : "lg:order-first"}`}>
-
+        <div
+          className={`${reels && reels.length > 0 ? "grid grid-cols-2 gap-3" : "grid grid-cols-2 gap-3"} ${imagePosition === "right" ? "lg:order-last" : "lg:order-first"}`}
+        >
           {reels && reels.length > 0 ? (
             /* ── Double-Reel Layout ── */
             <>
@@ -353,7 +360,9 @@ export default function AutomationMosaicSection({
             /* ── Original 3-Image Mosaic Layout ── */
             <>
               {/* 1st Card: Tall left image (Dynamic content, Reel or Image from the API) */}
-              <div className={`${prefix}-img row-span-2 relative rounded-2xl overflow-hidden bg-bg-surface border border-border-main/30 shadow-inner w-full h-full min-h-[460px] sm:min-h-[520px] lg:min-h-[560px]`}>
+              <div
+                className={`${prefix}-img row-span-2 relative rounded-2xl overflow-hidden bg-bg-surface border border-border-main/30 shadow-inner w-full h-full min-h-[460px] sm:min-h-[520px] lg:min-h-[560px]`}
+              >
                 <div className="absolute inset-0 overflow-hidden w-full h-full">
                   {loading ? (
                     <div className="w-full h-full flex items-center justify-center bg-bg-surface">
@@ -379,8 +388,11 @@ export default function AutomationMosaicSection({
                           title="Watch on Instagram"
                           className="absolute bottom-3 right-3 z-10 bg-gradient-to-r from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white text-[11px] font-semibold px-3 py-1.5 rounded-full shadow-lg hover:scale-105 transition-all duration-200 flex items-center gap-1.5 opacity-90 hover:opacity-100"
                         >
-                          <svg className="w-3.5 h-3.5 fill-current text-white" viewBox="0 0 24 24">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                          <svg
+                            className="w-3.5 h-3.5 fill-current text-white"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                           </svg>
                           <span>Watch on Instagram</span>
                         </a>
@@ -390,7 +402,11 @@ export default function AutomationMosaicSection({
                     <img
                       src={mediaData?.url || getImageUrl(images[0]?.src || "")}
                       alt={images[0]?.alt || `${title} demonstration`}
-                      title={images[0]?.title || images[0]?.alt || `${title} demonstration`}
+                      title={
+                        images[0]?.title ||
+                        images[0]?.alt ||
+                        `${title} demonstration`
+                      }
                       className="w-full h-full object-cover transition-transform duration-750 hover:scale-[1.04]"
                     />
                   )}
@@ -399,34 +415,44 @@ export default function AutomationMosaicSection({
               </div>
 
               {/* 2nd Card: Top-right wider image */}
-              <div className={`${prefix}-img relative rounded-2xl overflow-hidden aspect-square group border border-border-main/20 shadow-md`}>
+              <div
+                className={`${prefix}-img relative rounded-2xl overflow-hidden aspect-square group border border-border-main/20 shadow-md`}
+              >
                 <img
                   src={getImageUrl(images[1]?.src || "")}
                   alt={images[1]?.alt || `${title} secondary view`}
-                  title={images[1]?.title || images[1]?.alt || `${title} secondary view`}
+                  title={
+                    images[1]?.title ||
+                    images[1]?.alt ||
+                    `${title} secondary view`
+                  }
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-750 group-hover:scale-[1.04]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
               </div>
 
               {/* 3rd Card: Bottom-right wider image */}
-              <div className={`${prefix}-img relative rounded-2xl overflow-hidden aspect-square group border border-border-main/20 shadow-md`}>
+              <div
+                className={`${prefix}-img relative rounded-2xl overflow-hidden aspect-square group border border-border-main/20 shadow-md`}
+              >
                 <img
                   src={getImageUrl(images[2]?.src || "")}
                   alt={images[2]?.alt || `${title} tertiary view`}
-                  title={images[2]?.title || images[2]?.alt || `${title} tertiary view`}
+                  title={
+                    images[2]?.title ||
+                    images[2]?.alt ||
+                    `${title} tertiary view`
+                  }
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-750 group-hover:scale-[1.04]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
               </div>
             </>
           )}
-
         </div>
 
         {/* Content Column */}
         {renderContent()}
-
       </div>
     </section>
   );
