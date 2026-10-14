@@ -40,7 +40,7 @@ export default function SceneBasedLightingSection() {
       serviceName="Scene-Based Lighting"
       reels={[
         "https://www.instagram.com/reel/DbzFUZxKTbf/",
-        "https://www.instagram.com/reel/DZICTA9KjuW/",
+        "https://www.instagram.com/reel/Dc_AnDQNJEM/",
       ]}
       reelTitles={[
         "Watch Home Audio Solutions Reel on Instagram",

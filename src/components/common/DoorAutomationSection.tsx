@@ -36,7 +36,7 @@ export default function DoorAutomationSection() {
       imagePosition="right"
       prefix="door"
       serviceName="Door Automation"
-      reelUrl="https://www.instagram.com/reel/DN-RMfTkqCx/"
+      reelUrl="https://www.instagram.com/reel/DDE2L2ByII8/"
       reelTitles={["Watch Door Automation Reel on Instagram"]}
     />
   );

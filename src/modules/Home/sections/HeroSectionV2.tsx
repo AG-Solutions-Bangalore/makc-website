@@ -42,10 +42,9 @@ const hotspotsList: HotspotType[] = [
   {
     id: "curtains",
     label: "Curtains Automation",
-    anchor: { x: 60.5, y: 25.5 },
+    anchor: { x: 60.5, y: 26 },
     labelPos: { x: 75.2, y: 24 },
     icon: Blinds,
-
     videoFile: "https://www.instagram.com/reel/DZpb-JNSo5Y/",
   },
   {
@@ -54,7 +53,8 @@ const hotspotsList: HotspotType[] = [
     anchor: { x: 58.5, y: 36 },
     labelPos: { x: 72.6, y: 32.4 },
     icon: Lightbulb,
-    videoFile: "https://www.instagram.com/reel/DZICTA9KjuW/",
+    // videoFile: "https://www.instagram.com/reel/DZICTsA9KjuW/",
+    videoFile: "https://www.instagram.com/reel/Dc_AnDQNJEM/",
   },
   {
     id: "switches",
@@ -78,7 +78,7 @@ const hotspotsList: HotspotType[] = [
     anchor: { x: 83, y: 69.5 },
     labelPos: { x: 89, y: 62 },
     icon: Wifi,
-    videoFile: "https://www.instagram.com/reel/DKeUhreyEct/",
+    videoFile: "https://www.instagram.com/reel/DCl9TiByn2F/",
   },
   {
     id: "security",
@@ -108,6 +108,7 @@ export default function HeroSectionV2() {
 
   // Interaction states
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [isInView, setIsInView] = useState<boolean>(
     () =>
       typeof window === "undefined" ||
@@ -193,7 +194,7 @@ export default function HeroSectionV2() {
               key={`line-${hotspot.id}`}
               anchor={hotspot.anchor}
               labelPos={hotspot.labelPos}
-              isHovered={false}
+              isHovered={hoveredId === hotspot.id}
               isActive={activeId === hotspot.id}
               color={hotspot.connectorColor}
               delay={idx * 0.18}
@@ -208,7 +209,8 @@ export default function HeroSectionV2() {
           <div className="relative w-full h-full pointer-events-auto">
             {hotspotsList.map((hotspot, idx) => {
               const isActive = activeId === hotspot.id;
-              const delay = idx * 0.18;
+              const isHovered = hoveredId === hotspot.id;
+              const delay = idx * .24;
 
               return (
                 <div key={hotspot.id}>
@@ -217,10 +219,10 @@ export default function HeroSectionV2() {
                     <Hotspot
                       id={hotspot.id}
                       anchor={hotspot.anchor}
-                      isHovered={false}
+                      isHovered={isHovered}
                       isActive={isActive}
-                      onHoverStart={() => {}}
-                      onHoverEnd={() => {}}
+                      onHoverStart={() => setHoveredId(hotspot.id)}
+                      onHoverEnd={() => setHoveredId(null)}
                       onClick={() => handleHotspotClick(hotspot.id)}
                       index={idx}
                       delay={delay}
@@ -234,10 +236,10 @@ export default function HeroSectionV2() {
                       label={hotspot.label}
                       labelPos={hotspot.labelPos}
                       icon={hotspot.icon}
-                      isHovered={false}
+                      isHovered={isHovered}
                       isActive={isActive}
-                      onHoverStart={() => {}}
-                      onHoverEnd={() => {}}
+                      onHoverStart={() => setHoveredId(hotspot.id)}
+                      onHoverEnd={() => setHoveredId(null)}
                       onClick={() => handleHotspotClick(hotspot.id)}
                       delay={delay}
                       isTablet={isTablet}
@@ -292,8 +294,7 @@ export default function HeroSectionV2() {
                 className="h-5.5 w-5.5 object-contain"
               />
               <span className="text-[11px] sm:text-xs font-sans font-medium tracking-wide text-text-main leading-none">
-                ISO <span className="text-[#00A551] font-semibold">2015</span>{" "}
-                Certified Company
+                ISO <span className="text-[#00A551] font-semibold">9001:2015</span>
               </span>
             </div>
           </div>
@@ -350,83 +351,84 @@ export default function HeroSectionV2() {
       {/* Floating MP4 Video Preview Popup */}
       {activeId && (
         <div className="hero-popup fixed sm:absolute right-3 sm:right-6 lg:right-12 top-28 sm:top-32 z-[80] w-[310px] sm:w-[350px] md:w-[370px] bg-[#0c1017]/95 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.85)] overflow-hidden flex flex-col pointer-events-auto">
-            {/* Card Header */}
-            <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-white/5">
-              <div className="flex flex-col text-left">
-                <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#0A84FF]">
-                  MAKc Smart Living Showcase
-                </span>
-                <h3 className="text-sm font-semibold text-white font-sans truncate max-w-[240px]">
-                  {hotspotsList.find((h) => h.id === activeId)?.label}
-                </h3>
-              </div>
-              <button
-                type="button"
-                onClick={() => setActiveId(null)}
-                className="w-7 h-7 rounded-full text-white! flex items-center justify-center transition-colors cursor-pointer"
-                aria-label="Close Video preview"
-              >
-                <X className="w-4 h-4" />
-              </button>
+          {/* Card Header */}
+          <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-white/5">
+            <div className="flex flex-col text-left">
+              <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#0A84FF]">
+                MAKc Smart Living Showcase
+              </span>
+              <h3 className="text-sm font-semibold text-white font-sans truncate max-w-[240px]">
+                {hotspotsList.find((h) => h.id === activeId)?.label}
+              </h3>
             </div>
+            <button
+              type="button"
+              onClick={() => setActiveId(null)}
+              className="w-7 h-7 rounded-full text-white! flex items-center justify-center transition-colors cursor-pointer"
+              aria-label="Close Video preview"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
 
-            {/* Video Player Container */}
-            {(() => {
-              const activeHotspot = hotspotsList.find((h) => h.id === activeId);
-              const isInstagram = activeHotspot?.videoFile?.includes("instagram.com");
+          {/* Video Player Container */}
+          {(() => {
+            const activeHotspot = hotspotsList.find((h) => h.id === activeId);
+            const isInstagram =
+              activeHotspot?.videoFile?.includes("instagram.com");
 
-              return (
-                <div
-                  className={`relative w-full ${
-                    isInstagram
-                      ? "min-h-[500px] sm:min-h-[540px]"
-                      : "aspect-[4/5] max-h-[460px]"
-                  } bg-black flex items-center justify-center overflow-hidden rounded-b-2xl`}
-                >
-                  {activeHotspot?.videoFile ? (
-                    isInstagram ? (
-                      <div className="relative w-full h-full min-h-[500px] sm:min-h-[540px] bg-black flex flex-col items-center justify-center">
-                        <InstagramEmbed reelUrl={activeHotspot.videoFile} />
-                      </div>
-                    ) : (
-                      <video
-                        key={activeHotspot.id}
-                        src={
-                          activeHotspot.videoFile.startsWith("http")
-                            ? activeHotspot.videoFile
-                            : `${VIDEO_BASE_URL}${activeHotspot.videoFile}`
-                        }
-                        title={`MAKc ${activeHotspot.label} Video Showcase`}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full h-full object-cover rounded-b-2xl pointer-events-auto"
-                      />
-                    )
-                  ) : (
-                    <div className="p-8 text-center flex flex-col items-center justify-center min-h-[300px]">
-                      {(() => {
-                        const ActiveIcon = activeHotspot?.icon || Sliders;
-                        return (
-                          <>
-                            <div className="w-16 h-16 rounded-full bg-[#0A84FF]/10 border border-[#0A84FF]/30 text-[#0A84FF] flex items-center justify-center mb-4">
-                              <ActiveIcon className="w-8 h-8" />
-                            </div>
-                            <h4 className="text-base font-bold text-white mb-2">
-                              {activeHotspot?.label}
-                            </h4>
-                            <p className="text-xs text-white/70 max-w-xs leading-relaxed">
-                              Video showcase for this category is coming soon.
-                            </p>
-                          </>
-                        );
-                      })()}
+            return (
+              <div
+                className={`relative w-full ${
+                  isInstagram
+                    ? "min-h-[500px] sm:min-h-[540px]"
+                    : "aspect-[4/5] max-h-[460px]"
+                } bg-black flex items-center justify-center overflow-hidden rounded-b-2xl`}
+              >
+                {activeHotspot?.videoFile ? (
+                  isInstagram ? (
+                    <div className="relative w-full h-full min-h-[500px] sm:min-h-[540px] bg-black flex flex-col items-center justify-center">
+                      <InstagramEmbed reelUrl={activeHotspot.videoFile} />
                     </div>
-                  )}
-                </div>
-              );
-            })()}
+                  ) : (
+                    <video
+                      key={activeHotspot.id}
+                      src={
+                        activeHotspot.videoFile.startsWith("http")
+                          ? activeHotspot.videoFile
+                          : `${VIDEO_BASE_URL}${activeHotspot.videoFile}`
+                      }
+                      title={`MAKc ${activeHotspot.label} Video Showcase`}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover rounded-b-2xl pointer-events-auto"
+                    />
+                  )
+                ) : (
+                  <div className="p-8 text-center flex flex-col items-center justify-center min-h-[300px]">
+                    {(() => {
+                      const ActiveIcon = activeHotspot?.icon || Sliders;
+                      return (
+                        <>
+                          <div className="w-16 h-16 rounded-full bg-[#0A84FF]/10 border border-[#0A84FF]/30 text-[#0A84FF] flex items-center justify-center mb-4">
+                            <ActiveIcon className="w-8 h-8" />
+                          </div>
+                          <h4 className="text-base font-bold text-white mb-2">
+                            {activeHotspot?.label}
+                          </h4>
+                          <p className="text-xs text-white/70 max-w-xs leading-relaxed">
+                            Video showcase for this category is coming soon.
+                          </p>
+                        </>
+                      );
+                    })()}
+                  </div>
+                )}
+              </div>
+            );
+          })()}
         </div>
       )}
     </section>

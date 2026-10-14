@@ -64,7 +64,7 @@ const ORGANIZATION_SCHEMA = {
   "sameAs": [
     "https://www.instagram.com/mak_automation/",
     "https://www.facebook.com/makcautomation",
-    "https://www.linkedin.com/company/makc-automations/",
+    "https://www.linkedin.com/company/makautomation/home/",
     "https://www.youtube.com/@MAKcAutomation01",
     "https://www.google.com/search?q=MAKc+Automation+and+Solutions+LLP+reviews"
   ]

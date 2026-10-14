@@ -58,7 +58,7 @@ export const COMPANY_INFO = {
   socials: {
     instagram: "https://www.instagram.com/mak_automation/",
     facebook: "https://www.facebook.com/makcautomation",
-    linkedin: "https://www.linkedin.com/company/makc-automations/",
+    linkedin: "https://www.linkedin.com/company/makautomation/home/",
     youtube: "https://www.youtube.com/@MAKcAutomation01",
     googleReviews: "https://www.google.com/search?q=MAKc+Automation+and+Solutions+LLP+reviews",
   },
