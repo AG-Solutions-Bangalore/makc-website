@@ -42,7 +42,7 @@ const hotspotsList: HotspotType[] = [
   {
     id: "curtains",
     label: "Curtains Automation",
-    anchor: { x: 60.5, y: 25.5 },
+    anchor: { x: 60.5, y: 26 },
     labelPos: { x: 75.2, y: 24 },
     icon: Blinds,
     videoFile: "https://www.instagram.com/reel/DZpb-JNSo5Y/",
@@ -210,7 +210,7 @@ export default function HeroSectionV2() {
             {hotspotsList.map((hotspot, idx) => {
               const isActive = activeId === hotspot.id;
               const isHovered = hoveredId === hotspot.id;
-              const delay = idx * 0.18;
+              const delay = idx * .24;
 
               return (
                 <div key={hotspot.id}>
@@ -294,8 +294,7 @@ export default function HeroSectionV2() {
                 className="h-5.5 w-5.5 object-contain"
               />
               <span className="text-[11px] sm:text-xs font-sans font-medium tracking-wide text-text-main leading-none">
-                ISO <span className="text-[#00A551] font-semibold">2015</span>{" "}
-                Certified Company
+                ISO <span className="text-[#00A551] font-semibold">9001:2015</span>
               </span>
             </div>
           </div>

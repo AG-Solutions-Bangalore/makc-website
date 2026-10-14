@@ -26,6 +26,7 @@ export default function Hotspot({
   delay = 0,
   isMobile = false,
 }: HotspotProps) {
+  const highlighted = isHovered || isActive;
   return (
     <button
       type="button"
@@ -33,7 +34,7 @@ export default function Hotspot({
         {
           position: "absolute",
           left: `${anchor.x - 0.5}%`,
-          top: `${anchor.y - 0.9}%`,
+          top: `${anchor.y - 0.1}%`,
           transform: "translate(-40%, -50%)",
           zIndex: 50,
           "--enter-delay": `${delay}s`,
@@ -42,16 +43,18 @@ export default function Hotspot({
       }
       onMouseEnter={onHoverStart}
       onMouseLeave={onHoverEnd}
+      onFocus={onHoverStart}
+      onBlur={onHoverEnd}
       onClick={onClick}
       aria-label={`Toggle info for ${id}`}
       aria-expanded={isActive}
-      className="hero-pop group outline-none select-none relative"
+      className="hero-pop outline-none select-none relative cursor-pointer rounded-full focus-visible:ring-2 focus-visible:ring-[#d4af37] focus-visible:ring-offset-2 focus-visible:ring-offset-black/50 before:absolute before:-inset-3 before:rounded-full before:content-['']"
     >
-      {/* Solid center dot */}
+      {/* Solid center dot — same size/position as before, gold only on hover/active */}
       <div
         className={`
           relative flex items-center justify-center rounded-full border-2 border-black/80
-          ${isHovered || isActive ? "bg-[#d4af37] shadow-[0_0_15px_rgba(212,175,55,0.8)]" : "bg-white shadow-[0_0_10px_rgba(255,255,255,0.6)]"}
+          ${highlighted ? "bg-[#d4af37] shadow-[0_0_15px_rgba(212,175,55,0.8)]" : "bg-white shadow-[0_0_10px_rgba(255,255,255,0.6)]"}
           transition-all duration-300
           ${isMobile ? "w-6 h-6" : "w-3.5 h-3.5"}
         `}
