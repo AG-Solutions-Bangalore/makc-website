@@ -82,7 +82,7 @@ export function SocialMediaBar() {
           />
         </a>
         <a
-          href="https://www.linkedin.com/company/makc-automations/"
+          href="https://www.linkedin.com/company/makautomation/home/"
           title="Connect with MAKc Automations on LinkedIn"
           target="_blank"
           rel="noreferrer"
