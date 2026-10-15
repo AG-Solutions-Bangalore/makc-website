@@ -62,7 +62,7 @@ const hotspotsList: HotspotType[] = [
     anchor: { x: 77.2, y: 53 },
     labelPos: { x: 86.2, y: 43.5 },
     icon: ToggleLeft,
-    videoFile: "https://www.instagram.com/reel/DKHEqiVSl4-/",
+    videoFile: "https://www.instagram.com/reel/Dc_K30LN-ji/",
   },
   {
     id: "door",
@@ -78,7 +78,7 @@ const hotspotsList: HotspotType[] = [
     anchor: { x: 83, y: 69.5 },
     labelPos: { x: 89, y: 62 },
     icon: Wifi,
-    videoFile: "https://www.instagram.com/reel/DCl9TiByn2F/",
+    videoFile: "https://www.instagram.com/reel/Dc_LDuENigi/",
   },
   {
     id: "security",
@@ -210,7 +210,7 @@ export default function HeroSectionV2() {
             {hotspotsList.map((hotspot, idx) => {
               const isActive = activeId === hotspot.id;
               const isHovered = hoveredId === hotspot.id;
-              const delay = idx * .24;
+              const delay = idx * 0.24;
 
               return (
                 <div key={hotspot.id}>
@@ -294,7 +294,8 @@ export default function HeroSectionV2() {
                 className="h-5.5 w-5.5 object-contain"
               />
               <span className="text-[11px] sm:text-xs font-sans font-medium tracking-wide text-text-main leading-none">
-                ISO <span className="text-[#00A551] font-semibold">9001:2015</span>
+                ISO{" "}
+                <span className="text-[#00A551] font-semibold">9001:2015</span>
               </span>
             </div>
           </div>
