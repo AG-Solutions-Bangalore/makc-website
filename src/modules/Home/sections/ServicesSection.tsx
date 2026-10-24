@@ -131,7 +131,7 @@ export default function ServicesSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 border border-border-main backdrop-blur-sm">
           {/* Left Column: Intro Section (Spans 4/12 cols) */}
           <div
-            className="lg:col-span-4 flex flex-col justify-between p-8 sm:p-12 lg:p-14 bg-bg-main/40 dark:bg-bg-main/20 backdrop-blur-md border-b lg:border-b-0 lg:border-r border-border-main text-left reveal-on-scroll reveal-up"
+            className="lg:col-span-4 flex flex-col justify-between p-6 sm:p-8 lg:p-8 xl:p-10 bg-bg-main/40 dark:bg-bg-main/20 backdrop-blur-md border-b lg:border-b-0 lg:border-r border-border-main text-left reveal-on-scroll reveal-up"
             data-reveal-duration="0.8s"
           >
             <div className="flex flex-col">
@@ -139,9 +139,11 @@ export default function ServicesSection() {
                 EXPERIENCE SMART LIVING
               </span>
 
-              <h2 className="mt-4 font-serif text-3xl sm:text-4xl font-extrabold text-text-main tracking-tight leading-tight">
-                Complete Smart <br />
-                <span className="font-serif italic font-normal text-text-main">
+              <h2 className="mt-4 font-serif text-[1.35rem] xs:text-[1.55rem] sm:text-3xl lg:text-[1.45rem] xl:text-[1.85rem] 2xl:text-[2.25rem] font-extrabold text-text-main tracking-tight leading-[1.2]">
+                <span className="block whitespace-nowrap">
+                  Complete Smart
+                </span>
+                <span className="block whitespace-nowrap font-serif italic font-normal text-text-main">
                   Home Automation Solutions
                 </span>
               </h2>
@@ -158,8 +160,8 @@ export default function ServicesSection() {
             </p>
           </div>
 
-          {/* Right Column: 6 Services Grid (Spans 8/12 cols with clean border gap) */}
-          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 bg-border-main gap-[1px]">
+          {/* Right Column: 6 Services Grid (Spans 8/12 cols with small space on mobile, clean 1px border gap on desktop) */}
+          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 bg-bg-main sm:bg-border-main gap-2 sm:gap-[1px]">
             {services.map((service, index) => {
               const Icon = service.icon;
               return (

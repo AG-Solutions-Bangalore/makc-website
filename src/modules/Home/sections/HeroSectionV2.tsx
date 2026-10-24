@@ -100,7 +100,7 @@ const hotspotsList: HotspotType[] = [
 
 export default function HeroSectionV2() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const { isMobile, isTablet } = useResponsive();
+  const { isMobile, isTablet, isDesktop } = useResponsive();
   // First paint is always dark (html class + defaultTheme). The day image
   // (~80-200KB) only downloads when light mode is actually active.
   const { resolvedTheme } = useTheme();
@@ -153,7 +153,7 @@ export default function HeroSectionV2() {
           height={1080}
           alt="Smart Home Automation Installation in Bangalore - Night View"
           title="Smart Home Automation Installation in Bangalore"
-          className="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-700 ease-in-out dark:opacity-100 opacity-0"
+          className="absolute inset-0 w-full h-full object-cover object-[72%_center] lg:object-center transition-opacity duration-700 ease-in-out dark:opacity-100 opacity-0"
           loading="eager"
           decoding="async"
           fetchPriority="high"
@@ -168,24 +168,27 @@ export default function HeroSectionV2() {
             height={768}
             alt="Smart Home Automation Installation in Bangalore - Day View"
             title="Smart Home Automation Installation in Bangalore"
-            className="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-700 ease-in-out dark:opacity-0 opacity-100"
+            className="absolute inset-0 w-full h-full object-cover object-[72%_center] lg:object-center transition-opacity duration-700 ease-in-out dark:opacity-0 opacity-100"
             loading="eager"
             decoding="async"
             fetchPriority="high"
           />
         )}
 
-        {/* Left side overlay with theme mode aware light and dark */}
-        <div className="absolute inset-0 bg-gradient-to-r from-bg-main via-bg-main/95 sm:via-bg-main/80 lg:via-bg-main/60 to-transparent pointer-events-none transition-colors duration-300" />
+        {/* Light directional vignette to keep villa image 100% visible while preserving natural contrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/75 via-white/45 sm:via-white/30 to-transparent dark:from-black/50 dark:via-transparent dark:to-transparent pointer-events-none z-[2] transition-colors duration-300" />
+
+        {/* Right side ambient smart home glow behind hotspots (Dark mode only) */}
+        <div className="absolute -right-20 top-1/4 w-[520px] h-[520px] bg-gradient-to-br from-amber-400/15 via-blue-500/8 to-transparent blur-[120px] rounded-full pointer-events-none z-[4] dark:opacity-100 opacity-0 transition-opacity duration-300" />
 
         {/* Bottom gradient blend into next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 md:h-36 bg-gradient-to-t from-bg-main to-transparent pointer-events-none z-[5]" />
+        <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-24 bg-gradient-to-t from-bg-main via-bg-main/40 to-transparent pointer-events-none z-[5]" />
       </div>
 
-      {/* Shared SVG Connector Layer */}
-      {isInView && !isMobile && (
+      {/* Shared SVG Connector Layer (Desktop only to prevent colliding with text on mobile/tablet) */}
+      {isInView && isDesktop && (
         <svg
-          className="absolute inset-0 w-full h-full pointer-events-none z-20"
+          className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-20"
           viewBox="0 0 100 100"
           preserveAspectRatio="none"
         >
@@ -198,15 +201,16 @@ export default function HeroSectionV2() {
               isActive={activeId === hotspot.id}
               color={hotspot.connectorColor}
               delay={idx * 0.18}
+              isMobile={isMobile}
             />
           ))}
         </svg>
       )}
 
-      {/* Interactive Hotspots and Labels Layer */}
-      {isInView && (
-        <div className="absolute inset-0 w-full h-full z-30 pointer-events-none">
-          <div className="relative w-full h-full pointer-events-auto">
+      {/* Interactive Hotspots and Labels Layer (Desktop only to keep mobile/tablet hero pristine and collision-free) */}
+      {isInView && isDesktop && (
+        <div className="hidden lg:block absolute inset-0 w-full h-full z-30 pointer-events-none">
+          <div className="relative w-full h-full pointer-events-none">
             {hotspotsList.map((hotspot, idx) => {
               const isActive = activeId === hotspot.id;
               const isHovered = hoveredId === hotspot.id;
@@ -214,8 +218,8 @@ export default function HeroSectionV2() {
 
               return (
                 <div key={hotspot.id}>
-                  {/* Anchor Dot — hidden on mobile */}
-                  {!isMobile && (
+                  {/* Anchor Dot */}
+                  <div className="pointer-events-auto">
                     <Hotspot
                       id={hotspot.id}
                       anchor={hotspot.anchor}
@@ -228,10 +232,10 @@ export default function HeroSectionV2() {
                       delay={delay}
                       isMobile={isMobile}
                     />
-                  )}
+                  </div>
 
-                  {/* Floating Labels (Hidden on Mobile) */}
-                  {!isMobile && (
+                  {/* Floating Labels */}
+                  <div className="pointer-events-auto">
                     <Label
                       label={hotspot.label}
                       labelPos={hotspot.labelPos}
@@ -243,34 +247,9 @@ export default function HeroSectionV2() {
                       onClick={() => handleHotspotClick(hotspot.id)}
                       delay={delay}
                       isTablet={isTablet}
+                      isMobile={isMobile}
                     />
-                  )}
-
-                  {/* Mobile Tooltip (Popup on Tap) */}
-                  {isMobile &&
-                    (() => {
-                      const hotspot = hotspotsList[idx];
-                      const HotspotIcon = hotspot.icon;
-                      return (
-                        isActive && (
-                          <div
-                            style={{
-                              position: "absolute",
-                              left: `${hotspot.anchor.x}%`,
-                              top: `${hotspot.anchor.y}%`,
-                              transform: "translate(-50%, calc(-100% - 10px))",
-                              zIndex: 100,
-                            }}
-                            className="hero-pop bg-black/90 border border-[#d4af37] backdrop-blur-md px-3.5 py-1.5 rounded-xl flex items-center gap-2 text-white text-xs shadow-lg whitespace-nowrap"
-                          >
-                            <HotspotIcon className="h-3.5 w-3.5 text-[#d4af37]" />
-                            <span className="font-semibold uppercase tracking-wider">
-                              {hotspot.label}
-                            </span>
-                          </div>
-                        )
-                      );
-                    })()}
+                  </div>
                 </div>
               );
             })}
@@ -279,14 +258,14 @@ export default function HeroSectionV2() {
       )}
 
       {/* Left-Side Content overlays above background and hotspots */}
-      <div className="relative z-40 mx-auto  max-w-8xl w-full px-4 sm:px-14 flex flex-col lg:flex-row lg:items-stretch justify-between gap-12 sm:gap-16 pointer-events-none">
+      <div className="relative z-40 mx-auto max-w-8xl w-full px-4 sm:px-14 flex flex-col lg:flex-row lg:items-stretch justify-between gap-12 sm:gap-16 pointer-events-none">
         {/* Hero Left Content */}
         <div
-          className="flex-1 flex flex-col justify-center text-left max-w-2xl reveal-on-scroll reveal-left pointer-events-auto"
+          className="flex-1 flex flex-col justify-center text-left max-w-lg lg:max-w-[48%] xl:max-w-[46%] 2xl:max-w-2xl reveal-on-scroll reveal-left pointer-events-auto p-4 sm:p-0 rounded-2xl bg-white/40 dark:bg-transparent backdrop-blur-[2px] dark:backdrop-blur-none sm:bg-transparent"
           data-reveal-duration="0.9s"
         >
           <div className="mb-3">
-            <div className="inline-flex items-center gap-2.5 border border-border-main/60 bg-bg-surface/50 backdrop-blur-md rounded-full px-3 py-1.5 select-none pointer-events-none">
+            <div className="inline-flex items-center gap-2.5 border border-border-main/80 bg-bg-surface/80 dark:bg-bg-surface/60 backdrop-blur-md rounded-full px-3.5 py-1.5 select-none pointer-events-none shadow-sm">
               <img
                 src="/images/iso-image.svg"
                 alt="ISO Certified Logo"
@@ -300,33 +279,38 @@ export default function HeroSectionV2() {
             </div>
           </div>
 
-          <h1 className="mt-3 sm:mt-4 text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-text-main tracking-tight leading-[1.15]">
-            <span className="block text-nowrap">Smart Home Automation</span>
-            <span className="block italic font-normal text-gold-primary">
+          <h1 className="mt-3 sm:mt-4 text-2xl sm:text-4xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold tracking-tight leading-[1.15]">
+            <span className="block xl:text-nowrap text-slate-950 dark:text-white drop-shadow-[0_1px_4px_rgba(255,255,255,0.8)] dark:drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+              Smart Home Automation
+            </span>
+            <span className="block italic font-semibold sm:font-normal text-[#0055d4] dark:text-gold-primary drop-shadow-sm">
               Company in Bangalore
             </span>
           </h1>
 
-          <p className="mt-4 text-[0.8rem] sm:text-base text-text-muted font-body leading-relaxed max-w-lg">
+          <p className="mt-4 text-sm sm:text-base font-semibold sm:font-medium leading-relaxed max-w-lg text-slate-950 dark:text-white [text-shadow:_0_1px_3px_rgba(255,255,255,0.95)] dark:drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
             Smart homes are not about gadgets — they are about how you live.
             With almost a decade of experience and 800+ projects delivered
             across homes and select commercial spaces, here's what you can
             expect from us.
           </p>
 
-          <div className="mt-12 sm:mt-14">
+          <div className="mt-10 sm:mt-12">
             <WaveButton
               href="#contact-enquiry"
-              title="Contact MAKc Automations"
+              title="Book a Free Smart Home Consultation"
               accentColor="#006ed6"
               foregroundColor="#fff"
               onClick={(e) => {
                 e.preventDefault();
-                document
-                  .getElementById("contact-enquiry")
-                  ?.scrollIntoView({ behavior: "smooth" });
+                const el = document.getElementById("contact-enquiry");
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth" });
+                } else {
+                  window.location.href = "/contact";
+                }
               }}
-              className="home-wave-cta--drain rounded-none px-8 py-3 w-fit md:text-nowrap hover:text-white! border font-bold text-[0.65rem] tracking-wide sm:tracking-[0.15em] uppercase shadow-[0_4px_20px_rgba(10,132,255,0.35)] flex items-center justify-center gap-2 text-center"
+              className="home-wave-cta--drain rounded-none px-8 py-3 w-fit md:text-nowrap hover:text-white! border font-bold text-[0.65rem] tracking-wide sm:tracking-[0.15em] uppercase shadow-[0_4px_20px_rgba(10,132,255,0.35)] flex items-center justify-center gap-2 text-center cursor-pointer"
             >
               <span className="leading-snug">
                 Book a Free Smart Home Consultation
@@ -336,15 +320,15 @@ export default function HeroSectionV2() {
         </div>
 
         {/* Empty Right Column on Desktop to preserve split visual layout */}
-        <div className="w-full lg:max-w-[48%] xl:max-w-[52%] shrink-0 pointer-events-none hidden lg:block" />
+        <div className="w-full lg:max-w-[48%] xl:max-w-[50%] shrink-0 pointer-events-none hidden lg:block" />
       </div>
 
       {/* Scroll Down Indicator */}
       <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2.5 pointer-events-none">
-        <span className="text-[8px] font-bold tracking-[0.3em] !text-white/40 uppercase">
+        <span className="text-[8px] font-bold tracking-[0.3em] text-text-muted/80 dark:text-white/60 uppercase">
           SCROLL TO DISCOVER
         </span>
-        <div className="w-[18px] h-[30px] border !border-white/30 rounded-full flex justify-center p-1.5 opacity-100">
+        <div className="w-[18px] h-[30px] border border-border-main dark:border-white/30 rounded-full flex justify-center p-1.5 opacity-100">
           <div className="w-[4px] h-[6px] bg-gold-primary rounded-full animate-bounce" />
         </div>
       </div>

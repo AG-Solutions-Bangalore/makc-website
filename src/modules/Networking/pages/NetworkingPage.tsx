@@ -11,7 +11,7 @@ const NETWORKING_SLIDES = [
   {
     id: "01",
     title: "Mesh Wi-Fi Coverage",
-    shortTitle: "Mesh Wi-Fi\nCoverage",
+    shortTitle: "Mesh Wi-Fi",
     description:
       "Experience seamless, dead-zone-free high-speed Wi-Fi roaming across multi-story luxury villas, outdoor gardens, and guest areas.",
     image: getImageUrl("service_naetworking.webp"),
@@ -22,7 +22,7 @@ const NETWORKING_SLIDES = [
   {
     id: "02",
     title: "Enterprise Wired Networking",
-    shortTitle: "Wired\nNetworking",
+    shortTitle: "Wired LAN",
     description:
       "Form the backbone of your smart home with premium Cat6/Cat6A structured cabling, switches, and patch panels for stable high-bandwidth streams.",
     image: getImageUrl("project_commearcial.webp"),
@@ -55,7 +55,7 @@ export default function NetworkingPage() {
         accentColor="#0A84FF"
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-8 sm:pt-14 lg:pt-20">
         {/* WIRED NETWORK PLANNING SECTION */}
         <WiredNetworkSection />
 

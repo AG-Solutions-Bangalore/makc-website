@@ -15,6 +15,10 @@ const SolutionsGallery = lazy(
   () => import("@/components/common/SolutionsGallery"),
 );
 const GoogleReviews = lazy(() => import("@/components/common/GoogleReviews"));
+const ContactEnquirySection = lazy(
+  () => import("../sections/ContactEnquirySection"),
+);
+
 
 
 
@@ -89,6 +93,10 @@ export default function HomeV2Page() {
       <LazyOnView minHeight={260}>
         <PartnerLogosSection />
       </LazyOnView>
+
+      <Suspense fallback={<div id="contact-enquiry" className="min-h-[500px]" />}>
+        <ContactEnquirySection />
+      </Suspense>
     </div>
   );
 }

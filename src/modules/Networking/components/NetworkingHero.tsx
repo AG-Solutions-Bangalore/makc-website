@@ -30,7 +30,7 @@ export default function NetworkingHero() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-[90vh] lg:min-h-screen w-full flex items-center justify-start bg-cover bg-center bg-no-repeat transition-colors duration-300"
+      className="relative min-h-[75vh] sm:min-h-[85vh] lg:min-h-screen w-full flex items-center justify-start bg-cover bg-center bg-no-repeat transition-colors duration-300"
       style={{
         backgroundImage: `url('${getImageUrl("networking_banner.webp")}')`,
       }}
@@ -42,7 +42,7 @@ export default function NetworkingHero() {
       <div className="absolute bottom-0 left-0 right-0 h-24 md:h-36 bg-gradient-to-t from-bg-main to-transparent pointer-events-none z-[5]" />
 
       {/* Hero content container */}
-      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10 pt-32 pb-20 flex flex-col justify-center min-h-[90vh] lg:min-h-screen">
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10 pt-20 sm:pt-28 lg:pt-32 pb-8 sm:pb-14 lg:pb-20 flex flex-col justify-center min-h-[75vh] sm:min-h-[85vh] lg:min-h-screen">
         <div className="max-w-3xl space-y-3">
           {/* Badge */}
           <div className="hero-badge text-[11px] sm:text-xs tracking-widest uppercase font-bold text-text-muted flex items-center gap-1.5">

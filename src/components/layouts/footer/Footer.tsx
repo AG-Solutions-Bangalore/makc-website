@@ -130,7 +130,7 @@ export default function Footer() {
   return (
     <QueryProvider>
     <footer className="bg-bg-main border-t border-border-main">
-      <div className="my-8 px-4">
+      <div className="mt-2 mb-8 sm:mt-4 sm:mb-10 px-4">
         <ContactStrip />
       </div>
       <div className="max-w-[1600px] mx-auto px-5 lg:px-10 py-10">

@@ -46,7 +46,7 @@ export default function ProcessSection() {
   return (
     <section
       id="process"
-      className="relative w-full py-24 lg:py-32 border-t border-border-main text-center overflow-hidden"
+      className="relative w-full py-10 sm:py-16 lg:py-28 border-t border-border-main text-center overflow-hidden"
     >
       {/* Gradient background overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-[#F5F7FA] to-[#EBEFF5] dark:from-[#07152D] dark:via-[#051022] dark:to-[#01050E] transition-colors duration-300 pointer-events-none" />
@@ -55,7 +55,7 @@ export default function ProcessSection() {
 
       <div className="relative mx-auto max-w-8xl px-4 sm:px-6 z-10">
         {/* Header */}
-        <div className="mb-16 lg:mb-20">
+        <div className="mb-8 sm:mb-12 lg:mb-20">
           <span className="text font-bold tracking-[0.25em] text-accent-blue uppercase mb-4 block select-none">
             OUR PROCESS
           </span>

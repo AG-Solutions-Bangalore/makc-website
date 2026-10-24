@@ -211,10 +211,10 @@ export default function Header() {
             <a
               href={`tel:${COMPANY_INFO.phones.primary.digits}`}
               title={`Call ${COMPANY_INFO.name} at ${COMPANY_INFO.phones.primary.display}`}
-              className="flex sm:hidden h-9 w-9 items-center justify-center rounded-full bg-accent-blue text-[#ffffff] hover:scale-105 active:scale-95 transition-all duration-200 shadow-[0_4px_15px_rgba(10,132,255,0.35)] cursor-pointer"
+              className="flex sm:hidden h-10 w-10 items-center justify-center rounded-full bg-accent-blue text-[#ffffff] hover:scale-105 active:scale-95 transition-all duration-200 shadow-[0_4px_15px_rgba(10,132,255,0.35)] cursor-pointer"
               aria-label={`Call ${COMPANY_INFO.name}`}
             >
-              <Phone className="h-4 w-4 stroke-[1.8]" aria-hidden="true" />
+              <Phone className="h-4.5 w-4.5 stroke-[1.8]" aria-hidden="true" />
             </a>
 
             {/* Theme Toggle Button */}

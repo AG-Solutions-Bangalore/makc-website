@@ -8,6 +8,7 @@ interface ConnectorProps {
   isActive: boolean;
   color?: string;
   delay?: number;
+  isMobile?: boolean;
 }
 
 export default function Connector({
@@ -16,6 +17,7 @@ export default function Connector({
   isHovered,
   isActive,
   delay = 0,
+  isMobile = false,
 }: ConnectorProps) {
   const dx = labelPos.x - anchor.x;
 
@@ -29,7 +31,13 @@ export default function Connector({
       "-",
     );
 
-  const strokeWidth = isHovered || isActive ? 0.42 : 0.25;
+  const strokeWidth = isMobile
+    ? isHovered || isActive
+      ? 0.48
+      : 0.35
+    : isHovered || isActive
+    ? 0.42
+    : 0.25;
   const activeColor = "var(--color-gold-primary, #d4af37)";
 
   const d = `M ${anchor.x} ${anchor.y} H ${x1} L ${x2} ${labelPos.y} H ${labelPos.x}`;

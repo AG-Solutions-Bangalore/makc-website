@@ -87,14 +87,14 @@ export default function PartnerLogosSection() {
   };
 
   return (
-    <section className="relative w-full bg-bg-main py-14 lg:py-16 border-t border-border-main overflow-hidden">
-      <div className="mx-auto max-w-8xl px-4 sm:px-6 flex flex-col gap-8 items-center">
+    <section className="relative w-full bg-bg-main py-8 sm:py-12 lg:py-16 border-t border-border-main overflow-hidden">
+      <div className="mx-auto max-w-8xl px-4 sm:px-6 flex flex-col gap-5 sm:gap-8 items-center">
         
         <div className="text-center max-w-xl mx-auto">
-          <span className="font-bold tracking-[0.25em] text-accent-blue text-xs uppercase block mb-2 select-none">
+          <span className="font-bold tracking-[0.25em] text-accent-blue text-xs uppercase block mb-1.5 sm:mb-2 select-none">
             AUTHORIZED BRAND NETWORK
           </span>
-          <h3 className="text-2xl sm:text-3xl font-serif font-bold text-text-main tracking-tight">
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold text-text-main tracking-tight">
             OUR TECHNOLOGY PARTNERS
           </h3>
         </div>
@@ -102,7 +102,7 @@ export default function PartnerLogosSection() {
         <style>{`.partner-scroll { scrollbar-width: none; -ms-overflow-style: none; }
           .partner-scroll::-webkit-scrollbar { display: none; }`}</style>
         <div 
-          className="w-full relative mt-4 group"
+          className="w-full relative mt-2 sm:mt-4 group"
           onMouseEnter={() => { pausedRef.current = true; }}
           onMouseLeave={() => { pausedRef.current = false; }}
         >

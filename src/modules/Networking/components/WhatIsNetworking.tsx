@@ -60,9 +60,9 @@ export default function WhatIsNetworking() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="mb-24 no-reveal">
+    <section ref={containerRef} className="mb-10 sm:mb-16 lg:mb-24 no-reveal">
       {/* Split Header Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-6 sm:mb-8 lg:mb-16">
         <div className="lg:col-span-7 sec-headline">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-text-main leading-[1.15] max-w-2xl font-sans">
             Smart Networking Solutions for modern living

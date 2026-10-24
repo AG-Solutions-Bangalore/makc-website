@@ -11,7 +11,7 @@ const SECURITY_SLIDES = [
   {
     id: "01",
     title: "CCTV & Video Surveillance",
-    shortTitle: "Video\nSurveillance",
+    shortTitle: "Surveillance",
     description:
       "Monitor your premises 24/7 with high-definition night-vision cameras and motion-triggered recordings accessible directly on your smartphone.",
     image: getImageUrl("service_security.webp"),
@@ -22,7 +22,7 @@ const SECURITY_SLIDES = [
   {
     id: "02",
     title: "Smart Access & Biometric Locks",
-    shortTitle: "Access\nControl",
+    shortTitle: "Smart Locks",
     description:
       "Secure entry points with digital biometric smart door locks, keyless numeric pins, RFID cards, or face recognition logs.",
     image: getImageUrl("project_apartments.webp"),
@@ -33,7 +33,7 @@ const SECURITY_SLIDES = [
   {
     id: "03",
     title: "Intrusion & Threat Detection",
-    shortTitle: "Safety\nAlerts",
+    shortTitle: "Alerts",
     description:
       "Detect motion, door/window movements, glass breaks, smoke, or water leaks with continuous real-time smart sensor alerts.",
     image: getImageUrl("why_choose_us.webp"),
@@ -66,7 +66,7 @@ export default function SecurityPage() {
         accentColor="#0A84FF"
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-8 sm:pt-14 lg:pt-20">
         {/* CCTV & VIDEO MONITORING SECTION */}
         <CCTVMonitoringSection />
 

@@ -17,7 +17,7 @@ const LIGHTING_SLIDES = [
   {
     id: "01",
     title: "Scene-Based Lighting",
-    shortTitle: "Scene-Based\nLighting",
+    shortTitle: "Scenes",
     description:
       "Transform your space instantly with pre-set lighting scenes. Easily switch between Morning, Evening, Movie, or Party modes to create the perfect atmosphere.",
     image: getImageUrl("lightimage1.webp"),
@@ -28,7 +28,7 @@ const LIGHTING_SLIDES = [
   {
     id: "02",
     title: "Dimming Tuning ",
-    shortTitle: "Dimming &\nTuning",
+    shortTitle: "Dimming",
     description:
       "Smoothly adjust light intensity and color temperature from warm white to cool daylight, reducing eye strain and matching your natural circadian rhythm.",
     image: getImageUrl("dimeLight.webp"),
@@ -39,7 +39,7 @@ const LIGHTING_SLIDES = [
   {
     id: "03",
     title: "RGB Lighting",
-    shortTitle: "RGB\nLighting",
+    shortTitle: "RGB",
     description:
       "Express your style with millions of colors. Control brightness, warmth, and dynamic color-changing effects directly from your touch panel or smartphone.",
     image: getImageUrl("rgbmod.webp"),
@@ -50,7 +50,7 @@ const LIGHTING_SLIDES = [
   {
     id: "04",
     title: "Outdoor & Landscape Lighting",
-    shortTitle: "Outdoor\nLighting",
+    shortTitle: "Outdoor",
     description:
       "Enhance home curb appeal and security with automated exterior lighting. Program garden, compound, and facade lights to sync with sunset and sunrise.",
     image: getImageUrl("service/ol1.webp"),
@@ -84,7 +84,7 @@ export default function LightingPage() {
         accentColor="#00A551"
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-8 sm:pt-14 lg:pt-20">
         {/* DIMMING & TUNING OF LIGHTS SECTION */}
         <DimmingTuningSection />
 
