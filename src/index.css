@@ -2,6 +2,14 @@
 
 @plugin "tailwindcss-animate";
 
+@font-face {
+  font-family: "Caveat";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/fonts/caveat-latin.woff2") format("woff2");
+}
+
 /* Enable class-based dark mode for Tailwind v4 */
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -80,6 +88,8 @@
     "Segoe UI", sans-serif;
   --font-body: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
+  --font-handwriting: "Caveat", cursive;
+  --font-hand: "Caveat", "Segoe Script", "Bradley Hand", cursive;
 
   --radius-xl: calc(var(--radius) + 4px);
   --radius-lg: var(--radius);
@@ -234,25 +244,95 @@
     --ring: 210 100% 52%;
   }
 
-  /* Dynamic overrides to adapt legacy hardcoded white colors in light mode */
+  /* Dynamic overrides to adapt legacy hardcoded white colors in light mode.
+     White text is only remapped on neutral/light surfaces. On brand, accent,
+     status, gradient or dark surfaces (blue buttons, social icons, image
+     overlays) it always stays white in both themes. */
   :root:not(.dark) {
-    .text-white:not(.dark *, .dark, [class*="!text-white"]) {
-      color: var(--text-main) !important;
+    .text-white,
+    .hover\:text-white {
+      --adaptive-white-alpha: 100%;
     }
-    .text-white\/80:not(.dark *, .dark, [class*="!text-white/80"]) {
-      color: color-mix(in srgb, var(--text-main) 80%, transparent) !important;
+    .text-white\/95 {
+      --adaptive-white-alpha: 95%;
     }
-    .text-white\/65:not(.dark *, .dark, [class*="!text-white/65"]) {
-      color: color-mix(in srgb, var(--text-main) 65%, transparent) !important;
+    .text-white\/80 {
+      --adaptive-white-alpha: 80%;
     }
-    .text-white\/50:not(.dark *, .dark, [class*="!text-white/50"]) {
-      color: color-mix(in srgb, var(--text-main) 50%, transparent) !important;
+    .text-white\/65 {
+      --adaptive-white-alpha: 65%;
     }
-    .text-white\/95:not(.dark *, .dark, [class*="!text-white/95"]) {
-      color: color-mix(in srgb, var(--text-main) 95%, transparent) !important;
+    .text-white\/50 {
+      --adaptive-white-alpha: 50%;
     }
-    .hover\:text-white:hover:not(.dark *, .dark, [class*="!text-white"]) {
-      color: var(--text-main) !important;
+
+    :is(
+        .text-white,
+        .text-white\/95,
+        .text-white\/80,
+        .text-white\/65,
+        .text-white\/50,
+        .hover\:text-white:hover
+      ):not(
+        :where(
+          .dark *,
+          .dark,
+          [class*="!text-white"],
+          /* Brand / accent surfaces (keeps CTA + social button text white) */
+          [class*="bg-accent-blue"],
+          [class*="bg-primary"],
+          [class*="bg-gold-primary"],
+          [class*="bg-destructive"],
+          [class*="bg-blue-"],
+          [class*="bg-sky-"],
+          [class*="bg-indigo-"],
+          [class*="bg-cyan-"],
+          [class*="bg-emerald-"],
+          [class*="bg-green-"],
+          [class*="bg-teal-"],
+          [class*="bg-lime-"],
+          [class*="bg-amber-"],
+          [class*="bg-yellow-"],
+          [class*="bg-orange-"],
+          [class*="bg-red-"],
+          [class*="bg-rose-"],
+          [class*="bg-pink-"],
+          [class*="bg-fuchsia-"],
+          [class*="bg-violet-"],
+          [class*="bg-purple-"],
+          /* Dark, gradient and arbitrary colored surfaces */
+          [class*="bg-black"],
+          [class*="bg-slate-9"],
+          [class*="bg-gray-9"],
+          [class*="bg-zinc-9"],
+          [class*="bg-neutral-9"],
+          [class*="bg-stone-9"],
+          [class*="bg-gradient"],
+          [class*="bg-[#"],
+          /* Nested text inside the surfaces above */
+          [class*="bg-accent-blue"] *,
+          [class*="bg-primary"] *,
+          [class*="bg-gold-primary"] *,
+          [class*="bg-destructive"] *,
+          [class*="bg-black"] *,
+          [class*="bg-slate-9"] *,
+          [class*="bg-gray-9"] *,
+          [class*="bg-zinc-9"] *,
+          [class*="bg-neutral-9"] *,
+          [class*="bg-stone-9"] *,
+          [class*="bg-gradient"] *,
+          [class*="bg-[#0"] *,
+          [class*="bg-[#1"] *,
+          [class*="bg-[#3A4CB4"] *,
+          [class*="bg-[#FF0000"] *,
+          [class*="bg-[#25D366"] *
+        )
+      ) {
+      color: color-mix(
+        in srgb,
+        var(--text-main) var(--adaptive-white-alpha, 100%),
+        transparent
+      ) !important;
     }
     .border-white\/5:not(.dark *, .dark, [class*="!border-white/5"]) {
       border-color: color-mix(
@@ -509,6 +589,12 @@
   animation-delay: var(--enter-delay, 0ms);
 }
 
+.gallery-doodle path {
+  stroke-dasharray: 240;
+  stroke-dashoffset: 240;
+  animation: connector-draw-in 1.3s cubic-bezier(0.22, 1, 0.36, 1) 200ms forwards;
+}
+
 @keyframes reveal-up {
   from {
     opacity: 0;
@@ -541,7 +627,8 @@
   .hero-enter,
   .hero-pop,
   .hero-popup,
-  .connector-draw {
+  .connector-draw,
+  .gallery-doodle path {
     animation: none;
     opacity: 1;
     stroke-dashoffset: 0;
