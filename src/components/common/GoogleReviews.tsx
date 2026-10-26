@@ -1,5 +1,5 @@
-import { useState, useRef } from "react";
 import { Star, ExternalLink, Quote } from "lucide-react";
+import Marquee from "react-fast-marquee";
 
 interface GoogleReview {
   author: string;
@@ -34,62 +34,6 @@ const GOOGLE_REVIEWS_URL =
   "https://www.google.com/search?q=MAKc+Automation+and+Solutions+LLP+reviews";
 
 export default function GoogleReviews() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-  // Mouse drag-to-scroll support for desktop
-  const isDragging = useRef(false);
-  const startX = useRef(0);
-  const scrollLeftStart = useRef(0);
-
-  const handleScroll = () => {
-    const el = scrollContainerRef.current;
-    if (!el) return;
-    const card0 = el.children[0] as HTMLElement;
-    const card1 = el.children[1] as HTMLElement;
-    if (!card0) return;
-    const cardStep = card1 ? (card1.offsetLeft - card0.offsetLeft) : (card0.offsetWidth + 16);
-    const scrollPosition = el.scrollLeft;
-    const index = Math.round(scrollPosition / cardStep);
-    const clampedIndex = Math.max(0, Math.min(reviews.length - 1, index));
-    if (clampedIndex !== activeIndex) {
-      setActiveIndex(clampedIndex);
-    }
-  };
-
-  const scrollToIndex = (index: number) => {
-    const el = scrollContainerRef.current;
-    if (!el) return;
-    const card = el.children[index] as HTMLElement;
-    if (card) {
-      const left = index === 0 ? 0 : card.offsetLeft;
-      el.scrollTo({ left, behavior: "smooth" });
-      setActiveIndex(index);
-    }
-  };
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    const el = scrollContainerRef.current;
-    if (!el) return;
-    isDragging.current = true;
-    startX.current = e.pageX - el.offsetLeft;
-    scrollLeftStart.current = el.scrollLeft;
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging.current) return;
-    e.preventDefault();
-    const el = scrollContainerRef.current;
-    if (!el) return;
-    const x = e.pageX - el.offsetLeft;
-    const walk = (x - startX.current) * 1.5;
-    el.scrollLeft = scrollLeftStart.current - walk;
-  };
-
-  const handleMouseUp = () => {
-    isDragging.current = false;
-  };
-
   return (
     <section className="relative w-full py-12 sm:py-16 md:py-20 border-t border-slate-200 dark:border-white/10 overflow-hidden bg-[#f1f5f9] dark:bg-[#030712] transition-colors duration-300">
       {/* Subtle glow overlay */}
@@ -106,25 +50,23 @@ export default function GoogleReviews() {
             with MAKc Automations.
           </p>
         </div>
+      </div>
 
-        {/* Reviews Horizontal Snap Container (100% native touch swipe on mobile, drag on desktop) */}
-        <div className="relative px-1 sm:px-4">
-          <div
-            ref={scrollContainerRef}
-            onScroll={handleScroll}
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp}
-            className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 pt-1 px-1 snap-x snap-mandatory scrollbar-none scroll-smooth touch-pan-x cursor-grab active:cursor-grabbing select-none"
-          >
-            {reviews.map((review, idx) => (
+      {/* Full-width reviews marquee */}
+      <div className="relative w-full">
+        <Marquee
+          speed={40}
+          gradient={false}
+          pauseOnHover
+          className="py-1"
+        >
+          <div className="flex items-stretch gap-4 sm:gap-6 pr-4 sm:pr-6">
+            {reviews.map((review) => (
               <div
                 key={review.author}
-                onClick={() => scrollToIndex(idx)}
-                className="shrink-0 w-[84vw] sm:w-[380px] md:w-[calc(50%-12px)] max-w-[550px] snap-start transition-transform duration-300 cursor-pointer"
+                className="h-[300px] sm:h-[280px] w-[88vw] sm:w-[420px] lg:w-[480px] shrink-0"
               >
-                <div className="h-full bg-white dark:bg-[#0a182d] border border-slate-200/90 dark:border-white/15 shadow-md shadow-slate-200/60 dark:shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-accent-blue/50 dark:hover:border-accent-blue/50 hover:shadow-lg dark:hover:shadow-[0_8px_30px_rgba(10,132,255,0.2)] transition-all duration-300 rounded-2xl p-5 sm:p-7 flex flex-col justify-between gap-4 group">
+                <div className="h-full w-full bg-white dark:bg-[#0a182d] border border-slate-200/90 dark:border-white/15 hover:border-accent-blue/50 dark:hover:border-accent-blue/50 transition-colors duration-300 rounded-2xl p-4 sm:p-6 flex flex-col justify-between gap-3 overflow-hidden group">
                   {/* Top: Stars + Quote icon */}
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-0.5">
@@ -139,7 +81,7 @@ export default function GoogleReviews() {
                   </div>
 
                   {/* Review text */}
-                  <blockquote className="text-xs sm:text-[14px] md:text-[15px] text-text-main/90 font-normal leading-relaxed italic flex-1">
+                  <blockquote className="text-[11.5px] sm:text-sm md:text-[15px] text-text-main/90 font-normal leading-relaxed italic flex-1 overflow-hidden">
                     &ldquo;{review.text}&rdquo;
                   </blockquote>
 
@@ -160,36 +102,24 @@ export default function GoogleReviews() {
               </div>
             ))}
           </div>
+        </Marquee>
 
-          {/* Centered Clickable Progress Dots */}
-          <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-4 sm:mt-5">
-            {reviews.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => scrollToIndex(idx)}
-                aria-label={`Jump to review ${idx + 1}`}
-                className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                  idx === activeIndex
-                    ? "w-6 sm:w-8 bg-accent-blue"
-                    : "w-1.5 sm:w-2 bg-border-main hover:bg-text-muted"
-                }`}
-              />
-            ))}
-          </div>
-        </div>
+        {/* Edge fading overlays */}
+        <div className="absolute inset-y-0 left-0 w-12 sm:w-24 lg:w-40 bg-gradient-to-r from-[#f1f5f9] dark:from-[#030712] to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-y-0 right-0 w-12 sm:w-24 lg:w-40 bg-gradient-to-l from-[#f1f5f9] dark:from-[#030712] to-transparent pointer-events-none z-10" />
+      </div>
 
-        {/* View More Reviews CTA */}
-        <div className="text-center mt-4 sm:mt-6">
-          <a
-            href={GOOGLE_REVIEWS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-[#0055ff] to-[#0A84FF] text-white! font-bold text-xs sm:text-sm tracking-wider uppercase rounded-xl shadow-[0_4px_20px_rgba(10,132,255,0.45)] hover:shadow-[0_6px_25px_rgba(10,132,255,0.65)] hover:scale-[1.02] transition-all duration-300 group cursor-pointer"
-          >
-            <span>View More Reviews on Google</span>
-            <ExternalLink className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
-        </div>
+      {/* View More Reviews CTA */}
+      <div className="relative mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 z-10 text-center mt-5 sm:mt-7">
+        <a
+          href={GOOGLE_REVIEWS_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-[#0055ff] to-[#0A84FF] text-white! font-bold text-xs sm:text-sm tracking-wider uppercase rounded-xl shadow-[0_4px_20px_rgba(10,132,255,0.45)] hover:shadow-[0_6px_25px_rgba(10,132,255,0.65)] hover:scale-[1.02] transition-all duration-300 group cursor-pointer"
+        >
+          <span>View More Reviews on Google</span>
+          <ExternalLink className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </a>
       </div>
     </section>
   );
