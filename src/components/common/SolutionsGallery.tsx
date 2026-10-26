@@ -419,7 +419,7 @@ export default function SolutionsGallery() {
         </div>
 
         {/* Interactive Bottom Filmstrip Dock (Tightened Spacing & Crisp Typography) */}
-        <div className="mt-6 sm:mt-7 pt-4 border-t border-slate-200/60 dark:border-white/10 flex flex-col items-center">
+        <div className="mt-6 sm:mt-8 flex flex-col items-center">
           
           {/* Active Thumbnail Title Tag */}
           <div className="flex flex-col items-center text-center mb-2 transition-all duration-300">
