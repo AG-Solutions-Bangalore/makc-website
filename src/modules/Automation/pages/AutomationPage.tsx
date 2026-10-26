@@ -8,6 +8,9 @@ import {
   Layers,
   Lock,
   Sliders,
+  PhoneCall,
+  CheckCircle2,
+  Loader2,
 } from "lucide-react";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
@@ -29,21 +32,56 @@ import CurtainAutomationSection from "@/components/common/CurtainAutomationSecti
 import ElectricalAutomationSection from "@/components/common/ElectricalAutomationSection";
 import GateAutomationSection from "@/components/common/GateAutomationSection";
 import DoorAutomationSection from "@/components/common/DoorAutomationSection";
-
-// Import images
-const serviceLightingImg = getImageUrl("service/fhha.webp");
-
-const projectVillasImg = getImageUrl("project_villas.webp");
-
+import { submitPhoneEnquiry } from "@/modules/Contact/api/contact.api";
+import { toast } from "react-hot-toast";
 import useSEO from "@/hooks/useSEO";
 import { SEO_ROUTES } from "@/config/seoData";
 import { COMPANY_INFO } from "@/config/constants";
 import { getImageUrl } from "@/utils/image";
 
+// Import images
+const serviceLightingImg = getImageUrl("service/fhha.webp");
+const projectVillasImg = getImageUrl("project_villas.webp");
+
 export default function AutomationPage() {
   useSEO(SEO_ROUTES["/automation"]);
 
   const [activeFeature, setActiveFeature] = useState("scheduling");
+  const [inlinePhone, setInlinePhone] = useState("");
+  const [inlinePhoneError, setInlinePhoneError] = useState("");
+  const [isInlineSubmitting, setIsInlineSubmitting] = useState(false);
+  const [isInlineSubmitted, setIsInlineSubmitted] = useState(false);
+
+  const handleInlineCallbackSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const digitsOnly = inlinePhone.replace(/\D/g, "");
+
+    const isValidIndianMobile = /^[6-9]\d{9}$/.test(digitsOnly);
+    const isAllSameDigit = /^(\d)\1{9}$/.test(digitsOnly);
+
+    if (!isValidIndianMobile || isAllSameDigit) {
+      setInlinePhoneError(
+        "Please enter a valid 10-digit mobile number",
+      );
+      return;
+    }
+
+    setIsInlineSubmitting(true);
+    setInlinePhoneError("");
+    try {
+      await submitPhoneEnquiry(digitsOnly);
+      setIsInlineSubmitted(true);
+      toast.success("Callback request submitted successfully!");
+    } catch (err: any) {
+      console.error("Callback API error:", err);
+      toast.error(
+        err?.response?.data?.message ||
+          "Failed to submit request. Please try again.",
+      );
+    } finally {
+      setIsInlineSubmitting(false);
+    }
+  };
 
   const heroRef = useRef<HTMLElement>(null);
 
@@ -571,24 +609,86 @@ export default function AutomationPage() {
                       lifestyle, and budget at no obligation.
                     </p>
                   </div>
-                  <div className="space-y-3 mt-8">
-                    <a
-                      href={`tel:${COMPANY_INFO.phones.primary.digits}`}
-                      title={`Call ${COMPANY_INFO.name} at ${COMPANY_INFO.phones.primary.display}`}
-                      className="flex items-center justify-center gap-2 h-11 w-full rounded-xl bg-accent-blue text-white! text-sm font-bold hover:bg-accent-blue/90 transition-all duration-200 hover:scale-[1.02] active:scale-[0.97]"
-                    >
-                      Call Us Now
-                    </a>
-                    <a
-                      href={`mailto:${COMPANY_INFO.email}`}
-                      title={`Email ${COMPANY_INFO.name}`}
-                      className="flex items-center justify-center gap-2 h-11 w-full rounded-xl border border-white/25 text-white! text-sm font-medium hover:bg-white/8 transition-all duration-200"
-                    >
-                      Send an Email
-                    </a>
-                    <p className="text-center text-white/40 text-xs tracking-wider">
-                      {COMPANY_INFO.phones.primary.display}
-                    </p>
+                  <div className="mt-8">
+                    {!isInlineSubmitted ? (
+                      <form
+                        onSubmit={handleInlineCallbackSubmit}
+                        className="space-y-3"
+                      >
+                        <div>
+                          <label
+                            htmlFor="cta-phone"
+                            className="block text-white/75 text-[11px] font-bold uppercase tracking-wider mb-1.5"
+                          >
+                            Enter Your Mobile Number
+                          </label>
+                          <input
+                            id="cta-phone"
+                            type="tel"
+                            required
+                            maxLength={10}
+                            value={inlinePhone}
+                            onChange={(e) => {
+                              const cleaned = e.target.value
+                                .replace(/\D/g, "")
+                                .slice(0, 10);
+                              setInlinePhone(cleaned);
+                              setInlinePhoneError("");
+                            }}
+                            placeholder="e.g. 9876543210"
+                            className="w-full bg-black/60 border border-white/25 focus:border-accent-blue focus:ring-2 focus:ring-accent-blue/30 rounded-xl px-4 py-2.5 text-white text-sm outline-none transition-all font-mono tracking-wider placeholder:text-white/35"
+                          />
+                          {inlinePhoneError && (
+                            <p className="text-red-400 text-xs mt-1.5 font-medium">
+                              {inlinePhoneError}
+                            </p>
+                          )}
+                        </div>
+
+                        <button
+                          type="submit"
+                          disabled={isInlineSubmitting}
+                          className="w-full cursor-pointer flex items-center justify-center gap-2 h-11 rounded-xl bg-accent-blue text-white! text-xs font-bold uppercase tracking-wider hover:bg-accent-blue/90 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-[0_4px_15px_rgba(10,132,255,0.35)] disabled:opacity-70"
+                        >
+                          {isInlineSubmitting ? (
+                            <>
+                              <Loader2 className="w-4 h-4 animate-spin" />
+                              <span>Submitting...</span>
+                            </>
+                          ) : (
+                            <>
+                              <PhoneCall className="w-4 h-4" />
+                              <span>Request Callback</span>
+                            </>
+                          )}
+                        </button>
+                      </form>
+                    ) : (
+                      <div className="text-center py-4 px-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 animate-in fade-in duration-300">
+                        <div className="w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center mx-auto mb-3">
+                          <CheckCircle2 className="w-6 h-6" />
+                        </div>
+                        <h4 className="text-white text-base font-bold mb-1">
+                          Request Received!
+                        </h4>
+                        <p className="text-white/70 text-xs leading-relaxed mb-4">
+                          Thank you! Our automation expert will call you shortly on{" "}
+                          <span className="font-semibold text-white font-mono">
+                            {inlinePhone}
+                          </span>.
+                        </p>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setIsInlineSubmitted(false);
+                            setInlinePhone("");
+                          }}
+                          className="cursor-pointer text-xs text-white/80 hover:text-white underline underline-offset-4 transition-colors"
+                        >
+                          Submit another number
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

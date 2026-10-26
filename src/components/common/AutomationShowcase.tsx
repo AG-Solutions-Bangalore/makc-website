@@ -255,7 +255,7 @@ export default function AutomationShowcase({
               <div className="w-10 h-[2px] bg-[rgba(var(--accent-color-rgb),0.7)] mb-4 sm:mb-8" />
 
               <div
-                className="flex items-center gap-4 sm:gap-6 mt-4 sm:mt-6 lg:mt-8 overflow-x-auto pb-2 -mx-2 px-2 scrollbar-none"
+                className="flex items-center gap-4 py-2 sm:gap-6 mt-4 sm:mt-6 lg:mt-8 overflow-x-auto pb-2 -mx-2 px-2 scrollbar-none"
                 role="tablist"
                 aria-label="Automation solutions"
               >
@@ -264,7 +264,7 @@ export default function AutomationShowcase({
                   const isActive = idx === activeIndex;
 
                   return (
-                    <div key={tab.id} className="flex flex-col items-center shrink-0 gap-2">
+                    <div key={tab.id} className="flex flex-col  items-center shrink-0 gap-2">
                       <button
                         onClick={() => setActiveIndex(idx)}
                         role="tab"
