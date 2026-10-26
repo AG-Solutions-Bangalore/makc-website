@@ -8,9 +8,21 @@ const types = [
 ];
 
 const images = [
-  { src: "rgbmod.webp", alt: "Color-changing RGB LED strip lights installed in a modern apartment", title: "RGB LED Strip Lighting" },
-  { src: "service/RGB1.webp", alt: "RGB smart LED lighting system with customizable color control", title: "RGB Smart Lighting System" },
-  { src: "service/RGB2.webp", alt: "Warm mood lights creating a cozy modern living room ambiance", title: "Smart Mood Lighting" },
+  {
+    src: "rgbmod.webp",
+    alt: "Color-changing RGB LED strip lights installed in a modern apartment",
+    title: "RGB LED Strip Lighting",
+  },
+  {
+    src: "service/RGB1.webp",
+    alt: "RGB smart LED lighting system with customizable color control",
+    title: "RGB Smart Lighting System",
+  },
+  {
+    src: "service/RGB2.webp",
+    alt: "Warm mood lights creating a cozy modern living room ambiance",
+    title: "Smart Mood Lighting",
+  },
 ];
 
 export default function RGBMoodLightingSection() {
@@ -25,8 +37,8 @@ export default function RGBMoodLightingSection() {
       prefix="rgb"
       serviceName="RGB Lighting"
       reels={[
-        "https://www.instagram.com/reel/DPWD8CPjVm6/",
-        "https://www.instagram.com/reel/DJmErhkSlL0/",
+        "https://www.instagram.com/reel/De9JjfIqmoO/?obrf=MXN5MHZ4eHN2aXJsZQ==",
+        "https://www.instagram.com/reel/De9Js9zKh9X/?mdxt=MWRsa3gwdnZ4b3Jrcg==",
       ]}
       reelTitles={[
         "Watch Smart Home Audio Experience Reel on Instagram",

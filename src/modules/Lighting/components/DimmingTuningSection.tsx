@@ -28,8 +28,8 @@ export default function DimmingTuningSection() {
       imagePosition="right"
       prefix="dt"
       serviceName="Dimming & Tuning of Lights"
-      reelUrl="https://www.instagram.com/reel/DMcsd9Pyetv/"
-      reelTitles={["Watch Home Audio System Installation Reel on Instagram"]}
+      reelUrl="https://www.instagram.com/reel/De9JMcAKAau/?dlrf=ZnE2cjlhNjV3enVr"
+      reelTitles={["Watch Dimming & Tuning of Lights Reel on Instagram"]}
     />
   );
 }

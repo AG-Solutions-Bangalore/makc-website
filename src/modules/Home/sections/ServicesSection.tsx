@@ -275,7 +275,7 @@ export default function ServicesSection() {
                         <span className="text-[11.5px] font-handwriting sm:text-xs font-medium text-white/90! group-hover:text-white transition-colors duration-200 group-hover:decoration-white">
                           View More
                         </span>
-                        <div className="w-6 h-6 rounded-full border border-white/45 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black group-hover:border-white transition-all duration-300 shadow-sm shrink-0">
+                        <div className="w-6 h-6 rounded-full border border-white/45 flex items-center justify-center text-white! group-hover:bg-white group-hover:text-black! group-hover:border-white transition-all duration-300 shadow-sm shrink-0">
                           <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />
                         </div>
                       </div>
@@ -294,7 +294,7 @@ export default function ServicesSection() {
                         <span className="text-[11.5px] font-handwriting sm:text-xs font-medium text-white/90 group-hover:text-white transition-colors duration-200 group-hover:decoration-white">
                           View More
                         </span>
-                        <div className="w-6 h-6 rounded-full border border-white/45 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black group-hover:border-white transition-all duration-300 shadow-sm shrink-0">
+                        <div className="w-6 h-6 rounded-full border border-white/45 flex items-center justify-center text-white! group-hover:bg-white group-hover:text-black! group-hover:border-white transition-all duration-300 shadow-sm shrink-0">
                           <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />
                         </div>
                       </div>

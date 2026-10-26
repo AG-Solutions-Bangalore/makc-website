@@ -35,8 +35,8 @@ export default function ElectricalAutomationSection() {
       imagePosition="right"
       prefix="elec"
       serviceName="Electrical Automation"
-      reelUrl="https://www.instagram.com/reel/DJB_6dCyJ6H/"
-      reelTitles={["Watch Curtain Automation Reel 2 on Instagram"]}
+      reelUrl="https://www.instagram.com/reel/De9N4zQq9gD/?vrfl=NGM4dnlncW83NXVn"
+      reelTitles={["Watch Electrical Automation Reel on Instagram"]}
     />
   );
 }

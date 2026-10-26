@@ -48,7 +48,7 @@ const hotspotsList: HotspotType[] = [
     anchor: { x: 60.5, y: 26 },
     labelPos: { x: 75.2, y: 24 },
     icon: Blinds,
-    videoFile: "https://www.instagram.com/reel/DZpb-JNSo5Y/",
+    videoFile: "https://www.instagram.com/reel/De9GuffKmaA/",
   },
   {
     id: "lighting",
@@ -56,8 +56,7 @@ const hotspotsList: HotspotType[] = [
     anchor: { x: 58.5, y: 36 },
     labelPos: { x: 72.6, y: 32.4 },
     icon: Lightbulb,
-    // videoFile: "https://www.instagram.com/reel/DZICTsA9KjuW/",
-    videoFile: "https://www.instagram.com/reel/Dc_AnDQNJEM/",
+    videoFile: "https://www.instagram.com/reel/DeAq2p_BK07/",
   },
   {
     id: "switches",
@@ -65,7 +64,8 @@ const hotspotsList: HotspotType[] = [
     anchor: { x: 77.2, y: 53 },
     labelPos: { x: 86.2, y: 43.5 },
     icon: ToggleLeft,
-    videoFile: "https://www.instagram.com/reel/Dc_K30LN-ji/",
+    videoFile:
+      "https://www.instagram.com/reel/De9OhRLqHVw/?mdxt=MXJ4ancwcTd6NWU2ZA==",
   },
   {
     id: "door",
@@ -97,7 +97,7 @@ const hotspotsList: HotspotType[] = [
     anchor: { x: 73.2, y: 78 },
     labelPos: { x: 83, y: 75 },
     icon: ShieldAlert,
-    videoFile: "https://www.instagram.com/reel/DTp5xiDj82a/",
+    videoFile: "https://www.instagram.com/reel/DdNJx4tKGAK/",
   },
 ];
 
@@ -442,7 +442,8 @@ export default function HeroSectionV2() {
                 className="h-3.5 w-3.5 object-contain"
               />
               <span className="text-[10px] font-sans font-bold tracking-wide leading-none text-white">
-                ISO <span className="font-extrabold text-[#00e676]">9001:2015</span>
+                ISO{" "}
+                <span className="font-extrabold text-[#00e676]">9001:2015</span>
               </span>
             </div>
           </div>
@@ -463,7 +464,8 @@ export default function HeroSectionV2() {
 
           {/* Subtitle / Narrative (Clean & Concise) */}
           <p className="mt-3 text-xs sm:text-[13px] text-slate-600 dark:text-slate-400 font-normal leading-relaxed max-w-sm">
-            Bespoke smart living for modern luxury homes. Over 800+ projects delivered with 8+ years of excellence.
+            Bespoke smart living for modern luxury homes. Over 800+ projects
+            delivered with 8+ years of excellence.
           </p>
 
           {/* Free Consultation Button */}

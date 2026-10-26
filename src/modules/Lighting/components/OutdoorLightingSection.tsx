@@ -36,6 +36,8 @@ export default function OutdoorLightingSection() {
       imagePosition="left"
       prefix="out"
       serviceName="Outdoor & Landscape Lighting"
+      reelUrl="https://www.instagram.com/reel/Dbt7nF7yjHG/"
+      reelTitles={["Watch Outdoor and Landscape Lighting Reel on Instagram"]}
     />
   );
 }

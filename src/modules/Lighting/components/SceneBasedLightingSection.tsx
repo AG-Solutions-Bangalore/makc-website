@@ -39,12 +39,12 @@ export default function SceneBasedLightingSection() {
       prefix="sbl"
       serviceName="Scene-Based Lighting"
       reels={[
-        "https://www.instagram.com/reel/DbzFUZxKTbf/",
-        "https://www.instagram.com/reel/Dc_AnDQNJEM/",
+        "https://www.instagram.com/reel/DPLutMCEtmd/",
+        "https://www.instagram.com/reel/DD9tR49SqLX/",
       ]}
       reelTitles={[
-        "Watch Home Audio Solutions Reel on Instagram",
-        "Watch Premium Audio Setup Reel on Instagram",
+        "Watch Scene-Based Lighting Reel on Instagram",
+        "Watch Smart Ambiance Scene Reel on Instagram",
       ]}
     />
   );

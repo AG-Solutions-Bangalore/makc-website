@@ -22,8 +22,8 @@ const VIDEO_MAP: Record<string, string> = {
 };
 
 const REEL_MAP: Record<string, string> = {
-  "Curtain Automation": "https://www.instagram.com/reel/DZpb-JNSo5Y/",
-  "Gate Automation": "https://www.instagram.com/reel/DTp5xiDj82a/",
+  "Curtain Automation": "https://www.instagram.com/reel/DQ38odUkpZr/",
+  "Gate Automation": "https://www.instagram.com/reel/DdNJx4tKGAK/",
   "Electrical Automation": "https://www.instagram.com/reel/DKHEqiVSl4-/",
   "Smart Switches": "https://www.instagram.com/reel/DKHEqiVSl4-/",
   "Wired Network": "https://www.instagram.com/reel/DKeUhreyEct/",
@@ -32,7 +32,8 @@ const REEL_MAP: Record<string, string> = {
   "Sensor-Based": "https://www.instagram.com/reel/DSC30D1jZ1h/",
   Security: "https://www.instagram.com/reel/DSC30D1jZ1h/",
   "CCTV & Video": "https://www.instagram.com/reel/DTJNMgzk284/",
-  "Dimming & Tuning of Lights": "https://www.instagram.com/reel/Dc_AnDQNJEM/",
+  "Dimming & Tuning of Lights": "https://www.instagram.com/reel/DBYze7SySVh/",
+  "Outdoor & Landscape Lighting": "https://www.instagram.com/reel/Dbt7nF7yjHG/",
 };
 
 interface AutomationMosaicImage {
@@ -408,7 +409,6 @@ export default function AutomationMosaicSection({
                     />
                   )}
                 </div>
-                <div className="w-full h-full min-h-[460px] sm:min-h-[520px] lg:min-h-[560px]" />
               </div>
 
               {/* 2nd Card: Top-right wider image */}
