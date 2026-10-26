@@ -67,9 +67,9 @@ export default function BlogPage() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(10,132,255,0.08),transparent_50%)] pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(10,132,255,0.05),transparent_50%)] pointer-events-none" />
 
-      <main className="flex-1 relative z-10 w-full max-w-8xl mx-auto px-4 sm:px-6 pt-32 pb-24">
+      <main className="flex-1 relative z-10 w-full max-w-8xl mx-auto px-4 sm:px-6 pt-20 sm:pt-26 lg:pt-32 pb-10 sm:pb-16 lg:pb-24">
         {/* Page Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16 sm:mb-20">
+        <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12 lg:mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-accent-blue text-xs font-bold uppercase tracking-widest mb-6 backdrop-blur-md">
             <span>Journal</span>
           </div>
@@ -88,7 +88,7 @@ export default function BlogPage() {
 
         {/* Featured Post */}
         {!isLoading && (
-          <section className="mb-20">
+          <section className="mb-10 sm:mb-14 lg:mb-20">
             <FeaturedPost post={featured} />
           </section>
         )}
@@ -133,7 +133,7 @@ export default function BlogPage() {
         </section>
 
         {/* Newsletter */}
-        <div className="mt-24">
+        <div className="mt-10 sm:mt-16 lg:mt-24">
           <NewsletterCTA />
         </div>
       </main>

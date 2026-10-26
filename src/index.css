@@ -305,8 +305,28 @@
     scrollbar-gutter: stable;
   }
 
-  * {
+  /* Universal scrollbar removal across all elements, iframes, and scroll containers */
+  *,
+  *::before,
+  *::after {
     @apply border-border-main;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  *::-webkit-scrollbar,
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar,
+  iframe::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  iframe {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    overflow: hidden !important;
   }
 
   ::selection {
@@ -332,6 +352,26 @@
 }
 
 /* Custom Utilities */
+
+@utility scrollbar-none {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  &::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  &::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+}
 
 @utility text-highlight {
   @apply text-ma-yellow relative inline-block;

@@ -10,7 +10,7 @@ const AUDIO_SLIDES = [
   {
     id: "01",
     title: "Centralized Audio Distribution",
-    shortTitle: "Centralized\nAudio",
+    shortTitle: "Multi-Room",
     description:
       "Distribute your favorite music streams, playlists, or radio channels seamlessly to different rooms and customized sound zones with ease.",
     image: getImageUrl("service_theatre.webp"),
@@ -21,7 +21,7 @@ const AUDIO_SLIDES = [
   {
     id: "02",
     title: "Invisible Architectural Speakers",
-    shortTitle: "Architectural\nSpeakers",
+    shortTitle: "In-Wall",
     description:
       "High-fidelity, in-wall, or in-ceiling speakers that blend completely into your interior design while producing crystal-clear acoustic sound.",
     image: getImageUrl("smarter_way_bg.webp"),
@@ -32,7 +32,7 @@ const AUDIO_SLIDES = [
   {
     id: "03",
     title: "Immersive Home Theater Sound",
-    shortTitle: "Theater\nSound",
+    shortTitle: "Theater",
     description:
       "Design custom surround sound experiences with subwoofers, soundbars, and Dolby Atmos calibration to recreate cinema-grade quality.",
     image: getImageUrl("service_theatre.webp"),
@@ -66,7 +66,7 @@ export default function AudioPage() {
       />
 
       {/* COMING SOON SECTION */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-24 text-center flex flex-col items-center">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-10 sm:py-16 lg:py-24 text-center flex flex-col items-center">
         {/* Hourglass Icon */}
         <div className="relative h-20 w-20 rounded-full border border-[#0A84FF]/40 bg-[#0A84FF]/10 text-[#0A84FF] flex items-center justify-center shadow-[0_0_20px_rgba(10,132,255,0.25)] mb-8 select-none">
           <Hourglass className="h-9 w-9 stroke-[1.2] animate-pulse" />

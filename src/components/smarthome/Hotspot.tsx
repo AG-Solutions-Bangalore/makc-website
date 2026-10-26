@@ -47,25 +47,17 @@ export default function Hotspot({
       onBlur={onHoverEnd}
       onClick={onClick}
       aria-label={`Toggle info for ${id}`}
-      aria-expanded={isActive}
-      className="hero-pop outline-none select-none relative cursor-pointer rounded-full focus-visible:ring-2 focus-visible:ring-[#d4af37] focus-visible:ring-offset-2 focus-visible:ring-offset-black/50 before:absolute before:-inset-3 before:rounded-full before:content-['']"
+      className="hidden lg:block hero-pop outline-none select-none relative cursor-pointer rounded-full focus-visible:ring-2 focus-visible:ring-[#d4af37] focus-visible:ring-offset-2 focus-visible:ring-offset-black/50 before:absolute before:-inset-3 before:rounded-full before:content-['']"
     >
       {/* Solid center dot — same size/position as before, gold only on hover/active */}
       <div
         className={`
           relative flex items-center justify-center rounded-full border-2 border-black/80
-          ${highlighted ? "bg-[#d4af37] shadow-[0_0_15px_rgba(212,175,55,0.8)]" : "bg-white shadow-[0_0_10px_rgba(255,255,255,0.6)]"}
+          ${highlighted ? "bg-[#d4af37] shadow-[0_0_15px_rgba(212,175,55,0.8)]" : "bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]"}
           transition-all duration-300
-          ${isMobile ? "w-6 h-6" : "w-3.5 h-3.5"}
+          ${isMobile ? "w-2.5 h-2.5" : "w-3.5 h-3.5"}
         `}
-      >
-        {/* Mobile Number Badge */}
-        {isMobile && (
-          <span className="text-[10px] font-bold text-black select-none leading-none">
-            {index + 1}
-          </span>
-        )}
-      </div>
+      />
     </button>
   );
 }

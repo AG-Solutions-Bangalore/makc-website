@@ -25,31 +25,31 @@ export default function StatsSection() {
   ];
 
   return (
-    <div className="relative w-full z-20 bg-transperent border-none pb-12">
+    <div className="relative w-full z-20 bg-transparent border-none pb-10 sm:pb-12">
       <div className="mx-auto max-w-8xl px-4 sm:px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 sm:grid-cols-2 sm:gap-y-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-4">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
               <div
                 key={index}
-                className="relative flex items-center justify-center gap-4 px-4 md:px-6 lg:px-8 text-left group"
+                className="relative flex items-start justify-start gap-2.5 sm:gap-3.5 md:gap-4 px-1 sm:px-4 md:px-6 lg:px-8 text-left group"
               >
                 {/* Custom vertical gradient divider as border-right on desktop */}
                 {index < stats.length - 1 && (
                   <div className="absolute right-0 top-0 bottom-0 w-[1.5px] bg-gradient-to-b from-[#0A84FF]/0 via-[#0A84FF]/40 to-[#0A84FF]/0 z-0 hidden md:block" />
                 )}
                 {/* Icon wrapper */}
-                <div className="h-11 w-11 shrink-0 rounded-none flex items-center justify-center text-accent-blue transition-all duration-300">
+                <div className="h-8 w-8 sm:h-9 sm:w-9 lg:h-10 lg:w-10 shrink-0 flex items-center justify-center text-accent-blue transition-all duration-300 mt-0.5 sm:mt-1">
                   <Icon className="h-full w-full stroke-[1.5]" />
                 </div>
 
                 {/* Text wrapper */}
-                <div className="flex flex-col">
-                  <span className=" text-2xl lg:text-3xl font-extrabold text-text-main tracking-tight leading-none group-hover:text-accent-blue transition-colors duration-200">
+                <div className="flex flex-col min-w-0">
+                  <span className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-text-main tracking-tight leading-tight group-hover:text-accent-blue transition-colors duration-200">
                     {stat.value}
                   </span>
-                  <span className=" text-[11px] sm:text-xs text-text-muted tracking-wide font-medium mt-1.5 leading-snug">
+                  <span className="text-[11px] sm:text-xs text-text-muted tracking-wide font-medium mt-1 leading-snug">
                     {stat.label}
                   </span>
                 </div>

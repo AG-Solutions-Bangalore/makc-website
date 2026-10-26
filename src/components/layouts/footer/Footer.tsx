@@ -91,6 +91,7 @@ export default function Footer() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const location = useLocation();
+  const isFormPage = location.pathname === "/" || location.pathname === "/contact" || location.pathname === "";
 
   const handleHomeLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
     if (location.pathname === "/" && location.hash === "#home-top") {
@@ -129,10 +130,12 @@ export default function Footer() {
 
   return (
     <QueryProvider>
-    <footer className="bg-bg-main border-t border-border-main">
-      <div className="my-8 px-4">
-        <ContactStrip />
-      </div>
+    <footer className="bg-[#f1f5f9] dark:bg-[#02050b] border-t-2 border-slate-300/80 dark:border-white/10 transition-colors duration-300">
+      {!isFormPage && (
+        <div className="mt-2 mb-8 sm:mt-4 sm:mb-10 px-4">
+          <ContactStrip />
+        </div>
+      )}
       <div className="max-w-[1600px] mx-auto px-5 lg:px-10 py-10">
         {/* Equal 5-Column Layout (Exact equal width per column) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-0 lg:divide-x lg:divide-border-main/40">

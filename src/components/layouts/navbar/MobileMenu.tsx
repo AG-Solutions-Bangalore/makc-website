@@ -132,7 +132,7 @@ function MobileServiceAccordion({
   };
 
   return (
-    <div className="space-y-1" role="region" aria-label="Services">
+    <div className="space-y-0.5" role="region" aria-label="Services">
       {services.map((category) => {
         const isOpen = openCategory === category.category;
         return (
@@ -141,7 +141,7 @@ function MobileServiceAccordion({
               type="button"
               onClick={() => toggleCategory(category.category)}
               className={cn(
-                "flex items-center justify-between w-full py-2 text-xl font-black uppercase tracking-wider transition-colors active:opacity-80 touch-manipulation",
+                "flex items-center justify-between w-full py-1.5 text-sm sm:text-base font-bold uppercase tracking-wide transition-colors active:opacity-80 touch-manipulation",
                 isOpen || activeHref === category.href
                   ? "text-accent-blue"
                   : "text-text-main hover:text-accent-blue",
@@ -152,7 +152,7 @@ function MobileServiceAccordion({
               <span>{category.category}</span>
               <ChevronDown
                 className={cn(
-                  "size-5 flex-shrink-0 transition-transform duration-300 ease-out",
+                  "size-4 flex-shrink-0 transition-transform duration-300 ease-out",
                   isOpen && "rotate-180",
                 )}
                 aria-hidden="true"
@@ -166,7 +166,7 @@ function MobileServiceAccordion({
               aria-label={`${category.category} services`}
             >
               <div
-                className="overflow-hidden pl-4 space-y-1 min-h-0"
+                className="overflow-hidden pl-3.5 space-y-0.5 min-h-0 py-1"
                 inert={!isOpen}
                 aria-hidden={!isOpen}
               >
@@ -179,10 +179,10 @@ function MobileServiceAccordion({
                       setOpenCategory(null);
                       if (onSelect) onSelect();
                     }}
-                    className="flex items-center gap-3 py-1.5 text-sm font-bold uppercase tracking-wide text-text-muted hover:text-text-main transition-colors active:opacity-80 touch-manipulation"
+                    className="flex items-center gap-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-text-muted hover:text-text-main transition-colors active:opacity-80 touch-manipulation"
                   >
                     <item.icon
-                      className="size-4 text-accent-blue"
+                      className="size-3.5 text-accent-blue"
                       aria-hidden="true"
                     />
                     <span>{item.title}</span>
@@ -236,10 +236,10 @@ export const MobileMenu = memo(function MobileMenu({
             variants={containerVariants}
             initial="hidden"
             animate={isOpen ? "show" : "hidden"}
-            className="flex-1 py-4"
+            className="flex-1 py-3"
             aria-label="Mobile navigation"
           >
-            <ul className="flex flex-col gap-3">
+            <ul className="flex flex-col gap-2">
               {navLinks.map((item) => {
                 const isActive = item.path === activeHref;
 
@@ -251,9 +251,9 @@ export const MobileMenu = memo(function MobileMenu({
                       aria-current={isActive ? "page" : undefined}
                       onClick={onClose}
                       className={cn(
-                        "block text-2xl font-black uppercase tracking-wider transition-colors active:opacity-80 touch-manipulation",
+                        "block text-base sm:text-lg font-bold uppercase tracking-wider transition-colors active:opacity-80 touch-manipulation py-1",
                         isActive
-                          ? "text-accent-blue font-black"
+                          ? "text-accent-blue"
                           : "text-text-main hover:text-accent-blue",
                       )}
                     >
@@ -264,7 +264,7 @@ export const MobileMenu = memo(function MobileMenu({
               })}
 
               <motion.li variants={itemVariants}>
-                <p className="text-2xl font-black uppercase tracking-wider text-text-main">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-text-muted/70 pt-2 pb-0.5">
                   Services
                 </p>
               </motion.li>
@@ -282,14 +282,14 @@ export const MobileMenu = memo(function MobileMenu({
               <a
                 href={`tel:${company.phone.replace(/-/g, "")}`}
                 title={`Call MAKc Automations at ${company.phone}`}
-                className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-accent-blue text-white text-sm font-bold uppercase tracking-wide hover:bg-accent-blue/90 transition-all duration-200 active:scale-[0.98] touch-manipulation"
+                className="flex items-center justify-center gap-2 w-full py-2.5 min-h-[42px] rounded-xl bg-accent-blue text-white text-xs font-bold uppercase tracking-wider hover:bg-accent-blue/90 transition-all duration-200 active:scale-[0.98] touch-manipulation shadow-md"
               >
-                <Phone className="size-4 stroke-[2]" aria-hidden="true" />
+                <Phone className="size-3.5 stroke-[2]" aria-hidden="true" />
                 Call Now
               </a>
             </motion.div>
-            <p className="text-center text-xs text-text-muted tracking-wide">
-              +91-8197783287
+            <p className="text-center text-[11px] text-text-muted tracking-wide">
+              {company.phone}
             </p>
           </motion.nav>
         </div>

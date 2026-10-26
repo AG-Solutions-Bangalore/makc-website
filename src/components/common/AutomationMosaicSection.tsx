@@ -338,19 +338,16 @@ export default function AutomationMosaicSection({
   );
 
   return (
-    <section ref={sectionRef} className="mb-28 no-reveal">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
-        {/* Left/Right Column: Reels or Image Mosaic */}
-        <div
-          className={`${reels && reels.length > 0 ? "grid grid-cols-2 gap-3" : "grid grid-cols-2 gap-3"} ${imagePosition === "right" ? "lg:order-last" : "lg:order-first"}`}
-        >
-          {reels && reels.length > 0 ? (
+    <section ref={sectionRef} className="mb-10 sm:mb-16 lg:mb-24 no-reveal">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
+        <div className={`grid grid-cols-2 gap-3 ${imagePosition === "right" ? "lg:order-last" : "lg:order-first"}`}>
+          {reels && reels.length > 1 ? (
             /* ── Double-Reel Layout ── */
             <>
               {reels.map((reel, idx) => (
                 <div
                   key={idx}
-                  className={`${prefix}-img relative rounded-2xl overflow-hidden bg-bg-surface border border-border-main/30 shadow-inner w-full h-full min-h-[460px] sm:min-h-[520px] lg:min-h-[560px]`}
+                  className={`${prefix}-img relative rounded-2xl overflow-hidden bg-bg-surface border border-border-main/30 shadow-inner w-full h-full min-h-[460px] sm:min-h-[520px] lg:min-h-[560px] scrollbar-none`}
                 >
                   <InstagramEmbed reelUrl={reel} />
                 </div>
@@ -360,9 +357,7 @@ export default function AutomationMosaicSection({
             /* ── Original 3-Image Mosaic Layout ── */
             <>
               {/* 1st Card: Tall left image (Dynamic content, Reel or Image from the API) */}
-              <div
-                className={`${prefix}-img row-span-2 relative rounded-2xl overflow-hidden bg-bg-surface border border-border-main/30 shadow-inner w-full h-full min-h-[460px] sm:min-h-[520px] lg:min-h-[560px]`}
-              >
+              <div className={`${prefix}-img row-span-2 relative rounded-2xl overflow-hidden bg-bg-surface border border-border-main/30 shadow-inner w-full h-full min-h-[460px] sm:min-h-[520px] lg:min-h-[560px] scrollbar-none`}>
                 <div className="absolute inset-0 overflow-hidden w-full h-full">
                   {loading ? (
                     <div className="w-full h-full flex items-center justify-center bg-bg-surface">

@@ -68,7 +68,7 @@ export default function AboutPage() {
   return (
     <div className="text-text-main bg-bg-main overflow-hidden min-h-screen transition-colors duration-300">
       {/* HERO SECTION BANNER */}
-      <section className="relative h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[340px] sm:h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden">
         <img
           src={getImageUrl("about-us.webp")}
           alt="MAKc Automation Team"
@@ -81,7 +81,7 @@ export default function AboutPage() {
         {/* Bottom gradient blend into next section */}
         <div className="absolute bottom-0 left-0 right-0 h-24 md:h-36 bg-gradient-to-t from-bg-main to-transparent pointer-events-none z-[5]" />
 
-        <div className="relative z-10 max-w-5xl mx-auto text-center px-4 pt-16 space-y-4">
+        <div className="relative z-10 max-w-5xl mx-auto text-center px-4 pt-10 sm:pt-16 space-y-3 sm:space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/25 text-accent-blue text-xs font-bold uppercase tracking-widest mb-2 backdrop-blur-md">
             <span>About Us</span>
           </div>
@@ -96,9 +96,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-24 pb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12 sm:space-y-16 lg:space-y-24 pb-10 sm:pb-16">
         {/* ABOUT CORE CONTENT SECTION */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center">
           <div
             className="lg:col-span-7 space-y-6 reveal-on-scroll reveal-left"
             data-reveal-duration="0.8s"
@@ -202,8 +202,8 @@ export default function AboutPage() {
         <ServicesOverviewSection />
 
         {/* WHY CHOOSE US & STATISTICS SECTION */}
-        <section className="bg-bg-surface/30 border-y border-border-main/50 py-20 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <section className="bg-bg-surface/30 border-y border-border-main/50 py-10 sm:py-16 lg:py-20 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center">
             <div
               className="lg:col-span-7 space-y-6 reveal-on-scroll reveal-left"
               data-reveal-duration="0.8s"

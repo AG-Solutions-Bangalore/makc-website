@@ -399,7 +399,7 @@ export default function FloatingBot() {
       {/* 1. Speech Bubble Dialog (Only visible when chat is closed) */}
       {!isOpen && (
         <div
-          className={`absolute bottom-0 right-full mr-4 w-64 sm:w-72 bg-bg-surface backdrop-blur-md border border-border-main text-text-main p-4 rounded-2xl shadow-xl shadow-black/10 dark:shadow-black/40 transition-all duration-300 origin-bottom-right ${
+          className={`absolute bottom-0 right-full mr-3 sm:mr-4 w-[calc(100vw-5.5rem)] max-w-64 sm:max-w-72 sm:w-72 bg-bg-surface backdrop-blur-md border border-border-main text-text-main p-3.5 sm:p-4 rounded-2xl shadow-xl shadow-black/10 dark:shadow-black/40 transition-all duration-300 origin-bottom-right ${
             isBubbleVisible
               ? "scale-100 opacity-100 translate-x-0 pointer-events-auto"
               : "scale-90 opacity-0 translate-x-2 pointer-events-none"
@@ -429,7 +429,7 @@ export default function FloatingBot() {
 
       {/* 2. Interactive Chat Window (Opens when trigger clicked) */}
       {isOpen && (
-        <div className="absolute bottom-0 right-full mr-4 w-[320px] sm:w-[380px] h-[480px] sm:h-[520px] bg-bg-surface border border-border-main rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300 origin-bottom-right animate-in fade-in slide-in-from-right-4 zoom-in-95 duration-200">
+        <div className="fixed sm:absolute bottom-20 sm:bottom-0 right-4 sm:right-full left-4 sm:left-auto sm:mr-4 w-auto sm:w-[380px] max-w-[calc(100vw-2rem)] h-[72vh] sm:h-[520px] max-h-[580px] bg-bg-surface border border-border-main rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300 origin-bottom-right animate-in fade-in slide-in-from-right-4 zoom-in-95 duration-200 z-[110] sm:z-auto">
           {/* Header */}
           <div className="bg-gradient-to-r from-[#0a84ff] to-[#6366f1] p-4 text-white flex items-center justify-between shadow-md">
             <div className="flex items-center gap-3">

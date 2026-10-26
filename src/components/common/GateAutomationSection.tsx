@@ -12,6 +12,24 @@ const features = [
   "Safety Sensors & Obstruction Detection",
 ];
 
+const images = [
+  {
+    src: "getAuto1.webp",
+    alt: "Automated rolling shutter garage door layout",
+    title: "Automatic Garage Door Automation",
+  },
+  {
+    src: "service/GA1.webp",
+    alt: "Automatic swing arm motors installed on driveway gates",
+    title: "Automatic Swing Gate Automation",
+  },
+  {
+    src: "service/GA2.webp",
+    alt: "Automatic sliding gate automation system on a residential driveway",
+    title: "Automatic Sliding Gate Automation",
+  },
+];
+
 export default function GateAutomationSection() {
   return (
     <AutomationMosaicSection
@@ -20,15 +38,12 @@ export default function GateAutomationSection() {
       types={types}
       features={features}
       suitableText="Perfect for Residential Gates, Commercial Shutters, Security Checkpoints, and Private Driveways."
+      images={images}
       imagePosition="left"
       prefix="gate"
       serviceName="Gate Automation"
-      reels={[
-        "https://www.instagram.com/reel/DTp5xiDj82a/",
-      ]}
-      reelTitles={[
-        "Watch Gate Automation Reel on Instagram",
-      ]}
+      reelUrl="https://www.instagram.com/reel/DTp5xiDj82a/"
+      reelTitles={["Watch Gate Automation Reel on Instagram"]}
     />
   );
 }
