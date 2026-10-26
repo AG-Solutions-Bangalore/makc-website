@@ -276,11 +276,8 @@ export default function SolutionsGallery() {
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         {/* Top Header Tag */}
         <div className="flex flex-col items-center text-center mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-accent-blue text-[11px] font-bold uppercase tracking-widest mb-2">
-            <Sparkles className="w-3 h-3" />
-            <span>Curated Portfolio • Moments in Motion</span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-text-main tracking-tight">
+        
+          <h2 className="text-2xl font-handwriting sm:text-3xl md:text-4xl font-bold text-text-main tracking-tight">
             A Day in a MAKc Home
           </h2>
           <p className="mt-1.5 text-xs sm:text-sm text-text-muted max-w-lg">
