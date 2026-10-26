@@ -35,7 +35,7 @@ const GOOGLE_REVIEWS_URL =
 
 export default function GoogleReviews() {
   return (
-    <section className="relative w-full py-12 sm:py-16 md:py-20 border-t border-slate-200 dark:border-white/10 overflow-hidden bg-[#f1f5f9] dark:bg-[#030712] transition-colors duration-300">
+    <section className="relative w-full py-12 sm:py-16 md:py-20 border-t border-border-main/40 overflow-hidden bg-bg-surface transition-colors duration-300">
       {/* Subtle glow overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(10,132,255,0.05)_0%,transparent_60%)] pointer-events-none" />
 

@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import { ArrowUpRight } from "lucide-react";
 
 const PARTNERS = [
   { name: "JR Automation", tag: "Automation", url: "https://jrautotech.com/", logo: "/images/partners/jr-automation.png" },
@@ -88,7 +87,7 @@ export default function PartnerLogosSection() {
   };
 
   return (
-    <section className="relative w-full py-14 sm:py-18 lg:py-20 border-y border-slate-300/70 dark:border-accent-blue/20 overflow-hidden bg-gradient-to-b from-[#fbf9df] via-[#fbf1e3] to-[#fbf9df] dark:from-[#050e20] dark:via-[#07152b] dark:to-[#050e20] transition-colors duration-300">
+    <section className="relative w-full py-14 sm:py-18 lg:py-20 bg-bg-surface border-y border-border-main/40 overflow-hidden transition-colors duration-300">
       {/* Ambient glows */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(10,132,255,0.10)_0%,transparent_55%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(10,132,255,0.16)_0%,transparent_55%)]" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent-blue/40 to-transparent" />

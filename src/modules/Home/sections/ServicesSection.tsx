@@ -116,7 +116,7 @@ export default function ServicesSection() {
   return (
     <section
       id="solutions"
-      className="relative w-full py-8 bg-[#F1F4F5] dark:bg-[#070e18] border-t border-border-main transition-colors duration-500 overflow-hidden"
+      className="relative w-full py-8 bg-bg-surface border-t border-border-main/40 transition-colors duration-500 overflow-hidden"
     >
       {/* Top statistics section */}
       <StatsSectionV2 />
@@ -124,7 +124,7 @@ export default function ServicesSection() {
       {/* Subtle ambient lighting glows */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_35%,rgba(10,132,255,0.04)_0%,transparent_50%),radial-gradient(circle_at_85%_75%,rgba(10,132,255,0.03)_0%,transparent_50%)] pointer-events-none" />
 
-      <div className="relative p-5 rounded-xl bg-white dark:bg-[#070e18] mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 z-10">
+      <div className="relative p-5 rounded-xl bg-bg-card mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 z-10 border border-border-main/50">
         <div className="grid grid-cols-1 lg:grid-cols-[28%_1fr] gap-6 lg:gap-6 xl:gap-8 items-center">
           {/* Left Column: Brand Story & Value Indicators (~28% width, +10% width) */}
           <div className="flex flex-col justify-between text-left py-1">
