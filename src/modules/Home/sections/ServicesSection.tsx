@@ -22,6 +22,11 @@ const services = [
     linkTitle: "Smart Home Automation Services",
     imgTitle: "Smart Home Automation Solutions in Bangalore",
     isWide: true,
+    overlay: {
+      left: "linear-gradient(to top right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.30) 40%, rgba(0,0,0,0) 100%)",
+      bottom:
+        "linear-gradient(to top, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0) 50%)",
+    },
   },
   {
     id: "lighting",
@@ -33,6 +38,11 @@ const services = [
     linkTitle: "Smart Lighting Solutions",
     imgTitle: "Smart Lighting Installation Services",
     isWide: false,
+    overlay: {
+      left: "linear-gradient(to top right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.22) 50%, rgba(0,0,0,0) 100%)",
+      bottom:
+        "linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.40) 45%, rgba(0,0,0,0) 100%)",
+    },
   },
   {
     id: "security",
@@ -45,6 +55,11 @@ const services = [
     linkTitle: "Smart Home Security Systems",
     imgTitle: "Advanced Smart Home Security Systems",
     isWide: false,
+    overlay: {
+      left: "linear-gradient(to top right, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.24) 50%, rgba(0,0,0,0) 100%)",
+      bottom:
+        "linear-gradient(to top, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.42) 45%, rgba(0,0,0,0) 100%)",
+    },
   },
   {
     id: "networking",
@@ -56,6 +71,11 @@ const services = [
     linkTitle: "Home Networking Solutions",
     imgTitle: "Home Networking Solutions in Bangalore",
     isWide: true,
+    overlay: {
+      left: "linear-gradient(to top right, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.32) 40%, rgba(0,0,0,0) 100%)",
+      bottom:
+        "linear-gradient(to top, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0) 50%)",
+    },
   },
   {
     id: "audio",
@@ -67,6 +87,11 @@ const services = [
     linkTitle: "Home Audio Solutions",
     imgTitle: "Premium Home Audio Installation",
     isWide: false,
+    overlay: {
+      left: "linear-gradient(to top right, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.08) 50%, rgba(0,0,0,0) 100%)",
+      bottom:
+        "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.25) 45%, rgba(0,0,0,0) 100%)",
+    },
   },
   {
     id: "electric",
@@ -79,6 +104,11 @@ const services = [
     linkTitle: "Smart Home Automation Services",
     imgTitle: "Smart Home Electrical Solutions",
     isWide: false,
+    overlay: {
+      left: "linear-gradient(to top right, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.10) 50%, rgba(0,0,0,0) 100%)",
+      bottom:
+        "linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.25) 45%, rgba(0,0,0,0) 100%)",
+    },
   },
 ];
 
@@ -215,17 +245,15 @@ export default function ServicesSection() {
                     decoding="async"
                   />
 
-                  {/* Clean, Lightweight Vignette Overlays matching the design: clear top, soft bottom shade */}
-                  {isWide ? (
-                    <>
-                      {/* Soft directional gradient behind text on bottom-left; top and right remain completely unshaded */}
-                      <div className="absolute inset-0 bg-gradient-to-tr from-black/75 via-black/30 via-40% to-transparent pointer-events-none transition-opacity duration-300 group-hover:opacity-90" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent via-50% to-transparent pointer-events-none" />
-                    </>
-                  ) : (
-                    /* Standard cards: soft bottom gradient only, upper 55% completely clear */
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 via-45% to-transparent pointer-events-none transition-opacity duration-300 group-hover:opacity-90" />
-                  )}
+                  {/* Separate per-card overlays: left for text contrast, bottom for fade */}
+                  <div
+                    className="absolute inset-0 pointer-events-none transition-opacity duration-300 group-hover:opacity-90"
+                    style={{ backgroundImage: service.overlay.left }}
+                  />
+                  <div
+                    className="absolute inset-0 pointer-events-none transition-opacity duration-300 group-hover:opacity-90"
+                    style={{ backgroundImage: service.overlay.bottom }}
+                  />
 
                   {/* Top: Subtle Translucent Frosted Glass Icon Badge */}
                   <div className="relative z-10 w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-xl bg-black/25 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/95 shadow-sm transition-transform duration-300 group-hover:scale-105">

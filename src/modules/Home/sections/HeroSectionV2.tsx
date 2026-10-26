@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import { useTheme } from "next-themes";
 import WaveButton from "@/components/common/WaveButton";
 import { getImageUrl } from "@/utils/image";
@@ -18,6 +19,7 @@ import {
   Wifi,
   X,
   Play,
+  ArrowRight,
 } from "lucide-react";
 import InstagramEmbed from "@/components/common/InstagramEmbed";
 
@@ -155,200 +157,319 @@ export default function HeroSectionV2() {
     <section
       ref={sectionRef}
       id="home"
-      className="group relative w-full min-h-screen bg-bg-main flex items-center justify-between overflow-hidden py-20 sm:py-28 transition-colors duration-300 no-reveal"
+      className="group relative w-full bg-bg-main transition-colors duration-300 overflow-hidden no-reveal"
     >
-      {/* Background Image Container with Smooth Crossfade between Dark (Night) and Light (Day) Themes */}
-      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
-        {/* Dark Theme Hero Background (Night Villa) */}
-        <img
-          src={heroBgDark}
-          srcSet={heroBgDarkSrcSet}
-          sizes="100vw"
-          width={1920}
-          height={1080}
-          alt="Smart Home Automation Installation in Bangalore - Night View"
-          title="Smart Home Automation Installation in Bangalore"
-          className="absolute inset-0 w-full h-full object-cover object-[72%_center] lg:object-center transition-opacity duration-700 ease-in-out dark:opacity-100 opacity-0"
-          loading="eager"
-          decoding="async"
-          fetchPriority="high"
-        />
-        {/* Light Theme Hero Background (Day Villa) — on demand only */}
-        {isLight && (
+      {/* ======================================================== */}
+      {/* DESKTOP HERO (lg:flex hidden) — 100% Unchanged Desktop   */}
+      {/* ======================================================== */}
+      <div className="hidden lg:flex relative w-full min-h-screen items-center justify-between overflow-hidden py-20 sm:py-28">
+        {/* Background Image Container with Smooth Crossfade between Dark (Night) and Light (Day) Themes */}
+        <div className="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
+          {/* Dark Theme Hero Background (Night Villa) */}
           <img
-            src={heroBgLight}
-            srcSet={heroBgLightSrcSet}
+            src={heroBgDark}
+            srcSet={heroBgDarkSrcSet}
             sizes="100vw"
-            width={1392}
-            height={768}
-            alt="Smart Home Automation Installation in Bangalore - Day View"
+            width={1920}
+            height={1080}
+            alt="Smart Home Automation Installation in Bangalore - Night View"
             title="Smart Home Automation Installation in Bangalore"
-            className="absolute inset-0 w-full h-full object-cover object-[72%_center] lg:object-center transition-opacity duration-700 ease-in-out dark:opacity-0 opacity-100"
+            className="absolute inset-0 w-full h-full object-cover object-[72%_center] lg:object-center transition-opacity duration-700 ease-in-out dark:opacity-100 opacity-0"
             loading="eager"
             decoding="async"
             fetchPriority="high"
           />
+          {/* Light Theme Hero Background (Day Villa) — on demand only */}
+          {isLight && (
+            <img
+              src={heroBgLight}
+              srcSet={heroBgLightSrcSet}
+              sizes="100vw"
+              width={1392}
+              height={768}
+              alt="Smart Home Automation Installation in Bangalore - Day View"
+              title="Smart Home Automation Installation in Bangalore"
+              className="absolute inset-0 w-full h-full object-cover object-[72%_center] lg:object-center transition-opacity duration-700 ease-in-out dark:opacity-0 opacity-100"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+            />
+          )}
+
+          {/* Clean directional contrast so villa image is 100% visible and unblocked in both modes */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent pointer-events-none z-[2] transition-colors duration-300" />
+
+          {/* Right side ambient smart home glow behind hotspots (Dark mode only) */}
+          <div className="absolute -right-20 top-1/4 w-[520px] h-[520px] bg-gradient-to-br from-amber-400/15 via-blue-500/8 to-transparent blur-[120px] rounded-full pointer-events-none z-[4] dark:opacity-100 opacity-0 transition-opacity duration-300" />
+
+          {/* Bottom gradient blend into next section */}
+          <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-24 bg-gradient-to-t from-bg-main via-bg-main/40 to-transparent pointer-events-none z-[5]" />
+        </div>
+
+        {/* Shared SVG Connector Layer (Desktop only) */}
+        {isInView && isDesktop && (
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none z-20"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+          >
+            {hotspotsList.map((hotspot, idx) => (
+              <Connector
+                key={`line-${hotspot.id}`}
+                anchor={hotspot.anchor}
+                labelPos={hotspot.labelPos}
+                isHovered={hoveredId === hotspot.id}
+                isActive={activeId === hotspot.id}
+                color={hotspot.connectorColor}
+                delay={idx * 0.18}
+                isMobile={isMobile}
+              />
+            ))}
+          </svg>
         )}
 
-        {/* Clean directional contrast so villa image is 100% visible and unblocked in both modes */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent pointer-events-none z-[2] transition-colors duration-300" />
+        {/* Interactive Hotspots and Labels Layer (Desktop only) */}
+        {isInView && isDesktop && (
+          <div className="absolute inset-0 w-full h-full z-30 pointer-events-none">
+            <div className="relative w-full h-full pointer-events-none">
+              {hotspotsList.map((hotspot, idx) => {
+                const isActive = activeId === hotspot.id;
+                const isHovered = hoveredId === hotspot.id;
+                const delay = idx * 0.24;
 
-        {/* Right side ambient smart home glow behind hotspots (Dark mode only) */}
-        <div className="absolute -right-20 top-1/4 w-[520px] h-[520px] bg-gradient-to-br from-amber-400/15 via-blue-500/8 to-transparent blur-[120px] rounded-full pointer-events-none z-[4] dark:opacity-100 opacity-0 transition-opacity duration-300" />
+                return (
+                  <div key={hotspot.id}>
+                    {/* Anchor Dot */}
+                    <div className="pointer-events-auto">
+                      <Hotspot
+                        id={hotspot.id}
+                        anchor={hotspot.anchor}
+                        isHovered={isHovered}
+                        isActive={isActive}
+                        onHoverStart={() => setHoveredId(hotspot.id)}
+                        onHoverEnd={() => setHoveredId(null)}
+                        onClick={() => handleHotspotClick(hotspot.id)}
+                        index={idx}
+                        delay={delay}
+                        isMobile={isMobile}
+                      />
+                    </div>
 
-        {/* Bottom gradient blend into next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-24 bg-gradient-to-t from-bg-main via-bg-main/40 to-transparent pointer-events-none z-[5]" />
-      </div>
-
-      {/* Shared SVG Connector Layer (Desktop only to prevent colliding with text on mobile/tablet) */}
-      {isInView && isDesktop && (
-        <svg
-          className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-20"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-        >
-          {hotspotsList.map((hotspot, idx) => (
-            <Connector
-              key={`line-${hotspot.id}`}
-              anchor={hotspot.anchor}
-              labelPos={hotspot.labelPos}
-              isHovered={hoveredId === hotspot.id}
-              isActive={activeId === hotspot.id}
-              color={hotspot.connectorColor}
-              delay={idx * 0.18}
-              isMobile={isMobile}
-            />
-          ))}
-        </svg>
-      )}
-
-      {/* Interactive Hotspots and Labels Layer (Desktop only to keep mobile/tablet hero pristine and collision-free) */}
-      {isInView && isDesktop && (
-        <div className="hidden lg:block absolute inset-0 w-full h-full z-30 pointer-events-none">
-          <div className="relative w-full h-full pointer-events-none">
-            {hotspotsList.map((hotspot, idx) => {
-              const isActive = activeId === hotspot.id;
-              const isHovered = hoveredId === hotspot.id;
-              const delay = idx * 0.24;
-
-              return (
-                <div key={hotspot.id}>
-                  {/* Anchor Dot */}
-                  <div className="pointer-events-auto">
-                    <Hotspot
-                      id={hotspot.id}
-                      anchor={hotspot.anchor}
-                      isHovered={isHovered}
-                      isActive={isActive}
-                      onHoverStart={() => setHoveredId(hotspot.id)}
-                      onHoverEnd={() => setHoveredId(null)}
-                      onClick={() => handleHotspotClick(hotspot.id)}
-                      index={idx}
-                      delay={delay}
-                      isMobile={isMobile}
-                    />
+                    {/* Floating Labels */}
+                    <div className="pointer-events-auto">
+                      <Label
+                        label={hotspot.label}
+                        labelPos={hotspot.labelPos}
+                        icon={hotspot.icon}
+                        isHovered={isHovered}
+                        isActive={isActive}
+                        onHoverStart={() => setHoveredId(hotspot.id)}
+                        onHoverEnd={() => setHoveredId(null)}
+                        onClick={() => handleHotspotClick(hotspot.id)}
+                        delay={delay}
+                        isTablet={isTablet}
+                        isMobile={isMobile}
+                      />
+                    </div>
                   </div>
-
-                  {/* Floating Labels */}
-                  <div className="pointer-events-auto">
-                    <Label
-                      label={hotspot.label}
-                      labelPos={hotspot.labelPos}
-                      icon={hotspot.icon}
-                      isHovered={isHovered}
-                      isActive={isActive}
-                      onHoverStart={() => setHoveredId(hotspot.id)}
-                      onHoverEnd={() => setHoveredId(null)}
-                      onClick={() => handleHotspotClick(hotspot.id)}
-                      delay={delay}
-                      isTablet={isTablet}
-                      isMobile={isMobile}
-                    />
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {/* Left-Side Content overlays above background and hotspots */}
-      <div className="relative z-40 mx-auto max-w-8xl w-full px-4 sm:px-14 flex flex-col lg:flex-row lg:items-stretch justify-between gap-12 sm:gap-16 pointer-events-none">
-        {/* Hero Left Content — 100% transparent, no white card, background image completely visible */}
-        <div
-          className="flex-1 flex flex-col justify-center text-left max-w-lg lg:max-w-[48%] xl:max-w-[46%] 2xl:max-w-2xl reveal-on-scroll reveal-left pointer-events-auto p-0 bg-transparent border-0 shadow-none"
-          data-reveal-duration="0.9s"
-        >
-          <div className="mb-3">
-            <div className="inline-flex items-center gap-2.5 border border-white/25 bg-black/40 backdrop-blur-md rounded-full px-3.5 py-1.5 select-none pointer-events-none shadow-xs">
-              <img
-                src="/images/iso-image.svg"
-                alt="ISO Certified Logo"
-                title="ISO Certified Home Automation Company"
-                className="h-5.5 w-5.5 object-contain"
-              />
+        {/* Desktop Left-Side Content */}
+        <div className="relative z-40 mx-auto max-w-8xl w-full px-6 lg:px-14 flex flex-row items-stretch justify-between gap-16 pointer-events-none">
+          <div
+            className="flex-1 flex flex-col justify-center text-left max-w-lg lg:max-w-[48%] xl:max-w-[46%] 2xl:max-w-2xl reveal-on-scroll reveal-left pointer-events-auto p-0 bg-transparent border-0 shadow-none"
+            data-reveal-duration="0.9s"
+          >
+            <div className="mb-3">
+              <div className="inline-flex items-center gap-2.5 border border-white/25 bg-black/40 backdrop-blur-md rounded-full px-3.5 py-1.5 select-none pointer-events-none shadow-xs">
+                <img
+                  src="/images/iso-image.svg"
+                  alt="ISO Certified Logo"
+                  title="ISO Certified Home Automation Company"
+                  className="h-5.5 w-5.5 object-contain"
+                />
+                <span
+                  className="text-xs font-sans font-bold tracking-wide leading-none"
+                  style={{
+                    color: "#ffffff",
+                    textShadow: "0 1px 3px rgba(0,0,0,0.9)",
+                  }}
+                >
+                  ISO{" "}
+                  <span className="font-extrabold" style={{ color: "#00e676" }}>
+                    9001:2015
+                  </span>{" "}
+                  Certified Company
+                </span>
+              </div>
+            </div>
+
+            <h1 className="mt-4 text-4xl xl:text-5xl 2xl:text-6xl font-extrabold tracking-tight leading-[1.15]">
               <span
-                className="text-[11px] sm:text-xs font-sans font-bold tracking-wide leading-none"
+                className="block xl:text-nowrap font-extrabold"
                 style={{
                   color: "#ffffff",
-                  textShadow: "0 1px 3px rgba(0,0,0,0.9)",
+                  textShadow:
+                    "0 2px 4px rgba(0,0,0,0.95), 0 0 12px rgba(0,0,0,0.9), 0 0 24px rgba(0,0,0,0.85)",
+                  filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.9))",
                 }}
               >
-                ISO{" "}
-                <span className="font-extrabold" style={{ color: "#00e676" }}>
-                  9001:2015
-                </span>{" "}
-                Certified Company
+                Smart Home Automation
+              </span>
+              <span
+                className="block italic font-semibold"
+                style={{
+                  color: "#38bdf8",
+                  textShadow:
+                    "0 2px 4px rgba(0,0,0,0.95), 0 0 12px rgba(0,0,0,0.9), 0 0 24px rgba(0,0,0,0.85)",
+                  filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.9))",
+                }}
+              >
+                Company in Bangalore
+              </span>
+            </h1>
+
+            <p
+              className="mt-4 text-base font-semibold leading-relaxed max-w-lg"
+              style={{
+                color: "#ffffff",
+                textShadow:
+                  "0 1px 4px rgba(0,0,0,0.95), 0 2px 8px rgba(0,0,0,0.9), 0 0 16px rgba(0,0,0,0.85)",
+                filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.9))",
+              }}
+            >
+              Smart homes are not about gadgets — they are about how you live.
+              With almost a decade of experience and 800+ projects delivered
+              across homes and select commercial spaces, here's what you can
+              expect from us.
+            </p>
+
+            <div className="mt-10">
+              <WaveButton
+                href="#contact-enquiry"
+                title="Book a Free Smart Home Consultation"
+                accentColor="#006ed6"
+                foregroundColor="#fff"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById("contact-enquiry");
+                  if (el) {
+                    el.scrollIntoView({ behavior: "smooth" });
+                  } else {
+                    window.location.href = "/contact";
+                  }
+                }}
+                className="home-wave-cta--drain rounded-none px-8 py-3 w-fit text-nowrap hover:text-white! border font-bold text-[0.65rem] tracking-[0.15em] uppercase shadow-[0_4px_20px_rgba(10,132,255,0.35)] flex items-center justify-center gap-2 text-center cursor-pointer"
+              >
+                <span className="leading-snug">
+                  Book a Free Smart Home Consultation
+                </span>
+              </WaveButton>
+            </div>
+          </div>
+
+          <div className="w-full lg:max-w-[48%] xl:max-w-[50%] shrink-0 pointer-events-none" />
+        </div>
+
+        {/* Desktop Scroll Down Indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2.5 pointer-events-none">
+          <span
+            className="text-[8px] font-bold tracking-[0.3em] uppercase"
+            style={{
+              color: "#ffffff",
+              textShadow: "0 1px 3px rgba(0,0,0,0.9)",
+            }}
+          >
+            SCROLL TO DISCOVER
+          </span>
+          <div className="w-[18px] h-[30px] border border-white/50 rounded-full flex justify-center p-1.5 opacity-100 bg-black/20 backdrop-blur-xs">
+            <div className="w-[4px] h-[6px] bg-gold-primary rounded-full animate-bounce" />
+          </div>
+        </div>
+      </div>
+
+      {/* ======================================================== */}
+      {/* MOBILE / TABLET HERO (flex lg:hidden) — Premium Editorial Flow */}
+      {/* ======================================================== */}
+      <div className="flex lg:hidden flex-col w-full relative bg-bg-main overflow-hidden">
+        {/* Top Hero Image Showcase (Clean villa showcase with smooth bottom fade) */}
+        <div className="relative w-full h-[360px] sm:h-[440px] overflow-hidden bg-slate-900 shrink-0">
+          {/* Dark Mode Villa */}
+          <img
+            src={heroBgDark}
+            srcSet={heroBgDarkSrcSet}
+            sizes="100vw"
+            width={1920}
+            height={1080}
+            alt="Smart Home Automation Installation in Bangalore - Night View"
+            title="Smart Home Automation Installation in Bangalore"
+            className="absolute inset-0 w-full h-full object-cover object-[70%_center] transition-opacity duration-700 ease-in-out dark:opacity-100 opacity-0"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+          />
+          {/* Light Mode Villa */}
+          {isLight && (
+            <img
+              src={heroBgLight}
+              srcSet={heroBgLightSrcSet}
+              sizes="100vw"
+              width={1392}
+              height={768}
+              alt="Smart Home Automation Installation in Bangalore - Day View"
+              title="Smart Home Automation Installation in Bangalore"
+              className="absolute inset-0 w-full h-full object-cover object-[70%_center] transition-opacity duration-700 ease-in-out dark:opacity-0 opacity-100"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+            />
+          )}
+
+          {/* Top subtle vignette for Header readability */}
+          <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-black/70 via-black/20 to-transparent pointer-events-none z-10" />
+
+          {/* Top-Left Small ISO Badge (Under Header) */}
+          <div className="absolute top-[72px] left-4 sm:left-6 z-20 pointer-events-none">
+            <div className="inline-flex items-center gap-1.5 border border-white/25 bg-black/60 backdrop-blur-md rounded-full px-2.5 py-1 select-none shadow-xs">
+              <img
+                src="/images/iso-image.svg"
+                alt="ISO Logo"
+                title="ISO 9001:2015"
+                className="h-3.5 w-3.5 object-contain"
+              />
+              <span className="text-[10px] font-sans font-bold tracking-wide leading-none text-white">
+                ISO <span className="font-extrabold text-[#00e676]">9001:2015</span>
               </span>
             </div>
           </div>
 
-          <h1 className="mt-3 sm:mt-4 text-2xl sm:text-4xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold tracking-tight leading-[1.15]">
-            <span
-              className="block xl:text-nowrap font-extrabold"
-              style={{
-                color: "#ffffff",
-                textShadow:
-                  "0 2px 4px rgba(0,0,0,0.95), 0 0 12px rgba(0,0,0,0.9), 0 0 24px rgba(0,0,0,0.85)",
-                filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.9))",
-              }}
-            >
-              Smart Home Automation
-            </span>
-            <span
-              className="block italic font-bold sm:font-semibold"
-              style={{
-                color: "#38bdf8",
-                textShadow:
-                  "0 2px 4px rgba(0,0,0,0.95), 0 0 12px rgba(0,0,0,0.9), 0 0 24px rgba(0,0,0,0.85)",
-                filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.9))",
-              }}
-            >
-              Company in Bangalore
+          {/* Bottom gradient fade into page background */}
+          <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-bg-main via-bg-main/70 to-transparent pointer-events-none z-10" />
+        </div>
+
+        {/* Bottom Content Area — Concise, Airy & Mobile-Optimized */}
+        <div className="-mt-10 sm:-mt-12 relative z-20 px-5 sm:px-8 pb-8 flex flex-col text-left max-w-lg mx-auto w-full">
+          {/* Editorial Headline */}
+          <h1 className="text-[22px] sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.2]">
+            <span className="block">Smart Home Automation</span>
+            <span className="block font-serif italic font-normal text-[#0070e0] dark:text-[#38bdf8] mt-0.5">
+              in Bangalore
             </span>
           </h1>
 
-          <p
-            className="mt-4 text-sm sm:text-base font-semibold leading-relaxed max-w-lg"
-            style={{
-              color: "#ffffff",
-              textShadow:
-                "0 1px 4px rgba(0,0,0,0.95), 0 2px 8px rgba(0,0,0,0.9), 0 0 16px rgba(0,0,0,0.85)",
-              filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.9))",
-            }}
-          >
-            Smart homes are not about gadgets — they are about how you live.
-            With almost a decade of experience and 800+ projects delivered
-            across homes and select commercial spaces, here's what you can
-            expect from us.
+          {/* Subtitle / Narrative (Clean & Concise) */}
+          <p className="mt-2 text-xs sm:text-[13px] text-slate-600 dark:text-slate-400 font-normal leading-relaxed max-w-sm">
+            Bespoke smart living for modern luxury homes. Over 800+ projects delivered with 8+ years of excellence.
           </p>
 
-          <div className="mt-8 sm:mt-10">
-            <WaveButton
+          {/* Side-by-Side Action Pill Buttons */}
+          <div className="mt-4 flex items-center gap-2.5 w-full">
+            <a
               href="#contact-enquiry"
-              title="Book a Free Smart Home Consultation"
-              accentColor="#006ed6"
-              foregroundColor="#fff"
               onClick={(e) => {
                 e.preventDefault();
                 const el = document.getElementById("contact-enquiry");
@@ -358,42 +479,32 @@ export default function HeroSectionV2() {
                   window.location.href = "/contact";
                 }
               }}
-              className="home-wave-cta--drain rounded-none px-8 py-3 w-fit md:text-nowrap hover:text-white! border font-bold text-[0.65rem] tracking-wide sm:tracking-[0.15em] uppercase shadow-[0_4px_20px_rgba(10,132,255,0.35)] flex items-center justify-center gap-2 text-center cursor-pointer"
+              className="flex-1 py-2.5 px-4 rounded-full bg-[#0070e0] hover:bg-[#005bb8] active:scale-[0.98] text-white font-sans font-bold text-xs tracking-wide shadow-[0_4px_16px_rgba(0,112,224,0.3)] flex items-center justify-center gap-1.5 transition-all cursor-pointer whitespace-nowrap"
             >
-              <span className="leading-snug">
-                Book a Free Smart Home Consultation
-              </span>
-            </WaveButton>
+              <span>Free Consultation</span>
+              <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
+            </a>
+
+            <Link
+              to="/automation"
+              className="py-2.5 px-4 rounded-full border border-slate-300/80 dark:border-white/15 bg-white/60 dark:bg-white/5 hover:bg-white dark:hover:bg-white/10 active:scale-[0.98] text-slate-900 dark:text-white font-sans font-bold text-xs tracking-wide flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-xs whitespace-nowrap"
+            >
+              <span>Explore Solutions</span>
+            </Link>
           </div>
 
-          {/* Solution Reel Tabs (Mobile & Tablet only — Desktop uses interactive pointers on the villa with play icon) */}
-          <div className="lg:hidden mt-7 sm:mt-9 pt-5 border-t border-white/20 max-w-xl">
-            <div className="flex items-center gap-2 mb-3">
-              <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-[#006ed6] text-white shadow-xs">
-                <Play className="w-2.5 h-2.5 fill-current ml-0.5" />
+          {/* Solution Reel Tabs (Single-Row Horizontal Scroll) */}
+          <div className="mt-5 pt-3.5 border-t border-slate-200/60 dark:border-white/10 w-full">
+            <div className="flex items-center justify-between gap-2 mb-2">
+              <span className="text-[10px] font-sans font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                Solutions in Action
               </span>
-              <span
-                className="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider"
-                style={{
-                  color: "#ffffff",
-                  textShadow:
-                    "0 1px 4px rgba(0,0,0,0.95), 0 0 8px rgba(0,0,0,0.85)",
-                }}
-              >
-                Explore Solutions in Action
-              </span>
-              <span
-                className="text-[10px] font-bold"
-                style={{
-                  color: "rgba(255, 255, 255, 0.9)",
-                  textShadow: "0 1px 3px rgba(0,0,0,0.9)",
-                }}
-              >
-                (Tap to watch Reel)
+              <span className="text-[9.5px] font-sans font-medium text-[#0070e0] dark:text-[#38bdf8]">
+                Tap to watch reel
               </span>
             </div>
 
-            <div className="flex flex-wrap gap-2 sm:gap-2.5">
+            <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none py-1 -mx-5 px-5">
               {reelTabsList.map((pointer) => {
                 const isActive = activeId === pointer.id;
                 const Icon = pointer.icon;
@@ -403,58 +514,31 @@ export default function HeroSectionV2() {
                     key={pointer.id}
                     type="button"
                     onClick={() => handleHotspotClick(pointer.id)}
-                    className={`group inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full text-xs font-bold tracking-wide transition-all duration-200 cursor-pointer ${isActive
-                        ? "bg-[#006ed6] text-white shadow-md shadow-[#006ed6]/40 border border-[#006ed6]"
-                        : "bg-black/40 hover:bg-black/60 text-white border border-white/25 hover:border-[#38bdf8]/60 shadow-xs backdrop-blur-md"
-                      }`}
+                    className={`shrink-0 inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold tracking-tight transition-all cursor-pointer ${
+                      isActive
+                        ? "bg-[#0070e0] text-white shadow-xs"
+                        : "bg-white/80 dark:bg-white/5 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-white/10"
+                    }`}
                     aria-label={`Watch ${pointer.label} Showcase Reel`}
                   >
                     <Icon
-                      className={`w-3.5 h-3.5 shrink-0 transition-colors ${isActive ? "text-white" : "text-[#38bdf8]"
-                        }`}
+                      className={`w-3 h-3 shrink-0 ${
+                        isActive
+                          ? "text-white"
+                          : "text-[#0070e0] dark:text-[#38bdf8]"
+                      }`}
                     />
-                    <span
-                      className="transition-colors font-bold"
-                      style={{
-                        color: "#ffffff",
-                        textShadow: "0 1px 3px rgba(0,0,0,0.9)",
-                      }}
-                    >
-                      {pointer.label}
-                    </span>
+                    <span className="whitespace-nowrap">{pointer.label}</span>
                     {isActive ? (
-                      <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-white/25 ml-1 shrink-0">
-                        <X className="w-2.5 h-2.5 text-white" />
-                      </span>
+                      <X className="w-2.5 h-2.5 text-white ml-0.5" />
                     ) : (
-                      <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-[#006ed6]/30 border border-[#38bdf8]/60 ml-1 shrink-0 group-hover:bg-[#006ed6]/50 transition-colors">
-                        <Play className="w-2 h-2 fill-[#38bdf8] text-[#38bdf8] ml-0.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]" />
-                      </span>
+                      <Play className="w-2 h-2 fill-current ml-0.5 opacity-70" />
                     )}
                   </button>
                 );
               })}
             </div>
           </div>
-        </div>
-
-        {/* Empty Right Column on Desktop to preserve split visual layout */}
-        <div className="w-full lg:max-w-[48%] xl:max-w-[50%] shrink-0 pointer-events-none hidden lg:block" />
-      </div>
-
-      {/* Scroll Down Indicator */}
-      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2.5 pointer-events-none">
-        <span
-          className="text-[8px] font-bold tracking-[0.3em] uppercase"
-          style={{
-            color: "#ffffff",
-            textShadow: "0 1px 3px rgba(0,0,0,0.9)",
-          }}
-        >
-          SCROLL TO DISCOVER
-        </span>
-        <div className="w-[18px] h-[30px] border border-white/50 rounded-full flex justify-center p-1.5 opacity-100 bg-black/20 backdrop-blur-xs">
-          <div className="w-[4px] h-[6px] bg-gold-primary rounded-full animate-bounce" />
         </div>
       </div>
 
