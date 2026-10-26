@@ -231,7 +231,7 @@ export default function ServicesSection() {
                   to={service.link}
                   title={service.linkTitle}
                   id={service.id}
-                  className={`group relative rounded-[18px] sm:rounded-[20px] overflow-hidden p-3.5 sm:p-4 flex flex-col justify-between cursor-pointer border border-slate-200/50 dark:border-white/10 shadow-[0_3px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_6px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_12px_30px_rgba(0,0,0,0.55)] transition-all duration-500 h-[185px] sm:h-[195px] lg:h-[200px] xl:h-[210px] ${
+                  className={`group  text-white! relative rounded-[18px] sm:rounded-[20px] overflow-hidden p-3.5 sm:p-4 flex flex-col justify-between cursor-pointer border border-slate-200/50 dark:border-white/10 shadow-[0_3px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_6px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_12px_30px_rgba(0,0,0,0.55)] transition-all duration-500 h-[185px] sm:h-[195px] lg:h-[200px] xl:h-[210px] ${
                     isWide ? "sm:col-span-2 lg:col-span-1" : "sm:col-span-1"
                   }`}
                 >
@@ -263,16 +263,16 @@ export default function ServicesSection() {
                   {/* Card Content Layout: Wide cards restrict text width & group actions on left; standard cards space-between */}
                   {isWide ? (
                     <div className="relative z-10 mt-auto pt-1 text-left max-w-[190px] sm:max-w-[210px]">
-                      <h3 className="font-sans text-[15px] sm:text-base font-bold text-white tracking-tight leading-snug drop-shadow-sm">
+                      <h3 className="font-sans text-[15px] sm:text-base font-bold text-white! tracking-tight leading-snug drop-shadow-sm">
                         {service.title}
                       </h3>
-                      <p className="mt-0.5 font-sans text-[11px] sm:text-xs text-white/80 leading-tight font-normal line-clamp-2">
+                      <p className="mt-0.5 font-sans text-[11px] sm:text-xs text-white/80! leading-tight font-normal line-clamp-2">
                         {service.description}
                       </p>
 
                       {/* Bottom Action: View More with Circular Arrow Button directly next to it */}
                       <div className="mt-2 flex items-center gap-2">
-                        <span className="text-[11.5px] font-handwriting sm:text-xs font-medium text-white/90 group-hover:text-white transition-colors duration-200 group-hover:decoration-white">
+                        <span className="text-[11.5px] font-handwriting sm:text-xs font-medium text-white/90! group-hover:text-white transition-colors duration-200 group-hover:decoration-white">
                           View More
                         </span>
                         <div className="w-6 h-6 rounded-full border border-white/45 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black group-hover:border-white transition-all duration-300 shadow-sm shrink-0">
@@ -282,10 +282,10 @@ export default function ServicesSection() {
                     </div>
                   ) : (
                     <div className="relative z-10 mt-auto pt-1 text-left w-full">
-                      <h3 className="font-sans text-[15px] sm:text-base font-bold text-white tracking-tight leading-snug drop-shadow-sm">
+                      <h3 className="font-sans text-[15px] sm:text-base font-bold text-white! tracking-tight leading-snug drop-shadow-sm">
                         {service.title}
                       </h3>
-                      <p className="mt-0.5 font-sans leading-tight text-[11px] sm:text-xs text-white/80 leading-relaxed font-normal line-clamp-2">
+                      <p className="mt-0.5 font-sans leading-tight text-[11px] sm:text-xs text-white/80! leading-relaxed font-normal line-clamp-2">
                         {service.description}
                       </p>
 

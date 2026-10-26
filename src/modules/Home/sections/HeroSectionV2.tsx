@@ -52,7 +52,7 @@ const hotspotsList: HotspotType[] = [
   },
   {
     id: "lighting",
-    label: "Lighting",
+    label: "Lighting Automation",
     anchor: { x: 58.5, y: 36 },
     labelPos: { x: 72.6, y: 32.4 },
     icon: Lightbulb,
