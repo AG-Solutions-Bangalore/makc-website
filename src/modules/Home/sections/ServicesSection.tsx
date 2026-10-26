@@ -131,7 +131,7 @@ export default function ServicesSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 border border-border-main backdrop-blur-sm">
           {/* Left Column: Intro Section (Spans 4/12 cols) */}
           <div
-            className="lg:col-span-4 flex flex-col justify-between p-6 sm:p-8 lg:p-8 xl:p-10 bg-bg-main/40 dark:bg-bg-main/20 backdrop-blur-md border-b lg:border-b-0 lg:border-r border-border-main text-left reveal-on-scroll reveal-up"
+            className="lg:col-span-4 flex flex-col justify-start gap-6 sm:gap-7 lg:gap-8 p-6 sm:p-8 lg:p-8 xl:p-10 bg-bg-surface dark:bg-bg-main/40 border-b lg:border-b-0 lg:border-r border-border-main text-left reveal-on-scroll reveal-up"
             data-reveal-duration="0.8s"
           >
             <div className="flex flex-col">
@@ -139,17 +139,20 @@ export default function ServicesSection() {
                 EXPERIENCE SMART LIVING
               </span>
 
-              <h2 className="mt-4 font-serif text-[1.35rem] xs:text-[1.55rem] sm:text-3xl lg:text-[1.45rem] xl:text-[1.85rem] 2xl:text-[2.25rem] font-extrabold text-text-main tracking-tight leading-[1.2]">
-                <span className="block whitespace-nowrap">
+              <h2 className="mt-4 font-serif text-2xl xs:text-3xl sm:text-3xl lg:text-[1.65rem] xl:text-[1.95rem] 2xl:text-4xl font-extrabold text-text-main tracking-tight leading-[1.2]">
+                <span className="block">
                   Complete Smart
                 </span>
-                <span className="block whitespace-nowrap font-serif italic font-normal text-text-main">
-                  Home Automation Solutions
+                <span className="block font-serif italic font-normal text-text-main">
+                  Home Automation
+                </span>
+                <span className="block font-serif italic font-semibold text-accent-blue">
+                  Solutions
                 </span>
               </h2>
             </div>
 
-            <p className="mt-8 lg:mt-0 font-sans text-[13.2px] sm:text-[15.4px] lg:text-[17.6px] text-text-muted leading-relaxed">
+            <p className="font-sans text-[13.5px] sm:text-[15px] lg:text-base text-text-muted leading-relaxed">
               Every room should anticipate your needs. <br />
               Walk in. Lights welcome you. <br />
               Climate adjusts automatically. <br />
@@ -164,13 +167,14 @@ export default function ServicesSection() {
           <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 bg-bg-main sm:bg-border-main gap-2 sm:gap-[1px]">
             {services.map((service, index) => {
               const Icon = service.icon;
+              const isAutomation = service.id === "automation";
               return (
                 <Link
                   key={index}
                   to={service.link}
                   title={service.linkTitle}
                   id={service.id}
-                  className="relative group min-h-[280px] flex flex-col justify-between items-start p-6 sm:p-8 bg-bg-main overflow-hidden cursor-pointer transition-all duration-300 hover:bg-bg-surface reveal-on-scroll reveal-up"
+                  className="relative group min-h-[290px] flex flex-col justify-between items-start p-6 sm:p-7 bg-bg-surface dark:bg-bg-main overflow-hidden cursor-pointer transition-all duration-300 hover:bg-bg-surface reveal-on-scroll reveal-up"
                   data-reveal-delay={`${index * 80}ms`}
                   data-reveal-duration="0.7s"
                 >
@@ -198,7 +202,7 @@ export default function ServicesSection() {
                         src={service.bgImage}
                         alt={service.title}
                         title={service.imgTitle}
-                        className="w-full h-full object-cover object-center filter transition-all duration-500"
+                        className="w-full h-full object-cover object-center brightness-105 contrast-[1.02] filter transition-all duration-500"
                         width={1024}
                         height={1024}
                         loading="lazy"
@@ -206,31 +210,48 @@ export default function ServicesSection() {
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                     </picture>
-                    {/* Shadow overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-l dark:bg-gradient-to-r dark:from-bg-main from-bg-[#000]  dark:via-bg-main/80 via-bg-main/5 dark:to-transparent to-[#000]" />
+                    {/* Overlay: In light mode, NO white shade - show the complete image! In dark mode, keep black shade */}
+                    <div className="absolute inset-0 hidden dark:block bg-gradient-to-r from-black/95 via-black/75 via-50% to-transparent/20 transition-colors duration-300" />
                   </div>
 
                   <div className="relative z-10 w-full flex-1 flex flex-col justify-start">
                     {/* Card Top: Icon (Accent Blue) */}
                     <div className="text-left">
-                      <div className="text-accent-blue group-hover:text-accent-blue/80 transition-all duration-300 shrink-0 flex items-center justify-start w-12 h-12">
-                        <Icon className="h-10 w-10 stroke-[1.25]" />
+                      <div className="text-[#006ed6] dark:text-[#38bdf8] shrink-0 flex items-center justify-start w-12 h-12">
+                        <Icon className="h-10 w-10 stroke-[1.3]" />
                       </div>
                     </div>
 
                     {/* Card Body: Text info (Stacked right below icon) */}
-                    <div className="text-left mt-4 flex flex-col justify-start w-full max-w-[210px]">
-                      <h3 className="font-sans text-lg font-bold dark:text-text-main text-white! group-hover:text-accent-blue transition-colors duration-300 max-w-[160px]">
+                    <div className="text-left mt-3 flex flex-col justify-start w-full max-w-[220px]">
+                      <h3
+                        style={{ color: isAutomation ? "#ffffff" : "#006ed6" }}
+                        className={`font-sans text-lg font-extrabold max-w-[190px] leading-snug ${
+                          isAutomation ? "!text-white" : "!text-[#006ed6] dark:!text-[#38bdf8]"
+                        }`}
+                      >
                         {service.title}
                       </h3>
-                      <p className="mt-3 font-sans text-xs sm:text-[13px] dark:text-text-muted leading-relaxed font-normal text-ma-gray-9 transition-colors duration-300">
+                      <p
+                        className={`mt-2.5 font-sans text-xs sm:text-[13px] leading-relaxed transition-colors duration-300 ${
+                          isAutomation
+                            ? "!text-white font-medium"
+                            : "!text-black dark:!text-white/80 font-bold dark:font-normal"
+                        }`}
+                        style={isAutomation ? { color: "#ffffff" } : undefined}
+                      >
                         {service.description}
                       </p>
                     </div>
                   </div>
 
                   {/* Card Bottom: View More Button */}
-                  <div className="relative z-10 mt-6 flex items-center gap-1.5 text-xs font-bold tracking-wider text-white! dark:text-accent-blue group-hover:text-accent-blue/80 transition-colors duration-300 uppercase">
+                  <div
+                    style={{ color: isAutomation ? "#006ed6" : "#ffffff" }}
+                    className={`relative z-10 mt-6 flex items-center gap-1.5 text-xs font-bold tracking-wider group-hover:gap-2 transition-all duration-300 uppercase ${
+                      isAutomation ? "!text-[#006ed6] dark:!text-[#38bdf8]" : "!text-white"
+                    }`}
+                  >
                     <span>View More</span>
                     <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                   </div>

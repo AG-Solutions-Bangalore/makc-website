@@ -133,7 +133,10 @@ export default function Header() {
             className="flex items-center shrink-0 group"
             onClick={handleHomeLogoClick}
           >
-            <BrandLogo className="h-8 sm:h-9 lg:h-10 w-auto transition-transform duration-300 group-hover:scale-[1.03]" />
+            <BrandLogo
+              className="h-8 sm:h-9 lg:h-10 w-auto transition-transform duration-300 group-hover:scale-[1.03]"
+              forceWhite={!isScrolled}
+            />
           </Link>
 
           <nav
@@ -142,16 +145,12 @@ export default function Header() {
           >
             {allLinks.map((link) => {
               const isActive = location.pathname === link.path;
-              const className = `group relative overflow-hidden px-4 py-2 text-sm font-medium rounded-full transition-colors duration-200 ${
+              const className = `group relative overflow-hidden px-4 py-2 text-sm font-semibold rounded-full transition-colors duration-200 ${
                 isActive
-                  ? "text-accent-blue font-semibold"
+                  ? "!text-[#38bdf8] font-bold"
                   : isScrolled
                     ? "text-text-main hover:text-accent-blue"
-                    : mounted && theme === "light"
-                      ? "text-slate-900 font-semibold hover:text-accent-blue"
-                      : hasDarkHero
-                        ? "!text-white/90 hover:!text-white"
-                        : "text-text-main hover:text-accent-blue"
+                    : "!text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.95)] hover:!text-[#38bdf8]"
               }`;
 
               if (link.external) {

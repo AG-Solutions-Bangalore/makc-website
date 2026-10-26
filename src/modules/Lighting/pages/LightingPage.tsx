@@ -27,13 +27,13 @@ const LIGHTING_SLIDES = [
   },
   {
     id: "02",
-    title: "Dimming Tuning ",
+    title: "Dimming & Tuning",
     shortTitle: "Dimming",
     description:
       "Smoothly adjust light intensity and color temperature from warm white to cool daylight, reducing eye strain and matching your natural circadian rhythm.",
-    image: getImageUrl("dimeLight.webp"),
-    imageAlt: "Smart Dimmable LED Lighting Control Solution",
-    imageTitle: "Dimmable LED Lighting System",
+    image: getImageUrl("smart_dimming_lighting.webp"),
+    imageAlt: "Smart Architectural Dimmable LED Lighting Control Solution",
+    imageTitle: "Architectural Dimmable LED Lighting",
     icon: SunDim,
   },
   {
@@ -42,9 +42,9 @@ const LIGHTING_SLIDES = [
     shortTitle: "RGB",
     description:
       "Express your style with millions of colors. Control brightness, warmth, and dynamic color-changing effects directly from your touch panel or smartphone.",
-    image: getImageUrl("rgbmod.webp"),
-    imageAlt: "RGB LED Lighting Module for Smart Lighting Automation",
-    imageTitle: "RGB LED Lighting Module",
+    image: getImageUrl("smart_rgb_lighting.webp"),
+    imageAlt: "Smart RGB LED Mood Lighting System with Multi-Color Scene Control",
+    imageTitle: "Smart RGB LED Mood Lighting",
     icon: Palette,
   },
   {
@@ -53,10 +53,10 @@ const LIGHTING_SLIDES = [
     shortTitle: "Outdoor",
     description:
       "Enhance home curb appeal and security with automated exterior lighting. Program garden, compound, and facade lights to sync with sunset and sunrise.",
-    image: getImageUrl("service/ol1.webp"),
+    image: getImageUrl("smart_outdoor_lighting.webp"),
     imageAlt:
-      "Outdoor LED Lighting Solution for Commercial and Industrial Spaces",
-    imageTitle: "Outdoor Lighting Solutions",
+      "High-Resolution Architectural Outdoor Landscape and Facade Lighting for Luxury Modern Villa",
+    imageTitle: "Architectural Outdoor Landscape Lighting",
     icon: Trees,
   },
 ];

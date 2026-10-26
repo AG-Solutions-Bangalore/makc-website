@@ -87,7 +87,7 @@ export default function PartnerLogosSection() {
   };
 
   return (
-    <section className="relative w-full bg-bg-main py-8 sm:py-12 lg:py-16 border-t border-border-main overflow-hidden">
+    <section className="relative w-full bg-[#e2e8f0]/90 dark:bg-[#07152b] py-12 sm:py-16 lg:py-18 border-y-2 border-slate-300/80 dark:border-accent-blue/25 overflow-hidden transition-colors duration-300">
       <div className="mx-auto max-w-8xl px-4 sm:px-6 flex flex-col gap-5 sm:gap-8 items-center">
         
         <div className="text-center max-w-xl mx-auto">
@@ -111,7 +111,7 @@ export default function PartnerLogosSection() {
             type="button"
             onClick={handleScrollLeft}
             aria-label="Scroll technology partners left"
-            className="absolute -left-1 sm:left-1 md:left-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border-main bg-bg-surface/90 backdrop-blur-md flex items-center justify-center text-text-main shadow-lg hover:bg-accent-blue hover:text-white hover:border-transparent transition-all duration-300 cursor-pointer"
+            className="absolute -left-1 sm:left-1 md:left-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-slate-200 dark:border-white/20 bg-white dark:bg-[#0b1b36] flex items-center justify-center text-text-main shadow-lg hover:bg-accent-blue hover:text-white hover:border-transparent transition-all duration-300 cursor-pointer"
           >
             <svg className="w-5 h-5 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -122,7 +122,7 @@ export default function PartnerLogosSection() {
             type="button"
             onClick={handleScrollRight}
             aria-label="Scroll technology partners right"
-            className="absolute -right-1 sm:right-1 md:right-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border-main bg-bg-surface/90 backdrop-blur-md flex items-center justify-center text-text-main shadow-lg hover:bg-accent-blue hover:text-white hover:border-transparent transition-all duration-300 cursor-pointer"
+            className="absolute -right-1 sm:right-1 md:right-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-slate-200 dark:border-white/20 bg-white dark:bg-[#0b1b36] flex items-center justify-center text-text-main shadow-lg hover:bg-accent-blue hover:text-white hover:border-transparent transition-all duration-300 cursor-pointer"
           >
             <svg className="w-5 h-5 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -140,7 +140,7 @@ export default function PartnerLogosSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 title={`Visit ${partner.name} - Official Technology Partner`}
-                className="px-5 py-3.5 rounded-xl bg-bg-surface/80 border border-border-main/50 shadow-md backdrop-blur-md shrink-0 flex flex-col items-center justify-center gap-1 transition-all duration-300 hover:scale-[1.05] hover:border-accent-blue/60 hover:shadow-lg cursor-pointer group/card no-underline"
+                className="px-5 py-3.5 rounded-xl bg-white/95 dark:bg-[#0b1b36] border border-slate-200/90 dark:border-white/10 shadow-sm dark:shadow-md shrink-0 flex flex-col items-center justify-center gap-1 transition-all duration-300 hover:scale-[1.05] hover:border-accent-blue/60 hover:shadow-lg cursor-pointer group/card no-underline"
               >
                 <span className="text-base sm:text-lg font-bold font-sans tracking-tight text-text-main group-hover/card:text-accent-blue transition-colors">
                   {partner.name}
@@ -152,8 +152,8 @@ export default function PartnerLogosSection() {
             ))}
           </div>
 
-          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-bg-main to-transparent pointer-events-none z-10" />
-          <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-bg-main to-transparent pointer-events-none z-10" />
+          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#e2e8f0]/90 dark:from-[#07152b] to-transparent pointer-events-none z-10" />
+          <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#e2e8f0]/90 dark:from-[#07152b] to-transparent pointer-events-none z-10" />
         </div>
 
       </div>

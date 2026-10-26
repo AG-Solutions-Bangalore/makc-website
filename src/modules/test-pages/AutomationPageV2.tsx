@@ -442,7 +442,7 @@ export default function AutomationPageV2() {
             </div>
 
             {/* Main Heading */}
-            <h1 className="hero-heading text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold font-sans tracking-tight !text-white text-white! leading-[1.05] drop-shadow-[0_3px_12px_rgba(0,0,0,0.85)]">
+            <h1 className="hero-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans tracking-tight !text-white text-white! leading-[1.1] drop-shadow-[0_3px_12px_rgba(0,0,0,0.85)]">
               Smart Home <br />
               Automation
             </h1>
@@ -498,7 +498,7 @@ export default function AutomationPageV2() {
 
       {/* FULL WIDTH AUTOMATION SHOWCASE SECTION WITH CLEAR PARALLAX */}
       <div ref={showcaseRef} className="will-change-transform">
-        <AutomationShowcase accentColor="#00A551" />
+        <AutomationShowcase initialSlideId="01" accentColor="#00A551" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

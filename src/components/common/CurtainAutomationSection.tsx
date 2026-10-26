@@ -7,6 +7,24 @@ const types = [
 
 const features = ["Privacy Control", "One-Touch and Voice Commands"];
 
+const images = [
+  {
+    src: "curtain_automation.webp",
+    alt: "Smart curtain and motorized blind automation in luxury home",
+    title: "Smart Motorized Curtain Automation",
+  },
+  {
+    src: "service/CA1.webp",
+    alt: "Sleek automatic blind track details",
+    title: "Motorized Smart Blinds",
+  },
+  {
+    src: "service/CA2.webp",
+    alt: "Luxury villa bedroom with smart curtains",
+    title: "Luxury Smart Villa Bedroom",
+  },
+];
+
 export default function CurtainAutomationSection() {
   return (
     <AutomationMosaicSection
@@ -15,15 +33,12 @@ export default function CurtainAutomationSection() {
       types={types}
       features={features}
       suitableText="Perfect for Bedrooms, Living rooms, Conference rooms, and Large Window areas."
+      images={images}
       imagePosition="left"
       prefix="curt"
       serviceName="Curtain Automation"
-      reels={[
-        "https://www.instagram.com/reel/DZpb-JNSo5Y/",
-      ]}
-      reelTitles={[
-        "Watch Curtain Automation Reel on Instagram",
-      ]}
+      reelUrl="https://www.instagram.com/reel/DZpb-JNSo5Y/"
+      reelTitles={["Watch Curtain Automation Reel on Instagram"]}
     />
   );
 }

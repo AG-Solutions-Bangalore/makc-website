@@ -17,6 +17,7 @@ import {
   Blinds,
   Wifi,
   X,
+  Play,
 } from "lucide-react";
 import InstagramEmbed from "@/components/common/InstagramEmbed";
 
@@ -49,7 +50,7 @@ const hotspotsList: HotspotType[] = [
   },
   {
     id: "lighting",
-    label: "Lightings",
+    label: "Lighting Automation",
     anchor: { x: 58.5, y: 36 },
     labelPos: { x: 72.6, y: 32.4 },
     icon: Lightbulb,
@@ -98,6 +99,8 @@ const hotspotsList: HotspotType[] = [
   },
 ];
 
+const reelTabsList = hotspotsList.filter((h) => h.id !== "networking");
+
 export default function HeroSectionV2() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { isMobile, isTablet, isDesktop } = useResponsive();
@@ -135,6 +138,18 @@ export default function HeroSectionV2() {
   const handleHotspotClick = (id: string) => {
     setActiveId(activeId === id ? null : id);
   };
+
+  // Close popup with Escape key
+  useEffect(() => {
+    if (!activeId) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setActiveId(null);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [activeId]);
 
   return (
     <section
@@ -175,8 +190,8 @@ export default function HeroSectionV2() {
           />
         )}
 
-        {/* Light directional vignette to keep villa image 100% visible while preserving natural contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white/75 via-white/45 sm:via-white/30 to-transparent dark:from-black/50 dark:via-transparent dark:to-transparent pointer-events-none z-[2] transition-colors duration-300" />
+        {/* Clean directional contrast so villa image is 100% visible and unblocked in both modes */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent pointer-events-none z-[2] transition-colors duration-300" />
 
         {/* Right side ambient smart home glow behind hotspots (Dark mode only) */}
         <div className="absolute -right-20 top-1/4 w-[520px] h-[520px] bg-gradient-to-br from-amber-400/15 via-blue-500/8 to-transparent blur-[120px] rounded-full pointer-events-none z-[4] dark:opacity-100 opacity-0 transition-opacity duration-300" />
@@ -225,8 +240,13 @@ export default function HeroSectionV2() {
                       anchor={hotspot.anchor}
                       isHovered={isHovered}
                       isActive={isActive}
+<<<<<<< Updated upstream
                       onHoverStart={() => setHoveredId(hotspot.id)}
                       onHoverEnd={() => setHoveredId(null)}
+=======
+                      onHoverStart={() => { }}
+                      onHoverEnd={() => { }}
+>>>>>>> Stashed changes
                       onClick={() => handleHotspotClick(hotspot.id)}
                       index={idx}
                       delay={delay}
@@ -242,8 +262,13 @@ export default function HeroSectionV2() {
                       icon={hotspot.icon}
                       isHovered={isHovered}
                       isActive={isActive}
+<<<<<<< Updated upstream
                       onHoverStart={() => setHoveredId(hotspot.id)}
                       onHoverEnd={() => setHoveredId(null)}
+=======
+                      onHoverStart={() => { }}
+                      onHoverEnd={() => { }}
+>>>>>>> Stashed changes
                       onClick={() => handleHotspotClick(hotspot.id)}
                       delay={delay}
                       isTablet={isTablet}
@@ -259,43 +284,82 @@ export default function HeroSectionV2() {
 
       {/* Left-Side Content overlays above background and hotspots */}
       <div className="relative z-40 mx-auto max-w-8xl w-full px-4 sm:px-14 flex flex-col lg:flex-row lg:items-stretch justify-between gap-12 sm:gap-16 pointer-events-none">
-        {/* Hero Left Content */}
+        {/* Hero Left Content — 100% transparent, no white card, background image completely visible */}
         <div
-          className="flex-1 flex flex-col justify-center text-left max-w-lg lg:max-w-[48%] xl:max-w-[46%] 2xl:max-w-2xl reveal-on-scroll reveal-left pointer-events-auto p-4 sm:p-0 rounded-2xl bg-white/40 dark:bg-transparent backdrop-blur-[2px] dark:backdrop-blur-none sm:bg-transparent"
+          className="flex-1 flex flex-col justify-center text-left max-w-lg lg:max-w-[48%] xl:max-w-[46%] 2xl:max-w-2xl reveal-on-scroll reveal-left pointer-events-auto p-0 bg-transparent border-0 shadow-none"
           data-reveal-duration="0.9s"
         >
           <div className="mb-3">
-            <div className="inline-flex items-center gap-2.5 border border-border-main/80 bg-bg-surface/80 dark:bg-bg-surface/60 backdrop-blur-md rounded-full px-3.5 py-1.5 select-none pointer-events-none shadow-sm">
+            <div className="inline-flex items-center gap-2.5 border border-white/25 bg-black/40 backdrop-blur-md rounded-full px-3.5 py-1.5 select-none pointer-events-none shadow-xs">
               <img
                 src="/images/iso-image.svg"
                 alt="ISO Certified Logo"
                 title="ISO Certified Home Automation Company"
                 className="h-5.5 w-5.5 object-contain"
               />
+<<<<<<< Updated upstream
               <span className="text-[11px] sm:text-xs font-sans font-medium tracking-wide text-text-main leading-none">
                 ISO{" "}
                 <span className="text-[#00A551] font-semibold">9001:2015</span>
+=======
+              <span
+                className="text-[11px] sm:text-xs font-sans font-bold tracking-wide leading-none"
+                style={{
+                  color: "#ffffff",
+                  textShadow: "0 1px 3px rgba(0,0,0,0.9)",
+                }}
+              >
+                ISO{" "}
+                <span className="font-extrabold" style={{ color: "#00e676" }}>
+                  2015
+                </span>{" "}
+                Certified Company
+>>>>>>> Stashed changes
               </span>
             </div>
           </div>
 
           <h1 className="mt-3 sm:mt-4 text-2xl sm:text-4xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold tracking-tight leading-[1.15]">
-            <span className="block xl:text-nowrap text-slate-950 dark:text-white drop-shadow-[0_1px_4px_rgba(255,255,255,0.8)] dark:drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+            <span
+              className="block xl:text-nowrap font-extrabold"
+              style={{
+                color: "#ffffff",
+                textShadow:
+                  "0 2px 4px rgba(0,0,0,0.95), 0 0 12px rgba(0,0,0,0.9), 0 0 24px rgba(0,0,0,0.85)",
+                filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.9))",
+              }}
+            >
               Smart Home Automation
             </span>
-            <span className="block italic font-semibold sm:font-normal text-[#0055d4] dark:text-gold-primary drop-shadow-sm">
+            <span
+              className="block italic font-bold sm:font-semibold"
+              style={{
+                color: "#38bdf8",
+                textShadow:
+                  "0 2px 4px rgba(0,0,0,0.95), 0 0 12px rgba(0,0,0,0.9), 0 0 24px rgba(0,0,0,0.85)",
+                filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.9))",
+              }}
+            >
               Company in Bangalore
             </span>
           </h1>
 
-          <p className="mt-4 text-sm sm:text-base font-semibold sm:font-medium leading-relaxed max-w-lg text-slate-950 dark:text-white [text-shadow:_0_1px_3px_rgba(255,255,255,0.95)] dark:drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+          <p
+            className="mt-4 text-sm sm:text-base font-semibold leading-relaxed max-w-lg"
+            style={{
+              color: "#ffffff",
+              textShadow:
+                "0 1px 4px rgba(0,0,0,0.95), 0 2px 8px rgba(0,0,0,0.9), 0 0 16px rgba(0,0,0,0.85)",
+              filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.9))",
+            }}
+          >
             Smart homes are not about gadgets — they are about how you live.
             With almost a decade of experience and 800+ projects delivered
             across homes and select commercial spaces, here's what you can
             expect from us.
           </p>
 
-          <div className="mt-10 sm:mt-12">
+          <div className="mt-8 sm:mt-10">
             <WaveButton
               href="#contact-enquiry"
               title="Book a Free Smart Home Consultation"
@@ -317,6 +381,77 @@ export default function HeroSectionV2() {
               </span>
             </WaveButton>
           </div>
+
+          {/* Solution Reel Tabs (Mobile & Tablet only — Desktop uses interactive pointers on the villa with play icon) */}
+          <div className="lg:hidden mt-7 sm:mt-9 pt-5 border-t border-white/20 max-w-xl">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-[#006ed6] text-white shadow-xs">
+                <Play className="w-2.5 h-2.5 fill-current ml-0.5" />
+              </span>
+              <span
+                className="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider"
+                style={{
+                  color: "#ffffff",
+                  textShadow:
+                    "0 1px 4px rgba(0,0,0,0.95), 0 0 8px rgba(0,0,0,0.85)",
+                }}
+              >
+                Explore Solutions in Action
+              </span>
+              <span
+                className="text-[10px] font-bold"
+                style={{
+                  color: "rgba(255, 255, 255, 0.9)",
+                  textShadow: "0 1px 3px rgba(0,0,0,0.9)",
+                }}
+              >
+                (Tap to watch Reel)
+              </span>
+            </div>
+
+            <div className="flex flex-wrap gap-2 sm:gap-2.5">
+              {reelTabsList.map((pointer) => {
+                const isActive = activeId === pointer.id;
+                const Icon = pointer.icon;
+
+                return (
+                  <button
+                    key={pointer.id}
+                    type="button"
+                    onClick={() => handleHotspotClick(pointer.id)}
+                    className={`group inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full text-xs font-bold tracking-wide transition-all duration-200 cursor-pointer ${isActive
+                        ? "bg-[#006ed6] text-white shadow-md shadow-[#006ed6]/40 border border-[#006ed6]"
+                        : "bg-black/40 hover:bg-black/60 text-white border border-white/25 hover:border-[#38bdf8]/60 shadow-xs backdrop-blur-md"
+                      }`}
+                    aria-label={`Watch ${pointer.label} Showcase Reel`}
+                  >
+                    <Icon
+                      className={`w-3.5 h-3.5 shrink-0 transition-colors ${isActive ? "text-white" : "text-[#38bdf8]"
+                        }`}
+                    />
+                    <span
+                      className="transition-colors font-bold"
+                      style={{
+                        color: "#ffffff",
+                        textShadow: "0 1px 3px rgba(0,0,0,0.9)",
+                      }}
+                    >
+                      {pointer.label}
+                    </span>
+                    {isActive ? (
+                      <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-white/25 ml-1 shrink-0">
+                        <X className="w-2.5 h-2.5 text-white" />
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-[#006ed6]/30 border border-[#38bdf8]/60 ml-1 shrink-0 group-hover:bg-[#006ed6]/50 transition-colors">
+                        <Play className="w-2 h-2 fill-[#38bdf8] text-[#38bdf8] ml-0.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]" />
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
         </div>
 
         {/* Empty Right Column on Desktop to preserve split visual layout */}
@@ -325,96 +460,112 @@ export default function HeroSectionV2() {
 
       {/* Scroll Down Indicator */}
       <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2.5 pointer-events-none">
-        <span className="text-[8px] font-bold tracking-[0.3em] text-text-muted/80 dark:text-white/60 uppercase">
+        <span
+          className="text-[8px] font-bold tracking-[0.3em] uppercase"
+          style={{
+            color: "#ffffff",
+            textShadow: "0 1px 3px rgba(0,0,0,0.9)",
+          }}
+        >
           SCROLL TO DISCOVER
         </span>
-        <div className="w-[18px] h-[30px] border border-border-main dark:border-white/30 rounded-full flex justify-center p-1.5 opacity-100">
+        <div className="w-[18px] h-[30px] border border-white/50 rounded-full flex justify-center p-1.5 opacity-100 bg-black/20 backdrop-blur-xs">
           <div className="w-[4px] h-[6px] bg-gold-primary rounded-full animate-bounce" />
         </div>
       </div>
 
-      {/* Floating MP4 Video Preview Popup */}
+      {/* Floating MP4 / Instagram Video Preview Popup with Backdrop & Prominent Close Cross Mark */}
       {activeId && (
-        <div className="hero-popup fixed sm:absolute right-3 sm:right-6 lg:right-12 top-28 sm:top-32 z-[80] w-[310px] sm:w-[350px] md:w-[370px] bg-[#0c1017]/95 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.85)] overflow-hidden flex flex-col pointer-events-auto">
-          {/* Card Header */}
-          <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-white/5">
-            <div className="flex flex-col text-left">
-              <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#0A84FF]">
-                MAKc Smart Living Showcase
-              </span>
-              <h3 className="text-sm font-semibold text-white font-sans truncate max-w-[240px]">
-                {hotspotsList.find((h) => h.id === activeId)?.label}
-              </h3>
-            </div>
-            <button
-              type="button"
-              onClick={() => setActiveId(null)}
-              className="w-7 h-7 rounded-full text-white! flex items-center justify-center transition-colors cursor-pointer"
-              aria-label="Close Video preview"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          </div>
+        <>
+          {/* Modal Backdrop on mobile & desktop so clicking outside closes it */}
+          <div
+            className="fixed inset-0 bg-black/65 backdrop-blur-xs z-[75] transition-opacity duration-200"
+            onClick={() => setActiveId(null)}
+            aria-hidden="true"
+          />
 
-          {/* Video Player Container */}
-          {(() => {
-            const activeHotspot = hotspotsList.find((h) => h.id === activeId);
-            const isInstagram =
-              activeHotspot?.videoFile?.includes("instagram.com");
-
-            return (
-              <div
-                className={`relative w-full ${
-                  isInstagram
-                    ? "min-h-[500px] sm:min-h-[540px]"
-                    : "aspect-[4/5] max-h-[460px]"
-                } bg-black flex items-center justify-center overflow-hidden rounded-b-2xl`}
-              >
-                {activeHotspot?.videoFile ? (
-                  isInstagram ? (
-                    <div className="relative w-full h-full min-h-[500px] sm:min-h-[540px] bg-black flex flex-col items-center justify-center">
-                      <InstagramEmbed reelUrl={activeHotspot.videoFile} />
-                    </div>
-                  ) : (
-                    <video
-                      key={activeHotspot.id}
-                      src={
-                        activeHotspot.videoFile.startsWith("http")
-                          ? activeHotspot.videoFile
-                          : `${VIDEO_BASE_URL}${activeHotspot.videoFile}`
-                      }
-                      title={`MAKc ${activeHotspot.label} Video Showcase`}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover rounded-b-2xl pointer-events-auto"
-                    />
-                  )
-                ) : (
-                  <div className="p-8 text-center flex flex-col items-center justify-center min-h-[300px]">
-                    {(() => {
-                      const ActiveIcon = activeHotspot?.icon || Sliders;
-                      return (
-                        <>
-                          <div className="w-16 h-16 rounded-full bg-[#0A84FF]/10 border border-[#0A84FF]/30 text-[#0A84FF] flex items-center justify-center mb-4">
-                            <ActiveIcon className="w-8 h-8" />
-                          </div>
-                          <h4 className="text-base font-bold text-white mb-2">
-                            {activeHotspot?.label}
-                          </h4>
-                          <p className="text-xs text-white/70 max-w-xs leading-relaxed">
-                            Video showcase for this category is coming soon.
-                          </p>
-                        </>
-                      );
-                    })()}
-                  </div>
-                )}
+          <div className="hero-popup fixed sm:absolute inset-x-3 sm:inset-x-auto top-20 sm:top-28 sm:right-6 lg:right-12 z-[80] w-auto max-w-[360px] sm:w-[350px] md:w-[370px] mx-auto sm:mx-0 bg-[#0c1017]/95 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.85)] overflow-hidden flex flex-col pointer-events-auto">
+            {/* Card Header */}
+            <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-white/5">
+              <div className="flex flex-col text-left">
+                <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#0A84FF]">
+                  MAKc Smart Living Showcase
+                </span>
+                <h3 className="text-sm font-semibold text-white font-sans truncate max-w-[220px]">
+                  {hotspotsList.find((h) => h.id === activeId)?.label}
+                </h3>
               </div>
-            );
-          })()}
-        </div>
+              <button
+                type="button"
+                onClick={() => setActiveId(null)}
+                className="w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 active:bg-white/35 text-white flex items-center justify-center border border-white/25 transition-all cursor-pointer shadow-sm"
+                aria-label="Close Showcase Reel"
+                title="Close"
+              >
+                <X className="w-4 h-4 stroke-[2.5]" />
+              </button>
+            </div>
+
+            {/* Video Player Container */}
+            {(() => {
+              const activeHotspot = hotspotsList.find((h) => h.id === activeId);
+              const isInstagram =
+                activeHotspot?.videoFile?.includes("instagram.com");
+
+              return (
+                <div
+                  className={`relative w-full ${
+                    isInstagram
+                      ? "min-h-[500px] sm:min-h-[540px]"
+                      : "aspect-[4/5] max-h-[460px]"
+                  } bg-black flex items-center justify-center overflow-hidden rounded-b-2xl`}
+                >
+                  {activeHotspot?.videoFile ? (
+                    isInstagram ? (
+                      <div className="relative w-full h-full min-h-[500px] sm:min-h-[540px] bg-black flex flex-col items-center justify-center">
+                        <InstagramEmbed reelUrl={activeHotspot.videoFile} />
+                      </div>
+                    ) : (
+                      <video
+                        key={activeHotspot.id}
+                        src={
+                          activeHotspot.videoFile.startsWith("http")
+                            ? activeHotspot.videoFile
+                            : `${VIDEO_BASE_URL}${activeHotspot.videoFile}`
+                        }
+                        title={`MAKc ${activeHotspot.label} Video Showcase`}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover rounded-b-2xl pointer-events-auto"
+                      />
+                    )
+                  ) : (
+                    <div className="p-8 text-center flex flex-col items-center justify-center min-h-[300px]">
+                      {(() => {
+                        const ActiveIcon = activeHotspot?.icon || Sliders;
+                        return (
+                          <>
+                            <div className="w-16 h-16 rounded-full bg-[#0A84FF]/10 border border-[#0A84FF]/30 text-[#0A84FF] flex items-center justify-center mb-4">
+                              <ActiveIcon className="w-8 h-8" />
+                            </div>
+                            <h4 className="text-base font-bold text-white mb-2">
+                              {activeHotspot?.label}
+                            </h4>
+                            <p className="text-xs text-white/70 max-w-xs leading-relaxed">
+                              Video showcase for this category is coming soon.
+                            </p>
+                          </>
+                        );
+                      })()}
+                    </div>
+                  )}
+                </div>
+              );
+            })()}
+          </div>
+        </>
       )}
     </section>
   );

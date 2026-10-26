@@ -150,7 +150,7 @@ export default function AutomationPage() {
             </div>
 
             {/* Main Heading */}
-            <h1 className="hero-heading text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold font-sans tracking-tight !text-white text-white! leading-[1.05] drop-shadow-[0_3px_12px_rgba(0,0,0,0.85)]">
+            <h1 className="hero-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans tracking-tight !text-white text-white! leading-[1.1] drop-shadow-[0_3px_12px_rgba(0,0,0,0.85)]">
               Smart Home <br />
               Automation
             </h1>
@@ -205,7 +205,7 @@ export default function AutomationPage() {
       </section>
 
       {/* FULL WIDTH AUTOMATION SHOWCASE SECTION */}
-      <AutomationShowcase accentColor="#00A551" />
+      <AutomationShowcase initialSlideId="01" accentColor="#00A551" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-8 sm:pt-14 lg:pt-24">
         {/* ── ELECTRICAL AUTOMATION SECTION ── */}

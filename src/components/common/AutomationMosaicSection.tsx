@@ -340,11 +340,8 @@ export default function AutomationMosaicSection({
   return (
     <section ref={sectionRef} className="mb-10 sm:mb-16 lg:mb-24 no-reveal">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
-        {/* Left/Right Column: Reels or Image Mosaic */}
-        <div
-          className={`${reels && reels.length > 0 ? "grid grid-cols-2 gap-3" : "grid grid-cols-2 gap-3"} ${imagePosition === "right" ? "lg:order-last" : "lg:order-first"}`}
-        >
-          {reels && reels.length > 0 ? (
+        <div className={`grid grid-cols-2 gap-3 ${imagePosition === "right" ? "lg:order-last" : "lg:order-first"}`}>
+          {reels && reels.length > 1 ? (
             /* ── Double-Reel Layout ── */
             <>
               {reels.map((reel, idx) => (

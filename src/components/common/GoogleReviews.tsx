@@ -1,10 +1,4 @@
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
-} from "@/components/ui/carousel";
+import { useState, useRef } from "react";
 import { Star, ExternalLink, Quote } from "lucide-react";
 
 interface GoogleReview {
@@ -40,14 +34,70 @@ const GOOGLE_REVIEWS_URL =
   "https://www.google.com/search?q=MAKc+Automation+and+Solutions+LLP+reviews";
 
 export default function GoogleReviews() {
-  return (
-    <section className="relative w-full py-6 sm:py-10 md:py-12 border-t border-border-main overflow-hidden bg-bg-main">
-      {/* Subtle glow overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(10,132,255,0.04)_0%,transparent_60%)] pointer-events-none" />
+  const [activeIndex, setActiveIndex] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 z-10">
+  // Mouse drag-to-scroll support for desktop
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeftStart = useRef(0);
+
+  const handleScroll = () => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    const card0 = el.children[0] as HTMLElement;
+    const card1 = el.children[1] as HTMLElement;
+    if (!card0) return;
+    const cardStep = card1 ? (card1.offsetLeft - card0.offsetLeft) : (card0.offsetWidth + 16);
+    const scrollPosition = el.scrollLeft;
+    const index = Math.round(scrollPosition / cardStep);
+    const clampedIndex = Math.max(0, Math.min(reviews.length - 1, index));
+    if (clampedIndex !== activeIndex) {
+      setActiveIndex(clampedIndex);
+    }
+  };
+
+  const scrollToIndex = (index: number) => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    const card = el.children[index] as HTMLElement;
+    if (card) {
+      const left = index === 0 ? 0 : card.offsetLeft;
+      el.scrollTo({ left, behavior: "smooth" });
+      setActiveIndex(index);
+    }
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    isDragging.current = true;
+    startX.current = e.pageX - el.offsetLeft;
+    scrollLeftStart.current = el.scrollLeft;
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging.current) return;
+    e.preventDefault();
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    const x = e.pageX - el.offsetLeft;
+    const walk = (x - startX.current) * 1.5;
+    el.scrollLeft = scrollLeftStart.current - walk;
+  };
+
+  const handleMouseUp = () => {
+    isDragging.current = false;
+  };
+
+  return (
+    <section className="relative w-full py-12 sm:py-16 md:py-20 border-t border-slate-200 dark:border-white/10 overflow-hidden bg-[#f1f5f9] dark:bg-[#030712] transition-colors duration-300">
+      {/* Subtle glow overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(10,132,255,0.05)_0%,transparent_60%)] pointer-events-none" />
+
+      <div className="relative mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-3 sm:mb-5">
+        <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-8">
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-text-main mb-1.5 sm:mb-2 font-display">
             Trusted by Homeowners
           </h2>
@@ -57,68 +107,79 @@ export default function GoogleReviews() {
           </p>
         </div>
 
-        {/* Reviews Carousel */}
-        <div className="relative px-4 sm:px-10">
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full"
+        {/* Reviews Horizontal Snap Container (100% native touch swipe on mobile, drag on desktop) */}
+        <div className="relative px-1 sm:px-4">
+          <div
+            ref={scrollContainerRef}
+            onScroll={handleScroll}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+            className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 pt-1 px-1 snap-x snap-mandatory scrollbar-none scroll-smooth touch-pan-x cursor-grab active:cursor-grabbing select-none"
           >
-            <CarouselContent className="-ml-3 sm:-ml-5">
-              {reviews.map((review) => (
-                <CarouselItem
-                  key={review.author}
-                  className="pl-3 sm:pl-5 basis-full md:basis-1/2"
-                >
-                  <div className="h-full bg-bg-surface/50 dark:bg-bg-surface/30 backdrop-blur-xl border border-border-main/50 dark:border-border-main/20 hover:border-accent-blue/40 hover:shadow-[0_8px_30px_rgb(10,132,255,0.04)] dark:hover:shadow-[0_8px_30px_rgb(10,132,255,0.1)] transition-all duration-500 rounded-2xl overflow-hidden p-4 sm:p-6 flex flex-col justify-between gap-3 group">
-                    {/* Top: Stars + Quote icon */}
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-0.5">
-                        {[...Array(review.stars)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className="h-3.5 w-3.5 sm:h-4 sm:w-4 fill-amber-400 text-amber-400"
-                          />
-                        ))}
-                      </div>
-                      <Quote className="h-5 w-5 sm:h-6 sm:w-6 text-accent-blue/15 dark:text-accent-blue/10 shrink-0 group-hover:scale-110 transition-transform duration-300" />
+            {reviews.map((review, idx) => (
+              <div
+                key={review.author}
+                onClick={() => scrollToIndex(idx)}
+                className="shrink-0 w-[84vw] sm:w-[380px] md:w-[calc(50%-12px)] max-w-[550px] snap-start transition-transform duration-300 cursor-pointer"
+              >
+                <div className="h-full bg-white dark:bg-[#0a182d] border border-slate-200/90 dark:border-white/15 shadow-md shadow-slate-200/60 dark:shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-accent-blue/50 dark:hover:border-accent-blue/50 hover:shadow-lg dark:hover:shadow-[0_8px_30px_rgba(10,132,255,0.2)] transition-all duration-300 rounded-2xl p-5 sm:p-7 flex flex-col justify-between gap-4 group">
+                  {/* Top: Stars + Quote icon */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-0.5">
+                      {[...Array(review.stars)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="h-3.5 w-3.5 sm:h-4 sm:w-4 fill-amber-400 text-amber-400"
+                        />
+                      ))}
                     </div>
-
-                    {/* Review text */}
-                    <blockquote className="text-xs sm:text-[14px] md:text-[15px] text-text-main/90 font-normal leading-relaxed italic flex-1">
-                      &ldquo;{review.text}&rdquo;
-                    </blockquote>
-
-                    {/* Author */}
-                    <div className="flex items-center gap-2.5 sm:gap-3 pt-2.5 sm:pt-3 border-t border-border-main/30 dark:border-border-main/10">
-                      <div className="h-7 w-7 sm:h-8 sm:w-8 rounded-full bg-accent-blue/10 text-accent-blue flex items-center justify-center text-[10px] sm:text-xs font-bold shrink-0">
-                        {review.author
-                          .split(" ")
-                          .map((n) => n[0])
-                          .join("")
-                          .slice(0, 2)}
-                      </div>
-                      <span className="text-xs sm:text-sm font-semibold text-text-main">
-                        {review.author}
-                      </span>
-                    </div>
+                    <Quote className="h-5 w-5 sm:h-6 sm:w-6 text-accent-blue/15 dark:text-accent-blue/10 shrink-0 group-hover:scale-110 transition-transform duration-300" />
                   </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="absolute top-1/2 -left-3 -translate-y-1/2 sm:-left-2 z-20">
-              <CarouselPrevious className="h-8 w-8 sm:h-9 sm:w-9 border-border-main/50 bg-bg-surface/80 text-text-main shadow-md hover:bg-accent-blue hover:text-white! transition-all duration-300 cursor-pointer" />
-            </div>
-            <div className="absolute top-1/2 -right-3 -translate-y-1/2 sm:-right-2 z-20">
-              <CarouselNext className="h-8 w-8 sm:h-9 sm:w-9 border-border-main/50 bg-bg-surface/80 text-text-main shadow-md hover:bg-accent-blue hover:text-white! transition-all duration-300 cursor-pointer" />
-            </div>
-          </Carousel>
+
+                  {/* Review text */}
+                  <blockquote className="text-xs sm:text-[14px] md:text-[15px] text-text-main/90 font-normal leading-relaxed italic flex-1">
+                    &ldquo;{review.text}&rdquo;
+                  </blockquote>
+
+                  {/* Author */}
+                  <div className="flex items-center gap-2.5 sm:gap-3 pt-2.5 sm:pt-3 border-t border-border-main/30 dark:border-border-main/10">
+                    <div className="h-7 w-7 sm:h-8 sm:w-8 rounded-full bg-accent-blue/10 text-accent-blue flex items-center justify-center text-[10px] sm:text-xs font-bold shrink-0">
+                      {review.author
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")
+                        .slice(0, 2)}
+                    </div>
+                    <span className="text-xs sm:text-sm font-semibold text-text-main">
+                      {review.author}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Centered Clickable Progress Dots */}
+          <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-4 sm:mt-5">
+            {reviews.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => scrollToIndex(idx)}
+                aria-label={`Jump to review ${idx + 1}`}
+                className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                  idx === activeIndex
+                    ? "w-6 sm:w-8 bg-accent-blue"
+                    : "w-1.5 sm:w-2 bg-border-main hover:bg-text-muted"
+                }`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* View More Reviews CTA */}
-        <div className="text-center mt-3.5 sm:mt-5">
+        <div className="text-center mt-4 sm:mt-6">
           <a
             href={GOOGLE_REVIEWS_URL}
             target="_blank"

@@ -83,13 +83,13 @@ export interface AutomationShowcaseSlide {
 const DEFAULT_SLIDES: AutomationShowcaseSlide[] = [
   {
     id: "01",
-    title: "Electrical Automation & Smart Switches",
+    title: "Lighting",
     shortTitle: "Lighting",
     description:
       "Transform your spaces with adaptive lighting scenes tailored to your daily routines.",
     image: getImageUrl("/service/ha1.1.webp"),
     imageAlt: "Industrial and Commercial Lighting Automation Solutions",
-    imageTitle: "Lighting Automation Services",
+    imageTitle: "Lighting Services",
     icon: Lightbulb,
   },
   {
@@ -140,7 +140,7 @@ export interface AutomationShowcaseProps {
 
 export default function AutomationShowcase({
   slides = DEFAULT_SLIDES,
-  initialSlideId = "03",
+  initialSlideId = "01",
   eyebrow = "Smart Automation",
   heading = (
     <>
@@ -216,7 +216,7 @@ export default function AutomationShowcase({
           src={tab.image}
           alt={tab.imageAlt}
           title={tab.imageTitle || tab.imageAlt}
-          className={`absolute inset-y-0 right-0 h-full object-cover z-0 transition-all duration-1000 ease-in-out lg:w-1/2 w-full ${
+          className={`absolute inset-y-0 right-0 h-full object-cover object-center z-0 transition-all duration-1000 ease-in-out lg:w-1/2 w-full brightness-105 contrast-105 ${
             idx === cachedIndex
               ? "opacity-100 scale-100"
               : "opacity-0 pointer-events-none"
@@ -271,24 +271,25 @@ export default function AutomationShowcase({
                         aria-selected={isActive}
                         aria-label={tab.title}
                         aria-controls="automation-showcase-detail"
-                        style={{ color: "#ffffff" }}
-                        className={`flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full transition-all duration-300 relative cursor-pointer group !text-white text-white! ${
+                        className={`flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full transition-all duration-300 relative cursor-pointer group shadow-md ${
                           isActive
-                            ? "bg-black/90 backdrop-blur-md border-2 border-[var(--accent-color)] z-10 shadow-lg scale-105"
-                            : "bg-black/85 dark:bg-black/85 backdrop-blur-md border border-[rgba(255,255,255,0.35)] hover:border-[rgba(255,255,255,0.7)] hover:bg-black shadow-md"
+                            ? "bg-white dark:bg-black border-2 border-[var(--accent-color)] z-10 shadow-lg scale-105"
+                            : "bg-white dark:bg-black/75 border border-slate-300 dark:border-white/20 hover:border-slate-500 hover:shadow-lg"
                         }`}
                       >
                         <Icon
-                          className="w-7 h-7 sm:w-8 sm:h-8 transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)] !text-white text-white!"
-                          style={{ color: "#ffffff", stroke: "#ffffff" }}
+                          className={`w-7 h-7 sm:w-8 sm:h-8 transition-transform duration-300 group-hover:scale-110 ${
+                            isActive
+                              ? "text-[var(--accent-color)]"
+                              : "text-slate-800 dark:text-white/80 group-hover:text-black dark:group-hover:text-white"
+                          }`}
                         />
                       </button>
                       <span
-                        style={{ color: "#ffffff" }}
-                        className={`px-3 py-0.5 rounded-full text-[11px] sm:text-xs tracking-wide text-center leading-tight transition-all duration-200 backdrop-blur-md shadow-md !text-white text-white! ${
+                        className={`text-xs sm:text-sm tracking-wide text-center leading-tight transition-all duration-200 select-none ${
                           isActive
-                            ? "bg-black/90 font-bold border border-[var(--accent-color)]"
-                            : "bg-black/85 dark:bg-black/85 font-medium border border-[rgba(255,255,255,0.3)] hover:bg-black hover:border-[rgba(255,255,255,0.6)]"
+                            ? "text-[var(--accent-color)] font-bold drop-shadow-sm"
+                            : "text-slate-800 dark:text-slate-200 font-semibold hover:text-[var(--accent-color)]"
                         }`}
                       >
                         {tab.shortTitle}
@@ -300,31 +301,45 @@ export default function AutomationShowcase({
             </div>
           </div>
 
-          {/* Right Column: Tab details layered on the fading overlay */}
+          {/* Right Column: Tab details floating directly over the image with transparent background */}
           <div
-            className="lg:col-span-5 flex flex-col justify-center items-start text-left pl-0 lg:pl-10"
+            className="lg:col-span-5 flex flex-col justify-center items-start text-left pl-0 lg:pl-6"
             id="automation-showcase-detail"
             role="tabpanel"
           >
             <div
-              className={`transition-all duration-500 ease-out relative ${
+              className={`transition-all duration-500 ease-out relative p-2 sm:p-4 max-w-lg ${
                 isTransitioning
                   ? "opacity-0 translate-y-2"
                   : "opacity-100 translate-y-0"
               }`}
             >
               {/* Large glowing backdrop number */}
-              <span className="text-6xl sm:text-8xl lg:text-[110px] font-bold font-display tracking-[-0.04em] text-[rgba(var(--accent-color-rgb))] dark:text-[rgba(var(--accent-color-rgb),0.95)] select-none leading-none -ml-1.5 block drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
+              <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-display tracking-tight text-[var(--accent-color)] select-none leading-none block mb-1 drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
                 {activeTab.id}
               </span>
 
               {/* Detail Title */}
-              <h3 className="text-2xl lg:text-3.5xl font-bold font-display text-text-main dark:text-white tracking-[-0.03em] mb-4 mt-2 text-balance drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+              <h3
+                style={{
+                  color: "#ffffff",
+                  textShadow:
+                    "0 2px 12px rgba(0,0,0,0.95), 0 1px 4px rgba(0,0,0,0.9)",
+                }}
+                className="text-2xl sm:text-3xl lg:text-4xl font-bold font-display !text-white text-white! tracking-tight mb-3 mt-1 text-balance drop-shadow-[0_3px_12px_rgba(0,0,0,0.95)]"
+              >
                 {activeTab.title}
               </h3>
 
               {/* Detail Description */}
-              <p className="text-text-main/90 dark:text-white/90 text-sm lg:text-[15px] leading-relaxed max-w-sm font-normal mb-2 lg:mb-8 drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
+              <p
+                style={{
+                  color: "#ffffff",
+                  textShadow:
+                    "0 2px 8px rgba(0,0,0,0.95), 0 1px 3px rgba(0,0,0,0.9)",
+                }}
+                className="!text-white text-white! text-base sm:text-lg leading-relaxed font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]"
+              >
                 {activeTab.description}
               </p>
             </div>
