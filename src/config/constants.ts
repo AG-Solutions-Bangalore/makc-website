@@ -60,7 +60,7 @@ export const COMPANY_INFO = {
     facebook: "https://www.facebook.com/makcautomation",
     linkedin: "https://www.linkedin.com/company/makautomation/home/",
     youtube: "https://www.youtube.com/@MAKcAutomation01",
-    googleReviews: "https://www.google.com/search?q=MAKc+Automation+and+Solutions+LLP+reviews",
+    googleReviews: "https://www.google.com/maps/search/?api=1&query=MAKc+Automation+and+Solutions+LLP+Brookefield+Bengaluru",
   },
 
   // Logos

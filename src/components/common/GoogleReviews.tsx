@@ -1,5 +1,6 @@
 import { Star, ExternalLink, Quote } from "lucide-react";
 import Marquee from "react-fast-marquee";
+import { COMPANY_INFO } from "@/config/constants";
 
 interface GoogleReview {
   author: string;
@@ -30,8 +31,7 @@ const reviews: GoogleReview[] = [
   },
 ];
 
-const GOOGLE_REVIEWS_URL =
-  "https://www.google.com/search?q=MAKc+Automation+and+Solutions+LLP+reviews";
+const GOOGLE_REVIEWS_URL = COMPANY_INFO.socials.googleReviews;
 
 export default function GoogleReviews() {
   return (
