@@ -63,11 +63,7 @@ function Instagram({ className = "w-4.5 h-4.5" }: { className?: string }) {
   );
 }
 
-function Youtube({
-  className = "w-4.5 h-4.5",
-}: {
-  className?: string;
-}) {
+function Youtube({ className = "w-4.5 h-4.5" }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -79,7 +75,10 @@ function Youtube({
       className={className}
     >
       <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
-      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" />
+      <polygon
+        points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"
+        fill="currentColor"
+      />
     </svg>
   );
 }
@@ -91,9 +90,9 @@ const SOCIAL_LINKS = [
     title: `Follow ${COMPANY_INFO.name} on Instagram`,
     icon: Instagram,
     defaultClasses:
-      "text-[#E4405F] bg-[#E4405F]/10 border-[#E4405F]/25 shadow-sm shadow-[#E4405F]/10",
+      "text-white bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] border-transparent shadow-[0_2px_8px_rgba(238,42,123,0.35)]",
     hoverClasses:
-      "hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] hover:border-transparent hover:text-white hover:shadow-[0_4px_16px_rgba(238,42,123,0.45)]",
+      "hover:brightness-110 hover:shadow-[0_6px_20px_rgba(238,42,123,0.6)]",
     rotateClass: "group-hover:rotate-6",
   },
   {
@@ -102,9 +101,9 @@ const SOCIAL_LINKS = [
     title: `Visit ${COMPANY_INFO.name} on Facebook`,
     icon: Facebook,
     defaultClasses:
-      "text-[#1877F2] bg-[#1877F2]/10 border-[#1877F2]/25 shadow-sm shadow-[#1877F2]/10",
+      "text-white bg-[#1877F2] border-[#1877F2] shadow-[0_2px_8px_rgba(24,119,242,0.35)]",
     hoverClasses:
-      "hover:bg-[#1877F2] hover:border-[#1877F2] hover:text-white hover:shadow-[0_4px_16px_rgba(24,119,242,0.45)]",
+      "hover:brightness-110 hover:shadow-[0_6px_20px_rgba(24,119,242,0.6)]",
     rotateClass: "group-hover:-rotate-6",
   },
   {
@@ -113,9 +112,9 @@ const SOCIAL_LINKS = [
     title: `Connect with ${COMPANY_INFO.name} on LinkedIn`,
     icon: Linkedin,
     defaultClasses:
-      "text-[#0A66C2] bg-[#0A66C2]/10 border-[#0A66C2]/25 shadow-sm shadow-[#0A66C2]/10",
+      "text-white bg-[#0A66C2] border-[#0A66C2] shadow-[0_2px_8px_rgba(10,102,194,0.35)]",
     hoverClasses:
-      "hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:text-white hover:shadow-[0_4px_16px_rgba(10,102,194,0.45)]",
+      "hover:brightness-110 hover:shadow-[0_6px_20px_rgba(10,102,194,0.6)]",
     rotateClass: "group-hover:rotate-6",
   },
   {
@@ -124,9 +123,9 @@ const SOCIAL_LINKS = [
     title: `Subscribe to ${COMPANY_INFO.name} on YouTube`,
     icon: Youtube,
     defaultClasses:
-      "text-[#FF0000] bg-[#FF0000]/10 border-[#FF0000]/25 shadow-sm shadow-[#FF0000]/10",
+      "text-white bg-[#FF0000] border-[#FF0000] shadow-[0_2px_8px_rgba(255,0,0,0.35)]",
     hoverClasses:
-      "hover:bg-[#FF0000] hover:border-[#FF0000] hover:text-white hover:shadow-[0_4px_16px_rgba(255,0,0,0.45)]",
+      "hover:brightness-110 hover:shadow-[0_6px_20px_rgba(255,0,0,0.6)]",
     rotateClass: "group-hover:-rotate-6",
   },
 ];
@@ -138,7 +137,10 @@ export default function Footer() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const location = useLocation();
-  const isFormPage = location.pathname === "/" || location.pathname === "/contact" || location.pathname === "";
+  const isFormPage =
+    location.pathname === "/" ||
+    location.pathname === "/contact" ||
+    location.pathname === "";
 
   const handleHomeLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
     if (location.pathname === "/" && location.hash === "#home-top") {
@@ -157,7 +159,9 @@ export default function Footer() {
     const isAllSameDigit = /^(\d)\1{9}$/.test(digitsOnly);
 
     if (!isValidIndianMobile || isAllSameDigit) {
-      setPhoneError("Please enter a valid 10-digit mobile number (e.g. 9876543210)");
+      setPhoneError(
+        "Please enter a valid 10-digit mobile number (e.g. 9876543210)",
+      );
       return;
     }
 
@@ -169,7 +173,10 @@ export default function Footer() {
       toast.success("Callback request submitted successfully!");
     } catch (err: any) {
       console.error("Callback API error:", err);
-      toast.error(err?.response?.data?.message || "Failed to submit request. Please try again.");
+      toast.error(
+        err?.response?.data?.message ||
+          "Failed to submit request. Please try again.",
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -177,365 +184,385 @@ export default function Footer() {
 
   return (
     <QueryProvider>
-    <footer className="bg-[#f1f5f9] dark:bg-[#02050b] border-t-2 border-slate-300/80 dark:border-white/10 transition-colors duration-300">
-      {!isFormPage && (
-        <div className="mt-2 mb-8 sm:mt-4 sm:mb-10 px-4">
-          <ContactStrip />
-        </div>
-      )}
-      <div className="max-w-[1600px] mx-auto px-5 lg:px-10 py-10">
-        {/* Equal 5-Column Layout (Exact equal width per column) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-0 lg:divide-x lg:divide-border-main/40">
-          {/* Column 1: Logo & Description (Equal width) */}
-          <div className="flex flex-col text-left lg:pr-6 lg:pl-0">
-            <Link
-              to="/#home-top"
-              title={`${COMPANY_INFO.name} Home`}
-              className="flex items-center"
-              onClick={handleHomeLogoClick}
-            >
-              <BrandLogo className="h-11 w-auto" />
-            </Link>
-            <p className="mt-5 text-xs text-text-muted leading-relaxed">
-              {COMPANY_INFO.tagline}
-            </p>
+      <footer className="bg-[#f1f5f9] dark:bg-[#02050b] border-t-2 border-slate-300/80 dark:border-white/10 transition-colors duration-300">
+        {!isFormPage && (
+          <div className="mt-2 mb-8 sm:mt-4 sm:mb-10 px-4">
+            <ContactStrip />
           </div>
-
-          {/* Column 2 & 3: Solutions & About (Aligned side-by-side on all mobile/small screens) */}
-          <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:contents col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-2">
-            {/* Column 2: Solutions */}
-            <div className="flex flex-col text-left px-0 lg:px-6">
-              <h3 className="text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-6 select-none">
-                Solutions
-              </h3>
-              <ul className="flex flex-col gap-3 text-xs text-text-muted">
-                <li>
-                  <Link
-                    to="/automation"
-                    title="Smart Home Automation Services"
-                    className="hover:text-accent-blue transition-colors duration-200"
-                  >
-                    Automation
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/lighting"
-                    title="Smart Lighting Solutions"
-                    className="hover:text-accent-blue transition-colors duration-200"
-                  >
-                    Lighting
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/networking"
-                    title="Home Networking Solutions"
-                    className="hover:text-accent-blue transition-colors duration-200"
-                  >
-                    Networking
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/security"
-                    title="Smart Home Security Systems"
-                    className="hover:text-accent-blue transition-colors duration-200"
-                  >
-                    Security
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/audio"
-                    title="Home Audio Solutions"
-                    className="hover:text-accent-blue transition-colors duration-200"
-                  >
-                    Audio
-                  </Link>
-                </li>
-              </ul>
+        )}
+        <div className="max-w-[1600px] mx-auto px-5 lg:px-10 py-10">
+          {/* Equal 5-Column Layout (Exact equal width per column) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-0 lg:divide-x lg:divide-border-main/40">
+            {/* Column 1: Logo & Description (Equal width) */}
+            <div className="flex flex-col text-left lg:pr-6 lg:pl-0">
+              <Link
+                to="/#home-top"
+                title={`${COMPANY_INFO.name} Home`}
+                className="flex items-center"
+                onClick={handleHomeLogoClick}
+              >
+                <BrandLogo className="h-11 w-auto" />
+              </Link>
+              <p className="mt-5 text-xs text-text-muted leading-relaxed">
+                {COMPANY_INFO.tagline}
+              </p>
             </div>
 
-            {/* Column 3: About (Positioned on the right side of Solutions) */}
-            <div className="flex flex-col text-left px-0 lg:px-6">
-              <h3 className="text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-6 select-none">
-                About
+            {/* Column 2 & 3: Solutions & About (Aligned side-by-side on all mobile/small screens) */}
+            <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:contents col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-2">
+              {/* Column 2: Solutions */}
+              <div className="flex flex-col text-left px-0 lg:px-6">
+                <h3 className="text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-6 select-none">
+                  Solutions
+                </h3>
+                <ul className="flex flex-col gap-3 text-xs text-text-muted">
+                  <li>
+                    <Link
+                      to="/automation"
+                      title="Smart Home Automation Services"
+                      className="hover:text-accent-blue transition-colors duration-200"
+                    >
+                      Automation
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/lighting"
+                      title="Smart Lighting Solutions"
+                      className="hover:text-accent-blue transition-colors duration-200"
+                    >
+                      Lighting
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/networking"
+                      title="Home Networking Solutions"
+                      className="hover:text-accent-blue transition-colors duration-200"
+                    >
+                      Networking
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/security"
+                      title="Smart Home Security Systems"
+                      className="hover:text-accent-blue transition-colors duration-200"
+                    >
+                      Security
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/audio"
+                      title="Home Audio Solutions"
+                      className="hover:text-accent-blue transition-colors duration-200"
+                    >
+                      Audio
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Column 3: About (Positioned on the right side of Solutions) */}
+              <div className="flex flex-col text-left px-0 lg:px-6">
+                <h3 className="text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-6 select-none">
+                  About
+                </h3>
+                <ul className="flex flex-col gap-3 text-xs text-text-muted">
+                  <li>
+                    <Link
+                      to="/about"
+                      title="About Our Company"
+                      className="hover:text-accent-blue transition-colors duration-200"
+                    >
+                      About MAKc
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/why-us"
+                      title="Our Work Process"
+                      className="hover:text-accent-blue transition-colors duration-200"
+                    >
+                      Our Process
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/contact"
+                      title="Careers & Contact at MAKc Automations"
+                      className="hover:text-accent-blue transition-colors duration-200"
+                    >
+                      Careers
+                    </Link>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        toast("Blog coming soon!");
+                      }}
+                      title="MAKc Automations Blog"
+                      className="hover:text-accent-blue transition-colors duration-200 cursor-pointer text-left bg-transparent border-0 p-0 font-inherit text-xs text-text-muted"
+                    >
+                      Blog
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Column 4: Live Experience Centre Video & Visit Request (20% width) */}
+            <div className="flex flex-col text-left lg:px-6">
+              <h3 className="text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-4 select-none">
+                Live Experience Centre
               </h3>
-              <ul className="flex flex-col gap-3 text-xs text-text-muted">
-                <li>
-                  <Link
-                    to="/about"
-                    title="About Our Company"
-                    className="hover:text-accent-blue transition-colors duration-200"
+              {/* Loop Video GIF */}
+              <div className="relative overflow-hidden rounded-xl border border-border-main bg-bg-surface/30 shadow-md group mb-3 aspect-video">
+                <video
+                  src="/Video/living_room_animation.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105 pointer-events-none"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+              </div>
+
+              {/* Like To Visit Button */}
+              <button
+                type="button"
+                onClick={() => setIsCallbackModalOpen(true)}
+                className="w-full cursor-pointer bg-accent-blue hover:bg-[#0070e0] text-white! font-bold text-xs tracking-wider uppercase py-2.5 px-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_4px_15px_rgba(10,132,255,0.3)] hover:shadow-[0_6px_20px_rgba(10,132,255,0.4)] hover:-translate-y-0.5 active:translate-y-0"
+              >
+                <PhoneCall className="w-3.5 h-3.5" />
+                <span>Like to Visit</span>
+              </button>
+            </div>
+
+            {/* Column 5: Let's Talk & Contact Info (20% width) */}
+            <div className="flex flex-col text-left lg:pl-6 lg:pr-0">
+              <h3 className="text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-4 select-none">
+                Let’s Connect
+              </h3>
+              <div className="flex flex-col gap-3 text-xs text-text-muted">
+                {/* Phone Sub-section */}
+                <div className="mt-2">
+                  <div className="flex flex-col gap-2">
+                    <a
+                      href={`tel:${COMPANY_INFO.phones.primary.digits}`}
+                      title={`Call ${COMPANY_INFO.name} Sales at ${COMPANY_INFO.phones.primary.display}`}
+                      className="flex items-center gap-2 hover:text-accent-blue transition-colors duration-200"
+                    >
+                      <Phone className="h-4 w-4 shrink-0 text-accent-blue stroke-[1.5]" />
+                      <span>{COMPANY_INFO.phones.primary.number}</span>
+                    </a>
+                    <a
+                      href={`tel:${COMPANY_INFO.phones.support.digits}`}
+                      title={`Call ${COMPANY_INFO.name} Support at ${COMPANY_INFO.phones.support.display}`}
+                      className="flex items-center gap-2 hover:text-accent-blue transition-colors duration-200"
+                    >
+                      <Phone className="h-4 w-4 shrink-0 text-accent-blue stroke-[1.5]" />
+                      <span>{COMPANY_INFO.phones.support.number}</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Email Sub-section */}
+                <div className="mt-2">
+                  <a
+                    href={`mailto:${COMPANY_INFO.email}`}
+                    title={`Email ${COMPANY_INFO.name}`}
+                    className="flex items-center gap-2 hover:text-accent-blue transition-colors duration-200"
                   >
-                    About MAKc
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/why-us"
-                    title="Our Work Process"
-                    className="hover:text-accent-blue transition-colors duration-200"
+                    <Mail className="h-4 w-4 shrink-0 text-accent-blue stroke-[1.5]" />
+                    <span className="break-all">{COMPANY_INFO.email}</span>
+                  </a>
+                </div>
+
+                {/* Social Media Links */}
+                <div className="flex items-center gap-2 mt-3">
+                  {SOCIAL_LINKS.map(
+                    ({
+                      name,
+                      href,
+                      title,
+                      icon: Icon,
+                      defaultClasses,
+                      hoverClasses,
+                      rotateClass,
+                    }) => (
+                      <a
+                        key={name}
+                        href={href}
+                        title={title}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={name}
+                        className={`group relative w-8 h-8 rounded-lg border flex items-center justify-center transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-110 active:scale-95 ${defaultClasses} ${hoverClasses}`}
+                      >
+                        <Icon
+                          className={`w-4.5 h-4.5 transition-transform duration-300 ease-out group-hover:scale-110 ${rotateClass}`}
+                        />
+                      </a>
+                    ),
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="h-px bg-border-main my-10" />
+
+          {/* Bottom Row */}
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <p className="text-tiny text-text-muted">
+              &copy; {new Date().getFullYear()} MAKc Automations. All rights
+              reserved.
+            </p>
+            <div className="flex gap-5 items-center">
+              <a
+                href="/#privacy"
+                title="Privacy Policy"
+                className="text-tiny text-text-muted link-underline"
+              >
+                Privacy Policy
+              </a>
+              <a
+                href="/#terms"
+                title="Terms and Conditions"
+                className="text-tiny text-text-muted link-underline"
+              >
+                Terms of Service
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Callback Modal */}
+        {isCallbackModalOpen && (
+          <div
+            className="fixed inset-0 z-[200] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
+            onClick={() => setIsCallbackModalOpen(false)}
+          >
+            <div
+              className="relative w-full max-w-md bg-bg-surface border border-border-main rounded-3xl p-6 sm:p-8 shadow-2xl transition-all"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                type="button"
+                onClick={() => setIsCallbackModalOpen(false)}
+                className="absolute top-5 right-5 text-text-muted hover:text-text-main p-1.5 rounded-full hover:bg-bg-main/50 transition-colors"
+                aria-label="Close dialog"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              {!isSubmitted ? (
+                <>
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-full bg-accent-blue/10 border border-accent-blue/30 flex items-center justify-center text-accent-blue">
+                      <PhoneCall className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-serif font-bold text-text-main">
+                        Visit Live Experience Centre
+                      </h3>
+                      <p className="text-xs text-text-muted">
+                        Enter your mobile number to schedule your visit
+                      </p>
+                    </div>
+                  </div>
+
+                  <form
+                    onSubmit={handleCallbackSubmit}
+                    className="mt-5 space-y-4"
                   >
-                    Our Process
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/contact"
-                    title="Careers & Contact at MAKc Automations"
-                    className="hover:text-accent-blue transition-colors duration-200"
-                  >
-                    Careers
-                  </Link>
-                </li>
-                <li>
+                    <div>
+                      <label
+                        htmlFor="modal-phone"
+                        className="block text-text-muted text-[10px] font-bold uppercase tracking-wider mb-1.5"
+                      >
+                        Mobile Number <span className="text-red-500">*</span>
+                      </label>
+                      <div className="relative">
+                        <input
+                          id="modal-phone"
+                          type="tel"
+                          required
+                          maxLength={10}
+                          value={phone}
+                          onChange={(e) => {
+                            const cleaned = e.target.value
+                              .replace(/\D/g, "")
+                              .slice(0, 10);
+                            setPhone(cleaned);
+                            setPhoneError("");
+                          }}
+                          placeholder="9876543210"
+                          className="w-full bg-bg-main/60 border border-border-main focus:border-accent-blue focus:ring-2 focus:ring-accent-blue/20 rounded-xl px-4 py-3 text-text-main text-sm outline-none transition-all font-mono tracking-wider"
+                        />
+                      </div>
+                      {phoneError && (
+                        <p className="text-red-500 text-xs mt-1.5 font-medium">
+                          {phoneError}
+                        </p>
+                      )}
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full cursor-pointer bg-accent-blue hover:bg-[#0070e0] text-white font-bold text-xs tracking-wider uppercase py-3.5 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(10,132,255,0.3)] hover:shadow-[0_8px_30px_rgba(10,132,255,0.5)]"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          <span>Submitting...</span>
+                        </>
+                      ) : (
+                        <span>Submit Request</span>
+                      )}
+                    </button>
+                  </form>
+                </>
+              ) : (
+                <div className="text-center py-4 flex flex-col items-center">
+                  <div className="w-14 h-14 rounded-full bg-green-500/10 border border-green-500/30 text-green-500 flex items-center justify-center mb-4">
+                    <CheckCircle2 className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-xl font-serif font-bold text-text-main mb-2">
+                    Request Received!
+                  </h3>
+                  <p className="text-xs text-text-muted max-w-xs mb-6">
+                    Thank you! Our automation expert will call you back on{" "}
+                    <span className="font-semibold text-text-main">
+                      {phone}
+                    </span>{" "}
+                    shortly.
+                  </p>
                   <button
                     type="button"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      toast("Blog coming soon!");
+                    onClick={() => {
+                      setIsCallbackModalOpen(false);
+                      setIsSubmitted(false);
+                      setPhone("");
                     }}
-                    title="MAKc Automations Blog"
-                    className="hover:text-accent-blue transition-colors duration-200 cursor-pointer text-left bg-transparent border-0 p-0 font-inherit text-xs text-text-muted"
+                    className="bg-bg-main hover:bg-border-main/50 text-text-main text-xs font-semibold px-6 py-2.5 rounded-xl border border-border-main transition-colors"
                   >
-                    Blog
+                    Close
                   </button>
-                </li>
-              </ul>
+                </div>
+              )}
             </div>
           </div>
-
-          {/* Column 4: Live Experience Centre Video & Visit Request (20% width) */}
-          <div className="flex flex-col text-left lg:px-6">
-            <h3 className="text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-4 select-none">
-              Live Experience Centre
-            </h3>
-            {/* Loop Video GIF */}
-            <div className="relative overflow-hidden rounded-xl border border-border-main bg-bg-surface/30 shadow-md group mb-3 aspect-video">
-              <video
-                src="/Video/living_room_animation.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105 pointer-events-none"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
-            </div>
-
-            {/* Like To Visit Button */}
-            <button
-              type="button"
-              onClick={() => setIsCallbackModalOpen(true)}
-              className="w-full cursor-pointer bg-accent-blue hover:bg-[#0070e0] text-white! font-bold text-xs tracking-wider uppercase py-2.5 px-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_4px_15px_rgba(10,132,255,0.3)] hover:shadow-[0_6px_20px_rgba(10,132,255,0.4)] hover:-translate-y-0.5 active:translate-y-0"
-            >
-              <PhoneCall className="w-3.5 h-3.5" />
-              <span>Like to Visit</span>
-            </button>
-          </div>
-
-          {/* Column 5: Let's Talk & Contact Info (20% width) */}
-          <div className="flex flex-col text-left lg:pl-6 lg:pr-0">
-            <h3 className="text-[11px] font-bold tracking-[0.25em] text-accent-blue uppercase mb-4 select-none">
-              Let’s Connect
-            </h3>
-            <div className="flex flex-col gap-3 text-xs text-text-muted">
-              {/* Phone Sub-section */}
-              <div className="mt-2">
-                <div className="flex flex-col gap-2">
-                  <a
-                    href={`tel:${COMPANY_INFO.phones.primary.digits}`}
-                    title={`Call ${COMPANY_INFO.name} Sales at ${COMPANY_INFO.phones.primary.display}`}
-                    className="flex items-center gap-2 hover:text-accent-blue transition-colors duration-200"
-                  >
-                    <Phone className="h-4 w-4 shrink-0 text-accent-blue stroke-[1.5]" />
-                    <span>{COMPANY_INFO.phones.primary.number}</span>
-                  </a>
-                  <a
-                    href={`tel:${COMPANY_INFO.phones.support.digits}`}
-                    title={`Call ${COMPANY_INFO.name} Support at ${COMPANY_INFO.phones.support.display}`}
-                    className="flex items-center gap-2 hover:text-accent-blue transition-colors duration-200"
-                  >
-                    <Phone className="h-4 w-4 shrink-0 text-accent-blue stroke-[1.5]" />
-                    <span>{COMPANY_INFO.phones.support.number}</span>
-                  </a>
-                </div>
-              </div>
-
-              {/* Email Sub-section */}
-              <div className="mt-2">
-                <a
-                  href={`mailto:${COMPANY_INFO.email}`}
-                  title={`Email ${COMPANY_INFO.name}`}
-                  className="flex items-center gap-2 hover:text-accent-blue transition-colors duration-200"
-                >
-                  <Mail className="h-4 w-4 shrink-0 text-accent-blue stroke-[1.5]" />
-                  <span className="break-all">{COMPANY_INFO.email}</span>
-                </a>
-              </div>
-
-              {/* Social Media Links */}
-              <div className="flex items-center gap-2 mt-3">
-                {SOCIAL_LINKS.map(
-                  ({
-                    name,
-                    href,
-                    title,
-                    icon: Icon,
-                    defaultClasses,
-                    hoverClasses,
-                    rotateClass,
-                  }) => (
-                    <a
-                      key={name}
-                      href={href}
-                      title={title}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={name}
-                      className={`group relative w-8 h-8 rounded-lg border flex items-center justify-center transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-110 active:scale-95 ${defaultClasses} ${hoverClasses}`}
-                    >
-                      <Icon
-                        className={`w-4.5 h-4.5 transition-transform duration-300 ease-out group-hover:scale-110 ${rotateClass}`}
-                      />
-                    </a>
-                  )
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Divider */}
-        <div className="h-px bg-border-main my-10" />
-
-        {/* Bottom Row */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-          <p className="text-tiny text-text-muted">
-            &copy; {new Date().getFullYear()} MAKc Automations. All rights
-            reserved.
-          </p>
-          <div className="flex gap-5 items-center">
-            <a
-              href="/#privacy"
-              title="Privacy Policy"
-              className="text-tiny text-text-muted link-underline"
-            >
-              Privacy Policy
-            </a>
-            <a
-              href="/#terms"
-              title="Terms and Conditions"
-              className="text-tiny text-text-muted link-underline"
-            >
-              Terms of Service
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Callback Modal */}
-      {isCallbackModalOpen && (
-        <div
-          className="fixed inset-0 z-[200] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
-          onClick={() => setIsCallbackModalOpen(false)}
-        >
-          <div
-            className="relative w-full max-w-md bg-bg-surface border border-border-main rounded-3xl p-6 sm:p-8 shadow-2xl transition-all"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              type="button"
-              onClick={() => setIsCallbackModalOpen(false)}
-              className="absolute top-5 right-5 text-text-muted hover:text-text-main p-1.5 rounded-full hover:bg-bg-main/50 transition-colors"
-              aria-label="Close dialog"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            {!isSubmitted ? (
-              <>
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-full bg-accent-blue/10 border border-accent-blue/30 flex items-center justify-center text-accent-blue">
-                    <PhoneCall className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-serif font-bold text-text-main">Visit Live Experience Centre</h3>
-                    <p className="text-xs text-text-muted">Enter your mobile number to schedule your visit</p>
-                  </div>
-                </div>
-
-                <form onSubmit={handleCallbackSubmit} className="mt-5 space-y-4">
-                  <div>
-                    <label htmlFor="modal-phone" className="block text-text-muted text-[10px] font-bold uppercase tracking-wider mb-1.5">
-                      Mobile Number <span className="text-red-500">*</span>
-                    </label>
-                    <div className="relative">
-                      <input
-                        id="modal-phone"
-                        type="tel"
-                        required
-                        maxLength={10}
-                        value={phone}
-                        onChange={(e) => {
-                          const cleaned = e.target.value.replace(/\D/g, "").slice(0, 10);
-                          setPhone(cleaned);
-                          setPhoneError("");
-                        }}
-                        placeholder="9876543210"
-                        className="w-full bg-bg-main/60 border border-border-main focus:border-accent-blue focus:ring-2 focus:ring-accent-blue/20 rounded-xl px-4 py-3 text-text-main text-sm outline-none transition-all font-mono tracking-wider"
-                      />
-                    </div>
-                    {phoneError && (
-                      <p className="text-red-500 text-xs mt-1.5 font-medium">{phoneError}</p>
-                    )}
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full cursor-pointer bg-accent-blue hover:bg-[#0070e0] text-white font-bold text-xs tracking-wider uppercase py-3.5 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(10,132,255,0.3)] hover:shadow-[0_8px_30px_rgba(10,132,255,0.5)]"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="w-4 h-4 animate-spin" />
-                        <span>Submitting...</span>
-                      </>
-                    ) : (
-                      <span>Submit Request</span>
-                    )}
-                  </button>
-                </form>
-              </>
-            ) : (
-              <div className="text-center py-4 flex flex-col items-center">
-                <div className="w-14 h-14 rounded-full bg-green-500/10 border border-green-500/30 text-green-500 flex items-center justify-center mb-4">
-                  <CheckCircle2 className="w-8 h-8" />
-                </div>
-                <h3 className="text-xl font-serif font-bold text-text-main mb-2">Request Received!</h3>
-                <p className="text-xs text-text-muted max-w-xs mb-6">
-                  Thank you! Our automation expert will call you back on <span className="font-semibold text-text-main">{phone}</span> shortly.
-                </p>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setIsCallbackModalOpen(false);
-                    setIsSubmitted(false);
-                    setPhone("");
-                  }}
-                  className="bg-bg-main hover:bg-border-main/50 text-text-main text-xs font-semibold px-6 py-2.5 rounded-xl border border-border-main transition-colors"
-                >
-                  Close
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-    </footer>
+        )}
+      </footer>
     </QueryProvider>
   );
 }
