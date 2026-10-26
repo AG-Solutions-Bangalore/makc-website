@@ -79,10 +79,57 @@ function Youtube({
       className={className}
     >
       <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
-      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" />
     </svg>
   );
 }
+
+const SOCIAL_LINKS = [
+  {
+    name: "Instagram",
+    href: COMPANY_INFO.socials.instagram,
+    title: `Follow ${COMPANY_INFO.name} on Instagram`,
+    icon: Instagram,
+    defaultClasses:
+      "text-[#E4405F] bg-[#E4405F]/10 border-[#E4405F]/25 shadow-sm shadow-[#E4405F]/10",
+    hoverClasses:
+      "hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] hover:border-transparent hover:text-white hover:shadow-[0_4px_16px_rgba(238,42,123,0.45)]",
+    rotateClass: "group-hover:rotate-6",
+  },
+  {
+    name: "Facebook",
+    href: COMPANY_INFO.socials.facebook,
+    title: `Visit ${COMPANY_INFO.name} on Facebook`,
+    icon: Facebook,
+    defaultClasses:
+      "text-[#1877F2] bg-[#1877F2]/10 border-[#1877F2]/25 shadow-sm shadow-[#1877F2]/10",
+    hoverClasses:
+      "hover:bg-[#1877F2] hover:border-[#1877F2] hover:text-white hover:shadow-[0_4px_16px_rgba(24,119,242,0.45)]",
+    rotateClass: "group-hover:-rotate-6",
+  },
+  {
+    name: "LinkedIn",
+    href: COMPANY_INFO.socials.linkedin,
+    title: `Connect with ${COMPANY_INFO.name} on LinkedIn`,
+    icon: Linkedin,
+    defaultClasses:
+      "text-[#0A66C2] bg-[#0A66C2]/10 border-[#0A66C2]/25 shadow-sm shadow-[#0A66C2]/10",
+    hoverClasses:
+      "hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:text-white hover:shadow-[0_4px_16px_rgba(10,102,194,0.45)]",
+    rotateClass: "group-hover:rotate-6",
+  },
+  {
+    name: "YouTube",
+    href: COMPANY_INFO.socials.youtube,
+    title: `Subscribe to ${COMPANY_INFO.name} on YouTube`,
+    icon: Youtube,
+    defaultClasses:
+      "text-[#FF0000] bg-[#FF0000]/10 border-[#FF0000]/25 shadow-sm shadow-[#FF0000]/10",
+    hoverClasses:
+      "hover:bg-[#FF0000] hover:border-[#FF0000] hover:text-white hover:shadow-[0_4px_16px_rgba(255,0,0,0.45)]",
+    rotateClass: "group-hover:-rotate-6",
+  },
+];
 
 export default function Footer() {
   const [isCallbackModalOpen, setIsCallbackModalOpen] = useState(false);
@@ -331,46 +378,31 @@ export default function Footer() {
 
               {/* Social Media Links */}
               <div className="flex items-center gap-2 mt-3">
-                <a
-                  href={COMPANY_INFO.socials.instagram}
-                  title={`Follow ${COMPANY_INFO.name} on Instagram`}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Instagram"
-                  className="w-8 h-8 rounded-lg border border-border-main bg-bg-surface/30 flex items-center justify-center text-text-muted hover:text-white hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] hover:border-transparent hover:shadow-[0_0_10px_rgba(238,42,123,0.4)] transition-all duration-300"
-                >
-                  <Instagram />
-                </a>
-                <a
-                  href={COMPANY_INFO.socials.facebook}
-                  title={`Visit ${COMPANY_INFO.name} on Facebook`}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Facebook"
-                  className="w-8 h-8 rounded-lg border border-border-main bg-bg-surface/30 flex items-center justify-center text-text-muted hover:text-white hover:bg-[#1877F2] hover:border-transparent hover:shadow-[0_0_10px_rgba(24,119,242,0.4)] transition-all duration-300"
-                >
-                  <Facebook />
-                </a>
-                <a
-                  href={COMPANY_INFO.socials.linkedin}
-                  title={`Connect with ${COMPANY_INFO.name} on LinkedIn`}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="LinkedIn"
-                  className="w-8 h-8 rounded-lg border border-border-main bg-bg-surface/30 flex items-center justify-center text-text-muted hover:text-white hover:bg-[#0A66C2] hover:border-transparent hover:shadow-[0_0_10px_rgba(10,102,194,0.4)] transition-all duration-300"
-                >
-                  <Linkedin />
-                </a>
-                <a
-                  href={COMPANY_INFO.socials.youtube}
-                  title={`Subscribe to ${COMPANY_INFO.name} on YouTube`}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="YouTube"
-                  className="w-8 h-8 rounded-lg border border-border-main bg-bg-surface/30 flex items-center justify-center text-text-muted hover:text-white hover:bg-[#FF0000] hover:border-transparent hover:shadow-[0_0_10px_rgba(255,0,0,0.4)] transition-all duration-300"
-                >
-                  <Youtube />
-                </a>
+                {SOCIAL_LINKS.map(
+                  ({
+                    name,
+                    href,
+                    title,
+                    icon: Icon,
+                    defaultClasses,
+                    hoverClasses,
+                    rotateClass,
+                  }) => (
+                    <a
+                      key={name}
+                      href={href}
+                      title={title}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={name}
+                      className={`group relative w-8 h-8 rounded-lg border flex items-center justify-center transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-110 active:scale-95 ${defaultClasses} ${hoverClasses}`}
+                    >
+                      <Icon
+                        className={`w-4.5 h-4.5 transition-transform duration-300 ease-out group-hover:scale-110 ${rotateClass}`}
+                      />
+                    </a>
+                  )
+                )}
               </div>
             </div>
           </div>
