@@ -39,6 +39,8 @@ interface AutomationMosaicImage {
   src: string;
   alt?: string;
   title?: string;
+  objectPosition?: string;
+  className?: string;
 }
 
 // Keep the fallback reference stable. A new [] on every render makes the media
@@ -421,7 +423,8 @@ export default function AutomationMosaicSection({
                     images[1]?.alt ||
                     `${title} secondary view`
                   }
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-750 group-hover:scale-[1.04]"
+                  style={images[1]?.objectPosition ? { objectPosition: images[1].objectPosition } : undefined}
+                  className={`absolute inset-0 w-full h-full object-cover transition-transform duration-750 group-hover:scale-[1.04] ${images[1]?.className || ""}`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
               </div>
@@ -438,7 +441,8 @@ export default function AutomationMosaicSection({
                     images[2]?.alt ||
                     `${title} tertiary view`
                   }
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-750 group-hover:scale-[1.04]"
+                  style={images[2]?.objectPosition ? { objectPosition: images[2].objectPosition } : undefined}
+                  className={`absolute inset-0 w-full h-full object-cover transition-transform duration-750 group-hover:scale-[1.04] ${images[2]?.className || ""}`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
               </div>

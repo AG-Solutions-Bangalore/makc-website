@@ -8,7 +8,12 @@ const types = [
 
 const images = [
   { src: "dimeLight.webp", alt: "Dimmable architectural cove lighting in a luxury villa", title: "Architectural Cove Lighting" },
-  { src: "service/DTL1.webp", alt: "Smart dimmable LED lighting control system for modern homes", title: "Smart Dimmable Lighting" },
+  {
+    src: "smart_dimming_lighting.webp",
+    alt: "Smart dimmable LED lighting control split comparison showing high and low brightness",
+    title: "Dimming & Brightness Control Comparison",
+    objectPosition: "center 40%",
+  },
   { src: "service/DTL2a.webp", alt: "Smart light control interface panel for home automation", title: "Smart Lighting Control Panel" },
 ];
 
