@@ -289,16 +289,16 @@ export default function SolutionsGallery() {
         <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-4 items-center">
           
           {/* Left Collage Section: Left Card + Focal Center Card (Separated with clean spacing, zero overlap) */}
-          <div className="lg:col-span-6 flex items-center justify-center lg:justify-start gap-4 sm:gap-6 md:gap-8 relative pt-7 pb-7">
+          <div className="lg:col-span-6 flex items-center justify-center lg:justify-start gap-2.5 sm:gap-6 md:gap-8 relative pt-6 sm:pt-7 pb-6 sm:pb-7 w-full max-w-full overflow-hidden sm:overflow-visible">
             
-            {/* Card 1: Left Card (Tilted -4deg with dynamically anchored annotation, positioned comfortably to the left) */}
-            <div className="relative w-38 sm:w-48 md:w-52 shrink-0 -rotate-4 hover:rotate-0 hover:scale-105 transition-all duration-300 z-10 cursor-pointer">
+            {/* Card 1: Left Card (Tilted -4deg with dynamically anchored annotation, scaled responsively for mobile) */}
+            <div className="relative w-[36%] max-w-[145px] sm:max-w-none sm:w-48 md:w-52 shrink-0 -rotate-4 hover:rotate-0 hover:scale-105 transition-all duration-300 z-10 cursor-pointer">
               {/* Annotation anchored directly to top of Left Card */}
-              <div className="absolute -top-7 -left-1 sm:-left-3 z-20 flex items-center gap-1 pointer-events-none whitespace-nowrap">
-                <span className="font-handwriting text-slate-800 dark:text-slate-200 text-xs sm:text-sm md:text-base font-semibold drop-shadow-sm">
+              <div className="absolute -top-6 sm:-top-7 left-0 sm:-left-3 z-20 flex items-center gap-1 pointer-events-none">
+                <span className="font-handwriting text-slate-800 dark:text-slate-200 text-[11px] sm:text-sm md:text-base font-semibold drop-shadow-sm max-w-[100px] sm:max-w-none truncate sm:whitespace-normal">
                   {activeScene.leftCard.annotation}
                 </span>
-                <ArrowDownRight className="w-5 h-5 sm:w-6 sm:h-6 text-slate-600 dark:text-slate-300 shrink-0" />
+                <ArrowDownRight className="w-4 h-4 sm:w-6 sm:h-6 text-slate-600 dark:text-slate-300 shrink-0" />
               </div>
 
               <div className="p-1 sm:p-1.5 bg-white dark:bg-slate-800 rounded-xl shadow-[0_8px_24px_rgba(0,0,0,0.12)] dark:shadow-[0_10px_28px_rgba(0,0,0,0.5)] border border-slate-200/90 dark:border-white/20">
@@ -315,8 +315,8 @@ export default function SolutionsGallery() {
               </div>
             </div>
 
-            {/* Card 2: Center Hero Card (Tilted +1.5deg with clean positive spacing, no overlap) */}
-            <div className="relative w-48 sm:w-58 md:w-64 shrink-0 rotate-1.5 hover:rotate-0 hover:scale-105 transition-all duration-300 z-20 cursor-pointer">
+            {/* Card 2: Center Hero Card (Tilted +1.5deg, scaled responsively for mobile) */}
+            <div className="relative w-[56%] max-w-[215px] sm:max-w-none sm:w-58 md:w-64 shrink-0 rotate-1.5 hover:rotate-0 hover:scale-105 transition-all duration-300 z-20 cursor-pointer">
               <div className="p-1 sm:p-1.5 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl shadow-[0_14px_36px_rgba(0,0,0,0.2)] dark:shadow-[0_18px_48px_rgba(0,0,0,0.6)] border border-slate-200/90 dark:border-white/25">
                 <div className="relative aspect-[3/4] sm:aspect-[4/5] rounded-lg sm:rounded-xl overflow-hidden bg-slate-900">
                   <img
@@ -328,10 +328,10 @@ export default function SolutionsGallery() {
                   />
                   
                   {/* High-Contrast Pure White Frosted Bottom Caption Pill */}
-                  <div className="absolute inset-x-0 bottom-0 p-2 sm:p-2.5 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none">
-                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/20 shadow-md">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#38bdf8] animate-pulse" />
-                      <span className="text-white! !text-white text-[10px] sm:text-xs font-sans font-semibold tracking-wide drop-shadow-sm line-clamp-1">
+                  <div className="absolute inset-x-0 bottom-0 p-1.5 sm:p-2.5 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none">
+                    <div className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/20 shadow-md max-w-full">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#38bdf8] animate-pulse shrink-0" />
+                      <span className="text-white! !text-white text-[9px] sm:text-xs font-sans font-semibold tracking-wide drop-shadow-sm truncate">
                         {activeScene.mainPhoto.caption}
                       </span>
                     </div>
@@ -340,9 +340,9 @@ export default function SolutionsGallery() {
               </div>
 
               {/* Annotation anchored directly to bottom-left of Center Card */}
-              <div className="absolute -bottom-7 -left-2 sm:-left-5 z-20 flex items-center gap-1 pointer-events-none whitespace-nowrap">
-                <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 text-slate-600 dark:text-slate-300 shrink-0" />
-                <span className="font-handwriting text-slate-800 dark:text-slate-200 text-xs sm:text-sm md:text-base font-semibold drop-shadow-sm">
+              <div className="absolute -bottom-6 sm:-bottom-7 left-0 sm:-left-5 z-20 flex items-center gap-1 pointer-events-none">
+                <ArrowUpRight className="w-4 h-4 sm:w-6 sm:h-6 text-slate-600 dark:text-slate-300 shrink-0" />
+                <span className="font-handwriting text-slate-800 dark:text-slate-200 text-[11px] sm:text-sm md:text-base font-semibold drop-shadow-sm max-w-[130px] sm:max-w-none truncate sm:whitespace-normal">
                   {activeScene.mainPhoto.annotation}
                 </span>
               </div>
@@ -373,13 +373,13 @@ export default function SolutionsGallery() {
             </p>
 
             {/* Card 3: Right Accent Card with Annotation directly pointing into it */}
-            <div className="relative mt-7 mb-2 w-44 sm:w-54 md:w-58 rotate-3 hover:rotate-0 hover:scale-105 transition-all duration-300 cursor-pointer self-start">
+            <div className="relative mt-7 mb-2 w-36 sm:w-54 md:w-58 rotate-3 hover:rotate-0 hover:scale-105 transition-all duration-300 cursor-pointer self-start">
               {/* Annotation directly above Right Card pointing into it */}
-              <div className="absolute -top-7 -right-1 sm:-right-3 z-20 flex items-center gap-1 pointer-events-none whitespace-nowrap">
-                <span className="font-handwriting text-slate-800 dark:text-slate-200 text-xs sm:text-sm md:text-base font-semibold drop-shadow-sm">
+              <div className="absolute -top-6 sm:-top-7 right-0 sm:-right-3 z-20 flex items-center gap-1 pointer-events-none">
+                <span className="font-handwriting text-slate-800 dark:text-slate-200 text-[11px] sm:text-sm md:text-base font-semibold drop-shadow-sm max-w-[130px] sm:max-w-none truncate sm:whitespace-normal">
                   {activeScene.rightCard.annotation}
                 </span>
-                <ArrowDownLeft className="w-5 h-5 sm:w-6 sm:h-6 text-slate-600 dark:text-slate-300 shrink-0" />
+                <ArrowDownLeft className="w-4 h-4 sm:w-6 sm:h-6 text-slate-600 dark:text-slate-300 shrink-0" />
               </div>
 
               <div className="p-1 sm:p-1.5 bg-white dark:bg-slate-800 rounded-xl shadow-[0_8px_24px_rgba(0,0,0,0.12)] dark:shadow-[0_10px_28px_rgba(0,0,0,0.5)] border border-slate-200/90 dark:border-white/20">
@@ -397,20 +397,20 @@ export default function SolutionsGallery() {
             </div>
 
             {/* View More Link CTA - High Contrast Pure White Text */}
-            <div className="mt-4 flex items-center gap-3">
+            <div className="mt-4 flex flex-wrap sm:flex-nowrap items-center gap-2.5 sm:gap-3 w-full">
               <Link
                 to="/experience"
                 title="Explore MAKc Smart Living Experience"
-                className="group inline-flex items-center gap-2 px-6 py-2.5 sm:py-3 rounded-full bg-accent-blue hover:bg-[#0070e0] text-white! !text-white font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-[0_4px_18px_rgba(10,132,255,0.4)] hover:shadow-[0_6px_24px_rgba(10,132,255,0.55)] hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                className="group flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-accent-blue hover:bg-[#0070e0] text-white! !text-white font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-[0_4px_18px_rgba(10,132,255,0.4)] hover:shadow-[0_6px_24px_rgba(10,132,255,0.55)] hover:-translate-y-0.5 active:translate-y-0 cursor-pointer whitespace-nowrap text-center"
               >
                 <span className="text-white! !text-white font-bold">Experience Living</span>
-                <ArrowRight className="w-3.5 h-3.5 text-white! !text-white transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight className="w-3.5 h-3.5 text-white! !text-white transition-transform duration-300 group-hover:translate-x-1 shrink-0" />
               </Link>
 
               <Link
                 to="/automation"
                 title="Explore Automation Services"
-                className="inline-flex items-center px-4 py-2.5 rounded-full border border-border-main bg-bg-surface/50 hover:bg-bg-surface text-text-main hover:text-accent-blue hover:border-accent-blue/40 text-xs font-bold uppercase tracking-wider transition-all duration-300"
+                className="flex-1 sm:flex-none inline-flex items-center justify-center px-3.5 sm:px-4 py-2.5 rounded-full border border-border-main bg-bg-surface/50 hover:bg-bg-surface text-text-main hover:text-accent-blue hover:border-accent-blue/40 text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap text-center"
               >
                 View Services
               </Link>

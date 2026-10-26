@@ -42,7 +42,7 @@ export default function GoogleReviews() {
       <div className="relative mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-8">
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-text-main mb-1.5 sm:mb-2 font-display">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-text-main mb-1.5 sm:mb-2 font-handwriting">
             Trusted by Homeowners
           </h2>
           <p className="text-xs sm:text-sm md:text-base text-text-muted max-w-2xl mx-auto">
@@ -60,13 +60,13 @@ export default function GoogleReviews() {
           pauseOnHover
           className="py-1"
         >
-          <div className="flex items-stretch gap-4 sm:gap-6 pr-4 sm:pr-6">
+          <div className="flex items-stretch gap-3 sm:gap-6 pr-3 sm:pr-6">
             {reviews.map((review) => (
               <div
                 key={review.author}
-                className="h-[300px] sm:h-[280px] w-[88vw] sm:w-[420px] lg:w-[480px] shrink-0"
+                className="flex h-[210px] min-h-[210px] w-[80vw] max-w-[280px] shrink-0 sm:h-[230px] sm:min-h-[230px] sm:w-[360px] sm:max-w-none md:w-[400px] lg:h-[250px] lg:min-h-[250px] lg:w-[440px]"
               >
-                <div className="h-full w-full bg-white dark:bg-[#0a182d] border border-slate-200/90 dark:border-white/15 hover:border-accent-blue/50 dark:hover:border-accent-blue/50 transition-colors duration-300 rounded-2xl p-4 sm:p-6 flex flex-col justify-between gap-3 overflow-hidden group">
+                <div className="h-full w-full bg-white dark:bg-[#0a182d] border border-slate-200/90 dark:border-white/15 hover:border-accent-blue/50 dark:hover:border-accent-blue/50 transition-colors duration-300 rounded-2xl p-4 sm:p-5 lg:p-6 flex flex-col justify-between gap-2 sm:gap-3 overflow-hidden group">
                   {/* Top: Stars + Quote icon */}
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-0.5">
@@ -81,7 +81,7 @@ export default function GoogleReviews() {
                   </div>
 
                   {/* Review text */}
-                  <blockquote className="text-[11.5px] sm:text-sm md:text-[15px] text-text-main/90 font-normal leading-relaxed italic flex-1 overflow-hidden">
+                  <blockquote className="text-xs sm:text-sm md:text-[15px] text-text-main/90 font-normal leading-relaxed italic flex-1 line-clamp-5 overflow-hidden">
                     &ldquo;{review.text}&rdquo;
                   </blockquote>
 

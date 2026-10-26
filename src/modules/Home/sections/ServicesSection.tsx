@@ -172,13 +172,13 @@ export default function ServicesSection() {
             </div>
 
             {/* Bottom 3 Value Proposition Badges */}
-            <div className="mt-6 pt-3.5 border-t border-slate-200/80 dark:border-white/10 grid grid-cols-3 gap-2">
+            <div className="mt-6 pt-3.5 border-t border-slate-200/80 dark:border-white/10 flex items-start justify-between gap-2 sm:gap-3">
               {/* Badge 1: Smarter Living */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1.5">
                 <div className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-lg bg-slate-100 dark:bg-white/10 border border-slate-200/80 dark:border-white/10 flex items-center justify-center text-slate-700 dark:text-slate-200 shrink-0">
                   <Home className="w-3.5 h-3.5 stroke-[1.8]" />
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col min-w-0">
                   <span className="text-[9.5px] sm:text-[10px] font-bold tracking-wider text-slate-900 dark:text-white uppercase leading-tight">
                     SMARTER LIVING
                   </span>
@@ -193,7 +193,7 @@ export default function ServicesSection() {
                 <div className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-lg bg-sky-100/70 dark:bg-sky-950/50 border border-sky-200/80 dark:border-sky-800/40 flex items-center justify-center text-[#0070e0] dark:text-[#38bdf8] shrink-0">
                   <Shield className="w-3.5 h-3.5 stroke-[1.8]" />
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col min-w-0">
                   <span className="text-[9.5px] sm:text-[10px] font-bold tracking-wider text-slate-900 dark:text-white uppercase leading-tight">
                     SAFER HOMES
                   </span>
@@ -208,7 +208,7 @@ export default function ServicesSection() {
                 <div className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-lg bg-emerald-100/70 dark:bg-emerald-950/50 border border-emerald-200/80 dark:border-emerald-800/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
                   <Leaf className="w-3.5 h-3.5 stroke-[1.8]" />
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col min-w-0">
                   <span className="text-[9.5px] sm:text-[10px] font-bold tracking-wider text-slate-900 dark:text-white uppercase leading-tight">
                     GREENER TOMORROW
                   </span>

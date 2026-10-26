@@ -88,7 +88,7 @@ export default function PartnerLogosSection() {
   };
 
   return (
-    <section className="relative w-full py-14 sm:py-18 lg:py-20 border-y border-slate-300/70 dark:border-accent-blue/20 overflow-hidden bg-gradient-to-b from-[#eef3f9] via-[#e7edf5] to-[#eef3f9] dark:from-[#050e20] dark:via-[#07152b] dark:to-[#050e20] transition-colors duration-300">
+    <section className="relative w-full py-14 sm:py-18 lg:py-20 border-y border-slate-300/70 dark:border-accent-blue/20 overflow-hidden bg-gradient-to-b from-[#fbf9df] via-[#fbf1e3] to-[#fbf9df] dark:from-[#050e20] dark:via-[#07152b] dark:to-[#050e20] transition-colors duration-300">
       {/* Ambient glows */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(10,132,255,0.10)_0%,transparent_55%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(10,132,255,0.16)_0%,transparent_55%)]" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent-blue/40 to-transparent" />
@@ -102,7 +102,7 @@ export default function PartnerLogosSection() {
             </span>
             <span className="h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-accent-blue/60" />
           </div>
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-text-main tracking-tight">
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-handwriting font-bold text-text-main tracking-tight">
             OUR TECHNOLOGY PARTNERS
           </h3>
           <p className="mt-2 text-xs sm:text-sm text-text-muted max-w-lg mx-auto">
@@ -152,36 +152,23 @@ export default function PartnerLogosSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 title={`Visit ${partner.name} - Official Technology Partner`}
-                className="group/card relative shrink-0 w-[200px] sm:w-[230px] h-[126px] sm:h-[136px] overflow-hidden rounded-4xl bg-white  flex flex-col transition-all duration-300 hover:-translate-y-1  cursor-pointer no-underline"
+                className="group/card relative shrink-0 w-[180px] sm:w-[210px] h-[92px] sm:h-[100px] overflow-hidden rounded-2xl sm:rounded-3xl dark:bg-white/95 dark:hover:bg-white dark:border dark:border-white/30 dark:shadow-[0_6px_24px_rgba(0,0,0,0.45)] flex flex-col items-center justify-center transition-all duration-300 hover:-translate-y-1 cursor-pointer no-underline"
               >
-                {/* Layered surface */}
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white via-white to-slate-50" />
-                <div className="pointer-events-none absolute -left-10 -top-12 h-28 w-28 rounded-full bg-accent-blue/[0.06] blur-2xl transition-all duration-500 group-hover/card:bg-accent-blue/15" />
-              
-                {/* Top meta row */}
-                <div className="relative flex items-center justify-between px-3 pt-2.5">
-                  <span className="rounded-full border border-slate-200/80 bg-slate-50 px-2 py-0.5 text-[7px] font-mono font-semibold uppercase tracking-[0.14em] text-slate-400 transition-colors duration-300 group-hover/card:border-accent-blue/30 group-hover/card:text-accent-blue">
-                    {partner.tag}
-                  </span>
-                  <ArrowUpRight className="h-3.5 w-3.5 text-slate-300 transition-all duration-300 group-hover/card:translate-x-0.5 group-hover/card:-translate-y-0.5 group-hover/card:text-accent-blue" />
-                </div>
-
                 {/* Logo */}
-                <div className="relative flex flex-1 items-center justify-center px-5 pb-4 pt-1">
+                <div className="relative flex flex-1 items-center justify-center px-4 py-2 w-full">
                   <img
                     src={partner.logo}
                     alt={`${partner.name} logo`}
                     loading="lazy"
                     decoding="async"
-                    className="max-h-11 sm:max-h-12 max-w-[88%] object-contain mix-blend-multiply transition-transform duration-500 group-hover/card:scale-[1.06]"
+                    className="max-h-10 sm:max-h-11 max-w-[85%] object-contain mix-blend-multiply transition-transform duration-500 group-hover/card:scale-105"
                   />
                 </div>
               </a>
             ))}
           </div>
 
-          <div className="absolute inset-y-0 left-0 w-16 sm:w-28 lg:w-40 bg-gradient-to-r from-[#e9eff6] via-[#e9eff6]/70 to-transparent dark:from-[#061225] dark:via-[#061225]/70 pointer-events-none z-10" />
-          <div className="absolute inset-y-0 right-0 w-16 sm:w-28 lg:w-40 bg-gradient-to-l from-[#e9eff6] via-[#e9eff6]/70 to-transparent dark:from-[#061225] dark:via-[#061225]/70 pointer-events-none z-10" />
+         
         </div>
       </div>
     </section>
