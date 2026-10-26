@@ -44,7 +44,7 @@ const VIDEO_BASE_URL = `${IMAGE_BASE_URL}/reels/`;
 const hotspotsList: HotspotType[] = [
   {
     id: "curtains",
-    label: "Curtains Automation",
+    label: "Curtain Automation",
     anchor: { x: 60.5, y: 26 },
     labelPos: { x: 75.2, y: 24 },
     icon: Blinds,
@@ -52,7 +52,7 @@ const hotspotsList: HotspotType[] = [
   },
   {
     id: "lighting",
-    label: "Lighting Automation",
+    label: "Lighting",
     anchor: { x: 58.5, y: 36 },
     labelPos: { x: 72.6, y: 32.4 },
     icon: Lightbulb,
@@ -456,45 +456,36 @@ export default function HeroSectionV2() {
           {/* Editorial Headline */}
           <h1 className="text-[22px] sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.2]">
             <span className="block">Smart Home Automation</span>
-            <span className="block font-serif italic font-normal text-[#0070e0] dark:text-[#38bdf8] mt-0.5">
-              in Bangalore
+            <span className="block font-serif italic font-normal text-[#0070e0] dark:text-[#38bdf8] mt-1">
+              Company in Bangalore
             </span>
           </h1>
 
           {/* Subtitle / Narrative (Clean & Concise) */}
-          <p className="mt-2 text-xs sm:text-[13px] text-slate-600 dark:text-slate-400 font-normal leading-relaxed max-w-sm">
+          <p className="mt-3 text-xs sm:text-[13px] text-slate-600 dark:text-slate-400 font-normal leading-relaxed max-w-sm">
             Bespoke smart living for modern luxury homes. Over 800+ projects delivered with 8+ years of excellence.
           </p>
 
-          {/* Side-by-Side Action Pill Buttons */}
-          <div className="mt-4 flex items-center gap-2.5 w-full">
-            <a
-              href="#contact-enquiry"
-              onClick={(e) => {
-                e.preventDefault();
-                const el = document.getElementById("contact-enquiry");
-                if (el) {
-                  el.scrollIntoView({ behavior: "smooth" });
-                } else {
-                  window.location.href = "/contact";
-                }
-              }}
-              className="flex-1 py-2.5 px-4 rounded-full bg-[#0070e0] hover:bg-[#005bb8] active:scale-[0.98] text-white font-sans font-bold text-xs tracking-wide shadow-[0_4px_16px_rgba(0,112,224,0.3)] flex items-center justify-center gap-1.5 transition-all cursor-pointer whitespace-nowrap"
-            >
-              <span>Free Consultation</span>
-              <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
-            </a>
-
-            <Link
-              to="/automation"
-              className="py-2.5 px-4 rounded-full border border-slate-300/80 dark:border-white/15 bg-white/60 dark:bg-white/5 hover:bg-white dark:hover:bg-white/10 active:scale-[0.98] text-slate-900 dark:text-white font-sans font-bold text-xs tracking-wide flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-xs whitespace-nowrap"
-            >
-              <span>Explore Solutions</span>
-            </Link>
-          </div>
+          {/* Free Consultation Button */}
+          <a
+            href="#contact-enquiry"
+            onClick={(e) => {
+              e.preventDefault();
+              const el = document.getElementById("contact-enquiry");
+              if (el) {
+                el.scrollIntoView({ behavior: "smooth" });
+              } else {
+                window.location.href = "/contact";
+              }
+            }}
+            className="mt-4 w-full py-2.5 px-4 rounded-full bg-[#0070e0] hover:bg-[#005bb8] active:scale-[0.98] text-white font-sans font-bold text-xs tracking-wide shadow-[0_4px_16px_rgba(0,112,224,0.3)] flex items-center justify-center gap-1.5 transition-all cursor-pointer whitespace-nowrap"
+          >
+            <span>Free Consultation</span>
+            <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
+          </a>
 
           {/* Solution Reel Tabs (Single-Row Horizontal Scroll) */}
-          <div className="mt-5 pt-3.5 border-t border-slate-200/60 dark:border-white/10 w-full">
+          <div className="mt-6 pt-4 border-t border-slate-200/60 dark:border-white/10 w-full">
             <div className="flex items-center justify-between gap-2 mb-2">
               <span className="text-[10px] font-sans font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                 Solutions in Action
@@ -538,6 +529,16 @@ export default function HeroSectionV2() {
                 );
               })}
             </div>
+          </div>
+
+          {/* Explore Solutions Link */}
+          <div className="mt-4 w-full">
+            <Link
+              to="/automation"
+              className="w-full py-2.5 px-4 rounded-full border border-slate-300/80 dark:border-white/15 bg-white/60 dark:bg-white/5 hover:bg-white dark:hover:bg-white/10 active:scale-[0.98] text-slate-900 dark:text-white font-sans font-bold text-xs tracking-wide flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-xs whitespace-nowrap"
+            >
+              <span>Explore Solutions</span>
+            </Link>
           </div>
         </div>
       </div>
