@@ -240,13 +240,8 @@ export default function HeroSectionV2() {
                       anchor={hotspot.anchor}
                       isHovered={isHovered}
                       isActive={isActive}
-<<<<<<< Updated upstream
                       onHoverStart={() => setHoveredId(hotspot.id)}
                       onHoverEnd={() => setHoveredId(null)}
-=======
-                      onHoverStart={() => { }}
-                      onHoverEnd={() => { }}
->>>>>>> Stashed changes
                       onClick={() => handleHotspotClick(hotspot.id)}
                       index={idx}
                       delay={delay}
@@ -262,13 +257,8 @@ export default function HeroSectionV2() {
                       icon={hotspot.icon}
                       isHovered={isHovered}
                       isActive={isActive}
-<<<<<<< Updated upstream
                       onHoverStart={() => setHoveredId(hotspot.id)}
                       onHoverEnd={() => setHoveredId(null)}
-=======
-                      onHoverStart={() => { }}
-                      onHoverEnd={() => { }}
->>>>>>> Stashed changes
                       onClick={() => handleHotspotClick(hotspot.id)}
                       delay={delay}
                       isTablet={isTablet}
@@ -297,11 +287,6 @@ export default function HeroSectionV2() {
                 title="ISO Certified Home Automation Company"
                 className="h-5.5 w-5.5 object-contain"
               />
-<<<<<<< Updated upstream
-              <span className="text-[11px] sm:text-xs font-sans font-medium tracking-wide text-text-main leading-none">
-                ISO{" "}
-                <span className="text-[#00A551] font-semibold">9001:2015</span>
-=======
               <span
                 className="text-[11px] sm:text-xs font-sans font-bold tracking-wide leading-none"
                 style={{
@@ -311,10 +296,9 @@ export default function HeroSectionV2() {
               >
                 ISO{" "}
                 <span className="font-extrabold" style={{ color: "#00e676" }}>
-                  2015
+                  9001:2015
                 </span>{" "}
                 Certified Company
->>>>>>> Stashed changes
               </span>
             </div>
           </div>
