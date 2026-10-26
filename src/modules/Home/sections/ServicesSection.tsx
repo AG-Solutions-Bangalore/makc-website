@@ -1,7 +1,7 @@
 import {
   Home,
   Lightbulb,
-  ShieldCheck,
+  Shield,
   Wifi,
   Volume2,
   Zap,
@@ -36,7 +36,7 @@ const services = [
   },
   {
     id: "security",
-    icon: ShieldCheck,
+    icon: Shield,
     title: "Advanced Security",
     description:
       "AI-powered surveillance, smart locks and intrusion protection.",
@@ -86,32 +86,40 @@ export default function ServicesSection() {
   return (
     <section
       id="solutions"
-      className="relative w-full py-12 sm:py-16 bg-[#faf8f5] dark:bg-[#070e18] border-t border-border-main transition-colors duration-500 overflow-hidden"
+      className="relative w-full py-8 bg-[#F1F4F5] dark:bg-[#070e18] border-t border-border-main transition-colors duration-500 overflow-hidden"
     >
       {/* Top statistics section */}
       <StatsSectionV2 />
 
       {/* Subtle ambient lighting glows */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_35%,rgba(10,132,255,0.05)_0%,transparent_50%),radial-gradient(circle_at_85%_75%,rgba(10,132,255,0.04)_0%,transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_35%,rgba(10,132,255,0.04)_0%,transparent_50%),radial-gradient(circle_at_85%_75%,rgba(10,132,255,0.03)_0%,transparent_50%)] pointer-events-none" />
 
-      <div className="relative mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-10 items-stretch">
-          {/* Left Column: Brand Story & Value Indicators */}
-          <div className="lg:col-span-4 xl:col-span-4 flex flex-col justify-between text-left py-2">
+      <div className="relative p-5 rounded-xl bg-white dark:bg-[#070e18] mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-[28%_1fr] gap-6 lg:gap-6 xl:gap-8 items-center">
+          {/* Left Column: Brand Story & Value Indicators (~28% width, +10% width) */}
+          <div className="flex flex-col justify-between text-left py-1">
             <div>
-              {/* Main Headline */}
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[40px] xl:text-[44px] font-bold text-text-main tracking-tight leading-[1.12]">
+              {/* Eyebrow Tag with blue dash */}
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-5 h-[2px] bg-[#0070e0] inline-block rounded-full" />
+                <span className="font-sans text-[10px] sm:text-[10.5px] font-bold tracking-[0.18em] text-[#0070e0] uppercase">
+                  EXPERIENCE SMART LIVING
+                </span>
+              </div>
+
+              {/* Main Headline with Serif Typography */}
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-[32px] xl:text-[36px] font-bold text-slate-900 dark:text-white tracking-tight leading-[1.12]">
                 <span className="block">Complete Smart</span>
                 <span className="block italic font-normal font-serif">
                   Home Automation
                 </span>
-                <span className="block font-bold text-accent-blue">
+                <span className="block font-bold text-[#0070e0] dark:text-[#38bdf8]">
                   Solutions
                 </span>
               </h2>
 
               {/* Description Paragraph */}
-              <p className="mt-4 sm:mt-5 font-sans text-sm sm:text-[15px] text-text-muted leading-relaxed max-w-md">
+              <p className="mt-2.5 sm:mt-3 font-sans text-xs sm:text-[13px] text-slate-600 dark:text-slate-300 leading-relaxed max-w-[320px]">
                 Every room should anticipate your needs. Walk in. Lights welcome
                 you. Climate adjusts automatically. Music follows you. Security
                 protects silently. Your home becomes intelligent without looking
@@ -119,62 +127,62 @@ export default function ServicesSection() {
               </p>
 
               {/* Primary CTA Button */}
-              <div className="mt-6 sm:mt-7">
+              <div className="mt-4">
                 <Link
                   to="/automation"
                   title="Explore All Smart Home Solutions"
-                  className="group inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-accent-blue hover:bg-[#0070e0] text-white font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_4px_18px_rgba(10,132,255,0.4)] hover:shadow-[0_6px_24px_rgba(10,132,255,0.55)] hover:-translate-y-0.5 active:translate-y-0"
+                  className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0070e0] hover:bg-[#005bb5] text-white font-medium text-xs sm:text-[13px] transition-all duration-300 shadow-[0_4px_14px_rgba(0,112,224,0.3)] hover:shadow-[0_6px_20px_rgba(0,112,224,0.45)] hover:-translate-y-0.5 active:translate-y-0"
                 >
-                  <span className="text-white! !text-white font-bold tracking-wide">
+                  <span className="text-white! !text-white font-semibold tracking-wide">
                     Explore All Solutions
                   </span>
-                  <ArrowRight className="w-4 h-4 text-white! !text-white transition-transform duration-300 group-hover:translate-x-1" />
+                  <ArrowRight className="w-3.5 h-3.5 text-white! !text-white transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </div>
             </div>
 
             {/* Bottom 3 Value Proposition Badges */}
-            <div className="mt-8 pt-6 border-t border-border-main/70 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-2 xl:gap-3">
+            <div className="mt-6 pt-3.5 border-t border-slate-200/80 dark:border-white/10 grid grid-cols-3 gap-2">
               {/* Badge 1: Smarter Living */}
-              <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-white/10 border border-slate-200/80 dark:border-white/10 flex items-center justify-center text-slate-700 dark:text-slate-200 shrink-0">
-                  <Home className="w-4 h-4" />
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1.5">
+                <div className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-lg bg-slate-100 dark:bg-white/10 border border-slate-200/80 dark:border-white/10 flex items-center justify-center text-slate-700 dark:text-slate-200 shrink-0">
+                  <Home className="w-3.5 h-3.5 stroke-[1.8]" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[10px] sm:text-[11px] font-bold tracking-wider text-text-main uppercase">
+                  <span className="text-[9.5px] sm:text-[10px] font-bold tracking-wider text-slate-900 dark:text-white uppercase leading-tight">
                     SMARTER LIVING
                   </span>
-                  <span className="text-[9px] sm:text-[10px] text-text-muted">
+                  <span className="text-[8.5px] sm:text-[9px] text-slate-500 dark:text-slate-400 font-medium leading-tight">
                     Comfort &amp; Convenience
                   </span>
                 </div>
               </div>
 
               {/* Badge 2: Safer Homes */}
-              <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-sky-50 dark:bg-sky-950/40 border border-sky-200/60 dark:border-sky-800/30 flex items-center justify-center text-accent-blue shrink-0">
-                  <ShieldCheck className="w-4 h-4" />
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1.5">
+                <div className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-lg bg-sky-100/70 dark:bg-sky-950/50 border border-sky-200/80 dark:border-sky-800/40 flex items-center justify-center text-[#0070e0] dark:text-[#38bdf8] shrink-0">
+                  <Shield className="w-3.5 h-3.5 stroke-[1.8]" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[10px] sm:text-[11px] font-bold tracking-wider text-text-main uppercase">
+                  <span className="text-[9.5px] sm:text-[10px] font-bold tracking-wider text-slate-900 dark:text-white uppercase leading-tight">
                     SAFER HOMES
                   </span>
-                  <span className="text-[9px] sm:text-[10px] text-text-muted">
+                  <span className="text-[8.5px] sm:text-[9px] text-slate-500 dark:text-slate-400 font-medium leading-tight">
                     24/7 Protection
                   </span>
                 </div>
               </div>
 
               {/* Badge 3: Greener Tomorrow */}
-              <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
-                  <Leaf className="w-4 h-4" />
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1.5">
+                <div className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-lg bg-emerald-100/70 dark:bg-emerald-950/50 border border-emerald-200/80 dark:border-emerald-800/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+                  <Leaf className="w-3.5 h-3.5 stroke-[1.8]" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[10px] sm:text-[11px] font-bold tracking-wider text-text-main uppercase">
+                  <span className="text-[9.5px] sm:text-[10px] font-bold tracking-wider text-slate-900 dark:text-white uppercase leading-tight">
                     GREENER TOMORROW
                   </span>
-                  <span className="text-[9px] sm:text-[10px] text-text-muted">
+                  <span className="text-[8.5px] sm:text-[9px] text-slate-500 dark:text-slate-400 font-medium leading-tight">
                     Energy Efficient
                   </span>
                 </div>
@@ -182,8 +190,8 @@ export default function ServicesSection() {
             </div>
           </div>
 
-          {/* Right Column: 6-Card Bento Grid (Asymmetric 1.55fr : 1fr : 1fr on desktop) */}
-          <div className="lg:col-span-8 xl:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.55fr_1fr_1fr] gap-4 sm:gap-4 xl:gap-5">
+          {/* Right Column: 6-Card Bento Grid (~72% width with 1.55fr : 1fr : 1fr layout) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.55fr_1fr_1fr] gap-2.5 sm:gap-2.5 lg:gap-2.5">
             {services.map((service) => {
               const Icon = service.icon;
               const isWide = service.isWide;
@@ -193,47 +201,77 @@ export default function ServicesSection() {
                   to={service.link}
                   title={service.linkTitle}
                   id={service.id}
-                  className={`group relative rounded-[20px] sm:rounded-[24px] overflow-hidden p-5 sm:p-6 flex flex-col justify-between cursor-pointer border border-slate-200/50 dark:border-white/10 shadow-[0_6px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.45)] hover:shadow-[0_14px_36px_rgba(0,0,0,0.18)] dark:hover:shadow-[0_18px_48px_rgba(0,0,0,0.65)] transition-all duration-500 min-h-[250px] sm:min-h-[265px] lg:min-h-[270px] xl:h-[285px] ${
+                  className={`group relative rounded-[18px] sm:rounded-[20px] overflow-hidden p-3.5 sm:p-4 flex flex-col justify-between cursor-pointer border border-slate-200/50 dark:border-white/10 shadow-[0_3px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_6px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_12px_30px_rgba(0,0,0,0.55)] transition-all duration-500 h-[185px] sm:h-[195px] lg:h-[200px] xl:h-[210px] ${
                     isWide ? "sm:col-span-2 lg:col-span-1" : "sm:col-span-1"
                   }`}
                 >
-                  {/* Card Background Image with Subtle Hover Scale */}
+                  {/* Card Background Image with Natural Contrast & Hover Scale */}
                   <img
                     src={service.bgImage}
                     alt={service.title}
                     title={service.imgTitle}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    className="absolute inset-0 w-full h-full object-cover object-center brightness-[1.03] contrast-[1.04] transition-transform duration-700 ease-out group-hover:scale-105"
                     loading="lazy"
                     decoding="async"
                   />
 
-                  {/* Dark Ambient Vignette Gradient Overlay for Crisp Readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/35 pointer-events-none transition-opacity duration-300 group-hover:opacity-90" />
+                  {/* Clean, Lightweight Vignette Overlays matching the design: clear top, soft bottom shade */}
+                  {isWide ? (
+                    <>
+                      {/* Soft directional gradient behind text on bottom-left; top and right remain completely unshaded */}
+                      <div className="absolute inset-0 bg-gradient-to-tr from-black/75 via-black/30 via-40% to-transparent pointer-events-none transition-opacity duration-300 group-hover:opacity-90" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent via-50% to-transparent pointer-events-none" />
+                    </>
+                  ) : (
+                    /* Standard cards: soft bottom gradient only, upper 55% completely clear */
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 via-45% to-transparent pointer-events-none transition-opacity duration-300 group-hover:opacity-90" />
+                  )}
 
-                  {/* Top: Frosted Translucent Icon Badge */}
-                  <div className="relative z-10 w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-black/45 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/95 shadow-sm transition-transform duration-300 group-hover:scale-105">
-                    <Icon className="w-5 h-5 stroke-[1.8]" />
+                  {/* Top: Subtle Translucent Frosted Glass Icon Badge */}
+                  <div className="relative z-10 w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-xl bg-black/25 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/95 shadow-sm transition-transform duration-300 group-hover:scale-105">
+                    <Icon className="w-4 h-4 stroke-[1.8]" />
                   </div>
 
-                  {/* Mid-Lower: Title & Description */}
-                  <div className="relative z-10 mt-auto pt-4 text-left">
-                    <h3 className="font-sans text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight leading-snug drop-shadow-sm">
-                      {service.title}
-                    </h3>
-                    <p className="mt-1.5 font-sans text-xs sm:text-[13px] text-white/80 leading-relaxed font-normal line-clamp-2 max-w-[95%]">
-                      {service.description}
-                    </p>
+                  {/* Card Content Layout: Wide cards restrict text width & group actions on left; standard cards space-between */}
+                  {isWide ? (
+                    <div className="relative z-10 mt-auto pt-1 text-left max-w-[190px] sm:max-w-[210px]">
+                      <h3 className="font-sans text-[15px] sm:text-base font-bold text-white tracking-tight leading-snug drop-shadow-sm">
+                        {service.title}
+                      </h3>
+                      <p className="mt-0.5 font-sans text-[11px] sm:text-xs text-white/80 leading-tight font-normal line-clamp-2">
+                        {service.description}
+                      </p>
 
-                    {/* Bottom Action: View More with Circular Arrow Button */}
-                    <div className="mt-3.5 pt-3 flex items-center justify-between border-t border-white/15">
-                      <span className="text-xs sm:text-[13px] font-medium text-white/90 group-hover:text-white transition-colors duration-200 underline underline-offset-4 decoration-white/40 group-hover:decoration-white">
-                        View More
-                      </span>
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/40 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black group-hover:border-white transition-all duration-300 shadow-sm shrink-0">
-                        <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+                      {/* Bottom Action: View More with Circular Arrow Button directly next to it */}
+                      <div className="mt-2 flex items-center gap-2">
+                        <span className="text-[11.5px] font-handwriting sm:text-xs font-medium text-white/90 group-hover:text-white transition-colors duration-200 group-hover:decoration-white">
+                          View More
+                        </span>
+                        <div className="w-6 h-6 rounded-full border border-white/45 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black group-hover:border-white transition-all duration-300 shadow-sm shrink-0">
+                          <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  ) : (
+                    <div className="relative z-10 mt-auto pt-1 text-left w-full">
+                      <h3 className="font-sans text-[15px] sm:text-base font-bold text-white tracking-tight leading-snug drop-shadow-sm">
+                        {service.title}
+                      </h3>
+                      <p className="mt-0.5 font-sans leading-tight text-[11px] sm:text-xs text-white/80 leading-relaxed font-normal line-clamp-2">
+                        {service.description}
+                      </p>
+
+                      {/* Bottom Action: View More on left, Circular Arrow on right */}
+                      <div className="mt-2 flex items-center justify-between w-full">
+                        <span className="text-[11.5px] font-handwriting sm:text-xs font-medium text-white/90 group-hover:text-white transition-colors duration-200 group-hover:decoration-white">
+                          View More
+                        </span>
+                        <div className="w-6 h-6 rounded-full border border-white/45 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black group-hover:border-white transition-all duration-300 shadow-sm shrink-0">
+                          <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </Link>
               );
             })}
