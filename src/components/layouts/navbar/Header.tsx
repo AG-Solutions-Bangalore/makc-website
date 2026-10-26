@@ -216,9 +216,7 @@ export default function Header() {
               className={`flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-300 cursor-pointer shrink-0 ml-0.5 ${
                 isScrolled
                   ? "border-border-main/80 bg-bg-surface/90 text-text-main hover:bg-bg-surface hover:text-accent-blue hover:border-accent-blue/50 shadow-sm"
-                  : mounted && theme === "light"
-                    ? "border-slate-300/90 bg-white/95 text-slate-900 hover:bg-white hover:text-accent-blue shadow-md backdrop-blur-md"
-                    : "border-white/40 bg-black/50 text-white hover:bg-black/70 hover:border-white/80 shadow-md backdrop-blur-md"
+                  : "border-white/30 bg-black/50 text-white hover:bg-black/70 hover:border-white/60 shadow-md backdrop-blur-md"
               }`}
               title="Toggle Theme"
               aria-label="Toggle Theme"
@@ -237,9 +235,7 @@ export default function Header() {
               className={`flex lg:hidden h-10 w-10 items-center justify-center rounded-full border transition-all duration-300 cursor-pointer shrink-0 ml-0.5 ${
                 isScrolled
                   ? "border-border-main/80 bg-bg-surface/90 text-text-main hover:bg-bg-surface hover:text-accent-blue hover:border-accent-blue/50 shadow-sm"
-                  : mounted && theme === "light"
-                    ? "border-slate-300/90 bg-white/95 text-slate-900 hover:bg-white hover:text-accent-blue shadow-md backdrop-blur-md"
-                    : "border-white/40 bg-black/50 text-white hover:bg-black/70 hover:border-white/80 shadow-md backdrop-blur-md"
+                  : "border-white/30 bg-black/50 text-white hover:bg-black/70 hover:border-white/60 shadow-md backdrop-blur-md"
               }`}
               title={drawerOpen ? "Close Menu" : "Open Menu"}
               aria-label={drawerOpen ? "Close Menu" : "Open Menu"}

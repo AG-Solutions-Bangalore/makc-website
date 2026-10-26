@@ -75,20 +75,20 @@ export default function AboutPage() {
           title="About MAKc Automations"
           className="absolute inset-0 w-full h-full object-cover scale-102 filter brightness-[45%] contrast-110"
         />
-        {/* Left side overlay with theme mode aware light and dark */}
-        <div className="absolute inset-0 bg-gradient-to-r from-bg-main via-bg-main/95 sm:via-bg-main/80 lg:via-bg-main/60 to-transparent pointer-events-none transition-colors duration-300" />
+        {/* Dark overlay across both light and dark mode for consistent premium contrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30 pointer-events-none" />
 
-        {/* Bottom gradient blend into next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 md:h-36 bg-gradient-to-t from-bg-main to-transparent pointer-events-none z-[5]" />
+        {/* Bottom gradient blend into next section (dark mode only so light mode doesn't wash out hero bottom) */}
+        <div className="hidden dark:block absolute bottom-0 left-0 right-0 h-24 md:h-36 bg-gradient-to-t from-bg-main to-transparent pointer-events-none z-[5]" />
 
         <div className="relative z-10 max-w-5xl mx-auto text-center px-4 pt-10 sm:pt-16 space-y-3 sm:space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/25 text-accent-blue text-xs font-bold uppercase tracking-widest mb-2 backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/20 border border-accent-blue/30 text-blue-300 text-xs font-bold uppercase tracking-widest mb-2 backdrop-blur-md">
             <span>About Us</span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold font-serif tracking-tight text-text-main drop-shadow-md">
+          <h1 className="text-5xl md:text-7xl font-bold font-serif tracking-tight !text-white text-white! drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
             About Us
           </h1>
-          <p className="text-sm sm:text-base text-text-muted max-w-2xl mx-auto leading-relaxed font-medium drop-shadow">
+          <p className="text-sm sm:text-base !text-white/95 text-white! max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-[0_1px_4px_rgba(0,0,0,0.85)]">
             MAKc Automation is locally owned and operated, being the best
             automation, security system, networking and lighting provider in
             the region.

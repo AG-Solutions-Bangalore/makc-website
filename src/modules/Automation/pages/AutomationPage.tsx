@@ -170,11 +170,11 @@ export default function AutomationPage() {
           backgroundImage: `url('${getImageUrl("automation_banner.webp")}')`,
         }}
       >
-        {/* Subtle contrast gradient to make white text crystal clear while keeping the entire background image 100% visible */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 sm:via-black/15 to-transparent pointer-events-none transition-colors duration-300" />
+        {/* Dark overlay across both light and dark mode for consistent premium contrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 sm:via-black/40 to-black/20 pointer-events-none" />
 
-        {/* Bottom gradient blend into next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 md:h-36 bg-gradient-to-t from-bg-main to-transparent pointer-events-none z-[5]" />
+        {/* Bottom gradient blend into next section (dark mode only so light mode doesn't wash out hero bottom) */}
+        <div className="hidden dark:block absolute bottom-0 left-0 right-0 h-24 md:h-36 bg-gradient-to-t from-bg-main to-transparent pointer-events-none z-[5]" />
 
         {/* Hero content container */}
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10 pt-20 sm:pt-24 lg:pt-28 pb-8 sm:pb-14 lg:pb-20 flex flex-col justify-center min-h-[75vh] sm:min-h-[85vh] lg:min-h-screen">
