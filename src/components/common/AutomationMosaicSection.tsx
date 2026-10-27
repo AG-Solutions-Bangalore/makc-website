@@ -4,21 +4,23 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { getImageUrl } from "@/utils/image";
-import { API_BASE_URL, IMAGE_BASE_URL } from "@/config/constants";
+import { API_BASE_URL } from "@/config/constants";
 // import { ExternalLink } from "lucide-react";
 import InstagramEmbed from "./InstagramEmbed";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const VIDEO_BASE = "/images/video/reels";
+
 const VIDEO_MAP: Record<string, string> = {
-  "Dimming & Tuning of Lights": "dimming_and _tunning_of_lights.mp4",
-  "Electrical Automation": "electrical_automation.mp4",
-  "Mesh Wi-Fi Network": "mesh_wifi_network_solutions.mp4",
-  "RGB Lighting": "rgb_mood_lighting.mp4",
-  "Scene-Based Lighting": "scene_based_lighting.mp4",
-  "Sensor-Based": "sensor_board_protection.mp4",
-  "Wired Network": "wired_network_planning_and_design.mp4",
-  "Gate Automation": "gate_automation.mp4",
+  "Dimming & Tuning of Lights": "dimming-and-tuning.mp4",
+  "Electrical Automation": "electrical-automation.mp4",
+  "Mesh Wi-Fi Network": "mesh-wifi.mp4",
+  "RGB Lighting": "rgb-mood-lighting.mp4",
+  "Scene-Based Lighting": "scene-based-lighting.mp4",
+  "Sensor-Based": "sensor-protection.mp4",
+  "Wired Network": "wired-network.mp4",
+  "Gate Automation": "gate-automation.mp4",
 };
 
 const REEL_MAP: Record<string, string> = {
@@ -141,7 +143,7 @@ export default function AutomationMosaicSection({
           type: "Reel",
           url: targetReel.startsWith("http")
             ? targetReel
-            : `${IMAGE_BASE_URL}/reels/${targetReel}`,
+            : `${VIDEO_BASE}/${targetReel}`,
         });
         if (!cancelled) setLoading(false);
         return;
@@ -155,7 +157,7 @@ export default function AutomationMosaicSection({
         type: "Reel",
         url: targetMp4.startsWith("http")
           ? targetMp4
-          : `${IMAGE_BASE_URL}/reels/${targetMp4}`,
+          : `${VIDEO_BASE}/${targetMp4}`,
       });
       if (!cancelled) setLoading(false);
       return;
@@ -177,7 +179,7 @@ export default function AutomationMosaicSection({
         if (serviceData) {
           const reelsBase =
             json.image_url?.find((img: any) => img.image_for === "Reels")
-              ?.image_url || `${IMAGE_BASE_URL}/reels/`;
+              ?.image_url || `${VIDEO_BASE}/`;
 
           const isFullUrl = serviceData.services_url_image.startsWith("http");
           const finalUrl = isFullUrl

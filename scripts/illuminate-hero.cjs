@@ -53,7 +53,7 @@ async function generateIlluminatedHero() {
   const glowPng = await sharp(Buffer.from(svg)).png().toBuffer();
 
   // First apply CLAHE + slight gamma lift to reveal photographic details in the shadows
-  const enhancedMaster = await sharp('public/images/hero_bg_original.webp')
+  const enhancedMaster = await sharp('public/images/home/hero_bg_original.webp')
     .clahe({ width: 30, height: 30, maxSlope: 4 })
     .modulate({ brightness: 1.18, saturation: 1.15 })
     .composite([
@@ -61,7 +61,7 @@ async function generateIlluminatedHero() {
     ])
     .toBuffer();
 
-  const imgDir = path.join(__dirname, '..', 'public', 'images');
+  const imgDir = path.join(__dirname, '..', 'public', 'images', 'home');
 
   // Generate 1920w master
   await sharp(enhancedMaster)

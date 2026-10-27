@@ -285,7 +285,7 @@ export default function Footer() {
               {/* Loop Video GIF */}
               <div className="relative overflow-hidden rounded-xl border border-border-main bg-bg-surface/30 shadow-md group mb-3 aspect-video">
                 <video
-                  src="/Video/living_room_animation.mp4"
+                  src="/images/video/living_room_animation.mp4"
                   autoPlay
                   loop
                   muted
