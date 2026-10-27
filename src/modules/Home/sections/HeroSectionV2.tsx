@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from "react";
-import { Link } from "react-router-dom";
 import { useTheme } from "next-themes";
 import WaveButton from "@/components/common/WaveButton";
 import { getImageUrl } from "@/utils/image";
@@ -19,6 +18,7 @@ import {
   X,
   Play,
   ArrowRight,
+  Sparkle,
 } from "lucide-react";
 import InstagramEmbed from "@/components/common/InstagramEmbed";
 
@@ -283,7 +283,7 @@ export default function HeroSectionV2() {
             className="flex-1 flex flex-col justify-center text-left max-w-lg lg:max-w-[48%] xl:max-w-[46%] 2xl:max-w-2xl reveal-on-scroll reveal-left pointer-events-auto p-0 bg-transparent border-0 shadow-none"
             data-reveal-duration="0.9s"
           >
-            <div className="mb-3">
+            <div className="mb-3 flex flex-wrap items-center gap-2">
               <div className="inline-flex items-center gap-2.5 border border-white/25 bg-black/40 backdrop-blur-md rounded-full px-3.5 py-1.5 select-none pointer-events-none shadow-xs">
                 <img
                   src="/images/brands/iso-image.svg"
@@ -303,6 +303,23 @@ export default function HeroSectionV2() {
                     9001:2015
                   </span>{" "}
                   Certified Company
+                </span>
+              </div>
+              <div className="badge-shine inline-flex items-center gap-2 border border-amber-400/60 bg-gradient-to-r from-amber-500/15 via-black/50 to-amber-500/15 backdrop-blur-md rounded-full px-3.5 py-1.5 select-none pointer-events-none shadow-[0_0_14px_rgba(251,191,36,0.2)]">
+                <Sparkle
+                  className="h-4 w-4 shrink-0"
+                  style={{
+                    color: "#fcd34d",
+                    filter: "drop-shadow(0 0 5px rgba(251,191,36,0.9))",
+                  }}
+                  fill="currentColor"
+                  aria-hidden="true"
+                />
+                <span
+                  className="bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-400 bg-clip-text text-transparent text-xs font-extrabold tracking-[0.12em] uppercase leading-none"
+                  style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.9))" }}
+                >
+                  Award Winning
                 </span>
               </div>
             </div>
@@ -431,8 +448,8 @@ export default function HeroSectionV2() {
           {/* Top subtle vignette for Header readability */}
           <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-black/70 via-black/20 to-transparent pointer-events-none z-10" />
 
-          {/* Top-Left Small ISO Badge (Under Header) */}
-          <div className="absolute top-[72px] left-4 sm:left-6 z-20 pointer-events-none">
+          {/* Top-Left Small ISO & Award Badges (Under Header) */}
+          <div className="absolute top-[72px] left-4 sm:left-6 z-20 pointer-events-none flex flex-wrap items-center gap-1.5">
             <div className="inline-flex items-center gap-1.5 border border-white/25 bg-black/60 backdrop-blur-md rounded-full px-2.5 py-1 select-none shadow-xs">
               <img
                 src="/images/brands/iso-image.svg"
@@ -443,6 +460,17 @@ export default function HeroSectionV2() {
               <span className="text-[10px] font-sans font-bold tracking-wide leading-none text-white">
                 ISO{" "}
                 <span className="font-extrabold text-[#00e676]">9001:2015</span>
+              </span>
+            </div>
+            <div className="badge-shine inline-flex items-center gap-1.5 border border-amber-400/60 bg-gradient-to-r from-amber-500/15 via-black/60 to-amber-500/15 backdrop-blur-md rounded-full px-2.5 py-1 select-none shadow-[0_0_10px_rgba(251,191,36,0.2)]">
+              <Sparkle
+                className="h-3.5 w-3.5 shrink-0 text-amber-300"
+                style={{ filter: "drop-shadow(0 0 4px rgba(251,191,36,0.9))" }}
+                fill="currentColor"
+                aria-hidden="true"
+              />
+              <span className="bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-400 bg-clip-text text-transparent text-[10px] font-extrabold tracking-[0.1em] uppercase leading-none">
+                Award Winning
               </span>
             </div>
           </div>
@@ -479,7 +507,7 @@ export default function HeroSectionV2() {
                 window.location.href = "/contact";
               }
             }}
-            className="mt-4 w-full py-2.5 px-4 rounded-full bg-[#0070e0] hover:bg-[#005bb8] active:scale-[0.98] text-white font-sans font-bold text-xs tracking-wide shadow-[0_4px_16px_rgba(0,112,224,0.3)] flex items-center justify-center gap-1.5 transition-all cursor-pointer whitespace-nowrap"
+            className="mt-4 badge-shine w-full py-2.5 px-4 rounded-full bg-[#0070e0] hover:bg-[#005bb8] active:scale-[0.98] text-white font-sans font-bold text-xs tracking-wide shadow-[0_4px_16px_rgba(0,112,224,0.3)] flex items-center justify-center gap-1.5 transition-all cursor-pointer whitespace-nowrap"
           >
             <span>Free Consultation</span>
             <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
@@ -530,16 +558,6 @@ export default function HeroSectionV2() {
                 );
               })}
             </div>
-          </div>
-
-          {/* Explore Solutions Link */}
-          <div className="mt-4 w-full">
-            <Link
-              to="/automation"
-              className="w-full py-2.5 px-4 rounded-full border border-slate-300/80 dark:border-white/15 bg-white/60 dark:bg-white/5 hover:bg-white dark:hover:bg-white/10 active:scale-[0.98] text-slate-900 dark:text-white font-sans font-bold text-xs tracking-wide flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-xs whitespace-nowrap"
-            >
-              <span>Explore Solutions</span>
-            </Link>
           </div>
         </div>
       </div>
