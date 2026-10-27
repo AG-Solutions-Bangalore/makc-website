@@ -42,7 +42,7 @@ export default function GateAutomationSection() {
       imagePosition="left"
       prefix="gate"
       serviceName="Gate Automation"
-      reelUrl="https://www.instagram.com/reel/DTp5xiDj82a/"
+      reelUrl="https://www.instagram.com/reel/DdNJx4tKGAK/"
       reelTitles={["Watch Gate Automation Reel on Instagram"]}
     />
   );

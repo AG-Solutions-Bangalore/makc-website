@@ -1,16 +1,11 @@
-import { useEffect, useState, type MouseEvent, lazy, Suspense } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Phone, Sun, Moon, Menu } from "lucide-react";
 import { useTheme } from "next-themes";
 import BrandLogo from "@/components/common/BrandLogo";
 import { COMPANY_INFO } from "@/config/constants";
 
-// Deferred: drawer-only (Radix Sheet + motion). Renders nothing visible until
-// first opened, so gating on first-open is visually identical and keeps
-// motion/Radix-dialog out of the critical path.
-const MobileMenu = lazy(() =>
-  import("./MobileMenu").then((m) => ({ default: m.MobileMenu })),
-);
+import { MobileMenu } from "./MobileMenu";
 
 interface NavLink {
   label: string;
@@ -50,7 +45,6 @@ export default function Header() {
     () => typeof window !== "undefined" && window.scrollY > 20,
   );
   const [drawerOpen, setDrawer] = useState(false);
-  const [menuMounted, setMenuMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -87,7 +81,6 @@ export default function Header() {
   };
 
   const toggle = () => {
-    setMenuMounted(true);
     setDrawer((open) => {
       const next = !open;
       document.body.style.overflow = next ? "hidden" : "";
@@ -223,9 +216,7 @@ export default function Header() {
               className={`flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-300 cursor-pointer shrink-0 ml-0.5 ${
                 isScrolled
                   ? "border-border-main/80 bg-bg-surface/90 text-text-main hover:bg-bg-surface hover:text-accent-blue hover:border-accent-blue/50 shadow-sm"
-                  : mounted && theme === "light"
-                    ? "border-slate-300/90 bg-white/95 text-slate-900 hover:bg-white hover:text-accent-blue shadow-md backdrop-blur-md"
-                    : "border-white/40 bg-black/50 text-white hover:bg-black/70 hover:border-white/80 shadow-md backdrop-blur-md"
+                  : "border-white/30 bg-black/50 text-white hover:bg-black/70 hover:border-white/60 shadow-md backdrop-blur-md"
               }`}
               title="Toggle Theme"
               aria-label="Toggle Theme"
@@ -244,9 +235,7 @@ export default function Header() {
               className={`flex lg:hidden h-10 w-10 items-center justify-center rounded-full border transition-all duration-300 cursor-pointer shrink-0 ml-0.5 ${
                 isScrolled
                   ? "border-border-main/80 bg-bg-surface/90 text-text-main hover:bg-bg-surface hover:text-accent-blue hover:border-accent-blue/50 shadow-sm"
-                  : mounted && theme === "light"
-                    ? "border-slate-300/90 bg-white/95 text-slate-900 hover:bg-white hover:text-accent-blue shadow-md backdrop-blur-md"
-                    : "border-white/40 bg-black/50 text-white hover:bg-black/70 hover:border-white/80 shadow-md backdrop-blur-md"
+                  : "border-white/30 bg-black/50 text-white hover:bg-black/70 hover:border-white/60 shadow-md backdrop-blur-md"
               }`}
               title={drawerOpen ? "Close Menu" : "Open Menu"}
               aria-label={drawerOpen ? "Close Menu" : "Open Menu"}
@@ -258,15 +247,11 @@ export default function Header() {
         </div>
       </header>
 
-      {menuMounted ? (
-        <Suspense fallback={null}>
-          <MobileMenu
-            isOpen={drawerOpen}
-            onClose={close}
-            activeHref={location.pathname}
-          />
-        </Suspense>
-      ) : null}
+      <MobileMenu
+        isOpen={drawerOpen}
+        onClose={close}
+        activeHref={location.pathname}
+      />
     </>
   );
 }

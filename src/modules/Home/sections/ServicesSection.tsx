@@ -1,260 +1,305 @@
-import { Sun, ShieldCheck, Volume2, Wifi, Zap, ArrowRight } from "lucide-react";
-import React from "react";
+import {
+  Home,
+  Lightbulb,
+  Shield,
+  Wifi,
+  Volume2,
+  Zap,
+  Leaf,
+  ArrowRight,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import StatsSectionV2 from "./StatsSection";
-import { IMAGE_BASE_URL } from "@/config/constants";
 
-// New images paths from public/images
-const imgAutomation = "/images/automation.avif";
-const imgLighting = "/images/ligting.avif";
-const imgSecurity = "/images/security.avif";
-const imgNetworking = `${IMAGE_BASE_URL}/service/networking.webp`;
-const imgAudio = "/images/audio.avif";
-const imgElectricals = "/images/electricals.avif";
-
-// Custom icons matching luxury styles
-function SmartHomeIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      {...props}
-    >
-      <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-      <path d="M9 22V12h6v10" />
-    </svg>
-  );
-}
+const services = [
+  {
+    id: "automation",
+    icon: Home,
+    title: "Smart Home Automation",
+    description: "One-touch control for your entire home.",
+    bgImage: "/images/automation.avif",
+    link: "/automation",
+    linkTitle: "Smart Home Automation Services",
+    imgTitle: "Smart Home Automation Solutions in Bangalore",
+    isWide: true,
+    overlay: {
+      left: "linear-gradient(to top right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.30) 40%, rgba(0,0,0,0) 100%)",
+      bottom:
+        "linear-gradient(to top, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0) 50%)",
+    },
+  },
+  {
+    id: "lighting",
+    icon: Lightbulb,
+    title: "Smart Lighting",
+    description: "Create moods with intelligent lighting scenes.",
+    bgImage: "/images/ligting.avif",
+    link: "/lighting",
+    linkTitle: "Smart Lighting Solutions",
+    imgTitle: "Smart Lighting Installation Services",
+    isWide: false,
+    overlay: {
+      left: "linear-gradient(to top right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.22) 50%, rgba(0,0,0,0) 100%)",
+      bottom:
+        "linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.40) 45%, rgba(0,0,0,0) 100%)",
+    },
+  },
+  {
+    id: "security",
+    icon: Shield,
+    title: "Advanced Security",
+    description:
+      "AI-powered surveillance, smart locks and intrusion protection.",
+    bgImage: "/images/security.avif",
+    link: "/security",
+    linkTitle: "Smart Home Security Systems",
+    imgTitle: "Advanced Smart Home Security Systems",
+    isWide: false,
+    overlay: {
+      left: "linear-gradient(to top right, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.24) 50%, rgba(0,0,0,0) 100%)",
+      bottom:
+        "linear-gradient(to top, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.42) 45%, rgba(0,0,0,0) 100%)",
+    },
+  },
+  {
+    id: "networking",
+    icon: Wifi,
+    title: "Networking",
+    description: "Enterprise-grade WiFi designed for luxury villas.",
+    bgImage: "/images/networking.avif",
+    link: "/networking",
+    linkTitle: "Home Networking Solutions",
+    imgTitle: "Home Networking Solutions in Bangalore",
+    isWide: true,
+    overlay: {
+      left: "linear-gradient(to top right, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.32) 40%, rgba(0,0,0,0) 100%)",
+      bottom:
+        "linear-gradient(to top, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0) 50%)",
+    },
+  },
+  {
+    id: "audio",
+    icon: Volume2,
+    title: "Home Audio",
+    description: "Multi-room sound that fills every corner with clarity.",
+    bgImage: "/images/audio.avif",
+    link: "/audio",
+    linkTitle: "Home Audio Solutions",
+    imgTitle: "Premium Home Audio Installation",
+    isWide: false,
+    overlay: {
+      left: "linear-gradient(to top right, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.08) 50%, rgba(0,0,0,0) 100%)",
+      bottom:
+        "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.25) 45%, rgba(0,0,0,0) 100%)",
+    },
+  },
+  {
+    id: "electric",
+    icon: Zap,
+    title: "Home Electrical",
+    description:
+      "Intelligent power distribution, backups and energy monitoring.",
+    bgImage: "/images/electricals.avif",
+    link: "/automation",
+    linkTitle: "Smart Home Automation Services",
+    imgTitle: "Smart Home Electrical Solutions",
+    isWide: false,
+    overlay: {
+      left: "linear-gradient(to top right, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.10) 50%, rgba(0,0,0,0) 100%)",
+      bottom:
+        "linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.25) 45%, rgba(0,0,0,0) 100%)",
+    },
+  },
+];
 
 export default function ServicesSection() {
-  const services = [
-    {
-      id: "automation",
-      icon: SmartHomeIcon,
-      title: "Smart Home Automation",
-      description: "One-touch control for your entire home.",
-      bgImage: imgAutomation,
-      avifImage: imgAutomation,
-      avifImageMobile: imgAutomation,
-      avifImageDesktop: imgAutomation,
-      link: "/automation",
-      linkTitle: "Smart Home Automation Services",
-      imgTitle: "Smart Home Automation Solutions in Bangalore",
-    },
-    {
-      id: "lighting",
-      icon: Sun,
-      title: "Smart Lighting",
-      description: "Create moods with intelligent lighting scenes.",
-      bgImage: imgLighting,
-      avifImage: imgLighting,
-      avifImageMobile: imgLighting,
-      avifImageDesktop: imgLighting,
-      link: "/lighting",
-      linkTitle: "Smart Lighting Solutions",
-      imgTitle: "Smart Lighting Installation Services",
-    },
-    {
-      id: "security",
-      icon: ShieldCheck,
-      title: "Advanced Security",
-      description:
-        "AI-powered surveillance, smart locks and intrusion protection.",
-      bgImage: imgSecurity,
-      avifImage: imgSecurity,
-      avifImageMobile: imgSecurity,
-      avifImageDesktop: imgSecurity,
-      link: "/security",
-      linkTitle: "Smart Home Security Systems",
-      imgTitle: "Advanced Smart Home Security Systems",
-    },
-    {
-      id: "networking",
-      icon: Wifi,
-      title: "Networking",
-      description: "Enterprise-grade WiFi designed for luxury villas.",
-      bgImage: imgNetworking,
-      avifImage: imgNetworking,
-      avifImageMobile: imgNetworking,
-      avifImageDesktop: imgNetworking,
-      link: "/networking",
-      linkTitle: "Home Networking Solutions",
-      imgTitle: "Home Networking Solutions in Bangalore",
-    },
-    {
-      id: "audio",
-      icon: Volume2,
-      title: "Home Audio",
-      description: "Multi-room sound that fills every corner with clarity.",
-      bgImage: imgAudio,
-      avifImage: imgAudio,
-      avifImageMobile: imgAudio,
-      avifImageDesktop: imgAudio,
-      link: "/audio",
-      linkTitle: "Home Audio Solutions",
-      imgTitle: "Premium Home Audio Installation",
-    },
-    {
-      id: "electric",
-      icon: Zap,
-      title: "Home Electrical",
-      description:
-        "Intelligent power distribution, backups and energy monitoring.",
-      bgImage: imgElectricals,
-      avifImage: imgElectricals,
-      avifImageMobile: imgElectricals,
-      avifImageDesktop: imgElectricals,
-      link: "/automation",
-      linkTitle: "Smart Home Automation Services",
-      imgTitle: "Smart Home Electrical Solutions",
-    },
-  ];
-
   return (
     <section
       id="solutions"
-      className="relative w-full py-12 border-t border-border-main overflow-hidden"
+      className="relative w-full py-8 bg-bg-surface border-t border-border-main/40 transition-colors duration-500 overflow-hidden"
     >
+      {/* Top statistics section */}
       <StatsSectionV2 />
-      {/* Gradient background overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-[#F5F7FA] to-[#EBEFF5] dark:from-[#07152D] dark:via-[#051022] dark:to-[#01050E] transition-colors duration-300 pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(10,132,255,0.08)_0%,rgba(10,132,255,0.03)_35%,transparent_70%)] dark:bg-[radial-gradient(circle_at_25%_25%,rgba(32,120,255,0.32)_0%,rgba(12,65,190,0.18)_22%,rgba(6,25,60,0.08)_48%,transparent_72%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_75%,rgba(10,132,255,0.04),transparent_70%)] dark:bg-[radial-gradient(circle_at_85%_75%,rgba(0,70,255,0.08),transparent_70%)] pointer-events-none" />
 
-      <div className="relative mx-auto max-w-8xl px-4 sm:px-6 z-10">
-        {/* Main Grid Layout: Intro Card + 3x2 Services Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 border border-border-main backdrop-blur-sm">
-          {/* Left Column: Intro Section (Spans 4/12 cols) */}
-          <div
-            className="lg:col-span-4 flex flex-col justify-start gap-6 sm:gap-7 lg:gap-8 p-6 sm:p-8 lg:p-8 xl:p-10 bg-bg-surface dark:bg-bg-main/40 border-b lg:border-b-0 lg:border-r border-border-main text-left reveal-on-scroll reveal-up"
-            data-reveal-duration="0.8s"
-          >
-            <div className="flex flex-col">
-              <span className="font-sans text-[10px] font-bold tracking-[0.2em] text-accent-blue uppercase">
-                EXPERIENCE SMART LIVING
-              </span>
+      {/* Subtle ambient lighting glows */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_35%,rgba(10,132,255,0.04)_0%,transparent_50%),radial-gradient(circle_at_85%_75%,rgba(10,132,255,0.03)_0%,transparent_50%)] pointer-events-none" />
 
-              <h2 className="mt-4 font-serif text-2xl xs:text-3xl sm:text-3xl lg:text-[1.65rem] xl:text-[1.95rem] 2xl:text-4xl font-extrabold text-text-main tracking-tight leading-[1.2]">
-                <span className="block">
-                  Complete Smart
+      <div className="relative p-5 rounded-xl bg-bg-card mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 z-10 border border-border-main/50">
+        <div className="grid grid-cols-1 lg:grid-cols-[28%_1fr] gap-6 lg:gap-6 xl:gap-8 items-center">
+          {/* Left Column: Brand Story & Value Indicators (~28% width, +10% width) */}
+          <div className="flex flex-col justify-between text-left py-1">
+            <div>
+              {/* Eyebrow Tag with blue dash */}
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-5 h-[2px] bg-[#0070e0] inline-block rounded-full" />
+                <span className="font-sans text-[10px] sm:text-[10.5px] font-bold tracking-[0.18em] text-[#0070e0] uppercase">
+                  EXPERIENCE SMART LIVING
                 </span>
-                <span className="block font-serif italic font-normal text-text-main">
+              </div>
+
+              {/* Main Headline with Serif Typography */}
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-[32px] xl:text-[36px] font-bold text-slate-900 dark:text-white tracking-tight leading-[1.12]">
+                <span className="block">Complete Smart</span>
+                <span className="block italic font-normal font-serif">
                   Home Automation
                 </span>
-                <span className="block font-serif italic font-semibold text-accent-blue">
+                <span className="block font-bold text-[#0070e0] dark:text-[#38bdf8]">
                   Solutions
                 </span>
               </h2>
+
+              {/* Description Paragraph */}
+              <p className="mt-2.5 sm:mt-3 font-sans text-xs sm:text-[13px] text-slate-600 dark:text-slate-300 leading-relaxed max-w-[320px]">
+                Every room should anticipate your needs. Walk in. Lights welcome
+                you. Climate adjusts automatically. Music follows you. Security
+                protects silently. Your home becomes intelligent without looking
+                technological.
+              </p>
+
+              {/* Primary CTA Button */}
+              <div className="mt-4">
+                <Link
+                  to="/automation"
+                  title="Explore All Smart Home Solutions"
+                  className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0070e0] hover:bg-[#005bb5] text-white font-medium text-xs sm:text-[13px] transition-all duration-300 shadow-[0_4px_14px_rgba(0,112,224,0.3)] hover:shadow-[0_6px_20px_rgba(0,112,224,0.45)] hover:-translate-y-0.5 active:translate-y-0"
+                >
+                  <span className="text-white! !text-white font-semibold tracking-wide">
+                    Explore All Solutions
+                  </span>
+                  <ArrowRight className="w-3.5 h-3.5 text-white! !text-white transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </div>
             </div>
 
-            <p className="font-sans text-[13.5px] sm:text-[15px] lg:text-base text-text-muted leading-relaxed">
-              Every room should anticipate your needs. <br />
-              Walk in. Lights welcome you. <br />
-              Climate adjusts automatically. <br />
-              Music follows you. <br />
-              Security protects silently. <br />
-              Your home becomes intelligent <br />
-              without looking technological.
-            </p>
+            {/* Bottom 3 Value Proposition Badges */}
+            <div className="mt-6 pt-3.5 border-t border-slate-200/80 dark:border-white/10 flex items-start justify-between gap-2 sm:gap-3">
+              {/* Badge 1: Smarter Living */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1.5">
+                <div className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-lg bg-slate-100 dark:bg-white/10 border border-slate-200/80 dark:border-white/10 flex items-center justify-center text-slate-700 dark:text-slate-200 shrink-0">
+                  <Home className="w-3.5 h-3.5 stroke-[1.8]" />
+                </div>
+                <div className="flex flex-col min-w-0">
+                  <span className="text-[9.5px] sm:text-[10px] font-bold tracking-wider text-slate-900 dark:text-white uppercase leading-tight">
+                    SMARTER LIVING
+                  </span>
+                  <span className="text-[8.5px] sm:text-[9px] text-slate-500 dark:text-slate-400 font-medium leading-tight">
+                    Comfort &amp; Convenience
+                  </span>
+                </div>
+              </div>
+
+              {/* Badge 2: Safer Homes */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1.5">
+                <div className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-lg bg-sky-100/70 dark:bg-sky-950/50 border border-sky-200/80 dark:border-sky-800/40 flex items-center justify-center text-[#0070e0] dark:text-[#38bdf8] shrink-0">
+                  <Shield className="w-3.5 h-3.5 stroke-[1.8]" />
+                </div>
+                <div className="flex flex-col min-w-0">
+                  <span className="text-[9.5px] sm:text-[10px] font-bold tracking-wider text-slate-900 dark:text-white uppercase leading-tight">
+                    SAFER HOMES
+                  </span>
+                  <span className="text-[8.5px] sm:text-[9px] text-slate-500 dark:text-slate-400 font-medium leading-tight">
+                    24/7 Protection
+                  </span>
+                </div>
+              </div>
+
+              {/* Badge 3: Greener Tomorrow */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1.5">
+                <div className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-lg bg-emerald-100/70 dark:bg-emerald-950/50 border border-emerald-200/80 dark:border-emerald-800/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+                  <Leaf className="w-3.5 h-3.5 stroke-[1.8]" />
+                </div>
+                <div className="flex flex-col min-w-0">
+                  <span className="text-[9.5px] sm:text-[10px] font-bold tracking-wider text-slate-900 dark:text-white uppercase leading-tight">
+                    GREENER TOMORROW
+                  </span>
+                  <span className="text-[8.5px] sm:text-[9px] text-slate-500 dark:text-slate-400 font-medium leading-tight">
+                    Energy Efficient
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Right Column: 6 Services Grid (Spans 8/12 cols with small space on mobile, clean 1px border gap on desktop) */}
-          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 bg-bg-main sm:bg-border-main gap-2 sm:gap-[1px]">
-            {services.map((service, index) => {
+          {/* Right Column: 6-Card Bento Grid (~72% width with 1.55fr : 1fr : 1fr layout) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.55fr_1fr_1fr] gap-2.5 sm:gap-2.5 lg:gap-2.5">
+            {services.map((service) => {
               const Icon = service.icon;
-              const isAutomation = service.id === "automation";
+              const isWide = service.isWide;
               return (
                 <Link
-                  key={index}
+                  key={service.id}
                   to={service.link}
                   title={service.linkTitle}
                   id={service.id}
-                  className="relative group min-h-[290px] flex flex-col justify-between items-start p-6 sm:p-7 bg-bg-surface dark:bg-bg-main overflow-hidden cursor-pointer transition-all duration-300 hover:bg-bg-surface reveal-on-scroll reveal-up"
-                  data-reveal-delay={`${index * 80}ms`}
-                  data-reveal-duration="0.7s"
+                  className={`group  text-white! relative rounded-[18px] sm:rounded-[20px] overflow-hidden p-3.5 sm:p-4 flex flex-col justify-between cursor-pointer border border-slate-200/50 dark:border-white/10 shadow-[0_3px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_6px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_12px_30px_rgba(0,0,0,0.55)] transition-all duration-500 h-[185px] sm:h-[195px] lg:h-[200px] xl:h-[210px] ${
+                    isWide ? "sm:col-span-2 lg:col-span-1" : "sm:col-span-1"
+                  }`}
                 >
-                  {/* Card Background Image with Hover Zoom */}
-                  <div className="absolute inset-0 z-0 group-hover:scale-105 transition-all duration-500">
-                    <picture>
-                      <source
-                        media="(max-width: 640px)"
-                        srcSet={service.avifImageMobile}
-                        type={
-                          service.avifImageMobile.endsWith(".webp")
-                            ? "image/webp"
-                            : "image/avif"
-                        }
-                      />
-                      <source
-                        srcSet={service.avifImageDesktop}
-                        type={
-                          service.avifImageDesktop.endsWith(".webp")
-                            ? "image/webp"
-                            : "image/avif"
-                        }
-                      />
-                      <img
-                        src={service.bgImage}
-                        alt={service.title}
-                        title={service.imgTitle}
-                        className="w-full h-full object-cover object-center brightness-105 contrast-[1.02] filter transition-all duration-500"
-                        width={1024}
-                        height={1024}
-                        loading="lazy"
-                        decoding="async"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      />
-                    </picture>
-                    {/* Overlay: In light mode, NO white shade - show the complete image! In dark mode, keep black shade */}
-                    <div className="absolute inset-0 hidden dark:block bg-gradient-to-r from-black/95 via-black/75 via-50% to-transparent/20 transition-colors duration-300" />
+                  {/* Card Background Image with Natural Contrast & Hover Scale */}
+                  <img
+                    src={service.bgImage}
+                    alt={service.title}
+                    title={service.imgTitle}
+                    className="absolute inset-0 w-full h-full object-cover object-center brightness-[1.03] contrast-[1.04] transition-transform duration-700 ease-out group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                  />
+
+                  {/* Separate per-card overlays: left for text contrast, bottom for fade */}
+                  <div
+                    className="absolute inset-0 pointer-events-none transition-opacity duration-300 group-hover:opacity-90"
+                    style={{ backgroundImage: service.overlay.left }}
+                  />
+                  <div
+                    className="absolute inset-0 pointer-events-none transition-opacity duration-300 group-hover:opacity-90"
+                    style={{ backgroundImage: service.overlay.bottom }}
+                  />
+
+                  {/* Top: Subtle Translucent Frosted Glass Icon Badge */}
+                  <div className="relative z-10 w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-xl bg-black/25 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/95 shadow-sm transition-transform duration-300 group-hover:scale-105">
+                    <Icon className="w-4 h-4 stroke-[1.8]" />
                   </div>
 
-                  <div className="relative z-10 w-full flex-1 flex flex-col justify-start">
-                    {/* Card Top: Icon (Accent Blue) */}
-                    <div className="text-left">
-                      <div className="text-[#006ed6] dark:text-[#38bdf8] shrink-0 flex items-center justify-start w-12 h-12">
-                        <Icon className="h-10 w-10 stroke-[1.3]" />
-                      </div>
-                    </div>
-
-                    {/* Card Body: Text info (Stacked right below icon) */}
-                    <div className="text-left mt-3 flex flex-col justify-start w-full max-w-[220px]">
-                      <h3
-                        style={{ color: isAutomation ? "#ffffff" : "#006ed6" }}
-                        className={`font-sans text-lg font-extrabold max-w-[190px] leading-snug ${
-                          isAutomation ? "!text-white" : "!text-[#006ed6] dark:!text-[#38bdf8]"
-                        }`}
-                      >
+                  {/* Card Content Layout: Wide cards restrict text width & group actions on left; standard cards space-between */}
+                  {isWide ? (
+                    <div className="relative z-10 mt-auto pt-1 text-left max-w-[190px] sm:max-w-[210px]">
+                      <h3 className="font-sans text-[15px] sm:text-base font-bold text-white! tracking-tight leading-snug drop-shadow-sm">
                         {service.title}
                       </h3>
-                      <p
-                        className={`mt-2.5 font-sans text-xs sm:text-[13px] leading-relaxed transition-colors duration-300 ${
-                          isAutomation
-                            ? "!text-white font-medium"
-                            : "!text-black dark:!text-white/80 font-bold dark:font-normal"
-                        }`}
-                        style={isAutomation ? { color: "#ffffff" } : undefined}
-                      >
+                      <p className="mt-0.5 font-sans text-[11px] sm:text-xs text-white/80! leading-tight font-normal line-clamp-2">
                         {service.description}
                       </p>
-                    </div>
-                  </div>
 
-                  {/* Card Bottom: View More Button */}
-                  <div
-                    style={{ color: isAutomation ? "#006ed6" : "#ffffff" }}
-                    className={`relative z-10 mt-6 flex items-center gap-1.5 text-xs font-bold tracking-wider group-hover:gap-2 transition-all duration-300 uppercase ${
-                      isAutomation ? "!text-[#006ed6] dark:!text-[#38bdf8]" : "!text-white"
-                    }`}
-                  >
-                    <span>View More</span>
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                  </div>
+                      {/* Bottom Action: View More with Circular Arrow Button directly next to it */}
+                      <div className="mt-2 flex items-center gap-2">
+                        <span className="text-[11.5px] font-handwriting sm:text-xs font-medium text-white/90! group-hover:text-white transition-colors duration-200 group-hover:decoration-white">
+                          View More
+                        </span>
+                        <div className="w-6 h-6 rounded-full border border-white/45 flex items-center justify-center text-white! group-hover:bg-white group-hover:text-black! group-hover:border-white transition-all duration-300 shadow-sm shrink-0">
+                          <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="relative z-10 mt-auto pt-1 text-left w-full">
+                      <h3 className="font-sans text-[15px] sm:text-base font-bold text-white! tracking-tight leading-snug drop-shadow-sm">
+                        {service.title}
+                      </h3>
+                      <p className="mt-0.5 font-sans leading-tight text-[11px] sm:text-xs text-white/80! leading-relaxed font-normal line-clamp-2">
+                        {service.description}
+                      </p>
+
+                      {/* Bottom Action: View More on left, Circular Arrow on right */}
+                      <div className="mt-2 flex items-center justify-between w-full">
+                        <span className="text-[11.5px] font-handwriting sm:text-xs font-medium text-white/90 group-hover:text-white transition-colors duration-200 group-hover:decoration-white">
+                          View More
+                        </span>
+                        <div className="w-6 h-6 rounded-full border border-white/45 flex items-center justify-center text-white! group-hover:bg-white group-hover:text-black! group-hover:border-white transition-all duration-300 shadow-sm shrink-0">
+                          <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </Link>
               );
             })}

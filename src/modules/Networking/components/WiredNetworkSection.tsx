@@ -46,7 +46,7 @@ export default function WiredNetworkSection() {
       serviceName="Wired Network"
       reels={[
         "https://www.instagram.com/reel/DKeUhreyEct/",
-        "https://www.instagram.com/reel/DJwWg10qD_r/",
+        "https://www.instagram.com/reel/De9O3MjKSud/?vrfl=MXQyNm81dm0xcWEweA==",
       ]}
       reelTitles={[
         "Watch Luxury Smart Lighting Reel on Instagram",

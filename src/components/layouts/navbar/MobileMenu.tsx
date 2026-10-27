@@ -137,27 +137,41 @@ function MobileServiceAccordion({
         const isOpen = openCategory === category.category;
         return (
           <div key={category.category}>
-            <button
-              type="button"
-              onClick={() => toggleCategory(category.category)}
-              className={cn(
-                "flex items-center justify-between w-full py-1.5 text-sm sm:text-base font-bold uppercase tracking-wide transition-colors active:opacity-80 touch-manipulation",
-                isOpen || activeHref === category.href
-                  ? "text-accent-blue"
-                  : "text-text-main hover:text-accent-blue",
-              )}
-              aria-expanded={isOpen}
-              aria-controls={`mobile-services-${category.category}`}
-            >
-              <span>{category.category}</span>
-              <ChevronDown
+            <div className="flex items-center justify-between gap-1">
+              <Link
+                to={category.href}
+                title={`MAKc ${category.category} Solutions`}
+                onClick={onSelect}
+                aria-current={activeHref === category.href ? "page" : undefined}
                 className={cn(
-                  "size-4 flex-shrink-0 transition-transform duration-300 ease-out",
-                  isOpen && "rotate-180",
+                  "flex-1 min-w-0 py-2 text-sm sm:text-base font-bold uppercase tracking-wide transition-colors active:opacity-80 touch-manipulation",
+                  isOpen || activeHref === category.href
+                    ? "text-accent-blue"
+                    : "text-text-main hover:text-accent-blue",
                 )}
-                aria-hidden="true"
-              />
-            </button>
+              >
+                {category.category}
+              </Link>
+              <button
+                type="button"
+                onClick={() => toggleCategory(category.category)}
+                className={cn(
+                  "flex size-9 items-center justify-center rounded-lg -mr-1 text-text-main/80 hover:text-accent-blue hover:bg-accent-blue/10 transition-colors active:opacity-80 touch-manipulation cursor-pointer",
+                  isOpen && "text-accent-blue",
+                )}
+                aria-label={`${isOpen ? "Hide" : "Show"} ${category.category} services`}
+                aria-expanded={isOpen}
+                aria-controls={`mobile-services-${category.category}`}
+              >
+                <ChevronDown
+                  className={cn(
+                    "size-4 flex-shrink-0 transition-transform duration-300 ease-out",
+                    isOpen && "rotate-180",
+                  )}
+                  aria-hidden="true"
+                />
+              </button>
+            </div>
             <div
               className="grid transition-[grid-template-rows] duration-300 ease-out transform-gpu"
               style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
@@ -288,9 +302,12 @@ export const MobileMenu = memo(function MobileMenu({
                 Call Now
               </a>
             </motion.div>
-            <p className="text-center text-[11px] text-text-muted tracking-wide">
+            <a
+              href={`tel:${company.phone.replace(/-/g, "")}`}
+              className="block text-center text-[11px] text-text-muted tracking-wide hover:text-accent-blue transition-colors touch-manipulation py-1"
+            >
               {company.phone}
-            </p>
+            </a>
           </motion.nav>
         </div>
       </SheetContent>

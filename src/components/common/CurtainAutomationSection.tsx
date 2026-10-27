@@ -37,7 +37,7 @@ export default function CurtainAutomationSection() {
       imagePosition="left"
       prefix="curt"
       serviceName="Curtain Automation"
-      reelUrl="https://www.instagram.com/reel/DZpb-JNSo5Y/"
+      reelUrl="https://www.instagram.com/reel/De9Hhj3K0bq"
       reelTitles={["Watch Curtain Automation Reel on Instagram"]}
     />
   );

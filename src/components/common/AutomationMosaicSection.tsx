@@ -22,8 +22,8 @@ const VIDEO_MAP: Record<string, string> = {
 };
 
 const REEL_MAP: Record<string, string> = {
-  "Curtain Automation": "https://www.instagram.com/reel/DZpb-JNSo5Y/",
-  "Gate Automation": "https://www.instagram.com/reel/DTp5xiDj82a/",
+  "Curtain Automation": "https://www.instagram.com/reel/DQ38odUkpZr/",
+  "Gate Automation": "https://www.instagram.com/reel/DdNJx4tKGAK/",
   "Electrical Automation": "https://www.instagram.com/reel/DKHEqiVSl4-/",
   "Smart Switches": "https://www.instagram.com/reel/DKHEqiVSl4-/",
   "Wired Network": "https://www.instagram.com/reel/DKeUhreyEct/",
@@ -32,13 +32,16 @@ const REEL_MAP: Record<string, string> = {
   "Sensor-Based": "https://www.instagram.com/reel/DSC30D1jZ1h/",
   Security: "https://www.instagram.com/reel/DSC30D1jZ1h/",
   "CCTV & Video": "https://www.instagram.com/reel/DTJNMgzk284/",
-  "Dimming & Tuning of Lights": "https://www.instagram.com/reel/Dc_AnDQNJEM/",
+  "Dimming & Tuning of Lights": "https://www.instagram.com/reel/DBYze7SySVh/",
+  "Outdoor & Landscape Lighting": "https://www.instagram.com/reel/Dbt7nF7yjHG/",
 };
 
 interface AutomationMosaicImage {
   src: string;
   alt?: string;
   title?: string;
+  objectPosition?: string;
+  className?: string;
 }
 
 // Keep the fallback reference stable. A new [] on every render makes the media
@@ -406,7 +409,6 @@ export default function AutomationMosaicSection({
                     />
                   )}
                 </div>
-                <div className="w-full h-full min-h-[460px] sm:min-h-[520px] lg:min-h-[560px]" />
               </div>
 
               {/* 2nd Card: Top-right wider image */}
@@ -421,7 +423,8 @@ export default function AutomationMosaicSection({
                     images[1]?.alt ||
                     `${title} secondary view`
                   }
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-750 group-hover:scale-[1.04]"
+                  style={images[1]?.objectPosition ? { objectPosition: images[1].objectPosition } : undefined}
+                  className={`absolute inset-0 w-full h-full object-cover transition-transform duration-750 group-hover:scale-[1.04] ${images[1]?.className || ""}`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
               </div>
@@ -438,7 +441,8 @@ export default function AutomationMosaicSection({
                     images[2]?.alt ||
                     `${title} tertiary view`
                   }
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-750 group-hover:scale-[1.04]"
+                  style={images[2]?.objectPosition ? { objectPosition: images[2].objectPosition } : undefined}
+                  className={`absolute inset-0 w-full h-full object-cover transition-transform duration-750 group-hover:scale-[1.04] ${images[2]?.className || ""}`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
               </div>

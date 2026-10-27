@@ -8,7 +8,12 @@ const types = [
 
 const images = [
   { src: "dimeLight.webp", alt: "Dimmable architectural cove lighting in a luxury villa", title: "Architectural Cove Lighting" },
-  { src: "service/DTL1.webp", alt: "Smart dimmable LED lighting control system for modern homes", title: "Smart Dimmable Lighting" },
+  {
+    src: "smart_dimming_lighting.webp",
+    alt: "Smart dimmable LED lighting control split comparison showing high and low brightness",
+    title: "Dimming & Brightness Control Comparison",
+    objectPosition: "center 40%",
+  },
   { src: "service/DTL2a.webp", alt: "Smart light control interface panel for home automation", title: "Smart Lighting Control Panel" },
 ];
 
@@ -23,8 +28,8 @@ export default function DimmingTuningSection() {
       imagePosition="right"
       prefix="dt"
       serviceName="Dimming & Tuning of Lights"
-      reelUrl="https://www.instagram.com/reel/DMcsd9Pyetv/"
-      reelTitles={["Watch Home Audio System Installation Reel on Instagram"]}
+      reelUrl="https://www.instagram.com/reel/De9JMcAKAau/?dlrf=ZnE2cjlhNjV3enVr"
+      reelTitles={["Watch Dimming & Tuning of Lights Reel on Instagram"]}
     />
   );
 }
