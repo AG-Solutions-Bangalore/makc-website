@@ -1,3 +1,5 @@
+import { getImageUrl } from "@/utils/image";
+
 export interface BlogPost {
   id: string;
   slug: string;
@@ -40,7 +42,7 @@ export const mockBlogs: BlogPost[] = [
     displayDate: "Jun 12, 2026",
     category: "Lighting",
     imageUrl:
-      "/images/blogs/future-of-smart-lighting.webp",
+      getImageUrl("blogs/future-of-smart-lighting.webp"),
     readTime: "5 min read",
     tags: ["Smart Lighting", "Circadian", "Energy Saving", "Wellness"],
     featured: true,
@@ -106,7 +108,7 @@ export const mockBlogs: BlogPost[] = [
     displayDate: "May 28, 2026",
     category: "Security",
     imageUrl:
-      "/images/blogs/connected-home-security.webp",
+      getImageUrl("blogs/connected-home-security.webp"),
     readTime: "8 min read",
     tags: ["Cybersecurity", "CCTV", "Biometric Locks", "Network Security"],
     content: [
@@ -175,7 +177,7 @@ export const mockBlogs: BlogPost[] = [
     displayDate: "May 15, 2026",
     category: "Automation",
     imageUrl:
-      "/images/blogs/morning-automation.webp",
+      getImageUrl("blogs/morning-automation.webp"),
     readTime: "4 min read",
     tags: ["Routines", "Blinds", "Climate", "Coffee"],
     content: [
@@ -237,7 +239,7 @@ export const mockBlogs: BlogPost[] = [
     displayDate: "Apr 02, 2026",
     category: "Networking",
     imageUrl:
-      "/images/blogs/home-network.webp",
+      getImageUrl("blogs/home-network.webp"),
     readTime: "6 min read",
     tags: ["Mesh Wi-Fi", "Cabling", "Gaming", "Streaming"],
     content: [
@@ -299,7 +301,7 @@ export const mockBlogs: BlogPost[] = [
     displayDate: "Mar 18, 2026",
     category: "Automation",
     imageUrl:
-      "/images/blogs/voice-vs-app.webp",
+      getImageUrl("blogs/voice-vs-app.webp"),
     readTime: "7 min read",
     tags: ["Voice Assistants", "UX", "App Control", "Routines"],
     content: [
@@ -377,7 +379,7 @@ export const mockBlogs: BlogPost[] = [
     displayDate: "Feb 24, 2026",
     category: "Design",
     imageUrl:
-      "/images/blogs/invisible-speakers.webp",
+      getImageUrl("blogs/invisible-speakers.webp"),
     readTime: "5 min read",
     tags: ["Invisible Speakers", "Interior Design", "Home Theater", "Discreet Tech"],
     content: [

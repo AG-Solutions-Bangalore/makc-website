@@ -10,7 +10,7 @@ import InstagramEmbed from "./InstagramEmbed";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const VIDEO_BASE = "/images/video/reels";
+const VIDEO_BASE = getImageUrl("video/reels");
 
 const VIDEO_MAP: Record<string, string> = {
   "Dimming & Tuning of Lights": "dimming-and-tuning.mp4",

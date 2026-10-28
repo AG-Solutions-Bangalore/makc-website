@@ -1,4 +1,7 @@
-import { LOCAL_IMAGE_BASE } from "@/config/constants";
+import { IMAGE_BASE_URL } from "@/config/constants";
+
+const BASE_URL = IMAGE_BASE_URL.replace(/\/+$/, "");
+const LOCAL_IMAGE_BASE = BASE_URL;
 
 const LOCAL_IMAGES: Record<string, string> = {
   "hero_bg.webp": `${LOCAL_IMAGE_BASE}/home/hero_bg.webp`,
@@ -155,24 +158,29 @@ const LOCAL_IMAGES: Record<string, string> = {
   "MAKc-Logo-white.webp": "/icons/MAKc-Logo-white-360.webp",
 };
 
-export const getImageUrl = (filename: string) => {
+export const getImageUrl = (filename: string): string => {
   if (!filename) return "";
 
   if (filename.startsWith("http://") || filename.startsWith("https://")) {
     return filename;
   }
 
-  const baseName = filename.split("/").pop() || filename;
+  // Remove leading slashes
+  const clean = filename.replace(/^\/+/, "");
+
+  if (LOCAL_IMAGES[clean]) {
+    return LOCAL_IMAGES[clean];
+  }
+
+  const baseName = clean.split("/").pop() || clean;
 
   if (LOCAL_IMAGES[baseName]) {
     return LOCAL_IMAGES[baseName];
   }
 
-  if (LOCAL_IMAGES[filename]) {
-    return LOCAL_IMAGES[filename];
-  }
-
-  return `${LOCAL_IMAGE_BASE}/${baseName}`;
+  // Strip leading 'images/' if present
+  const remoteRelPath = clean.replace(/^images\//, "");
+  return `${BASE_URL}/${remoteRelPath}`;
 };
 
 export const getResponsiveHomeImageUrl = (filename: string, width?: 480 | 768) => {

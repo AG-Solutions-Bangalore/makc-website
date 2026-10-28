@@ -38,7 +38,7 @@ const heroBgLightSrcSet = [
   `${heroBgLight} 1392w`,
 ].join(", ");
 
-const VIDEO_BASE_URL = "/images/video/reels/";
+const VIDEO_BASE_URL = `${getImageUrl("video/reels")}/`;
 
 const hotspotsList: HotspotType[] = [
   {
@@ -286,7 +286,7 @@ export default function HeroSectionV2() {
             <div className="mb-3 flex flex-wrap items-center gap-2">
               <div className="inline-flex items-center gap-2.5 border border-white/25 bg-black/40 backdrop-blur-md rounded-full px-3.5 py-1.5 select-none pointer-events-none shadow-xs">
                 <img
-                  src="/images/brands/iso-image.svg"
+                  src={getImageUrl("brands/iso-image.svg")}
                   alt="ISO Certified Logo"
                   title="ISO Certified Home Automation Company"
                   className="h-5.5 w-5.5 object-contain"
@@ -452,7 +452,7 @@ export default function HeroSectionV2() {
           <div className="absolute top-[72px] left-4 sm:left-6 z-20 pointer-events-none flex flex-wrap items-center gap-1.5">
             <div className="inline-flex items-center gap-1.5 border border-white/25 bg-black/60 backdrop-blur-md rounded-full px-2.5 py-1 select-none shadow-xs">
               <img
-                src="/images/brands/iso-image.svg"
+                src={getImageUrl("brands/iso-image.svg")}
                 alt="ISO Logo"
                 title="ISO 9001:2015"
                 className="h-3.5 w-3.5 object-contain"

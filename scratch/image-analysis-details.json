@@ -1,0 +1,2386 @@
+{
+  "matches": [
+    {
+      "file": "src/components/common/AutomationMosaicSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/video/reels",
+      "fullMatch": "\"/images/video/reels\""
+    },
+    {
+      "file": "src/components/common/AutomationShowcase.tsx",
+      "type": "getImageUrl",
+      "arg": "/service/ha1.1.webp",
+      "fullMatch": "getImageUrl(\"/service/ha1.1.webp\")"
+    },
+    {
+      "file": "src/components/common/AutomationShowcase.tsx",
+      "type": "getImageUrl",
+      "arg": "/service/ha1.2.webp",
+      "fullMatch": "getImageUrl(\"/service/ha1.2.webp\")"
+    },
+    {
+      "file": "src/components/common/AutomationShowcase.tsx",
+      "type": "getImageUrl",
+      "arg": "/service/ha1.3.webp",
+      "fullMatch": "getImageUrl(\"/service/ha1.3.webp\")"
+    },
+    {
+      "file": "src/components/common/AutomationShowcase.tsx",
+      "type": "getImageUrl",
+      "arg": "curtain_automation.webp",
+      "fullMatch": "getImageUrl(\"curtain_automation.webp\")"
+    },
+    {
+      "file": "src/components/common/BrandLogo.tsx",
+      "type": "getImageUrl",
+      "arg": "MAKc-Logo.svg",
+      "fullMatch": "getImageUrl(\"MAKc-Logo.svg\")"
+    },
+    {
+      "file": "src/components/common/BrandLogo.tsx",
+      "type": "getImageUrl",
+      "arg": "MAKc-Logo-white.webp",
+      "fullMatch": "getImageUrl(\"MAKc-Logo-white.webp\")"
+    },
+    {
+      "file": "src/components/common/ClientReviews.tsx",
+      "type": "getImageUrl",
+      "arg": "project_villas.webp",
+      "fullMatch": "getImageUrl(\"project_villas.webp\")"
+    },
+    {
+      "file": "src/components/common/ClientReviews.tsx",
+      "type": "getImageUrl",
+      "arg": "project_penthouses.webp",
+      "fullMatch": "getImageUrl(\"project_penthouses.webp\")"
+    },
+    {
+      "file": "src/components/common/ClientReviews.tsx",
+      "type": "getImageUrl",
+      "arg": "project_farmhouses.webp",
+      "fullMatch": "getImageUrl(\"project_farmhouses.webp\")"
+    },
+    {
+      "file": "src/components/common/ClientReviews.tsx",
+      "type": "getImageUrl",
+      "arg": "project_apartments.webp",
+      "fullMatch": "getImageUrl(\"project_apartments.webp\")"
+    },
+    {
+      "file": "src/components/common/SolutionsGallery.tsx",
+      "type": "getImageUrl",
+      "arg": "service_automation.webp",
+      "fullMatch": "getImageUrl(\"service_automation.webp\")"
+    },
+    {
+      "file": "src/components/common/SolutionsGallery.tsx",
+      "type": "getImageUrl",
+      "arg": "Rectangle 54367.webp",
+      "fullMatch": "getImageUrl(\"Rectangle 54367.webp\")"
+    },
+    {
+      "file": "src/components/common/SolutionsGallery.tsx",
+      "type": "getImageUrl",
+      "arg": "curtain_automation.webp",
+      "fullMatch": "getImageUrl(\"curtain_automation.webp\")"
+    },
+    {
+      "file": "src/components/common/SolutionsGallery.tsx",
+      "type": "getImageUrl",
+      "arg": "Rectangle 54364.webp",
+      "fullMatch": "getImageUrl(\"Rectangle 54364.webp\")"
+    },
+    {
+      "file": "src/components/common/SolutionsGallery.tsx",
+      "type": "getImageUrl",
+      "arg": "Rectangle 54360.webp",
+      "fullMatch": "getImageUrl(\"Rectangle 54360.webp\")"
+    },
+    {
+      "file": "src/components/common/SolutionsGallery.tsx",
+      "type": "getImageUrl",
+      "arg": "service_lighting.webp",
+      "fullMatch": "getImageUrl(\"service_lighting.webp\")"
+    },
+    {
+      "file": "src/components/common/SolutionsGallery.tsx",
+      "type": "getImageUrl",
+      "arg": "Rectangle 54368.webp",
+      "fullMatch": "getImageUrl(\"Rectangle 54368.webp\")"
+    },
+    {
+      "file": "src/components/common/SolutionsGallery.tsx",
+      "type": "getImageUrl",
+      "arg": "smart_dimming_lighting.webp",
+      "fullMatch": "getImageUrl(\"smart_dimming_lighting.webp\")"
+    },
+    {
+      "file": "src/components/common/SolutionsGallery.tsx",
+      "type": "getImageUrl",
+      "arg": "smart_rgb_lighting.webp",
+      "fullMatch": "getImageUrl(\"smart_rgb_lighting.webp\")"
+    },
+    {
+      "file": "src/components/common/SolutionsGallery.tsx",
+      "type": "getImageUrl",
+      "arg": "doorautomation1.webp",
+      "fullMatch": "getImageUrl(\"doorautomation1.webp\")"
+    },
+    {
+      "file": "src/components/common/SolutionsGallery.tsx",
+      "type": "getImageUrl",
+      "arg": "service_security.webp",
+      "fullMatch": "getImageUrl(\"service_security.webp\")"
+    },
+    {
+      "file": "src/components/common/SolutionsGallery.tsx",
+      "type": "getImageUrl",
+      "arg": "contact_villa_night.webp",
+      "fullMatch": "getImageUrl(\"contact_villa_night.webp\")"
+    },
+    {
+      "file": "src/components/layouts/footer/Footer.tsx",
+      "type": "direct_path",
+      "matched": "/images/video/living_room_animation.mp4",
+      "fullMatch": "\"/images/video/living_room_animation.mp4\""
+    },
+    {
+      "file": "src/data/servicesData.ts",
+      "type": "getImageUrl",
+      "arg": "industrial-automation-overview.webp",
+      "fullMatch": "getImageUrl(\"industrial-automation-overview.webp\")"
+    },
+    {
+      "file": "src/data/servicesData.ts",
+      "type": "getImageUrl",
+      "arg": "system-integration.webp",
+      "fullMatch": "getImageUrl(\"system-integration.webp\")"
+    },
+    {
+      "file": "src/data/servicesData.ts",
+      "type": "getImageUrl",
+      "arg": "scada-development.webp",
+      "fullMatch": "getImageUrl(\"scada-development.webp\")"
+    },
+    {
+      "file": "src/data/servicesData.ts",
+      "type": "getImageUrl",
+      "arg": "control-system-design.webp",
+      "fullMatch": "getImageUrl(\"control-system-design.webp\")"
+    },
+    {
+      "file": "src/data/servicesData.ts",
+      "type": "getImageUrl",
+      "arg": "electrical-design.webp",
+      "fullMatch": "getImageUrl(\"electrical-design.webp\")"
+    },
+    {
+      "file": "src/data/servicesData.ts",
+      "type": "getImageUrl",
+      "arg": "electrical-installation.webp",
+      "fullMatch": "getImageUrl(\"electrical-installation.webp\")"
+    },
+    {
+      "file": "src/data/servicesData.ts",
+      "type": "getImageUrl",
+      "arg": "industrial-cybersecurity.webp",
+      "fullMatch": "getImageUrl(\"industrial-cybersecurity.webp\")"
+    },
+    {
+      "file": "src/data/servicesData.ts",
+      "type": "getImageUrl",
+      "arg": "smart-manufacturing.webp",
+      "fullMatch": "getImageUrl(\"smart-manufacturing.webp\")"
+    },
+    {
+      "file": "src/data/servicesData.ts",
+      "type": "getImageUrl",
+      "arg": "cloud-integration.webp",
+      "fullMatch": "getImageUrl(\"cloud-integration.webp\")"
+    },
+    {
+      "file": "src/modules/About/pages/AboutPage.tsx",
+      "type": "getImageUrl",
+      "arg": "client-04-q973yadybx3esxnjyeias1xijm81e9ufszb7iuhaeg.webp",
+      "fullMatch": "getImageUrl(\"client-04-q973yadybx3esxnjyeias1xijm81e9ufszb7iuhaeg.webp\")"
+    },
+    {
+      "file": "src/modules/About/pages/AboutPage.tsx",
+      "type": "getImageUrl",
+      "arg": "client-05-q973y9g45324hbox3w3o7k61y8co6kqpgunq1kioko.webp",
+      "fullMatch": "getImageUrl(\"client-05-q973y9g45324hbox3w3o7k61y8co6kqpgunq1kioko.webp\")"
+    },
+    {
+      "file": "src/modules/About/pages/AboutPage.tsx",
+      "type": "getImageUrl",
+      "arg": "client-08-q973y7kfrezju3rnevaf2kn4rglxr6j8slcr30lgx4.webp",
+      "fullMatch": "getImageUrl(\"client-08-q973y7kfrezju3rnevaf2kn4rglxr6j8slcr30lgx4.webp\")"
+    },
+    {
+      "file": "src/modules/About/pages/AboutPage.tsx",
+      "type": "getImageUrl",
+      "arg": "client-10-q973y6mlkky9iht0kcvsi2vo62qkjhfiggp9lqmv3c.webp",
+      "fullMatch": "getImageUrl(\"client-10-q973y6mlkky9iht0kcvsi2vo62qkjhfiggp9lqmv3c.webp\")"
+    },
+    {
+      "file": "src/modules/About/pages/AboutPage.tsx",
+      "type": "getImageUrl",
+      "arg": "mack-logo-12-q99691wi5yn8iger7l1n233otynezih2vu28askwdk.webp",
+      "fullMatch": "getImageUrl(\"mack-logo-12-q99691wi5yn8iger7l1n233otynezih2vu28askwdk.webp\")"
+    },
+    {
+      "file": "src/modules/About/pages/AboutPage.tsx",
+      "type": "getImageUrl",
+      "arg": "mack-logo-13-q99692uccsoiu2de23g9mkv5fcis77kt7ypps2ji7c.webp",
+      "fullMatch": "getImageUrl(\"mack-logo-13-q99692uccsoiu2de23g9mkv5fcis77kt7ypps2ji7c.webp\")"
+    },
+    {
+      "file": "src/modules/About/pages/AboutPage.tsx",
+      "type": "getImageUrl",
+      "arg": "mack-logo-15-q99693s6jmpt5oc0wluw72mm0qe5ewojk3d79ci414.webp",
+      "fullMatch": "getImageUrl(\"mack-logo-15-q99693s6jmpt5oc0wluw72mm0qe5ewojk3d79ci414.webp\")"
+    },
+    {
+      "file": "src/modules/About/pages/AboutPage.tsx",
+      "type": "getImageUrl",
+      "arg": "name_03-1-1.webp",
+      "fullMatch": "getImageUrl(\"name_03-1-1.webp\")"
+    },
+    {
+      "file": "src/modules/About/pages/AboutPage.tsx",
+      "type": "getImageUrl",
+      "arg": "name_02-2.webp",
+      "fullMatch": "getImageUrl(\"name_02-2.webp\")"
+    },
+    {
+      "file": "src/modules/About/pages/AboutPage.tsx",
+      "type": "getImageUrl",
+      "arg": "name_01-1.webp",
+      "fullMatch": "getImageUrl(\"name_01-1.webp\")"
+    },
+    {
+      "file": "src/modules/About/pages/AboutPage.tsx",
+      "type": "getImageUrl",
+      "arg": "name-4.webp",
+      "fullMatch": "getImageUrl(\"name-4.webp\")"
+    },
+    {
+      "file": "src/modules/About/pages/AboutPage.tsx",
+      "type": "getImageUrl",
+      "arg": "about-us.webp",
+      "fullMatch": "getImageUrl(\"about-us.webp\")"
+    },
+    {
+      "file": "src/modules/About/pages/AboutPage.tsx",
+      "type": "getImageUrl",
+      "arg": "embedded-banner.webp",
+      "fullMatch": "getImageUrl(\"embedded-banner.webp\")"
+    },
+    {
+      "file": "src/modules/About/sections/ServicesOverviewSection.tsx",
+      "type": "getImageUrl",
+      "arg": "automation.avif",
+      "fullMatch": "getImageUrl(\"automation.avif\")"
+    },
+    {
+      "file": "src/modules/About/sections/ServicesOverviewSection.tsx",
+      "type": "getImageUrl",
+      "arg": "ligting.avif",
+      "fullMatch": "getImageUrl(\"ligting.avif\")"
+    },
+    {
+      "file": "src/modules/About/sections/ServicesOverviewSection.tsx",
+      "type": "getImageUrl",
+      "arg": "security.avif",
+      "fullMatch": "getImageUrl(\"security.avif\")"
+    },
+    {
+      "file": "src/modules/About/sections/ServicesOverviewSection.tsx",
+      "type": "getImageUrl",
+      "arg": "networking.avif",
+      "fullMatch": "getImageUrl(\"networking.avif\")"
+    },
+    {
+      "file": "src/modules/About/sections/ServicesOverviewSection.tsx",
+      "type": "getImageUrl",
+      "arg": "audio.avif",
+      "fullMatch": "getImageUrl(\"audio.avif\")"
+    },
+    {
+      "file": "src/modules/About/sections/ServicesOverviewSection.tsx",
+      "type": "getImageUrl",
+      "arg": "why_choose_us.webp",
+      "fullMatch": "getImageUrl(\"why_choose_us.webp\")"
+    },
+    {
+      "file": "src/modules/Audio/components/AudioHero.tsx",
+      "type": "getImageUrl",
+      "arg": "audio_banner.webp",
+      "fullMatch": "getImageUrl(\"audio_banner.webp\")"
+    },
+    {
+      "file": "src/modules/Audio/components/AudioHero.tsx",
+      "type": "getImageUrl",
+      "arg": "star.webp",
+      "fullMatch": "getImageUrl(\"star.webp\")"
+    },
+    {
+      "file": "src/modules/Audio/pages/AudioPage.tsx",
+      "type": "getImageUrl",
+      "arg": "service_theatre.webp",
+      "fullMatch": "getImageUrl(\"service_theatre.webp\")"
+    },
+    {
+      "file": "src/modules/Audio/pages/AudioPage.tsx",
+      "type": "getImageUrl",
+      "arg": "smarter_way_bg.webp",
+      "fullMatch": "getImageUrl(\"smarter_way_bg.webp\")"
+    },
+    {
+      "file": "src/modules/Audio/pages/AudioPage.tsx",
+      "type": "getImageUrl",
+      "arg": "service_theatre.webp",
+      "fullMatch": "getImageUrl(\"service_theatre.webp\")"
+    },
+    {
+      "file": "src/modules/Automation/pages/AutomationPage.tsx",
+      "type": "getImageUrl",
+      "arg": "service/fhha.webp",
+      "fullMatch": "getImageUrl(\"service/fhha.webp\")"
+    },
+    {
+      "file": "src/modules/Automation/pages/AutomationPage.tsx",
+      "type": "getImageUrl",
+      "arg": "project_villas.webp",
+      "fullMatch": "getImageUrl(\"project_villas.webp\")"
+    },
+    {
+      "file": "src/modules/Automation/pages/AutomationPage.tsx",
+      "type": "getImageUrl",
+      "arg": "automation_banner.webp",
+      "fullMatch": "getImageUrl(\"automation_banner.webp\")"
+    },
+    {
+      "file": "src/modules/Automation/pages/AutomationPage.tsx",
+      "type": "getImageUrl",
+      "arg": "star.webp",
+      "fullMatch": "getImageUrl(\"star.webp\")"
+    },
+    {
+      "file": "src/modules/Blogs/data/mockBlogs.ts",
+      "type": "direct_path",
+      "matched": "/images/blogs/future-of-smart-lighting.webp",
+      "fullMatch": "\"/images/blogs/future-of-smart-lighting.webp\""
+    },
+    {
+      "file": "src/modules/Blogs/data/mockBlogs.ts",
+      "type": "direct_path",
+      "matched": "/images/blogs/connected-home-security.webp",
+      "fullMatch": "\"/images/blogs/connected-home-security.webp\""
+    },
+    {
+      "file": "src/modules/Blogs/data/mockBlogs.ts",
+      "type": "direct_path",
+      "matched": "/images/blogs/morning-automation.webp",
+      "fullMatch": "\"/images/blogs/morning-automation.webp\""
+    },
+    {
+      "file": "src/modules/Blogs/data/mockBlogs.ts",
+      "type": "direct_path",
+      "matched": "/images/blogs/home-network.webp",
+      "fullMatch": "\"/images/blogs/home-network.webp\""
+    },
+    {
+      "file": "src/modules/Blogs/data/mockBlogs.ts",
+      "type": "direct_path",
+      "matched": "/images/blogs/voice-vs-app.webp",
+      "fullMatch": "\"/images/blogs/voice-vs-app.webp\""
+    },
+    {
+      "file": "src/modules/Blogs/data/mockBlogs.ts",
+      "type": "direct_path",
+      "matched": "/images/blogs/invisible-speakers.webp",
+      "fullMatch": "\"/images/blogs/invisible-speakers.webp\""
+    },
+    {
+      "file": "src/modules/Contact/pages/ContactPage.tsx",
+      "type": "getImageUrl",
+      "arg": "contact_villa_night.webp",
+      "fullMatch": "getImageUrl(\"contact_villa_night.webp\")"
+    },
+    {
+      "file": "src/modules/Home/components/scrollStackGalary.tsx",
+      "type": "getImageUrl",
+      "arg": "Rectangle 54367.webp",
+      "fullMatch": "getImageUrl(\"Rectangle 54367.webp\")"
+    },
+    {
+      "file": "src/modules/Home/components/scrollStackGalary.tsx",
+      "type": "getImageUrl",
+      "arg": "Rectangle 54366.webp",
+      "fullMatch": "getImageUrl(\"Rectangle 54366.webp\")"
+    },
+    {
+      "file": "src/modules/Home/components/scrollStackGalary.tsx",
+      "type": "getImageUrl",
+      "arg": "Rectangle 54362.webp",
+      "fullMatch": "getImageUrl(\"Rectangle 54362.webp\")"
+    },
+    {
+      "file": "src/modules/Home/components/scrollStackGalary.tsx",
+      "type": "getImageUrl",
+      "arg": "Rectangle 54368.webp",
+      "fullMatch": "getImageUrl(\"Rectangle 54368.webp\")"
+    },
+    {
+      "file": "src/modules/Home/sections/BedroomControlsSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/video/bedroom_animation.mp4",
+      "fullMatch": "\"/images/video/bedroom_animation.mp4\""
+    },
+    {
+      "file": "src/modules/Home/sections/BedroomControlsSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/video/bedroom_animation.mp4",
+      "fullMatch": "\"/images/video/bedroom_animation.mp4\""
+    },
+    {
+      "file": "src/modules/Home/sections/BedroomControlsSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/video/bedroom_animation.mp4",
+      "fullMatch": "\"/images/video/bedroom_animation.mp4\""
+    },
+    {
+      "file": "src/modules/Home/sections/BedroomControlsSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/video/bedroom_animation.mp4",
+      "fullMatch": "\"/images/video/bedroom_animation.mp4\""
+    },
+    {
+      "file": "src/modules/Home/sections/ClientTestimonialsSection.tsx",
+      "type": "getImageUrl",
+      "arg": "why_choose_us.webp",
+      "fullMatch": "getImageUrl(\"why_choose_us.webp\")"
+    },
+    {
+      "file": "src/modules/Home/sections/ClientTestimonialsSection.tsx",
+      "type": "getImageUrl",
+      "arg": "project_apartments.webp",
+      "fullMatch": "getImageUrl(\"project_apartments.webp\")"
+    },
+    {
+      "file": "src/modules/Home/sections/HeroSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/brands/iso-image.svg",
+      "fullMatch": "\"/images/brands/iso-image.svg\""
+    },
+    {
+      "file": "src/modules/Home/sections/HeroSection.tsx",
+      "type": "getImageUrl",
+      "arg": "hero_bg.webp",
+      "fullMatch": "getImageUrl(\"hero_bg.webp\")"
+    },
+    {
+      "file": "src/modules/Home/sections/HeroSectionV2.tsx",
+      "type": "direct_path",
+      "matched": "/images/video/reels/",
+      "fullMatch": "\"/images/video/reels/\""
+    },
+    {
+      "file": "src/modules/Home/sections/HeroSectionV2.tsx",
+      "type": "direct_path",
+      "matched": "/images/brands/iso-image.svg",
+      "fullMatch": "\"/images/brands/iso-image.svg\""
+    },
+    {
+      "file": "src/modules/Home/sections/HeroSectionV2.tsx",
+      "type": "direct_path",
+      "matched": "/images/brands/iso-image.svg",
+      "fullMatch": "\"/images/brands/iso-image.svg\""
+    },
+    {
+      "file": "src/modules/Home/sections/HeroSectionV2.tsx",
+      "type": "getImageUrl",
+      "arg": "hero_bg.webp",
+      "fullMatch": "getImageUrl(\"hero_bg.webp\")"
+    },
+    {
+      "file": "src/modules/Home/sections/HeroSectionV2.tsx",
+      "type": "getImageUrl",
+      "arg": "hero_bg-light.webp",
+      "fullMatch": "getImageUrl(\"hero_bg-light.webp\")"
+    },
+    {
+      "file": "src/modules/Home/sections/HeroSectionV2.tsx",
+      "type": "getImageUrl",
+      "arg": "hero_bg-768.webp",
+      "fullMatch": "getImageUrl(\"hero_bg-768.webp\")"
+    },
+    {
+      "file": "src/modules/Home/sections/HeroSectionV2.tsx",
+      "type": "getImageUrl",
+      "arg": "hero_bg-1280.webp",
+      "fullMatch": "getImageUrl(\"hero_bg-1280.webp\")"
+    },
+    {
+      "file": "src/modules/Home/sections/HeroSectionV2.tsx",
+      "type": "getImageUrl",
+      "arg": "hero_bg-1440.webp",
+      "fullMatch": "getImageUrl(\"hero_bg-1440.webp\")"
+    },
+    {
+      "file": "src/modules/Home/sections/HeroSectionV2.tsx",
+      "type": "getImageUrl",
+      "arg": "hero_bg-light-768.webp",
+      "fullMatch": "getImageUrl(\"hero_bg-light-768.webp\")"
+    },
+    {
+      "file": "src/modules/Home/sections/HeroSectionV2.tsx",
+      "type": "getImageUrl",
+      "arg": "hero_bg-light-1280.webp",
+      "fullMatch": "getImageUrl(\"hero_bg-light-1280.webp\")"
+    },
+    {
+      "file": "src/modules/Home/sections/LivingroomscenecontrolsSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/video/living_room_animation.mp4",
+      "fullMatch": "\"/images/video/living_room_animation.mp4\""
+    },
+    {
+      "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/partners/jr-automation.png",
+      "fullMatch": "\"/images/partners/jr-automation.png\""
+    },
+    {
+      "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/partners/alt-lighting.png",
+      "fullMatch": "\"/images/partners/alt-lighting.png\""
+    },
+    {
+      "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/partners/wipro-lighting.svg",
+      "fullMatch": "\"/images/partners/wipro-lighting.svg\""
+    },
+    {
+      "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/partners/yale.png",
+      "fullMatch": "\"/images/partners/yale.png\""
+    },
+    {
+      "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/partners/tp-link.svg",
+      "fullMatch": "\"/images/partners/tp-link.svg\""
+    },
+    {
+      "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/partners/legrand.svg",
+      "fullMatch": "\"/images/partners/legrand.svg\""
+    },
+    {
+      "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/partners/hikvision.svg",
+      "fullMatch": "\"/images/partners/hikvision.svg\""
+    },
+    {
+      "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/partners/finolex.svg",
+      "fullMatch": "\"/images/partners/finolex.svg\""
+    },
+    {
+      "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/partners/nefcon.png",
+      "fullMatch": "\"/images/partners/nefcon.png\""
+    },
+    {
+      "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/partners/golens.png",
+      "fullMatch": "\"/images/partners/golens.png\""
+    },
+    {
+      "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/partners/pure-acoustics.svg",
+      "fullMatch": "\"/images/partners/pure-acoustics.svg\""
+    },
+    {
+      "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/partners/grandstream.png",
+      "fullMatch": "\"/images/partners/grandstream.png\""
+    },
+    {
+      "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/partners/foxtech.png",
+      "fullMatch": "\"/images/partners/foxtech.png\""
+    },
+    {
+      "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/partners/akuvox.png",
+      "fullMatch": "\"/images/partners/akuvox.png\""
+    },
+    {
+      "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/partners/onetouch.png",
+      "fullMatch": "\"/images/partners/onetouch.png\""
+    },
+    {
+      "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/partners/tiron.png",
+      "fullMatch": "\"/images/partners/tiron.png\""
+    },
+    {
+      "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/partners/srujana.png",
+      "fullMatch": "\"/images/partners/srujana.png\""
+    },
+    {
+      "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/partners/akubela.png",
+      "fullMatch": "\"/images/partners/akubela.png\""
+    },
+    {
+      "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/partners/lytiva.svg",
+      "fullMatch": "\"/images/partners/lytiva.svg\""
+    },
+    {
+      "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/partners/cavitak.png",
+      "fullMatch": "\"/images/partners/cavitak.png\""
+    },
+    {
+      "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/partners/ajax.svg",
+      "fullMatch": "\"/images/partners/ajax.svg\""
+    },
+    {
+      "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/partners/finetech.png",
+      "fullMatch": "\"/images/partners/finetech.png\""
+    },
+    {
+      "file": "src/modules/Home/sections/ServicesSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/services/automation.avif",
+      "fullMatch": "\"/images/services/automation.avif\""
+    },
+    {
+      "file": "src/modules/Home/sections/ServicesSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/services/lighting.avif",
+      "fullMatch": "\"/images/services/lighting.avif\""
+    },
+    {
+      "file": "src/modules/Home/sections/ServicesSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/services/security.avif",
+      "fullMatch": "\"/images/services/security.avif\""
+    },
+    {
+      "file": "src/modules/Home/sections/ServicesSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/services/networking.avif",
+      "fullMatch": "\"/images/services/networking.avif\""
+    },
+    {
+      "file": "src/modules/Home/sections/ServicesSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/services/audio.avif",
+      "fullMatch": "\"/images/services/audio.avif\""
+    },
+    {
+      "file": "src/modules/Home/sections/ServicesSection.tsx",
+      "type": "direct_path",
+      "matched": "/images/services/electricals.avif",
+      "fullMatch": "\"/images/services/electricals.avif\""
+    },
+    {
+      "file": "src/modules/Lighting/components/LightingHero.tsx",
+      "type": "getImageUrl",
+      "arg": "lighting_banner.webp",
+      "fullMatch": "getImageUrl(\"lighting_banner.webp\")"
+    },
+    {
+      "file": "src/modules/Lighting/components/LightingHero.tsx",
+      "type": "getImageUrl",
+      "arg": "star.webp",
+      "fullMatch": "getImageUrl(\"star.webp\")"
+    },
+    {
+      "file": "src/modules/Lighting/components/WhatIsLighting.tsx",
+      "type": "getImageUrl",
+      "arg": "Touch panels.webp",
+      "fullMatch": "getImageUrl(\"Touch panels.webp\")"
+    },
+    {
+      "file": "src/modules/Lighting/components/WhatIsLighting.tsx",
+      "type": "getImageUrl",
+      "arg": "Voice Commands.webp",
+      "fullMatch": "getImageUrl(\"Voice Commands.webp\")"
+    },
+    {
+      "file": "src/modules/Lighting/components/WhatIsLighting.tsx",
+      "type": "getImageUrl",
+      "arg": "Mood Lighting.webp",
+      "fullMatch": "getImageUrl(\"Mood Lighting.webp\")"
+    },
+    {
+      "file": "src/modules/Lighting/components/WhatIsLighting.tsx",
+      "type": "getImageUrl",
+      "arg": "Scheduling.webp",
+      "fullMatch": "getImageUrl(\"Scheduling.webp\")"
+    },
+    {
+      "file": "src/modules/Lighting/pages/LightingPage.tsx",
+      "type": "getImageUrl",
+      "arg": "lightimage1.webp",
+      "fullMatch": "getImageUrl(\"lightimage1.webp\")"
+    },
+    {
+      "file": "src/modules/Lighting/pages/LightingPage.tsx",
+      "type": "getImageUrl",
+      "arg": "smart_dimming_lighting.webp",
+      "fullMatch": "getImageUrl(\"smart_dimming_lighting.webp\")"
+    },
+    {
+      "file": "src/modules/Lighting/pages/LightingPage.tsx",
+      "type": "getImageUrl",
+      "arg": "smart_rgb_lighting.webp",
+      "fullMatch": "getImageUrl(\"smart_rgb_lighting.webp\")"
+    },
+    {
+      "file": "src/modules/Lighting/pages/LightingPage.tsx",
+      "type": "getImageUrl",
+      "arg": "smart_outdoor_lighting.webp",
+      "fullMatch": "getImageUrl(\"smart_outdoor_lighting.webp\")"
+    },
+    {
+      "file": "src/modules/Networking/components/NetworkingHero.tsx",
+      "type": "getImageUrl",
+      "arg": "networking_banner.webp",
+      "fullMatch": "getImageUrl(\"networking_banner.webp\")"
+    },
+    {
+      "file": "src/modules/Networking/components/NetworkingHero.tsx",
+      "type": "getImageUrl",
+      "arg": "star.webp",
+      "fullMatch": "getImageUrl(\"star.webp\")"
+    },
+    {
+      "file": "src/modules/Networking/components/WhatIsNetworking.tsx",
+      "type": "getImageUrl",
+      "arg": "home.webp",
+      "fullMatch": "getImageUrl(\"home.webp\")"
+    },
+    {
+      "file": "src/modules/Networking/components/WhatIsNetworking.tsx",
+      "type": "getImageUrl",
+      "arg": "house.webp",
+      "fullMatch": "getImageUrl(\"house.webp\")"
+    },
+    {
+      "file": "src/modules/Networking/components/WhatIsNetworking.tsx",
+      "type": "getImageUrl",
+      "arg": "workshop.webp",
+      "fullMatch": "getImageUrl(\"workshop.webp\")"
+    },
+    {
+      "file": "src/modules/Networking/components/WhatIsNetworking.tsx",
+      "type": "getImageUrl",
+      "arg": "commercial.webp",
+      "fullMatch": "getImageUrl(\"commercial.webp\")"
+    },
+    {
+      "file": "src/modules/Networking/components/WhatIsNetworking.tsx",
+      "type": "getImageUrl",
+      "arg": "Multi-floor.webp",
+      "fullMatch": "getImageUrl(\"Multi-floor.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/CoreConceptSection.tsx",
+      "type": "getImageUrl",
+      "arg": "contact_villa_night.webp",
+      "fullMatch": "getImageUrl(\"contact_villa_night.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/GetInTouchSection.tsx",
+      "type": "getImageUrl",
+      "arg": "contact_villa_night.webp",
+      "fullMatch": "getImageUrl(\"contact_villa_night.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/GetInTouchSection.tsx",
+      "type": "getImageUrl",
+      "arg": "contact_villa_night.avif",
+      "fullMatch": "getImageUrl(\"contact_villa_night.avif\")"
+    },
+    {
+      "file": "src/modules/old/sections/OldLightingSection.tsx",
+      "type": "getImageUrl",
+      "arg": "service_lighting.webp",
+      "fullMatch": "getImageUrl(\"service_lighting.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/OldLightingSection.tsx",
+      "type": "getImageUrl",
+      "arg": "project_apartments.webp",
+      "fullMatch": "getImageUrl(\"project_apartments.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/OldLightingSection.tsx",
+      "type": "getImageUrl",
+      "arg": "project_farmhouses.webp",
+      "fullMatch": "getImageUrl(\"project_farmhouses.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/OldLightingSection.tsx",
+      "type": "getImageUrl",
+      "arg": "project_penthouses.webp",
+      "fullMatch": "getImageUrl(\"project_penthouses.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/OldLightingSection.tsx",
+      "type": "getImageUrl",
+      "arg": "project_commercial.webp",
+      "fullMatch": "getImageUrl(\"project_commercial.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/OldLightingSection.tsx",
+      "type": "getImageUrl",
+      "arg": "why_choose_us.webp",
+      "fullMatch": "getImageUrl(\"why_choose_us.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/OldNetworkingSection.tsx",
+      "type": "getImageUrl",
+      "arg": "project_apartments.webp",
+      "fullMatch": "getImageUrl(\"project_apartments.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/OldNetworkingSection.tsx",
+      "type": "getImageUrl",
+      "arg": "project_farmhouses.webp",
+      "fullMatch": "getImageUrl(\"project_farmhouses.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/OldNetworkingSection.tsx",
+      "type": "getImageUrl",
+      "arg": "project_penthouses.webp",
+      "fullMatch": "getImageUrl(\"project_penthouses.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/OldNetworkingSection.tsx",
+      "type": "getImageUrl",
+      "arg": "project_commercial.webp",
+      "fullMatch": "getImageUrl(\"project_commercial.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/OldNetworkingSection.tsx",
+      "type": "getImageUrl",
+      "arg": "why_choose_us.webp",
+      "fullMatch": "getImageUrl(\"why_choose_us.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/OldSecuritySection.tsx",
+      "type": "getImageUrl",
+      "arg": "why_choose_us.webp",
+      "fullMatch": "getImageUrl(\"why_choose_us.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/OldSecuritySection.tsx",
+      "type": "getImageUrl",
+      "arg": "contact_villa_night.webp",
+      "fullMatch": "getImageUrl(\"contact_villa_night.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/OldSecuritySection.tsx",
+      "type": "getImageUrl",
+      "arg": "project_villas.webp",
+      "fullMatch": "getImageUrl(\"project_villas.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/OldSecuritySection.tsx",
+      "type": "getImageUrl",
+      "arg": "project_commercial.webp",
+      "fullMatch": "getImageUrl(\"project_commercial.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/OldSecuritySection.tsx",
+      "type": "getImageUrl",
+      "arg": "project_apartments.webp",
+      "fullMatch": "getImageUrl(\"project_apartments.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/OldSecuritySection.tsx",
+      "type": "getImageUrl",
+      "arg": "project_farmhouses.webp",
+      "fullMatch": "getImageUrl(\"project_farmhouses.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/OldSecuritySection.tsx",
+      "type": "getImageUrl",
+      "arg": "project_penthouses.webp",
+      "fullMatch": "getImageUrl(\"project_penthouses.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/ProjectsSection.tsx",
+      "type": "getImageUrl",
+      "arg": "project_villas.webp",
+      "fullMatch": "getImageUrl(\"project_villas.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/ProjectsSection.tsx",
+      "type": "getImageUrl",
+      "arg": "project_apartments.webp",
+      "fullMatch": "getImageUrl(\"project_apartments.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/ProjectsSection.tsx",
+      "type": "getImageUrl",
+      "arg": "project_farmhouses.webp",
+      "fullMatch": "getImageUrl(\"project_farmhouses.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/ProjectsSection.tsx",
+      "type": "getImageUrl",
+      "arg": "project_penthouses.webp",
+      "fullMatch": "getImageUrl(\"project_penthouses.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/ProjectsSection.tsx",
+      "type": "getImageUrl",
+      "arg": "project_commercial.webp",
+      "fullMatch": "getImageUrl(\"project_commercial.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/SmarterWaySection.tsx",
+      "type": "getImageUrl",
+      "arg": "smarter_way_bg.webp",
+      "fullMatch": "getImageUrl(\"smarter_way_bg.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/SmarterWaySection.tsx",
+      "type": "getImageUrl",
+      "arg": "smarter_way_bg.avif",
+      "fullMatch": "getImageUrl(\"smarter_way_bg.avif\")"
+    },
+    {
+      "file": "src/modules/old/sections/TestimonialsSection.tsx",
+      "type": "getImageUrl",
+      "arg": "contact_villa_night.webp",
+      "fullMatch": "getImageUrl(\"contact_villa_night.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/TestimonialsSection.tsx",
+      "type": "getImageUrl",
+      "arg": "contact_villa_night.avif",
+      "fullMatch": "getImageUrl(\"contact_villa_night.avif\")"
+    },
+    {
+      "file": "src/modules/old/sections/TestimonialsSection.tsx",
+      "type": "getImageUrl",
+      "arg": "why_choose_us.webp",
+      "fullMatch": "getImageUrl(\"why_choose_us.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/TestimonialsSection.tsx",
+      "type": "getImageUrl",
+      "arg": "project_apartments.webp",
+      "fullMatch": "getImageUrl(\"project_apartments.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/TestimonialsSection.tsx",
+      "type": "getImageUrl",
+      "arg": "project_villas.webp",
+      "fullMatch": "getImageUrl(\"project_villas.webp\")"
+    },
+    {
+      "file": "src/modules/old/sections/TimeBasedLightingSection.tsx",
+      "type": "getImageUrl",
+      "arg": "timeLightImage.webp",
+      "fullMatch": "getImageUrl(\"timeLightImage.webp\")"
+    },
+    {
+      "file": "src/modules/Security/components/SecurityHero.tsx",
+      "type": "getImageUrl",
+      "arg": "security_banner.webp",
+      "fullMatch": "getImageUrl(\"security_banner.webp\")"
+    },
+    {
+      "file": "src/modules/Security/components/SecurityHero.tsx",
+      "type": "getImageUrl",
+      "arg": "star.webp",
+      "fullMatch": "getImageUrl(\"star.webp\")"
+    },
+    {
+      "file": "src/modules/Security/components/WhatIsSecurity.tsx",
+      "type": "getImageUrl",
+      "arg": "Homes & Apartments.webp",
+      "fullMatch": "getImageUrl(\"Homes & Apartments.webp\")"
+    },
+    {
+      "file": "src/modules/Security/components/WhatIsSecurity.tsx",
+      "type": "getImageUrl",
+      "arg": "Villas.webp",
+      "fullMatch": "getImageUrl(\"Villas.webp\")"
+    },
+    {
+      "file": "src/modules/Security/components/WhatIsSecurity.tsx",
+      "type": "getImageUrl",
+      "arg": "Offices & Workspaces.webp",
+      "fullMatch": "getImageUrl(\"Offices & Workspaces.webp\")"
+    },
+    {
+      "file": "src/modules/Security/components/WhatIsSecurity.tsx",
+      "type": "getImageUrl",
+      "arg": "Retail & Commercial Spaces.webp",
+      "fullMatch": "getImageUrl(\"Retail & Commercial Spaces.webp\")"
+    },
+    {
+      "file": "src/modules/Security/pages/SecurityPage.tsx",
+      "type": "getImageUrl",
+      "arg": "service_security.webp",
+      "fullMatch": "getImageUrl(\"service_security.webp\")"
+    },
+    {
+      "file": "src/modules/Security/pages/SecurityPage.tsx",
+      "type": "getImageUrl",
+      "arg": "project_apartments.webp",
+      "fullMatch": "getImageUrl(\"project_apartments.webp\")"
+    },
+    {
+      "file": "src/modules/Security/pages/SecurityPage.tsx",
+      "type": "getImageUrl",
+      "arg": "why_choose_us.webp",
+      "fullMatch": "getImageUrl(\"why_choose_us.webp\")"
+    },
+    {
+      "file": "src/modules/test-pages/AutomationPageV2.tsx",
+      "type": "getImageUrl",
+      "arg": "service_lighting.webp",
+      "fullMatch": "getImageUrl(\"service_lighting.webp\")"
+    },
+    {
+      "file": "src/modules/test-pages/AutomationPageV2.tsx",
+      "type": "getImageUrl",
+      "arg": "project_villas.webp",
+      "fullMatch": "getImageUrl(\"project_villas.webp\")"
+    },
+    {
+      "file": "src/modules/test-pages/AutomationPageV2.tsx",
+      "type": "getImageUrl",
+      "arg": "automation_banner.webp",
+      "fullMatch": "getImageUrl(\"automation_banner.webp\")"
+    },
+    {
+      "file": "src/modules/test-pages/AutomationPageV2.tsx",
+      "type": "getImageUrl",
+      "arg": "star.webp",
+      "fullMatch": "getImageUrl(\"star.webp\")"
+    },
+    {
+      "file": "src/modules/WhyUs/pages/WhyUsPage.tsx",
+      "type": "getImageUrl",
+      "arg": "about-us.webp",
+      "fullMatch": "getImageUrl(\"about-us.webp\")"
+    },
+    {
+      "file": "src/modules/WhyUs/sections/ProcessSection.tsx",
+      "type": "getImageUrl",
+      "arg": "process_consultation.webp",
+      "fullMatch": "getImageUrl(\"process_consultation.webp\")"
+    },
+    {
+      "file": "src/modules/WhyUs/sections/ProcessSection.tsx",
+      "type": "getImageUrl",
+      "arg": "process_design.webp",
+      "fullMatch": "getImageUrl(\"process_design.webp\")"
+    },
+    {
+      "file": "src/modules/WhyUs/sections/ProcessSection.tsx",
+      "type": "getImageUrl",
+      "arg": "process_installation.webp",
+      "fullMatch": "getImageUrl(\"process_installation.webp\")"
+    },
+    {
+      "file": "src/modules/WhyUs/sections/ProcessSection.tsx",
+      "type": "getImageUrl",
+      "arg": "process_support.webp",
+      "fullMatch": "getImageUrl(\"process_support.webp\")"
+    },
+    {
+      "file": "src/modules/WhyUs/sections/WhyChooseUsSection.tsx",
+      "type": "getImageUrl",
+      "arg": "why_choose_us.webp",
+      "fullMatch": "getImageUrl(\"why_choose_us.webp\")"
+    },
+    {
+      "file": "index.html",
+      "type": "direct_path",
+      "matched": "/images/home/hero_bg-1280.webp",
+      "fullMatch": "\"/images/home/hero_bg-1280.webp\""
+    },
+    {
+      "file": "index.html",
+      "type": "direct_path",
+      "matched": "/images/home/hero_bg-768.webp 768w, /images/home/hero_bg-1280.webp 1280w, /images/home/hero_bg-1440.webp 1440w, /images/home/hero_bg.webp 1920w",
+      "fullMatch": "\"/images/home/hero_bg-768.webp 768w, /images/home/hero_bg-1280.webp 1280w, /images/home/hero_bg-1440.webp 1440w, /images/home/hero_bg.webp 1920w\""
+    }
+  ],
+  "grouped": {
+    "src/components/common/AutomationMosaicSection.tsx": [
+      {
+        "file": "src/components/common/AutomationMosaicSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/video/reels",
+        "fullMatch": "\"/images/video/reels\""
+      }
+    ],
+    "src/components/common/AutomationShowcase.tsx": [
+      {
+        "file": "src/components/common/AutomationShowcase.tsx",
+        "type": "getImageUrl",
+        "arg": "/service/ha1.1.webp",
+        "fullMatch": "getImageUrl(\"/service/ha1.1.webp\")"
+      },
+      {
+        "file": "src/components/common/AutomationShowcase.tsx",
+        "type": "getImageUrl",
+        "arg": "/service/ha1.2.webp",
+        "fullMatch": "getImageUrl(\"/service/ha1.2.webp\")"
+      },
+      {
+        "file": "src/components/common/AutomationShowcase.tsx",
+        "type": "getImageUrl",
+        "arg": "/service/ha1.3.webp",
+        "fullMatch": "getImageUrl(\"/service/ha1.3.webp\")"
+      },
+      {
+        "file": "src/components/common/AutomationShowcase.tsx",
+        "type": "getImageUrl",
+        "arg": "curtain_automation.webp",
+        "fullMatch": "getImageUrl(\"curtain_automation.webp\")"
+      }
+    ],
+    "src/components/common/BrandLogo.tsx": [
+      {
+        "file": "src/components/common/BrandLogo.tsx",
+        "type": "getImageUrl",
+        "arg": "MAKc-Logo.svg",
+        "fullMatch": "getImageUrl(\"MAKc-Logo.svg\")"
+      },
+      {
+        "file": "src/components/common/BrandLogo.tsx",
+        "type": "getImageUrl",
+        "arg": "MAKc-Logo-white.webp",
+        "fullMatch": "getImageUrl(\"MAKc-Logo-white.webp\")"
+      }
+    ],
+    "src/components/common/ClientReviews.tsx": [
+      {
+        "file": "src/components/common/ClientReviews.tsx",
+        "type": "getImageUrl",
+        "arg": "project_villas.webp",
+        "fullMatch": "getImageUrl(\"project_villas.webp\")"
+      },
+      {
+        "file": "src/components/common/ClientReviews.tsx",
+        "type": "getImageUrl",
+        "arg": "project_penthouses.webp",
+        "fullMatch": "getImageUrl(\"project_penthouses.webp\")"
+      },
+      {
+        "file": "src/components/common/ClientReviews.tsx",
+        "type": "getImageUrl",
+        "arg": "project_farmhouses.webp",
+        "fullMatch": "getImageUrl(\"project_farmhouses.webp\")"
+      },
+      {
+        "file": "src/components/common/ClientReviews.tsx",
+        "type": "getImageUrl",
+        "arg": "project_apartments.webp",
+        "fullMatch": "getImageUrl(\"project_apartments.webp\")"
+      }
+    ],
+    "src/components/common/SolutionsGallery.tsx": [
+      {
+        "file": "src/components/common/SolutionsGallery.tsx",
+        "type": "getImageUrl",
+        "arg": "service_automation.webp",
+        "fullMatch": "getImageUrl(\"service_automation.webp\")"
+      },
+      {
+        "file": "src/components/common/SolutionsGallery.tsx",
+        "type": "getImageUrl",
+        "arg": "Rectangle 54367.webp",
+        "fullMatch": "getImageUrl(\"Rectangle 54367.webp\")"
+      },
+      {
+        "file": "src/components/common/SolutionsGallery.tsx",
+        "type": "getImageUrl",
+        "arg": "curtain_automation.webp",
+        "fullMatch": "getImageUrl(\"curtain_automation.webp\")"
+      },
+      {
+        "file": "src/components/common/SolutionsGallery.tsx",
+        "type": "getImageUrl",
+        "arg": "Rectangle 54364.webp",
+        "fullMatch": "getImageUrl(\"Rectangle 54364.webp\")"
+      },
+      {
+        "file": "src/components/common/SolutionsGallery.tsx",
+        "type": "getImageUrl",
+        "arg": "Rectangle 54360.webp",
+        "fullMatch": "getImageUrl(\"Rectangle 54360.webp\")"
+      },
+      {
+        "file": "src/components/common/SolutionsGallery.tsx",
+        "type": "getImageUrl",
+        "arg": "service_lighting.webp",
+        "fullMatch": "getImageUrl(\"service_lighting.webp\")"
+      },
+      {
+        "file": "src/components/common/SolutionsGallery.tsx",
+        "type": "getImageUrl",
+        "arg": "Rectangle 54368.webp",
+        "fullMatch": "getImageUrl(\"Rectangle 54368.webp\")"
+      },
+      {
+        "file": "src/components/common/SolutionsGallery.tsx",
+        "type": "getImageUrl",
+        "arg": "smart_dimming_lighting.webp",
+        "fullMatch": "getImageUrl(\"smart_dimming_lighting.webp\")"
+      },
+      {
+        "file": "src/components/common/SolutionsGallery.tsx",
+        "type": "getImageUrl",
+        "arg": "smart_rgb_lighting.webp",
+        "fullMatch": "getImageUrl(\"smart_rgb_lighting.webp\")"
+      },
+      {
+        "file": "src/components/common/SolutionsGallery.tsx",
+        "type": "getImageUrl",
+        "arg": "doorautomation1.webp",
+        "fullMatch": "getImageUrl(\"doorautomation1.webp\")"
+      },
+      {
+        "file": "src/components/common/SolutionsGallery.tsx",
+        "type": "getImageUrl",
+        "arg": "service_security.webp",
+        "fullMatch": "getImageUrl(\"service_security.webp\")"
+      },
+      {
+        "file": "src/components/common/SolutionsGallery.tsx",
+        "type": "getImageUrl",
+        "arg": "contact_villa_night.webp",
+        "fullMatch": "getImageUrl(\"contact_villa_night.webp\")"
+      }
+    ],
+    "src/components/layouts/footer/Footer.tsx": [
+      {
+        "file": "src/components/layouts/footer/Footer.tsx",
+        "type": "direct_path",
+        "matched": "/images/video/living_room_animation.mp4",
+        "fullMatch": "\"/images/video/living_room_animation.mp4\""
+      }
+    ],
+    "src/data/servicesData.ts": [
+      {
+        "file": "src/data/servicesData.ts",
+        "type": "getImageUrl",
+        "arg": "industrial-automation-overview.webp",
+        "fullMatch": "getImageUrl(\"industrial-automation-overview.webp\")"
+      },
+      {
+        "file": "src/data/servicesData.ts",
+        "type": "getImageUrl",
+        "arg": "system-integration.webp",
+        "fullMatch": "getImageUrl(\"system-integration.webp\")"
+      },
+      {
+        "file": "src/data/servicesData.ts",
+        "type": "getImageUrl",
+        "arg": "scada-development.webp",
+        "fullMatch": "getImageUrl(\"scada-development.webp\")"
+      },
+      {
+        "file": "src/data/servicesData.ts",
+        "type": "getImageUrl",
+        "arg": "control-system-design.webp",
+        "fullMatch": "getImageUrl(\"control-system-design.webp\")"
+      },
+      {
+        "file": "src/data/servicesData.ts",
+        "type": "getImageUrl",
+        "arg": "electrical-design.webp",
+        "fullMatch": "getImageUrl(\"electrical-design.webp\")"
+      },
+      {
+        "file": "src/data/servicesData.ts",
+        "type": "getImageUrl",
+        "arg": "electrical-installation.webp",
+        "fullMatch": "getImageUrl(\"electrical-installation.webp\")"
+      },
+      {
+        "file": "src/data/servicesData.ts",
+        "type": "getImageUrl",
+        "arg": "industrial-cybersecurity.webp",
+        "fullMatch": "getImageUrl(\"industrial-cybersecurity.webp\")"
+      },
+      {
+        "file": "src/data/servicesData.ts",
+        "type": "getImageUrl",
+        "arg": "smart-manufacturing.webp",
+        "fullMatch": "getImageUrl(\"smart-manufacturing.webp\")"
+      },
+      {
+        "file": "src/data/servicesData.ts",
+        "type": "getImageUrl",
+        "arg": "cloud-integration.webp",
+        "fullMatch": "getImageUrl(\"cloud-integration.webp\")"
+      }
+    ],
+    "src/modules/About/pages/AboutPage.tsx": [
+      {
+        "file": "src/modules/About/pages/AboutPage.tsx",
+        "type": "getImageUrl",
+        "arg": "client-04-q973yadybx3esxnjyeias1xijm81e9ufszb7iuhaeg.webp",
+        "fullMatch": "getImageUrl(\"client-04-q973yadybx3esxnjyeias1xijm81e9ufszb7iuhaeg.webp\")"
+      },
+      {
+        "file": "src/modules/About/pages/AboutPage.tsx",
+        "type": "getImageUrl",
+        "arg": "client-05-q973y9g45324hbox3w3o7k61y8co6kqpgunq1kioko.webp",
+        "fullMatch": "getImageUrl(\"client-05-q973y9g45324hbox3w3o7k61y8co6kqpgunq1kioko.webp\")"
+      },
+      {
+        "file": "src/modules/About/pages/AboutPage.tsx",
+        "type": "getImageUrl",
+        "arg": "client-08-q973y7kfrezju3rnevaf2kn4rglxr6j8slcr30lgx4.webp",
+        "fullMatch": "getImageUrl(\"client-08-q973y7kfrezju3rnevaf2kn4rglxr6j8slcr30lgx4.webp\")"
+      },
+      {
+        "file": "src/modules/About/pages/AboutPage.tsx",
+        "type": "getImageUrl",
+        "arg": "client-10-q973y6mlkky9iht0kcvsi2vo62qkjhfiggp9lqmv3c.webp",
+        "fullMatch": "getImageUrl(\"client-10-q973y6mlkky9iht0kcvsi2vo62qkjhfiggp9lqmv3c.webp\")"
+      },
+      {
+        "file": "src/modules/About/pages/AboutPage.tsx",
+        "type": "getImageUrl",
+        "arg": "mack-logo-12-q99691wi5yn8iger7l1n233otynezih2vu28askwdk.webp",
+        "fullMatch": "getImageUrl(\"mack-logo-12-q99691wi5yn8iger7l1n233otynezih2vu28askwdk.webp\")"
+      },
+      {
+        "file": "src/modules/About/pages/AboutPage.tsx",
+        "type": "getImageUrl",
+        "arg": "mack-logo-13-q99692uccsoiu2de23g9mkv5fcis77kt7ypps2ji7c.webp",
+        "fullMatch": "getImageUrl(\"mack-logo-13-q99692uccsoiu2de23g9mkv5fcis77kt7ypps2ji7c.webp\")"
+      },
+      {
+        "file": "src/modules/About/pages/AboutPage.tsx",
+        "type": "getImageUrl",
+        "arg": "mack-logo-15-q99693s6jmpt5oc0wluw72mm0qe5ewojk3d79ci414.webp",
+        "fullMatch": "getImageUrl(\"mack-logo-15-q99693s6jmpt5oc0wluw72mm0qe5ewojk3d79ci414.webp\")"
+      },
+      {
+        "file": "src/modules/About/pages/AboutPage.tsx",
+        "type": "getImageUrl",
+        "arg": "name_03-1-1.webp",
+        "fullMatch": "getImageUrl(\"name_03-1-1.webp\")"
+      },
+      {
+        "file": "src/modules/About/pages/AboutPage.tsx",
+        "type": "getImageUrl",
+        "arg": "name_02-2.webp",
+        "fullMatch": "getImageUrl(\"name_02-2.webp\")"
+      },
+      {
+        "file": "src/modules/About/pages/AboutPage.tsx",
+        "type": "getImageUrl",
+        "arg": "name_01-1.webp",
+        "fullMatch": "getImageUrl(\"name_01-1.webp\")"
+      },
+      {
+        "file": "src/modules/About/pages/AboutPage.tsx",
+        "type": "getImageUrl",
+        "arg": "name-4.webp",
+        "fullMatch": "getImageUrl(\"name-4.webp\")"
+      },
+      {
+        "file": "src/modules/About/pages/AboutPage.tsx",
+        "type": "getImageUrl",
+        "arg": "about-us.webp",
+        "fullMatch": "getImageUrl(\"about-us.webp\")"
+      },
+      {
+        "file": "src/modules/About/pages/AboutPage.tsx",
+        "type": "getImageUrl",
+        "arg": "embedded-banner.webp",
+        "fullMatch": "getImageUrl(\"embedded-banner.webp\")"
+      }
+    ],
+    "src/modules/About/sections/ServicesOverviewSection.tsx": [
+      {
+        "file": "src/modules/About/sections/ServicesOverviewSection.tsx",
+        "type": "getImageUrl",
+        "arg": "automation.avif",
+        "fullMatch": "getImageUrl(\"automation.avif\")"
+      },
+      {
+        "file": "src/modules/About/sections/ServicesOverviewSection.tsx",
+        "type": "getImageUrl",
+        "arg": "ligting.avif",
+        "fullMatch": "getImageUrl(\"ligting.avif\")"
+      },
+      {
+        "file": "src/modules/About/sections/ServicesOverviewSection.tsx",
+        "type": "getImageUrl",
+        "arg": "security.avif",
+        "fullMatch": "getImageUrl(\"security.avif\")"
+      },
+      {
+        "file": "src/modules/About/sections/ServicesOverviewSection.tsx",
+        "type": "getImageUrl",
+        "arg": "networking.avif",
+        "fullMatch": "getImageUrl(\"networking.avif\")"
+      },
+      {
+        "file": "src/modules/About/sections/ServicesOverviewSection.tsx",
+        "type": "getImageUrl",
+        "arg": "audio.avif",
+        "fullMatch": "getImageUrl(\"audio.avif\")"
+      },
+      {
+        "file": "src/modules/About/sections/ServicesOverviewSection.tsx",
+        "type": "getImageUrl",
+        "arg": "why_choose_us.webp",
+        "fullMatch": "getImageUrl(\"why_choose_us.webp\")"
+      }
+    ],
+    "src/modules/Audio/components/AudioHero.tsx": [
+      {
+        "file": "src/modules/Audio/components/AudioHero.tsx",
+        "type": "getImageUrl",
+        "arg": "audio_banner.webp",
+        "fullMatch": "getImageUrl(\"audio_banner.webp\")"
+      },
+      {
+        "file": "src/modules/Audio/components/AudioHero.tsx",
+        "type": "getImageUrl",
+        "arg": "star.webp",
+        "fullMatch": "getImageUrl(\"star.webp\")"
+      }
+    ],
+    "src/modules/Audio/pages/AudioPage.tsx": [
+      {
+        "file": "src/modules/Audio/pages/AudioPage.tsx",
+        "type": "getImageUrl",
+        "arg": "service_theatre.webp",
+        "fullMatch": "getImageUrl(\"service_theatre.webp\")"
+      },
+      {
+        "file": "src/modules/Audio/pages/AudioPage.tsx",
+        "type": "getImageUrl",
+        "arg": "smarter_way_bg.webp",
+        "fullMatch": "getImageUrl(\"smarter_way_bg.webp\")"
+      },
+      {
+        "file": "src/modules/Audio/pages/AudioPage.tsx",
+        "type": "getImageUrl",
+        "arg": "service_theatre.webp",
+        "fullMatch": "getImageUrl(\"service_theatre.webp\")"
+      }
+    ],
+    "src/modules/Automation/pages/AutomationPage.tsx": [
+      {
+        "file": "src/modules/Automation/pages/AutomationPage.tsx",
+        "type": "getImageUrl",
+        "arg": "service/fhha.webp",
+        "fullMatch": "getImageUrl(\"service/fhha.webp\")"
+      },
+      {
+        "file": "src/modules/Automation/pages/AutomationPage.tsx",
+        "type": "getImageUrl",
+        "arg": "project_villas.webp",
+        "fullMatch": "getImageUrl(\"project_villas.webp\")"
+      },
+      {
+        "file": "src/modules/Automation/pages/AutomationPage.tsx",
+        "type": "getImageUrl",
+        "arg": "automation_banner.webp",
+        "fullMatch": "getImageUrl(\"automation_banner.webp\")"
+      },
+      {
+        "file": "src/modules/Automation/pages/AutomationPage.tsx",
+        "type": "getImageUrl",
+        "arg": "star.webp",
+        "fullMatch": "getImageUrl(\"star.webp\")"
+      }
+    ],
+    "src/modules/Blogs/data/mockBlogs.ts": [
+      {
+        "file": "src/modules/Blogs/data/mockBlogs.ts",
+        "type": "direct_path",
+        "matched": "/images/blogs/future-of-smart-lighting.webp",
+        "fullMatch": "\"/images/blogs/future-of-smart-lighting.webp\""
+      },
+      {
+        "file": "src/modules/Blogs/data/mockBlogs.ts",
+        "type": "direct_path",
+        "matched": "/images/blogs/connected-home-security.webp",
+        "fullMatch": "\"/images/blogs/connected-home-security.webp\""
+      },
+      {
+        "file": "src/modules/Blogs/data/mockBlogs.ts",
+        "type": "direct_path",
+        "matched": "/images/blogs/morning-automation.webp",
+        "fullMatch": "\"/images/blogs/morning-automation.webp\""
+      },
+      {
+        "file": "src/modules/Blogs/data/mockBlogs.ts",
+        "type": "direct_path",
+        "matched": "/images/blogs/home-network.webp",
+        "fullMatch": "\"/images/blogs/home-network.webp\""
+      },
+      {
+        "file": "src/modules/Blogs/data/mockBlogs.ts",
+        "type": "direct_path",
+        "matched": "/images/blogs/voice-vs-app.webp",
+        "fullMatch": "\"/images/blogs/voice-vs-app.webp\""
+      },
+      {
+        "file": "src/modules/Blogs/data/mockBlogs.ts",
+        "type": "direct_path",
+        "matched": "/images/blogs/invisible-speakers.webp",
+        "fullMatch": "\"/images/blogs/invisible-speakers.webp\""
+      }
+    ],
+    "src/modules/Contact/pages/ContactPage.tsx": [
+      {
+        "file": "src/modules/Contact/pages/ContactPage.tsx",
+        "type": "getImageUrl",
+        "arg": "contact_villa_night.webp",
+        "fullMatch": "getImageUrl(\"contact_villa_night.webp\")"
+      }
+    ],
+    "src/modules/Home/components/scrollStackGalary.tsx": [
+      {
+        "file": "src/modules/Home/components/scrollStackGalary.tsx",
+        "type": "getImageUrl",
+        "arg": "Rectangle 54367.webp",
+        "fullMatch": "getImageUrl(\"Rectangle 54367.webp\")"
+      },
+      {
+        "file": "src/modules/Home/components/scrollStackGalary.tsx",
+        "type": "getImageUrl",
+        "arg": "Rectangle 54366.webp",
+        "fullMatch": "getImageUrl(\"Rectangle 54366.webp\")"
+      },
+      {
+        "file": "src/modules/Home/components/scrollStackGalary.tsx",
+        "type": "getImageUrl",
+        "arg": "Rectangle 54362.webp",
+        "fullMatch": "getImageUrl(\"Rectangle 54362.webp\")"
+      },
+      {
+        "file": "src/modules/Home/components/scrollStackGalary.tsx",
+        "type": "getImageUrl",
+        "arg": "Rectangle 54368.webp",
+        "fullMatch": "getImageUrl(\"Rectangle 54368.webp\")"
+      }
+    ],
+    "src/modules/Home/sections/BedroomControlsSection.tsx": [
+      {
+        "file": "src/modules/Home/sections/BedroomControlsSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/video/bedroom_animation.mp4",
+        "fullMatch": "\"/images/video/bedroom_animation.mp4\""
+      },
+      {
+        "file": "src/modules/Home/sections/BedroomControlsSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/video/bedroom_animation.mp4",
+        "fullMatch": "\"/images/video/bedroom_animation.mp4\""
+      },
+      {
+        "file": "src/modules/Home/sections/BedroomControlsSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/video/bedroom_animation.mp4",
+        "fullMatch": "\"/images/video/bedroom_animation.mp4\""
+      },
+      {
+        "file": "src/modules/Home/sections/BedroomControlsSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/video/bedroom_animation.mp4",
+        "fullMatch": "\"/images/video/bedroom_animation.mp4\""
+      }
+    ],
+    "src/modules/Home/sections/ClientTestimonialsSection.tsx": [
+      {
+        "file": "src/modules/Home/sections/ClientTestimonialsSection.tsx",
+        "type": "getImageUrl",
+        "arg": "why_choose_us.webp",
+        "fullMatch": "getImageUrl(\"why_choose_us.webp\")"
+      },
+      {
+        "file": "src/modules/Home/sections/ClientTestimonialsSection.tsx",
+        "type": "getImageUrl",
+        "arg": "project_apartments.webp",
+        "fullMatch": "getImageUrl(\"project_apartments.webp\")"
+      }
+    ],
+    "src/modules/Home/sections/HeroSection.tsx": [
+      {
+        "file": "src/modules/Home/sections/HeroSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/brands/iso-image.svg",
+        "fullMatch": "\"/images/brands/iso-image.svg\""
+      },
+      {
+        "file": "src/modules/Home/sections/HeroSection.tsx",
+        "type": "getImageUrl",
+        "arg": "hero_bg.webp",
+        "fullMatch": "getImageUrl(\"hero_bg.webp\")"
+      }
+    ],
+    "src/modules/Home/sections/HeroSectionV2.tsx": [
+      {
+        "file": "src/modules/Home/sections/HeroSectionV2.tsx",
+        "type": "direct_path",
+        "matched": "/images/video/reels/",
+        "fullMatch": "\"/images/video/reels/\""
+      },
+      {
+        "file": "src/modules/Home/sections/HeroSectionV2.tsx",
+        "type": "direct_path",
+        "matched": "/images/brands/iso-image.svg",
+        "fullMatch": "\"/images/brands/iso-image.svg\""
+      },
+      {
+        "file": "src/modules/Home/sections/HeroSectionV2.tsx",
+        "type": "direct_path",
+        "matched": "/images/brands/iso-image.svg",
+        "fullMatch": "\"/images/brands/iso-image.svg\""
+      },
+      {
+        "file": "src/modules/Home/sections/HeroSectionV2.tsx",
+        "type": "getImageUrl",
+        "arg": "hero_bg.webp",
+        "fullMatch": "getImageUrl(\"hero_bg.webp\")"
+      },
+      {
+        "file": "src/modules/Home/sections/HeroSectionV2.tsx",
+        "type": "getImageUrl",
+        "arg": "hero_bg-light.webp",
+        "fullMatch": "getImageUrl(\"hero_bg-light.webp\")"
+      },
+      {
+        "file": "src/modules/Home/sections/HeroSectionV2.tsx",
+        "type": "getImageUrl",
+        "arg": "hero_bg-768.webp",
+        "fullMatch": "getImageUrl(\"hero_bg-768.webp\")"
+      },
+      {
+        "file": "src/modules/Home/sections/HeroSectionV2.tsx",
+        "type": "getImageUrl",
+        "arg": "hero_bg-1280.webp",
+        "fullMatch": "getImageUrl(\"hero_bg-1280.webp\")"
+      },
+      {
+        "file": "src/modules/Home/sections/HeroSectionV2.tsx",
+        "type": "getImageUrl",
+        "arg": "hero_bg-1440.webp",
+        "fullMatch": "getImageUrl(\"hero_bg-1440.webp\")"
+      },
+      {
+        "file": "src/modules/Home/sections/HeroSectionV2.tsx",
+        "type": "getImageUrl",
+        "arg": "hero_bg-light-768.webp",
+        "fullMatch": "getImageUrl(\"hero_bg-light-768.webp\")"
+      },
+      {
+        "file": "src/modules/Home/sections/HeroSectionV2.tsx",
+        "type": "getImageUrl",
+        "arg": "hero_bg-light-1280.webp",
+        "fullMatch": "getImageUrl(\"hero_bg-light-1280.webp\")"
+      }
+    ],
+    "src/modules/Home/sections/LivingroomscenecontrolsSection.tsx": [
+      {
+        "file": "src/modules/Home/sections/LivingroomscenecontrolsSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/video/living_room_animation.mp4",
+        "fullMatch": "\"/images/video/living_room_animation.mp4\""
+      }
+    ],
+    "src/modules/Home/sections/PartnerLogosSection.tsx": [
+      {
+        "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/partners/jr-automation.png",
+        "fullMatch": "\"/images/partners/jr-automation.png\""
+      },
+      {
+        "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/partners/alt-lighting.png",
+        "fullMatch": "\"/images/partners/alt-lighting.png\""
+      },
+      {
+        "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/partners/wipro-lighting.svg",
+        "fullMatch": "\"/images/partners/wipro-lighting.svg\""
+      },
+      {
+        "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/partners/yale.png",
+        "fullMatch": "\"/images/partners/yale.png\""
+      },
+      {
+        "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/partners/tp-link.svg",
+        "fullMatch": "\"/images/partners/tp-link.svg\""
+      },
+      {
+        "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/partners/legrand.svg",
+        "fullMatch": "\"/images/partners/legrand.svg\""
+      },
+      {
+        "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/partners/hikvision.svg",
+        "fullMatch": "\"/images/partners/hikvision.svg\""
+      },
+      {
+        "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/partners/finolex.svg",
+        "fullMatch": "\"/images/partners/finolex.svg\""
+      },
+      {
+        "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/partners/nefcon.png",
+        "fullMatch": "\"/images/partners/nefcon.png\""
+      },
+      {
+        "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/partners/golens.png",
+        "fullMatch": "\"/images/partners/golens.png\""
+      },
+      {
+        "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/partners/pure-acoustics.svg",
+        "fullMatch": "\"/images/partners/pure-acoustics.svg\""
+      },
+      {
+        "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/partners/grandstream.png",
+        "fullMatch": "\"/images/partners/grandstream.png\""
+      },
+      {
+        "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/partners/foxtech.png",
+        "fullMatch": "\"/images/partners/foxtech.png\""
+      },
+      {
+        "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/partners/akuvox.png",
+        "fullMatch": "\"/images/partners/akuvox.png\""
+      },
+      {
+        "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/partners/onetouch.png",
+        "fullMatch": "\"/images/partners/onetouch.png\""
+      },
+      {
+        "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/partners/tiron.png",
+        "fullMatch": "\"/images/partners/tiron.png\""
+      },
+      {
+        "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/partners/srujana.png",
+        "fullMatch": "\"/images/partners/srujana.png\""
+      },
+      {
+        "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/partners/akubela.png",
+        "fullMatch": "\"/images/partners/akubela.png\""
+      },
+      {
+        "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/partners/lytiva.svg",
+        "fullMatch": "\"/images/partners/lytiva.svg\""
+      },
+      {
+        "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/partners/cavitak.png",
+        "fullMatch": "\"/images/partners/cavitak.png\""
+      },
+      {
+        "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/partners/ajax.svg",
+        "fullMatch": "\"/images/partners/ajax.svg\""
+      },
+      {
+        "file": "src/modules/Home/sections/PartnerLogosSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/partners/finetech.png",
+        "fullMatch": "\"/images/partners/finetech.png\""
+      }
+    ],
+    "src/modules/Home/sections/ServicesSection.tsx": [
+      {
+        "file": "src/modules/Home/sections/ServicesSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/services/automation.avif",
+        "fullMatch": "\"/images/services/automation.avif\""
+      },
+      {
+        "file": "src/modules/Home/sections/ServicesSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/services/lighting.avif",
+        "fullMatch": "\"/images/services/lighting.avif\""
+      },
+      {
+        "file": "src/modules/Home/sections/ServicesSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/services/security.avif",
+        "fullMatch": "\"/images/services/security.avif\""
+      },
+      {
+        "file": "src/modules/Home/sections/ServicesSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/services/networking.avif",
+        "fullMatch": "\"/images/services/networking.avif\""
+      },
+      {
+        "file": "src/modules/Home/sections/ServicesSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/services/audio.avif",
+        "fullMatch": "\"/images/services/audio.avif\""
+      },
+      {
+        "file": "src/modules/Home/sections/ServicesSection.tsx",
+        "type": "direct_path",
+        "matched": "/images/services/electricals.avif",
+        "fullMatch": "\"/images/services/electricals.avif\""
+      }
+    ],
+    "src/modules/Lighting/components/LightingHero.tsx": [
+      {
+        "file": "src/modules/Lighting/components/LightingHero.tsx",
+        "type": "getImageUrl",
+        "arg": "lighting_banner.webp",
+        "fullMatch": "getImageUrl(\"lighting_banner.webp\")"
+      },
+      {
+        "file": "src/modules/Lighting/components/LightingHero.tsx",
+        "type": "getImageUrl",
+        "arg": "star.webp",
+        "fullMatch": "getImageUrl(\"star.webp\")"
+      }
+    ],
+    "src/modules/Lighting/components/WhatIsLighting.tsx": [
+      {
+        "file": "src/modules/Lighting/components/WhatIsLighting.tsx",
+        "type": "getImageUrl",
+        "arg": "Touch panels.webp",
+        "fullMatch": "getImageUrl(\"Touch panels.webp\")"
+      },
+      {
+        "file": "src/modules/Lighting/components/WhatIsLighting.tsx",
+        "type": "getImageUrl",
+        "arg": "Voice Commands.webp",
+        "fullMatch": "getImageUrl(\"Voice Commands.webp\")"
+      },
+      {
+        "file": "src/modules/Lighting/components/WhatIsLighting.tsx",
+        "type": "getImageUrl",
+        "arg": "Mood Lighting.webp",
+        "fullMatch": "getImageUrl(\"Mood Lighting.webp\")"
+      },
+      {
+        "file": "src/modules/Lighting/components/WhatIsLighting.tsx",
+        "type": "getImageUrl",
+        "arg": "Scheduling.webp",
+        "fullMatch": "getImageUrl(\"Scheduling.webp\")"
+      }
+    ],
+    "src/modules/Lighting/pages/LightingPage.tsx": [
+      {
+        "file": "src/modules/Lighting/pages/LightingPage.tsx",
+        "type": "getImageUrl",
+        "arg": "lightimage1.webp",
+        "fullMatch": "getImageUrl(\"lightimage1.webp\")"
+      },
+      {
+        "file": "src/modules/Lighting/pages/LightingPage.tsx",
+        "type": "getImageUrl",
+        "arg": "smart_dimming_lighting.webp",
+        "fullMatch": "getImageUrl(\"smart_dimming_lighting.webp\")"
+      },
+      {
+        "file": "src/modules/Lighting/pages/LightingPage.tsx",
+        "type": "getImageUrl",
+        "arg": "smart_rgb_lighting.webp",
+        "fullMatch": "getImageUrl(\"smart_rgb_lighting.webp\")"
+      },
+      {
+        "file": "src/modules/Lighting/pages/LightingPage.tsx",
+        "type": "getImageUrl",
+        "arg": "smart_outdoor_lighting.webp",
+        "fullMatch": "getImageUrl(\"smart_outdoor_lighting.webp\")"
+      }
+    ],
+    "src/modules/Networking/components/NetworkingHero.tsx": [
+      {
+        "file": "src/modules/Networking/components/NetworkingHero.tsx",
+        "type": "getImageUrl",
+        "arg": "networking_banner.webp",
+        "fullMatch": "getImageUrl(\"networking_banner.webp\")"
+      },
+      {
+        "file": "src/modules/Networking/components/NetworkingHero.tsx",
+        "type": "getImageUrl",
+        "arg": "star.webp",
+        "fullMatch": "getImageUrl(\"star.webp\")"
+      }
+    ],
+    "src/modules/Networking/components/WhatIsNetworking.tsx": [
+      {
+        "file": "src/modules/Networking/components/WhatIsNetworking.tsx",
+        "type": "getImageUrl",
+        "arg": "home.webp",
+        "fullMatch": "getImageUrl(\"home.webp\")"
+      },
+      {
+        "file": "src/modules/Networking/components/WhatIsNetworking.tsx",
+        "type": "getImageUrl",
+        "arg": "house.webp",
+        "fullMatch": "getImageUrl(\"house.webp\")"
+      },
+      {
+        "file": "src/modules/Networking/components/WhatIsNetworking.tsx",
+        "type": "getImageUrl",
+        "arg": "workshop.webp",
+        "fullMatch": "getImageUrl(\"workshop.webp\")"
+      },
+      {
+        "file": "src/modules/Networking/components/WhatIsNetworking.tsx",
+        "type": "getImageUrl",
+        "arg": "commercial.webp",
+        "fullMatch": "getImageUrl(\"commercial.webp\")"
+      },
+      {
+        "file": "src/modules/Networking/components/WhatIsNetworking.tsx",
+        "type": "getImageUrl",
+        "arg": "Multi-floor.webp",
+        "fullMatch": "getImageUrl(\"Multi-floor.webp\")"
+      }
+    ],
+    "src/modules/old/sections/CoreConceptSection.tsx": [
+      {
+        "file": "src/modules/old/sections/CoreConceptSection.tsx",
+        "type": "getImageUrl",
+        "arg": "contact_villa_night.webp",
+        "fullMatch": "getImageUrl(\"contact_villa_night.webp\")"
+      }
+    ],
+    "src/modules/old/sections/GetInTouchSection.tsx": [
+      {
+        "file": "src/modules/old/sections/GetInTouchSection.tsx",
+        "type": "getImageUrl",
+        "arg": "contact_villa_night.webp",
+        "fullMatch": "getImageUrl(\"contact_villa_night.webp\")"
+      },
+      {
+        "file": "src/modules/old/sections/GetInTouchSection.tsx",
+        "type": "getImageUrl",
+        "arg": "contact_villa_night.avif",
+        "fullMatch": "getImageUrl(\"contact_villa_night.avif\")"
+      }
+    ],
+    "src/modules/old/sections/OldLightingSection.tsx": [
+      {
+        "file": "src/modules/old/sections/OldLightingSection.tsx",
+        "type": "getImageUrl",
+        "arg": "service_lighting.webp",
+        "fullMatch": "getImageUrl(\"service_lighting.webp\")"
+      },
+      {
+        "file": "src/modules/old/sections/OldLightingSection.tsx",
+        "type": "getImageUrl",
+        "arg": "project_apartments.webp",
+        "fullMatch": "getImageUrl(\"project_apartments.webp\")"
+      },
+      {
+        "file": "src/modules/old/sections/OldLightingSection.tsx",
+        "type": "getImageUrl",
+        "arg": "project_farmhouses.webp",
+        "fullMatch": "getImageUrl(\"project_farmhouses.webp\")"
+      },
+      {
+        "file": "src/modules/old/sections/OldLightingSection.tsx",
+        "type": "getImageUrl",
+        "arg": "project_penthouses.webp",
+        "fullMatch": "getImageUrl(\"project_penthouses.webp\")"
+      },
+      {
+        "file": "src/modules/old/sections/OldLightingSection.tsx",
+        "type": "getImageUrl",
+        "arg": "project_commercial.webp",
+        "fullMatch": "getImageUrl(\"project_commercial.webp\")"
+      },
+      {
+        "file": "src/modules/old/sections/OldLightingSection.tsx",
+        "type": "getImageUrl",
+        "arg": "why_choose_us.webp",
+        "fullMatch": "getImageUrl(\"why_choose_us.webp\")"
+      }
+    ],
+    "src/modules/old/sections/OldNetworkingSection.tsx": [
+      {
+        "file": "src/modules/old/sections/OldNetworkingSection.tsx",
+        "type": "getImageUrl",
+        "arg": "project_apartments.webp",
+        "fullMatch": "getImageUrl(\"project_apartments.webp\")"
+      },
+      {
+        "file": "src/modules/old/sections/OldNetworkingSection.tsx",
+        "type": "getImageUrl",
+        "arg": "project_farmhouses.webp",
+        "fullMatch": "getImageUrl(\"project_farmhouses.webp\")"
+      },
+      {
+        "file": "src/modules/old/sections/OldNetworkingSection.tsx",
+        "type": "getImageUrl",
+        "arg": "project_penthouses.webp",
+        "fullMatch": "getImageUrl(\"project_penthouses.webp\")"
+      },
+      {
+        "file": "src/modules/old/sections/OldNetworkingSection.tsx",
+        "type": "getImageUrl",
+        "arg": "project_commercial.webp",
+        "fullMatch": "getImageUrl(\"project_commercial.webp\")"
+      },
+      {
+        "file": "src/modules/old/sections/OldNetworkingSection.tsx",
+        "type": "getImageUrl",
+        "arg": "why_choose_us.webp",
+        "fullMatch": "getImageUrl(\"why_choose_us.webp\")"
+      }
+    ],
+    "src/modules/old/sections/OldSecuritySection.tsx": [
+      {
+        "file": "src/modules/old/sections/OldSecuritySection.tsx",
+        "type": "getImageUrl",
+        "arg": "why_choose_us.webp",
+        "fullMatch": "getImageUrl(\"why_choose_us.webp\")"
+      },
+      {
+        "file": "src/modules/old/sections/OldSecuritySection.tsx",
+        "type": "getImageUrl",
+        "arg": "contact_villa_night.webp",
+        "fullMatch": "getImageUrl(\"contact_villa_night.webp\")"
+      },
+      {
+        "file": "src/modules/old/sections/OldSecuritySection.tsx",
+        "type": "getImageUrl",
+        "arg": "project_villas.webp",
+        "fullMatch": "getImageUrl(\"project_villas.webp\")"
+      },
+      {
+        "file": "src/modules/old/sections/OldSecuritySection.tsx",
+        "type": "getImageUrl",
+        "arg": "project_commercial.webp",
+        "fullMatch": "getImageUrl(\"project_commercial.webp\")"
+      },
+      {
+        "file": "src/modules/old/sections/OldSecuritySection.tsx",
+        "type": "getImageUrl",
+        "arg": "project_apartments.webp",
+        "fullMatch": "getImageUrl(\"project_apartments.webp\")"
+      },
+      {
+        "file": "src/modules/old/sections/OldSecuritySection.tsx",
+        "type": "getImageUrl",
+        "arg": "project_farmhouses.webp",
+        "fullMatch": "getImageUrl(\"project_farmhouses.webp\")"
+      },
+      {
+        "file": "src/modules/old/sections/OldSecuritySection.tsx",
+        "type": "getImageUrl",
+        "arg": "project_penthouses.webp",
+        "fullMatch": "getImageUrl(\"project_penthouses.webp\")"
+      }
+    ],
+    "src/modules/old/sections/ProjectsSection.tsx": [
+      {
+        "file": "src/modules/old/sections/ProjectsSection.tsx",
+        "type": "getImageUrl",
+        "arg": "project_villas.webp",
+        "fullMatch": "getImageUrl(\"project_villas.webp\")"
+      },
+      {
+        "file": "src/modules/old/sections/ProjectsSection.tsx",
+        "type": "getImageUrl",
+        "arg": "project_apartments.webp",
+        "fullMatch": "getImageUrl(\"project_apartments.webp\")"
+      },
+      {
+        "file": "src/modules/old/sections/ProjectsSection.tsx",
+        "type": "getImageUrl",
+        "arg": "project_farmhouses.webp",
+        "fullMatch": "getImageUrl(\"project_farmhouses.webp\")"
+      },
+      {
+        "file": "src/modules/old/sections/ProjectsSection.tsx",
+        "type": "getImageUrl",
+        "arg": "project_penthouses.webp",
+        "fullMatch": "getImageUrl(\"project_penthouses.webp\")"
+      },
+      {
+        "file": "src/modules/old/sections/ProjectsSection.tsx",
+        "type": "getImageUrl",
+        "arg": "project_commercial.webp",
+        "fullMatch": "getImageUrl(\"project_commercial.webp\")"
+      }
+    ],
+    "src/modules/old/sections/SmarterWaySection.tsx": [
+      {
+        "file": "src/modules/old/sections/SmarterWaySection.tsx",
+        "type": "getImageUrl",
+        "arg": "smarter_way_bg.webp",
+        "fullMatch": "getImageUrl(\"smarter_way_bg.webp\")"
+      },
+      {
+        "file": "src/modules/old/sections/SmarterWaySection.tsx",
+        "type": "getImageUrl",
+        "arg": "smarter_way_bg.avif",
+        "fullMatch": "getImageUrl(\"smarter_way_bg.avif\")"
+      }
+    ],
+    "src/modules/old/sections/TestimonialsSection.tsx": [
+      {
+        "file": "src/modules/old/sections/TestimonialsSection.tsx",
+        "type": "getImageUrl",
+        "arg": "contact_villa_night.webp",
+        "fullMatch": "getImageUrl(\"contact_villa_night.webp\")"
+      },
+      {
+        "file": "src/modules/old/sections/TestimonialsSection.tsx",
+        "type": "getImageUrl",
+        "arg": "contact_villa_night.avif",
+        "fullMatch": "getImageUrl(\"contact_villa_night.avif\")"
+      },
+      {
+        "file": "src/modules/old/sections/TestimonialsSection.tsx",
+        "type": "getImageUrl",
+        "arg": "why_choose_us.webp",
+        "fullMatch": "getImageUrl(\"why_choose_us.webp\")"
+      },
+      {
+        "file": "src/modules/old/sections/TestimonialsSection.tsx",
+        "type": "getImageUrl",
+        "arg": "project_apartments.webp",
+        "fullMatch": "getImageUrl(\"project_apartments.webp\")"
+      },
+      {
+        "file": "src/modules/old/sections/TestimonialsSection.tsx",
+        "type": "getImageUrl",
+        "arg": "project_villas.webp",
+        "fullMatch": "getImageUrl(\"project_villas.webp\")"
+      }
+    ],
+    "src/modules/old/sections/TimeBasedLightingSection.tsx": [
+      {
+        "file": "src/modules/old/sections/TimeBasedLightingSection.tsx",
+        "type": "getImageUrl",
+        "arg": "timeLightImage.webp",
+        "fullMatch": "getImageUrl(\"timeLightImage.webp\")"
+      }
+    ],
+    "src/modules/Security/components/SecurityHero.tsx": [
+      {
+        "file": "src/modules/Security/components/SecurityHero.tsx",
+        "type": "getImageUrl",
+        "arg": "security_banner.webp",
+        "fullMatch": "getImageUrl(\"security_banner.webp\")"
+      },
+      {
+        "file": "src/modules/Security/components/SecurityHero.tsx",
+        "type": "getImageUrl",
+        "arg": "star.webp",
+        "fullMatch": "getImageUrl(\"star.webp\")"
+      }
+    ],
+    "src/modules/Security/components/WhatIsSecurity.tsx": [
+      {
+        "file": "src/modules/Security/components/WhatIsSecurity.tsx",
+        "type": "getImageUrl",
+        "arg": "Homes & Apartments.webp",
+        "fullMatch": "getImageUrl(\"Homes & Apartments.webp\")"
+      },
+      {
+        "file": "src/modules/Security/components/WhatIsSecurity.tsx",
+        "type": "getImageUrl",
+        "arg": "Villas.webp",
+        "fullMatch": "getImageUrl(\"Villas.webp\")"
+      },
+      {
+        "file": "src/modules/Security/components/WhatIsSecurity.tsx",
+        "type": "getImageUrl",
+        "arg": "Offices & Workspaces.webp",
+        "fullMatch": "getImageUrl(\"Offices & Workspaces.webp\")"
+      },
+      {
+        "file": "src/modules/Security/components/WhatIsSecurity.tsx",
+        "type": "getImageUrl",
+        "arg": "Retail & Commercial Spaces.webp",
+        "fullMatch": "getImageUrl(\"Retail & Commercial Spaces.webp\")"
+      }
+    ],
+    "src/modules/Security/pages/SecurityPage.tsx": [
+      {
+        "file": "src/modules/Security/pages/SecurityPage.tsx",
+        "type": "getImageUrl",
+        "arg": "service_security.webp",
+        "fullMatch": "getImageUrl(\"service_security.webp\")"
+      },
+      {
+        "file": "src/modules/Security/pages/SecurityPage.tsx",
+        "type": "getImageUrl",
+        "arg": "project_apartments.webp",
+        "fullMatch": "getImageUrl(\"project_apartments.webp\")"
+      },
+      {
+        "file": "src/modules/Security/pages/SecurityPage.tsx",
+        "type": "getImageUrl",
+        "arg": "why_choose_us.webp",
+        "fullMatch": "getImageUrl(\"why_choose_us.webp\")"
+      }
+    ],
+    "src/modules/test-pages/AutomationPageV2.tsx": [
+      {
+        "file": "src/modules/test-pages/AutomationPageV2.tsx",
+        "type": "getImageUrl",
+        "arg": "service_lighting.webp",
+        "fullMatch": "getImageUrl(\"service_lighting.webp\")"
+      },
+      {
+        "file": "src/modules/test-pages/AutomationPageV2.tsx",
+        "type": "getImageUrl",
+        "arg": "project_villas.webp",
+        "fullMatch": "getImageUrl(\"project_villas.webp\")"
+      },
+      {
+        "file": "src/modules/test-pages/AutomationPageV2.tsx",
+        "type": "getImageUrl",
+        "arg": "automation_banner.webp",
+        "fullMatch": "getImageUrl(\"automation_banner.webp\")"
+      },
+      {
+        "file": "src/modules/test-pages/AutomationPageV2.tsx",
+        "type": "getImageUrl",
+        "arg": "star.webp",
+        "fullMatch": "getImageUrl(\"star.webp\")"
+      }
+    ],
+    "src/modules/WhyUs/pages/WhyUsPage.tsx": [
+      {
+        "file": "src/modules/WhyUs/pages/WhyUsPage.tsx",
+        "type": "getImageUrl",
+        "arg": "about-us.webp",
+        "fullMatch": "getImageUrl(\"about-us.webp\")"
+      }
+    ],
+    "src/modules/WhyUs/sections/ProcessSection.tsx": [
+      {
+        "file": "src/modules/WhyUs/sections/ProcessSection.tsx",
+        "type": "getImageUrl",
+        "arg": "process_consultation.webp",
+        "fullMatch": "getImageUrl(\"process_consultation.webp\")"
+      },
+      {
+        "file": "src/modules/WhyUs/sections/ProcessSection.tsx",
+        "type": "getImageUrl",
+        "arg": "process_design.webp",
+        "fullMatch": "getImageUrl(\"process_design.webp\")"
+      },
+      {
+        "file": "src/modules/WhyUs/sections/ProcessSection.tsx",
+        "type": "getImageUrl",
+        "arg": "process_installation.webp",
+        "fullMatch": "getImageUrl(\"process_installation.webp\")"
+      },
+      {
+        "file": "src/modules/WhyUs/sections/ProcessSection.tsx",
+        "type": "getImageUrl",
+        "arg": "process_support.webp",
+        "fullMatch": "getImageUrl(\"process_support.webp\")"
+      }
+    ],
+    "src/modules/WhyUs/sections/WhyChooseUsSection.tsx": [
+      {
+        "file": "src/modules/WhyUs/sections/WhyChooseUsSection.tsx",
+        "type": "getImageUrl",
+        "arg": "why_choose_us.webp",
+        "fullMatch": "getImageUrl(\"why_choose_us.webp\")"
+      }
+    ],
+    "index.html": [
+      {
+        "file": "index.html",
+        "type": "direct_path",
+        "matched": "/images/home/hero_bg-1280.webp",
+        "fullMatch": "\"/images/home/hero_bg-1280.webp\""
+      },
+      {
+        "file": "index.html",
+        "type": "direct_path",
+        "matched": "/images/home/hero_bg-768.webp 768w, /images/home/hero_bg-1280.webp 1280w, /images/home/hero_bg-1440.webp 1440w, /images/home/hero_bg.webp 1920w",
+        "fullMatch": "\"/images/home/hero_bg-768.webp 768w, /images/home/hero_bg-1280.webp 1280w, /images/home/hero_bg-1440.webp 1440w, /images/home/hero_bg.webp 1920w\""
+      }
+    ]
+  }
+}

@@ -1,4 +1,5 @@
 import { useRef, useState, useCallback, useEffect } from "react";
+import { getImageUrl } from "@/utils/image";
 
 // this is perfect timing for the video segments, but if the video is changed, these will need to be updated
 const MODES = {
@@ -8,7 +9,7 @@ const MODES = {
   evening: { label: "Select evening mode", start: 10.9, end: 12.0 },
 };
 
-const VIDEO_SRC = "/images/video/living_room_animation.mp4";
+const VIDEO_SRC = getImageUrl("video/living_room_animation.mp4");
 
 const MODE_DEFS = [
   {
