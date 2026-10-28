@@ -51,7 +51,7 @@ export default function AudioPage() {
       <AudioHero />
 
       {/* FULL WIDTH AUTOMATION SHOWCASE SECTION */}
-      <AutomationShowcase
+      {/* <AutomationShowcase
         slides={AUDIO_SLIDES}
         initialSlideId="01"
         eyebrow="Smart Audio"
@@ -63,7 +63,7 @@ export default function AudioPage() {
         }
         introduction="Elevate your home's acoustic experience with seamless multi-room audio distribution and high-fidelity architectural sound systems."
         accentColor="#0A84FF"
-      />
+      /> */}
 
       {/* COMING SOON SECTION */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-10 sm:py-16 lg:py-24 text-center flex flex-col items-center">
@@ -74,7 +74,10 @@ export default function AudioPage() {
         </div>
 
         <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-text-main tracking-tight leading-tight">
-          Coming <span className="font-serif italic font-normal text-[#0A84FF]">Soon!</span>
+          Coming{" "}
+          <span className="font-serif italic font-normal text-[#0A84FF]">
+            Soon!
+          </span>
         </h2>
 
         <GlowingLine
@@ -85,7 +88,10 @@ export default function AudioPage() {
         />
 
         <p className="font-sans text-sm sm:text-base text-text-muted leading-relaxed max-w-2xl">
-          We are working on exciting new features and improvements to enhance your experience. Stay tuned as we prepare to launch something new that will bring even more value and functionality. We appreciate your patience and look forward to sharing these updates with you soon.
+          We are working on exciting new features and improvements to enhance
+          your experience. Stay tuned as we prepare to launch something new that
+          will bring even more value and functionality. We appreciate your
+          patience and look forward to sharing these updates with you soon.
         </p>
       </div>
     </div>
