@@ -46,12 +46,12 @@ export default function ContactPage() {
         </div>
 
         {/* Bento Grid layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
           <ContactForm />
 
           {/* Visual/Image Panel */}
           <div
-            className="lg:col-span-5 relative rounded-3xl overflow-hidden min-h-[250px] lg:min-h-full border border-border-main/70 shadow-[0_10px_30px_rgba(0,0,0,0.03)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.2)] group reveal-on-scroll reveal-right"
+            className="lg:col-span-5 relative rounded-3xl overflow-hidden min-h-[300px] sm:min-h-[380px] lg:min-h-full border border-border-main/70 shadow-[0_10px_30px_rgba(0,0,0,0.03)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.2)] group reveal-on-scroll reveal-right"
             data-reveal-duration="0.9s"
           >
             <img
@@ -78,8 +78,8 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* 4-card responsive grid layout: spans full width on md and lg */}
-          <div className="md:col-span-2 lg:col-span-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+          {/* 4-card responsive grid layout: spans full width on lg */}
+          <div className="lg:col-span-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-6">
             <ContactInfoChips />
             <SocialMediaBar />
           </div>

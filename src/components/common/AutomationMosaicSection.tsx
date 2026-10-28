@@ -345,14 +345,14 @@ export default function AutomationMosaicSection({
   return (
     <section ref={sectionRef} className="mb-10 sm:mb-16 lg:mb-24 no-reveal">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
-        <div className={`grid grid-cols-2 gap-3 w-full max-w-lg mx-auto lg:max-w-none ${imagePosition === "right" ? "lg:order-last" : "lg:order-first"}`}>
+        <div className={`grid ${reels && reels.length > 1 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-2"} gap-3 w-full max-w-lg mx-auto lg:max-w-none ${imagePosition === "right" ? "lg:order-last" : "lg:order-first"}`}>
           {reels && reels.length > 1 ? (
             /* ── Double-Reel Layout ── */
             <>
               {reels.map((reel, idx) => (
                 <div
                   key={idx}
-                  className={`${prefix}-img relative rounded-2xl overflow-hidden bg-bg-surface border border-border-main/30 shadow-inner w-full h-[380px] sm:h-[480px] lg:h-[560px] scrollbar-none`}
+                  className={`${prefix}-img relative rounded-2xl overflow-hidden bg-bg-surface border border-border-main/30 shadow-inner w-full h-[520px] sm:h-[480px] lg:h-[560px] scrollbar-none`}
                 >
                   <div className="absolute inset-0 w-full h-full overflow-hidden">
                     <InstagramEmbed reelUrl={reel} />
