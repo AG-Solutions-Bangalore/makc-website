@@ -6,17 +6,6 @@ const types = [
   "Night-Friendly Low-Light Modes",
 ];
 
-const images = [
-  { src: "dimeLight.webp", alt: "Dimmable architectural cove lighting in a luxury villa", title: "Architectural Cove Lighting" },
-  {
-    src: "smart_dimming_lighting.webp",
-    alt: "Smart dimmable LED lighting control split comparison showing high and low brightness",
-    title: "Dimming & Brightness Control Comparison",
-    objectPosition: "center 40%",
-  },
-  { src: "service/DTL2.webp", alt: "Smart light control interface panel for home automation", title: "Smart Lighting Control Panel" },
-];
-
 export default function DimmingTuningSection() {
   return (
     <AutomationMosaicSection
@@ -24,12 +13,17 @@ export default function DimmingTuningSection() {
       description="Adjust Lighting Intensity Smoothly for Comfort and Mood."
       types={types}
       suitableText="Perfect for Bedrooms, Living rooms, and Conference areas."
-      images={images}
       imagePosition="right"
       prefix="dt"
       serviceName="Dimming & Tuning of Lights"
-      reelUrl="https://www.instagram.com/reel/De9JMcAKAau/?dlrf=ZnE2cjlhNjV3enVr"
-      reelTitles={["Watch Dimming & Tuning of Lights Reel on Instagram"]}
+      reels={[
+        "https://www.instagram.com/reel/De9JMcAKAau/?dlrf=ZnE2cjlhNjV3enVr",
+        "https://www.instagram.com/reel/DdnOJVZtZFy/?psln=MXFnemNqcDR5OXdheQ==",
+      ]}
+      reelTitles={[
+        "Watch Dimming & Tuning of Lights Reel on Instagram",
+        "Watch Smart Dimming Control Reel on Instagram",
+      ]}
     />
   );
 }
