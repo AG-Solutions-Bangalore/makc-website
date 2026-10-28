@@ -192,7 +192,7 @@ export default function Header() {
             <a
               href={`tel:${COMPANY_INFO.phones.primary.digits}`}
               title={`Call ${COMPANY_INFO.name} at ${COMPANY_INFO.phones.primary.display}`}
-              className="hidden sm:flex items-center gap-2 h-9 px-4 rounded-full bg-accent-blue text-[#ffffff] text-xs font-semibold tracking-wide hover:bg-accent-blue/90 hover:scale-[1.03] active:scale-95 transition-all duration-200 shadow-[0_4px_18px_rgba(10,132,255,0.35)] cursor-pointer"
+              className="hidden badge-shine sm:flex items-center gap-2 h-9 px-4 rounded-full bg-accent-blue text-[#ffffff] text-xs font-semibold tracking-wide hover:bg-accent-blue/90 hover:scale-[1.03] active:scale-95 transition-all duration-200 shadow-[0_4px_18px_rgba(10,132,255,0.35)] cursor-pointer"
               aria-label={`Call ${COMPANY_INFO.name}`}
             >
               <Phone className="h-3.5 w-3.5 stroke-[2]" aria-hidden="true" />

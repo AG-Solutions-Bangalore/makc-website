@@ -14,7 +14,7 @@ const images = [
     title: "Dimming & Brightness Control Comparison",
     objectPosition: "center 40%",
   },
-  { src: "service/DTL2a.webp", alt: "Smart light control interface panel for home automation", title: "Smart Lighting Control Panel" },
+  { src: "service/DTL2.webp", alt: "Smart light control interface panel for home automation", title: "Smart Lighting Control Panel" },
 ];
 
 export default function DimmingTuningSection() {

@@ -19,7 +19,7 @@ const images = [
     title: "Automated Exterior Lighting",
   },
   {
-    src: "service/OLLa2.webp",
+    src: "service/OLL2.webp",
     alt: "Warm spotlights and accent lighting in a contemporary living room",
     title: "Accent Lighting Design",
   },

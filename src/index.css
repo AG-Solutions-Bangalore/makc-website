@@ -699,6 +699,98 @@ html.lenis body {
   opacity: 1;
 }
 
+/* Award badge: infinite shine sweep (2s delay, then every 5s) */
+.badge-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.badge-shine::after {
+  content: "";
+  position: absolute;
+  top: -60%;
+  bottom: -60%;
+  left: 0;
+  width: 45%;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(255, 248, 220, 0.12) 35%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 248, 220, 0.12) 65%,
+    transparent 100%
+  );
+  transform: translateX(-250%) skewX(-18deg);
+  animation: badge-shine-sweep 5s cubic-bezier(0.45, 0, 0.55, 1) 2s infinite;
+}
+
+@keyframes badge-shine-sweep {
+  0% {
+    transform: translateX(-250%) skewX(-18deg);
+  }
+  35%,
+  100% {
+    transform: translateX(420%) skewX(-18deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge-shine::after {
+    animation: none;
+    display: none;
+  }
+}
+
+/* One-shot shine sweep on hover (buttons/CTAs) */
+.shine-hover {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.shine-hover::after {
+  content: "";
+  position: absolute;
+  top: -60%;
+  bottom: -60%;
+  left: 0;
+  width: 45%;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 35%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0.2) 65%,
+    transparent 100%
+  );
+  transform: translateX(-250%) skewX(-18deg);
+}
+
+.shine-hover:is(:hover, :focus-visible):not(:disabled)::after {
+  animation: shine-hover-sweep 0.9s cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+@keyframes shine-hover-sweep {
+  0% {
+    transform: translateX(-250%) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(420%) skewX(-18deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shine-hover::after {
+    animation: none;
+    display: none;
+  }
+}
+
 /* Home Wave CTA */
 .home-wave-cta {
   position: relative;

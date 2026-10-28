@@ -76,7 +76,7 @@ export default function HeroSectionV2() {
           <div className="mb-4">
             <div className="inline-flex items-center gap-2.5 border border-white/20  backdrop-blur-md rounded-full px-3 py-1.5 select-none pointer-events-none">
               <img
-                src="/images/iso-image.svg"
+                src={getImageUrl("brands/iso-image.svg")}
                 alt="ISO Certified Logo"
                 title="ISO Certified Home Automation Company"
                 className="h-5.5 w-5.5 object-contain"

@@ -1,29 +1,32 @@
 import { useState, useRef, useEffect } from "react";
+import { getImageUrl } from "@/utils/image";
+
+const BEDROOM_VIDEO = getImageUrl("video/bedroom_animation.mp4");
 
 const SLIDES = [
   {
     id: 0,
     title: "Lights Control",
     description: "Lights on—because bumping into furniture isn't a personality trait.",
-    video: "https://whitelion-assets.blr1.cdn.digitaloceanspaces.com/website/home/bedroom_animation.mp4",
+    video: BEDROOM_VIDEO,
   },
   {
     id: 1,
     title: "Fan Control",
     description: "Fan on—keeping you cool and comfortable, effortlessly.",
-    video: "https://whitelion-assets.blr1.cdn.digitaloceanspaces.com/website/home/bedroom_animation.mp4",
+    video: BEDROOM_VIDEO,
   },
   {
     id: 2,
     title: "Curtain Control",
     description: "Curtains open—let the sunshine (or your main character moment) in.",
-    video: "https://whitelion-assets.blr1.cdn.digitaloceanspaces.com/website/home/bedroom_animation.mp4",
+    video: BEDROOM_VIDEO,
   },
   {
     id: 3,
     title: "Weather Control",
     description: "Temperature set—because guessing the weather is so last season.",
-    video: "https://whitelion-assets.blr1.cdn.digitaloceanspaces.com/website/home/bedroom_animation.mp4",
+    video: BEDROOM_VIDEO,
   },
 ];
 

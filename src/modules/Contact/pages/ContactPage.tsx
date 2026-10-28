@@ -30,28 +30,28 @@ export default function ContactPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Hero Header */}
         <div
-          className="mb-8 lg:mb-10 reveal-on-scroll reveal-up"
+          className="mb-6 sm:mb-8 lg:mb-10 reveal-on-scroll reveal-up"
           data-reveal-duration="0.8s"
         >
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-serif text-text-main tracking-tight leading-tight mb-3">
-            Let's build the <br />
+          <h1 className="text-[32px] leading-[1.12] sm:text-5xl lg:text-6xl sm:leading-tight font-bold font-serif text-text-main tracking-tight text-balance mb-3">
+            Let's build the <br className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-blue via-blue-400 to-[#3ea6ff]">
               future of your home.
             </span>
           </h1>
-          <p className="text-base sm:text-lg text-text-muted max-w-2xl leading-relaxed">
+          <p className="text-[15px] sm:text-lg text-text-muted max-w-2xl leading-relaxed">
             Whether you are ready to start a project or simply have a question,
             our smart living experts are here to help.
           </p>
         </div>
 
         {/* Bento Grid layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
           <ContactForm />
 
           {/* Visual/Image Panel */}
           <div
-            className="lg:col-span-5 relative rounded-3xl overflow-hidden min-h-[250px] lg:min-h-full border border-border-main/70 shadow-[0_10px_30px_rgba(0,0,0,0.03)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.2)] group reveal-on-scroll reveal-right"
+            className="lg:col-span-5 relative rounded-3xl overflow-hidden min-h-[300px] sm:min-h-[380px] lg:min-h-full border border-border-main/70 shadow-[0_10px_30px_rgba(0,0,0,0.03)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.2)] group reveal-on-scroll reveal-right"
             data-reveal-duration="0.9s"
           >
             <img
@@ -78,8 +78,8 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* 4-card responsive grid layout: spans full width on md and lg */}
-          <div className="md:col-span-2 lg:col-span-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+          {/* 4-card responsive grid layout: spans full width on lg */}
+          <div className="lg:col-span-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-6">
             <ContactInfoChips />
             <SocialMediaBar />
           </div>

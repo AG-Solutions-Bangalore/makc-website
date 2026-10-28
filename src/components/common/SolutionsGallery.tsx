@@ -129,37 +129,17 @@ const STORY_SCENES: StoryScene[] = [
       annotation: "Perimeter intrusion lighting",
     },
   },
-  {
-    id: "private-theatre",
-    tag: "05",
-    category: "Audio & Entertainment",
-    title: "Private Acoustic Cinema",
-    storyTitle: "Acoustic Cinema Magic.",
-    description:
-      "Hear every pin-drop and rumble exactly as the director intended. Concealed Dolby Atmos reference speakers, acoustic wall absorption, and a motorized 4K laser projector that glides into place on command.",
-    mainPhoto: {
-      src: getImageUrl("service_theatre.webp"),
-      alt: "Acoustic Cinema Experience",
-      caption: "Dolby Atmos 9.4.4 calibrated surround",
-      annotation: "Dolby Atmos 9.4.4 surround",
-    },
-    leftCard: {
-      src: getImageUrl("project_penthouses.webp"),
-      alt: "Penthouse Media Lounge",
-      annotation: "Concealed in-wall speakers",
-    },
-    rightCard: {
-      src: getImageUrl("service_networking.webp"),
-      alt: "Audiophile Rack",
-      annotation: "Lossless digital audio bus",
-    },
-  },
 ];
 
 // Hand-drawn Doodle Arrows tailored to point directly at cards
 function ArrowDownRight({ className = "w-6 h-6" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 40 40" fill="none" className={className} aria-hidden="true">
+    <svg
+      viewBox="0 0 40 40"
+      fill="none"
+      className={className}
+      aria-hidden="true"
+    >
       <path
         d="M6 10 C 16 6, 28 12, 30 28"
         stroke="currentColor"
@@ -179,7 +159,12 @@ function ArrowDownRight({ className = "w-6 h-6" }: { className?: string }) {
 
 function ArrowUpRight({ className = "w-6 h-6" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 40 40" fill="none" className={className} aria-hidden="true">
+    <svg
+      viewBox="0 0 40 40"
+      fill="none"
+      className={className}
+      aria-hidden="true"
+    >
       <path
         d="M8 32 C 14 18, 22 12, 34 8"
         stroke="currentColor"
@@ -199,7 +184,12 @@ function ArrowUpRight({ className = "w-6 h-6" }: { className?: string }) {
 
 function ArrowDownLeft({ className = "w-6 h-6" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 40 40" fill="none" className={className} aria-hidden="true">
+    <svg
+      viewBox="0 0 40 40"
+      fill="none"
+      className={className}
+      aria-hidden="true"
+    >
       <path
         d="M34 8 C 24 8, 12 16, 8 30"
         stroke="currentColor"
@@ -228,7 +218,9 @@ export default function SolutionsGallery() {
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev >= STORY_SCENES.length - 1 ? 0 : prev + 1));
+      setActiveIndex((prev) =>
+        prev >= STORY_SCENES.length - 1 ? 0 : prev + 1,
+      );
     }, 6000);
 
     return () => clearInterval(timer);
@@ -276,21 +268,147 @@ export default function SolutionsGallery() {
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         {/* Top Header Tag */}
         <div className="flex flex-col items-center text-center mb-6 sm:mb-8">
-        
           <h2 className="text-2xl font-handwriting sm:text-3xl md:text-4xl font-bold text-text-main tracking-tight">
             A Day in a MAKc Home
           </h2>
           <p className="mt-1.5 text-xs sm:text-sm text-text-muted max-w-lg">
-            Scattered glimpses of bespoke architectural spaces, intuitive touch surfaces, and calm automated living.
+            Scattered glimpses of bespoke architectural spaces, intuitive touch
+            surfaces, and calm automated living.
           </p>
         </div>
 
-        {/* Main Editorial Collage Canvas (Tightened 6+6 Layout, Zero Empty White Space) */}
-        <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-4 items-center">
-          
+        {/* Mobile / Tablet Editorial Layout (desktop layout is untouched below) */}
+        <div className="lg:hidden">
+          {/* Photo Collage */}
+          <div className="relative mx-auto w-full max-w-[430px] sm:max-w-[520px]">
+            {/* Focal Scene Card */}
+            <div className="relative mx-auto w-[84%] max-w-[320px] sm:max-w-[380px]">
+              <div className="p-1.5 bg-white dark:bg-slate-800 rounded-2xl shadow-[0_16px_40px_rgba(0,0,0,0.18)] dark:shadow-[0_18px_46px_rgba(0,0,0,0.6)] border border-slate-200/90 dark:border-white/25">
+                <div className="relative aspect-[9/10] sm:aspect-[4/5] rounded-xl overflow-hidden bg-slate-900">
+                  <img
+                    key={`mobile-main-${activeScene.id}`}
+                    src={activeScene.mainPhoto.src}
+                    alt={activeScene.mainPhoto.alt}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 p-2.5 bg-gradient-to-t from-black/85 via-black/50 to-transparent pointer-events-none">
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/20 shadow-md max-w-full">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#38bdf8] animate-pulse shrink-0" />
+                      <span className="text-white! !text-white text-[10px] font-sans font-semibold tracking-wide drop-shadow-sm truncate">
+                        {activeScene.mainPhoto.caption}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Annotation below focal card */}
+              <div className="mt-2 flex items-start gap-1 pointer-events-none">
+                <ArrowUpRight className="w-4 h-4 mt-0.5 text-slate-600 dark:text-slate-300 shrink-0" />
+                <span className="font-handwriting text-slate-800 dark:text-slate-200 text-xs sm:text-sm font-semibold leading-tight drop-shadow-sm">
+                  {activeScene.mainPhoto.annotation}
+                </span>
+              </div>
+            </div>
+
+            {/* Supporting Detail Cards */}
+            <div className="mt-8 sm:mt-10 flex items-start justify-between gap-3">
+              {/* Left Detail */}
+              <div className="relative w-[46%] max-w-[185px] sm:max-w-[220px] -rotate-3">
+                <div className="mb-2 pointer-events-none">
+                  <span className="font-handwriting text-slate-800 dark:text-slate-200 text-xs sm:text-sm font-semibold leading-tight whitespace-nowrap drop-shadow-sm">
+                    {activeScene.leftCard.annotation}
+                  </span>
+                  <ArrowDownRight className="inline-block w-4 h-4 ml-1 align-[-2px] text-slate-600 dark:text-slate-300" />
+                </div>
+
+                <div className="p-1.5 bg-white dark:bg-slate-800 rounded-xl shadow-[0_10px_26px_rgba(0,0,0,0.14)] dark:shadow-[0_12px_30px_rgba(0,0,0,0.55)] border border-slate-200/90 dark:border-white/20">
+                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-slate-900">
+                    <img
+                      key={`mobile-left-${activeScene.id}`}
+                      src={activeScene.leftCard.src}
+                      alt={activeScene.leftCard.alt}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Detail */}
+              <div className="relative mt-8 w-[46%] max-w-[185px] sm:max-w-[220px] rotate-3">
+                <div className="mb-2 text-right pointer-events-none">
+                  <span className="font-handwriting text-slate-800 dark:text-slate-200 text-xs sm:text-sm font-semibold leading-tight whitespace-nowrap drop-shadow-sm">
+                    {activeScene.rightCard.annotation}
+                  </span>
+                  <ArrowDownLeft className="inline-block w-4 h-4 ml-1 align-[-2px] text-slate-600 dark:text-slate-300" />
+                </div>
+
+                <div className="p-1.5 bg-white dark:bg-slate-800 rounded-xl shadow-[0_10px_26px_rgba(0,0,0,0.14)] dark:shadow-[0_12px_30px_rgba(0,0,0,0.55)] border border-slate-200/90 dark:border-white/20">
+                  <div className="relative aspect-[16/11] rounded-lg overflow-hidden bg-slate-900">
+                    <img
+                      key={`mobile-right-${activeScene.id}`}
+                      src={activeScene.rightCard.src}
+                      alt={activeScene.rightCard.alt}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Narrative Copy */}
+          <div className="mt-10 sm:mt-12 mx-auto max-w-lg md:text-center">
+            <div className="flex items-center gap-2 mb-2 md:justify-center">
+              <span className="text-[11px] font-mono font-bold tracking-[0.2em] text-accent-blue uppercase">
+                {activeScene.category}
+              </span>
+              <span className="text-slate-300 dark:text-slate-700">•</span>
+              <span className="text-[11px] font-mono text-text-muted">
+                {activeScene.tag} / 04
+              </span>
+            </div>
+
+            <h3 className="font-serif text-[26px] sm:text-3xl font-normal tracking-tight text-text-main leading-[1.15]">
+              {activeScene.storyTitle}
+            </h3>
+
+            <p className="mt-2.5 text-[13px] sm:text-sm md:mx-auto md:max-w-xl text-text-muted leading-relaxed font-sans">
+              {activeScene.description}
+            </p>
+
+            <div className="mt-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 md:justify-center">
+              <Link
+                to="/experience"
+                title="Explore MAKc Smart Living Experience"
+                className="group inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-accent-blue hover:bg-[#0070e0] text-white! !text-white font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-[0_4px_18px_rgba(10,132,255,0.4)] active:translate-y-0 cursor-pointer whitespace-nowrap text-center sm:w-auto"
+              >
+                <span className="text-white! !text-white font-bold">
+                  Experience Living
+                </span>
+                <ArrowRight className="w-3.5 h-3.5 text-white! !text-white transition-transform duration-300 group-hover:translate-x-1 shrink-0" />
+              </Link>
+
+              <Link
+                to="/automation"
+                title="Explore Automation Services"
+                className="inline-flex items-center justify-center px-4 py-3 rounded-full border border-border-main bg-bg-surface/50 hover:bg-bg-surface text-text-main hover:text-accent-blue hover:border-accent-blue/40 text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap text-center sm:w-auto"
+              >
+                View Services
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Editorial Collage Canvas (Desktop only — unchanged) */}
+        <div className="relative hidden lg:grid lg:grid-cols-12 gap-6 lg:gap-4 items-center">
           {/* Left Collage Section: Left Card + Focal Center Card (Separated with clean spacing, zero overlap) */}
           <div className="lg:col-span-6 flex items-center justify-center lg:justify-start gap-2.5 sm:gap-6 md:gap-8 relative pt-6 sm:pt-7 pb-6 sm:pb-7 w-full max-w-full overflow-hidden sm:overflow-visible">
-            
             {/* Card 1: Left Card (Tilted -4deg with dynamically anchored annotation, scaled responsively for mobile) */}
             <div className="relative w-[36%] max-w-[145px] sm:max-w-none sm:w-48 md:w-52 shrink-0 -rotate-4 hover:rotate-0 hover:scale-105 transition-all duration-300 z-10 cursor-pointer">
               {/* Annotation anchored directly to top of Left Card */}
@@ -326,7 +444,7 @@ export default function SolutionsGallery() {
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                     loading="eager"
                   />
-                  
+
                   {/* High-Contrast Pure White Frosted Bottom Caption Pill */}
                   <div className="absolute inset-x-0 bottom-0 p-1.5 sm:p-2.5 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none">
                     <div className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/20 shadow-md max-w-full">
@@ -358,7 +476,7 @@ export default function SolutionsGallery() {
               </span>
               <span className="text-slate-300 dark:text-slate-700">•</span>
               <span className="text-[11px] font-mono text-text-muted">
-                {activeScene.tag} / 05
+                {activeScene.tag} / 04
               </span>
             </div>
 
@@ -403,7 +521,9 @@ export default function SolutionsGallery() {
                 title="Explore MAKc Smart Living Experience"
                 className="group flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-accent-blue hover:bg-[#0070e0] text-white! !text-white font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-[0_4px_18px_rgba(10,132,255,0.4)] hover:shadow-[0_6px_24px_rgba(10,132,255,0.55)] hover:-translate-y-0.5 active:translate-y-0 cursor-pointer whitespace-nowrap text-center"
               >
-                <span className="text-white! !text-white font-bold">Experience Living</span>
+                <span className="text-white! !text-white font-bold">
+                  Experience Living
+                </span>
                 <ArrowRight className="w-3.5 h-3.5 text-white! !text-white transition-transform duration-300 group-hover:translate-x-1 shrink-0" />
               </Link>
 
@@ -420,7 +540,6 @@ export default function SolutionsGallery() {
 
         {/* Interactive Bottom Filmstrip Dock (Tightened Spacing & Crisp Typography) */}
         <div className="mt-6 sm:mt-8 flex flex-col items-center">
-          
           {/* Active Thumbnail Title Tag */}
           <div className="flex flex-col items-center text-center mb-2 transition-all duration-300">
             <span className="font-handwriting text-slate-800 dark:text-slate-100 text-base sm:text-lg font-bold tracking-wide">

@@ -60,9 +60,7 @@ export default function AutomationPage() {
     const isAllSameDigit = /^(\d)\1{9}$/.test(digitsOnly);
 
     if (!isValidIndianMobile || isAllSameDigit) {
-      setInlinePhoneError(
-        "Please enter a valid 10-digit mobile number",
-      );
+      setInlinePhoneError("Please enter a valid 10-digit mobile number");
       return;
     }
 
@@ -165,22 +163,22 @@ export default function AutomationPage() {
       {/* FULL-WIDTH HERO SECTION */}
       <section
         ref={heroRef}
-        className="relative min-h-[90vh] lg:min-h-screen w-full flex items-center justify-start bg-cover bg-center bg-no-repeat transition-colors duration-300"
+        className="relative w-full flex items-start justify-start bg-cover bg-no-repeat transition-colors duration-300 [background-position:85%_center] sm:min-h-[90vh] sm:items-center sm:bg-center lg:min-h-screen"
         style={{
           backgroundImage: `url('${getImageUrl("automation_banner.webp")}')`,
         }}
       >
         {/* Dark overlay across both light and dark mode for consistent premium contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 sm:via-black/40 to-black/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/40 sm:from-black/85 sm:via-black/60 sm:to-black/20 pointer-events-none" />
 
         {/* Bottom gradient blend into next section (dark mode only so light mode doesn't wash out hero bottom) */}
         <div className="hidden dark:block absolute bottom-0 left-0 right-0 h-24 md:h-36 bg-gradient-to-t from-bg-main to-transparent pointer-events-none z-[5]" />
 
         {/* Hero content container */}
-        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10 pt-20 sm:pt-24 lg:pt-28 pb-8 sm:pb-14 lg:pb-20 flex flex-col justify-center min-h-[75vh] sm:min-h-[85vh] lg:min-h-screen">
-          <div className="max-w-3xl space-y-6">
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10 pt-24 sm:pt-24 lg:pt-28 pb-10 sm:pb-14 lg:pb-20 flex flex-col justify-start sm:justify-center sm:min-h-[85vh] lg:min-h-screen">
+          <div className="max-w-3xl space-y-4 sm:space-y-6">
             {/* Badge */}
-            <div className="hero-badge inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 !text-white text-white! text-[11px] sm:text-xs tracking-widest uppercase font-bold shadow-md w-fit">
+            <div className="hero-badge inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 !text-white text-white! text-[10px] sm:text-xs tracking-widest uppercase font-bold shadow-md w-fit">
               <span className="text-emerald-400 font-extrabold text-sm">
                 #1
               </span>{" "}
@@ -188,14 +186,14 @@ export default function AutomationPage() {
             </div>
 
             {/* Main Heading */}
-            <h1 className="hero-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans tracking-tight !text-white text-white! leading-[1.1] drop-shadow-[0_3px_12px_rgba(0,0,0,0.85)]">
+            <h1 className="hero-heading text-[30px] leading-[1.08] sm:leading-[1.1] sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans tracking-tight !text-white text-white! drop-shadow-[0_3px_12px_rgba(0,0,0,0.85)] text-balance">
               Smart Home <br />
               Automation
             </h1>
 
             {/* Subtitle */}
             <div className="hero-subtitle max-w-2xl">
-              <p className="text-base sm:text-lg !text-white/95 text-white! font-normal sm:font-medium leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
+              <p className="text-[15px] sm:text-lg !text-white/95 text-white! font-normal sm:font-medium leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
                 Smart homes are not about gadgets — they are about how you live.
                 With almost a decade of experience and 800+ projects delivered
                 across homes and select commercial spaces, here's what you can
@@ -204,20 +202,23 @@ export default function AutomationPage() {
                   src={getImageUrl("star.webp")}
                   alt="Five-star rating icon representing premium home automation services"
                   title="5 Star Home Automation Quality"
-                  className="w-6 h-6 inline-block ml-2 mb-1 select-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
+                  className="w-5 h-5 sm:w-6 sm:h-6 inline-block ml-2 mb-1 select-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
                 />
               </p>
             </div>
 
             {/* Features check list */}
-            <div className="space-y-4 pt-2">
+            <div className="space-y-1 pt-1 sm:space-y-4 sm:pt-2">
               {[
                 "Thoughtful Design & Planning",
                 "Professional Execution, Installation and Configuration",
                 "Seamless Delivery with Reliable After-Sales Support",
               ].map((text, idx) => (
-                <div key={idx} className="hero-check flex items-center gap-3">
-                  <div className="flex items-center justify-center w-6 h-6 rounded-full bg-emerald-500 !text-white text-white! shrink-0 shadow-md">
+                <div
+                  key={idx}
+                  className="hero-check flex items-start gap-3 sm:items-center"
+                >
+                  <div className="mt-0.5 sm:mt-0 flex items-center justify-center w-6 h-6 rounded-full bg-emerald-500 !text-white text-white! shrink-0 shadow-md">
                     <svg
                       className="w-3.5 h-3.5 stroke-[3] !text-white text-white!"
                       style={{ color: "#ffffff", stroke: "#ffffff" }}
@@ -232,7 +233,7 @@ export default function AutomationPage() {
                       />
                     </svg>
                   </div>
-                  <span className="!text-white text-white! font-medium text-sm sm:text-base drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
+                  <span className="!text-white text-white! font-medium text-[13px] leading-snug sm:text-base drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
                     {text}
                   </span>
                 </div>
@@ -399,7 +400,7 @@ export default function AutomationPage() {
             </div>
 
             {/* Right bottom: two side-by-side info cells */}
-            <div className="lg:col-span-2 grid grid-cols-2 gap-4">
+            <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* Stat plain surface, no gradient hero-metric */}
               <div className="bg-bg-surface border border-border-main/40 rounded-2xl p-6 flex flex-col justify-between">
                 <span className="text-text-muted text-xs font-medium mb-4">
@@ -672,10 +673,12 @@ export default function AutomationPage() {
                           Request Received!
                         </h4>
                         <p className="text-white/70 text-xs leading-relaxed mb-4">
-                          Thank you! Our automation expert will call you shortly on{" "}
+                          Thank you! Our automation expert will call you shortly
+                          on{" "}
                           <span className="font-semibold text-white font-mono">
                             {inlinePhone}
-                          </span>.
+                          </span>
+                          .
                         </p>
                         <button
                           type="button"
