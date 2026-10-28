@@ -25,8 +25,7 @@ const services = [
     isWide: true,
     overlay: {
       left: "linear-gradient(to top right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.30) 40%, rgba(0,0,0,0) 100%)",
-      bottom:
-        "linear-gradient(to top, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0) 50%)",
+      bottom: "linear-gradient(to top, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0) 50%)",
     },
   },
   {
@@ -67,15 +66,14 @@ const services = [
     icon: Wifi,
     title: "Networking",
     description: "Enterprise-grade WiFi designed for luxury villas.",
-    bgImage: getImageUrl("services/networking.avif"),
+    bgImage: getImageUrl("services/details/mesh-wifi-1.webp"),
     link: "/networking",
     linkTitle: "Home Networking Solutions",
     imgTitle: "Home Networking Solutions in Bangalore",
     isWide: true,
     overlay: {
       left: "linear-gradient(to top right, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.32) 40%, rgba(0,0,0,0) 100%)",
-      bottom:
-        "linear-gradient(to top, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0) 50%)",
+      bottom: "linear-gradient(to top, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0) 50%)",
     },
   },
   {

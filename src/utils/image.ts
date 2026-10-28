@@ -40,7 +40,7 @@ const LOCAL_IMAGES: Record<string, string> = {
   "audio.avif": `${LOCAL_IMAGE_BASE}/services/audio.avif`,
   "electricals.avif": `${LOCAL_IMAGE_BASE}/services/electricals.avif`,
   "ligting.avif": `${LOCAL_IMAGE_BASE}/services/lighting.avif`,
-  "networking.avif": `${LOCAL_IMAGE_BASE}/services/networking.avif`,
+  "networking.avif": `${LOCAL_IMAGE_BASE}/services/details/mesh-wifi-1.webp`,
   "security.avif": `${LOCAL_IMAGE_BASE}/services/security.avif`,
 
   "industrial-automation-overview.webp": `${LOCAL_IMAGE_BASE}/services/industrial/automation-overview.webp`,
@@ -183,7 +183,10 @@ export const getImageUrl = (filename: string): string => {
   return `${BASE_URL}/${remoteRelPath}`;
 };
 
-export const getResponsiveHomeImageUrl = (filename: string, width?: 480 | 768) => {
+export const getResponsiveHomeImageUrl = (
+  filename: string,
+  width?: 480 | 768,
+) => {
   void width;
   return getImageUrl(filename);
 };
