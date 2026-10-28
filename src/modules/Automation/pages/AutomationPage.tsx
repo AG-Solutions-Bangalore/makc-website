@@ -28,6 +28,7 @@ import {
 // Import shared common components
 // import OneTouchSection from "@/components/common/OneTouchSection";
 import AutomationShowcase from "@/components/common/AutomationShowcase";
+import InstagramEmbed from "@/components/common/InstagramEmbed";
 import CurtainAutomationSection from "@/components/common/CurtainAutomationSection";
 import ElectricalAutomationSection from "@/components/common/ElectricalAutomationSection";
 import GateAutomationSection from "@/components/common/GateAutomationSection";
@@ -40,7 +41,6 @@ import { COMPANY_INFO } from "@/config/constants";
 import { getImageUrl } from "@/utils/image";
 
 // Import images
-const serviceLightingImg = getImageUrl("service/fhha.webp");
 const projectVillasImg = getImageUrl("project_villas.webp");
 
 export default function AutomationPage() {
@@ -313,28 +313,13 @@ export default function AutomationPage() {
 
           {/* Bento grid 3-col, left spans 2 rows */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            {/* Left: tall image card no ghost border+shadow, image IS the card */}
-            <div className="lg:row-span-2 relative rounded-2xl overflow-hidden min-h-[400px] lg:min-h-0 group">
-              <img
-                src={serviceLightingImg}
-                alt="Industrial and Commercial Lighting Automation Solutions"
-                title="Lighting Automation Services"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-              <div className="absolute bottom-7 left-7 right-7">
-                <span className="inline-block text-[11px] text-white/60 font-medium uppercase tracking-widest mb-3">
-                  Live Scene
-                </span>
-                <h3 className="dark:text-white text-2xl text-white! font-bold leading-snug mb-2">
-                  Personalized
-                  <br />
-                  Atmosphere
-                </h3>
-                <p className="text-white/95 text-sm leading-relaxed">
-                  Dim lighting, adjust acoustics, and set the perfect thermostat
-                  parameters automatically.
-                </p>
+            {/* Left: tall reel card */}
+            <div className="lg:row-span-2 relative rounded-2xl overflow-hidden bg-black min-h-[520px] lg:min-h-0">
+              <div className="absolute inset-0">
+                <InstagramEmbed
+                  reelUrl="https://www.instagram.com/reel/Dbt7nF7yjHG/"
+                  fit
+                />
               </div>
             </div>
 
