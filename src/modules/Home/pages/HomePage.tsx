@@ -19,9 +19,6 @@ const ContactEnquirySection = lazy(
   () => import("../sections/ContactEnquirySection"),
 );
 
-
-
-
 function LazyOnView({
   children,
   minHeight = 520,
@@ -69,7 +66,11 @@ export default function HomeV2Page() {
     >
       {/* V3 Hero Section — local boundary so the hero chunk never
           triggers the full-page spinner; fallback reserves the same space */}
-      <Suspense fallback={<div className="min-h-screen bg-bg-main" aria-hidden="true" />}>
+      <Suspense
+        fallback={
+          <div className="min-h-screen bg-bg-main" aria-hidden="true" />
+        }
+      >
         <HeroSectionV2 />
       </Suspense>
 
@@ -84,19 +85,18 @@ export default function HomeV2Page() {
         <SolutionsGallery />
       </LazyOnView>
 
-     
-
       <LazyOnView minHeight={520}>
         <GoogleReviews />
       </LazyOnView>
+      <Suspense
+        fallback={<div id="contact-enquiry" className="min-h-[500px]" />}
+      >
+        <ContactEnquirySection />
+      </Suspense>
 
       <LazyOnView minHeight={260}>
         <PartnerLogosSection />
       </LazyOnView>
-
-      <Suspense fallback={<div id="contact-enquiry" className="min-h-[500px]" />}>
-        <ContactEnquirySection />
-      </Suspense>
     </div>
   );
 }
