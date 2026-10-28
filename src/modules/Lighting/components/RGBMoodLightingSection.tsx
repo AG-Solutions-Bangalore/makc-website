@@ -38,7 +38,7 @@ export default function RGBMoodLightingSection() {
       serviceName="RGB Lighting"
       reels={[
         "https://www.instagram.com/reel/De9JjfIqmoO/?obrf=MXN5MHZ4eHN2aXJsZQ==",
-        "https://www.instagram.com/reel/De9Js9zKh9X/?mdxt=MWRsa3gwdnZ4b3Jrcg==",
+        "https://www.instagram.com/reel/DeAq2p_BK07/",
       ]}
       reelTitles={[
         "Watch Smart Home Audio Experience Reel on Instagram",

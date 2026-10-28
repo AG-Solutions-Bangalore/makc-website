@@ -352,7 +352,7 @@ export default function AutomationMosaicSection({
               {reels.map((reel, idx) => (
                 <div
                   key={idx}
-                  className={`${prefix}-img relative rounded-2xl overflow-hidden bg-bg-surface border border-border-main/30 shadow-inner w-full h-[460px] sm:h-[520px] lg:h-[560px] scrollbar-none`}
+                  className={`${prefix}-img relative rounded-2xl overflow-hidden bg-bg-surface border border-border-main/30 shadow-inner w-full h-[380px] sm:h-[480px] lg:h-[560px] scrollbar-none`}
                 >
                   <div className="absolute inset-0 w-full h-full overflow-hidden">
                     <InstagramEmbed reelUrl={reel} />
@@ -373,14 +373,14 @@ export default function AutomationMosaicSection({
                   ) : mediaData?.type === "Instagram" && mediaData.embedUrl ? (
                     <InstagramEmbed reelUrl={mediaData.url} />
                   ) : mediaData?.type === "Reel" ? (
-                    <div className="relative w-full h-full min-h-[460px] sm:min-h-[520px] lg:min-h-[560px]">
+                    <div className="relative w-full h-full">
                       <video
                         src={mediaData.url}
                         autoPlay
                         loop
                         muted
                         playsInline
-                        className="w-full h-full min-h-[460px] sm:min-h-[520px] lg:min-h-[560px] object-cover"
+                        className="w-full h-full object-cover"
                       />
                       {(reelUrl || REEL_MAP[serviceName]) && (
                         <a
