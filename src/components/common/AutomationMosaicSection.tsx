@@ -352,9 +352,11 @@ export default function AutomationMosaicSection({
               {reels.map((reel, idx) => (
                 <div
                   key={idx}
-                  className={`${prefix}-img relative rounded-2xl overflow-hidden bg-bg-surface border border-border-main/30 shadow-inner w-full h-full scrollbar-none`}
+                  className={`${prefix}-img relative rounded-2xl overflow-hidden bg-bg-surface border border-border-main/30 shadow-inner w-full h-[460px] sm:h-[520px] lg:h-[560px] scrollbar-none`}
                 >
-                  <InstagramEmbed reelUrl={reel} />
+                  <div className="absolute inset-0 w-full h-full overflow-hidden">
+                    <InstagramEmbed reelUrl={reel} />
+                  </div>
                 </div>
               ))}
             </>
