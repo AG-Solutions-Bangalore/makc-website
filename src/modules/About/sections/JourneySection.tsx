@@ -2,18 +2,11 @@ import { Sparkles, Award, Building2, Globe2, Cpu } from "lucide-react";
 
 const milestones = [
   {
-    year: "2014",
+    year: "2018",
     title: "Founded in Bengaluru",
     description:
       "MAKc Automations was established with a single mission: bring luxury-grade smart living within reach of Indian homeowners.",
     icon: Sparkles,
-  },
-  {
-    year: "2017",
-    title: "First 100 Homes",
-    description:
-      "Crossed our first hundred deployments across villas, apartments and farmhouses — each one tuned to the family's daily routine.",
-    icon: Building2,
   },
   {
     year: "2019",
@@ -23,6 +16,13 @@ const milestones = [
     icon: Award,
   },
   {
+    year: "2020",
+    title: "Brookefield Experience Center",
+    description:
+      "Opened our flagship experience center so clients can walk through a fully integrated smart home before they decide.",
+    icon: Sparkles,
+  },
+  {
     year: "2021",
     title: "Enterprise Networking",
     description:
@@ -30,27 +30,25 @@ const milestones = [
     icon: Globe2,
   },
   {
-    year: "2024",
-    title: "Brookefield Experience Center",
+    year: "2022",
+    title: "First 100 Homes",
     description:
-      "Opened our flagship experience center so clients can walk through a fully integrated smart home before they decide.",
-    icon: Sparkles,
+      "Crossed our first hundred deployments across villas, apartments and farmhouses — each one tuned to the family's daily routine.",
+    icon: Building2,
   },
+
   {
     year: "2026",
-    title: "650+ Happy Families",
+    title: "900+ Happy Families",
     description:
-      "Today we support over 650 households across Bengaluru with 24/7 monitoring, on-site service and dedicated care.",
+      "Today we support over 900 households across Bengaluru with 24/7 monitoring, on-site service and dedicated care.",
     icon: Cpu,
   },
 ];
 
 export default function JourneySection() {
   return (
-    <section
-      className="reveal-on-scroll reveal-up"
-      data-reveal-duration="0.8s"
-    >
+    <section className="reveal-on-scroll reveal-up" data-reveal-duration="0.8s">
       <div className="text-center max-w-2xl mx-auto mb-14">
         <span className="text-accent-blue text-xs font-bold uppercase tracking-widest block mb-3">
           Our Journey
@@ -81,7 +79,9 @@ export default function JourneySection() {
                 {/* Year on opposite side (desktop) */}
                 <div
                   className={`hidden md:block ${
-                    isLeft ? "md:order-2 md:text-left" : "md:order-1 md:text-right"
+                    isLeft
+                      ? "md:order-2 md:text-left"
+                      : "md:order-1 md:text-right"
                   }`}
                 >
                   <span className="text-3xl font-serif font-bold text-accent-blue tracking-tight">

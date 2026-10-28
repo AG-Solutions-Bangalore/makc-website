@@ -22,10 +22,10 @@ export default function AboutPage() {
   useSEO(SEO_ROUTES["/about"]);
 
   const stats = [
-    { value: "4", label: "Experience Centers", icon: Home },
-    { value: "500+", label: "Projects Delivered", icon: Star },
-    { value: "650+", label: "Happy Customers", icon: Users },
-    { value: "12+", label: "Years of Expertise", icon: Cpu },
+    { value: "1", label: "Experience Center", icon: Home },
+    { value: "700+", label: "Projects Delivered", icon: Star },
+    { value: "900+", label: "Happy Customers", icon: Users },
+    { value: "28+", label: "Years of Expertise", icon: Cpu },
   ];
 
   const clientLogos = [
@@ -55,13 +55,13 @@ export default function AboutPage() {
       name: "Charu Agarwal",
       role: "Director, Operations",
       img: getImageUrl("name_01-1.webp"),
-      bio: "Keeps every project on schedule and every client happy. The reason 650+ families trust us with their homes.",
+      bio: "Keeps every project on schedule and every client happy. The reason 900+ families trust us with their homes.",
     },
     {
-      name: "Amit Didwania",
-      role: "Sales Consultant",
-      img: getImageUrl("name-4.webp"),
-      bio: "Translates your lifestyle goals into a system that fits — patiently, technically and without the hard sell.",
+      name: "Bikash Pradhan",
+      role: "Sales Director",
+      img: "/images/temp/team-Bikash-Pradhan.jpeg",
+      bio: "Guides clients from first consultation to handover with a practical, consultative approach to smart-home automation.",
     },
   ];
 
