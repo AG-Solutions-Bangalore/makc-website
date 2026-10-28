@@ -36,7 +36,7 @@ const LOCAL_IMAGES: Record<string, string> = {
   "service_theatre.webp": `${LOCAL_IMAGE_BASE}/home/service_theatre.webp`,
   "service_theatre.avif": `${LOCAL_IMAGE_BASE}/home/service_theatre.avif`,
 
-  "automation.avif": `${LOCAL_IMAGE_BASE}/services/automation.avif`,
+  "automation.avif": `${LOCAL_IMAGE_BASE}//gallery/rectangle-54364.webp`,
   "audio.avif": `${LOCAL_IMAGE_BASE}/services/audio.avif`,
   "electricals.avif": `${LOCAL_IMAGE_BASE}/services/electricals.avif`,
   "ligting.avif": `${LOCAL_IMAGE_BASE}/services/lighting.avif`,

@@ -18,7 +18,7 @@ const services = [
     icon: Home,
     title: "Smart Home Automation",
     description: "One-touch control for your entire home.",
-    bgImage: getImageUrl("services/automation.avif"),
+    bgImage: getImageUrl("/gallery/rectangle-54364.webp"),
     link: "/automation",
     linkTitle: "Smart Home Automation Services",
     imgTitle: "Smart Home Automation Solutions in Bangalore",
