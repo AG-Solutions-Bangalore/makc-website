@@ -1,5 +1,6 @@
-import { useState, type MouseEvent } from "react";
+import { useState, type MouseEvent, type ReactNode } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-hot-toast";
 import BrandLogo from "@/components/common/BrandLogo";
 import { getImageUrl } from "@/utils/image";
 import { Phone, Mail, PhoneCall } from "lucide-react";
@@ -129,6 +130,19 @@ const SOCIAL_LINKS = [
   },
 ];
 
+function RollingText({ children }: { children: ReactNode }) {
+  return (
+    <span className="relative block h-[1.2em] leading-[1.2em] whitespace-nowrap overflow-hidden">
+      <span className="relative block transition-transform duration-300 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:-translate-y-full">
+        {children}
+      </span>
+      <span className="absolute inset-x-0 top-0 block translate-y-full transition-transform duration-300 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:translate-y-0">
+        {children}
+      </span>
+    </span>
+  );
+}
+
 export default function Footer() {
   const [isCallbackModalOpen, setIsCallbackModalOpen] = useState(false);
   const location = useLocation();
@@ -184,45 +198,45 @@ export default function Footer() {
                     <Link
                       to="/automation"
                       title="Smart Home Automation Services"
-                      className="hover:text-accent-blue transition-colors duration-200"
+                      className="group relative inline-block overflow-hidden hover:text-accent-blue transition-colors duration-200"
                     >
-                      Automation
+                      <RollingText>Automation</RollingText>
                     </Link>
                   </li>
                   <li>
                     <Link
                       to="/lighting"
                       title="Smart Lighting Solutions"
-                      className="hover:text-accent-blue transition-colors duration-200"
+                      className="group relative inline-block overflow-hidden hover:text-accent-blue transition-colors duration-200"
                     >
-                      Lighting
+                      <RollingText>Lighting</RollingText>
                     </Link>
                   </li>
                   <li>
                     <Link
                       to="/networking"
                       title="Home Networking Solutions"
-                      className="hover:text-accent-blue transition-colors duration-200"
+                      className="group relative inline-block overflow-hidden hover:text-accent-blue transition-colors duration-200"
                     >
-                      Networking
+                      <RollingText>Networking</RollingText>
                     </Link>
                   </li>
                   <li>
                     <Link
                       to="/security"
                       title="Smart Home Security Systems"
-                      className="hover:text-accent-blue transition-colors duration-200"
+                      className="group relative inline-block overflow-hidden hover:text-accent-blue transition-colors duration-200"
                     >
-                      Security
+                      <RollingText>Security</RollingText>
                     </Link>
                   </li>
                   <li>
                     <Link
                       to="/audio"
                       title="Home Audio Solutions"
-                      className="hover:text-accent-blue transition-colors duration-200"
+                      className="group relative inline-block overflow-hidden hover:text-accent-blue transition-colors duration-200"
                     >
-                      Audio
+                      <RollingText>Audio</RollingText>
                     </Link>
                   </li>
                 </ul>
@@ -238,27 +252,27 @@ export default function Footer() {
                     <Link
                       to="/about"
                       title="About Our Company"
-                      className="hover:text-accent-blue transition-colors duration-200"
+                      className="group relative inline-block overflow-hidden hover:text-accent-blue transition-colors duration-200"
                     >
-                      About MAKc
+                      <RollingText>About MAKc</RollingText>
                     </Link>
                   </li>
                   <li>
                     <Link
                       to="/why-us"
                       title="Our Work Process"
-                      className="hover:text-accent-blue transition-colors duration-200"
+                      className="group relative inline-block overflow-hidden hover:text-accent-blue transition-colors duration-200"
                     >
-                      Our Process
+                      <RollingText>Our Process</RollingText>
                     </Link>
                   </li>
                   <li>
                     <Link
                       to="/contact"
                       title="Careers & Contact at MAKc Automations"
-                      className="hover:text-accent-blue transition-colors duration-200"
+                      className="group relative inline-block overflow-hidden hover:text-accent-blue transition-colors duration-200"
                     >
-                      Careers
+                      <RollingText>Careers</RollingText>
                     </Link>
                   </li>
                   <li>
@@ -269,9 +283,9 @@ export default function Footer() {
                         toast("Blog coming soon!");
                       }}
                       title="MAKc Automations Blog"
-                      className="hover:text-accent-blue transition-colors duration-200 cursor-pointer text-left bg-transparent border-0 p-0 font-inherit text-xs text-text-muted"
+                      className="group relative inline-block overflow-hidden hover:text-accent-blue transition-colors duration-200 cursor-pointer text-left bg-transparent border-0 p-0 font-inherit text-xs text-text-muted"
                     >
-                      Blog
+                      <RollingText>Blog</RollingText>
                     </button>
                   </li>
                 </ul>
@@ -319,18 +333,22 @@ export default function Footer() {
                     <a
                       href={`tel:${COMPANY_INFO.phones.primary.digits}`}
                       title={`Call ${COMPANY_INFO.name} Sales at ${COMPANY_INFO.phones.primary.display}`}
-                      className="flex items-center gap-2 hover:text-accent-blue transition-colors duration-200"
+                      className="group relative flex items-center gap-2 overflow-hidden hover:text-accent-blue transition-colors duration-200"
                     >
                       <Phone className="h-4 w-4 shrink-0 text-accent-blue stroke-[1.5]" />
-                      <span>{COMPANY_INFO.phones.primary.number}</span>
+                      <RollingText>
+                        {COMPANY_INFO.phones.primary.number}
+                      </RollingText>
                     </a>
                     <a
                       href={`tel:${COMPANY_INFO.phones.support.digits}`}
                       title={`Call ${COMPANY_INFO.name} Support at ${COMPANY_INFO.phones.support.display}`}
-                      className="flex items-center gap-2 hover:text-accent-blue transition-colors duration-200"
+                      className="group relative flex items-center gap-2 overflow-hidden hover:text-accent-blue transition-colors duration-200"
                     >
                       <Phone className="h-4 w-4 shrink-0 text-accent-blue stroke-[1.5]" />
-                      <span>{COMPANY_INFO.phones.support.number}</span>
+                      <RollingText>
+                        {COMPANY_INFO.phones.support.number}
+                      </RollingText>
                     </a>
                   </div>
                 </div>
@@ -340,10 +358,10 @@ export default function Footer() {
                   <a
                     href={`mailto:${COMPANY_INFO.email}`}
                     title={`Email ${COMPANY_INFO.name}`}
-                    className="flex items-center gap-2 hover:text-accent-blue transition-colors duration-200"
+                    className="group relative flex items-center gap-2 overflow-hidden hover:text-accent-blue transition-colors duration-200"
                   >
                     <Mail className="h-4 w-4 shrink-0 text-accent-blue stroke-[1.5]" />
-                    <span className="break-all">{COMPANY_INFO.email}</span>
+                    <RollingText>{COMPANY_INFO.email}</RollingText>
                   </a>
                 </div>
 

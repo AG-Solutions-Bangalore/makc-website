@@ -167,14 +167,11 @@ export function ContactForm() {
         </div>
 
         {/* Submit Button */}
-        <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <span className="text-[11px] text-text-muted text-center sm:text-left">
-            🔒 Your information is private &amp; protected.
-          </span>
+        <div className="pt-2 flex justify-end">
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full sm:w-auto min-w-[210px] bg-accent-blue hover:bg-[#0070e0] text-white! font-bold tracking-wide py-3 px-8 rounded-xl transition-all duration-300 flex justify-center items-center gap-2 shadow-[0_6px_20px_rgba(10,132,255,0.35)] hover:shadow-[0_8px_25px_rgba(10,132,255,0.5)] hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-60 disabled:pointer-events-none cursor-pointer text-xs sm:text-sm"
+            className="shine-hover w-full sm:w-auto min-w-[210px] bg-accent-blue hover:bg-[#0070e0] text-white! font-bold tracking-wide py-3 px-8 rounded-xl transition-all duration-300 flex justify-center items-center gap-2 shadow-[0_6px_20px_rgba(10,132,255,0.35)] hover:shadow-[0_8px_25px_rgba(10,132,255,0.5)] hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-60 disabled:pointer-events-none cursor-pointer text-xs sm:text-sm"
           >
             {isSubmitting ? (
               <>
