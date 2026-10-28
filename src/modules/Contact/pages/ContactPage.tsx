@@ -30,16 +30,16 @@ export default function ContactPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Hero Header */}
         <div
-          className="mb-8 lg:mb-10 reveal-on-scroll reveal-up"
+          className="mb-6 sm:mb-8 lg:mb-10 reveal-on-scroll reveal-up"
           data-reveal-duration="0.8s"
         >
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-serif text-text-main tracking-tight leading-tight mb-3">
-            Let's build the <br />
+          <h1 className="text-[32px] leading-[1.12] sm:text-5xl lg:text-6xl sm:leading-tight font-bold font-serif text-text-main tracking-tight text-balance mb-3">
+            Let's build the <br className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-blue via-blue-400 to-[#3ea6ff]">
               future of your home.
             </span>
           </h1>
-          <p className="text-base sm:text-lg text-text-muted max-w-2xl leading-relaxed">
+          <p className="text-[15px] sm:text-lg text-text-muted max-w-2xl leading-relaxed">
             Whether you are ready to start a project or simply have a question,
             our smart living experts are here to help.
           </p>
