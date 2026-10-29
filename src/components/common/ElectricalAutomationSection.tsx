@@ -26,6 +26,7 @@ const images = [
 export default function ElectricalAutomationSection() {
   return (
     <AutomationMosaicSection
+      id="electrical-automation"
       title="Electrical Automation & Smart Switches"
       description="Control your Lighting and Electrical Systems with ease using Touch Panels, Mobile Apps, or Voice Commands."
       types={types}

@@ -411,9 +411,9 @@ export default function HeroSectionV2() {
       {/* ======================================================== */}
       {/* MOBILE / TABLET HERO (flex lg:hidden) — Premium Editorial Flow */}
       {/* ======================================================== */}
-      <div className="flex lg:hidden flex-col w-full relative bg-bg-main overflow-hidden">
+      <div className="flex lg:hidden flex-col w-full relative bg-bg-main overflow-hidden min-h-[100svh]">
         {/* Top Hero Image Showcase (Clean villa showcase with smooth bottom fade) */}
-        <div className="relative w-full h-[360px] sm:h-[440px] overflow-hidden bg-slate-900 shrink-0">
+        <div className="relative w-full flex-1 min-h-[320px] sm:min-h-[440px] overflow-hidden bg-slate-900">
           {/* Dark Mode Villa */}
           <img
             src={heroBgDark}
@@ -480,7 +480,7 @@ export default function HeroSectionV2() {
         </div>
 
         {/* Bottom Content Area — Concise, Airy & Mobile-Optimized */}
-        <div className="-mt-10 sm:-mt-12 relative z-20 px-5 sm:px-8 pb-8 flex flex-col text-left max-w-lg mx-auto w-full">
+        <div className="-mt-10 sm:-mt-12 relative z-20 px-5 sm:px-8 pb-[calc(1.75rem+env(safe-area-inset-bottom))] sm:pb-10 flex flex-col text-left max-w-lg mx-auto w-full">
           {/* Editorial Headline */}
           <h1 className="text-[22px] sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.2]">
             <span className="block">Smart Home Automation</span>

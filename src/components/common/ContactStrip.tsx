@@ -49,7 +49,7 @@ export default function ContactStrip({
         {/* Quick Contact Chips */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <a
-            href="tel:+918197783287"
+            href="tel:+918951934440"
             title="Call Sales & Consultation"
             className="flex items-center justify-between p-3.5 rounded-2xl bg-bg-surface border border-border-main hover:border-accent-blue/50 shadow-xs hover:shadow-md transition-all duration-300"
           >
@@ -62,7 +62,7 @@ export default function ContactStrip({
                   Direct Sales
                 </span>
                 <span className="text-sm sm:text-base font-bold text-text-main font-mono">
-                  +91 81977 83287
+                  +91 89519 34440
                 </span>
               </div>
             </div>
@@ -70,7 +70,7 @@ export default function ContactStrip({
           </a>
 
           <a
-            href="https://wa.me/918197783287"
+            href="https://wa.me/918951934440"
             target="_blank"
             rel="noopener noreferrer"
             title="Chat on WhatsApp"

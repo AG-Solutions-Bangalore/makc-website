@@ -24,6 +24,7 @@ const LIGHTING_SLIDES = [
     imageAlt: "Circadian ambient lighting layout for a modern smart home",
     imageTitle: "Circadian Smart Lighting",
     icon: Sparkles,
+    exploreHref: "#lighting-services",
   },
   {
     id: "02",
@@ -35,6 +36,7 @@ const LIGHTING_SLIDES = [
     imageAlt: "Smart Architectural Dimmable LED Lighting Control Solution",
     imageTitle: "Architectural Dimmable LED Lighting",
     icon: SunDim,
+    exploreHref: "#lighting-services",
   },
   {
     id: "03",
@@ -46,6 +48,8 @@ const LIGHTING_SLIDES = [
     imageAlt: "Smart RGB LED Mood Lighting System with Multi-Color Scene Control",
     imageTitle: "Smart RGB LED Mood Lighting",
     icon: Palette,
+    exploreHref: "#lighting-services",
+    mobileTextLight: true,
   },
   {
     id: "04",
@@ -58,6 +62,8 @@ const LIGHTING_SLIDES = [
       "High-Resolution Architectural Outdoor Landscape and Facade Lighting for Luxury Modern Villa",
     imageTitle: "Architectural Outdoor Landscape Lighting",
     icon: Trees,
+    exploreHref: "#lighting-services",
+    mobileTextLight: true,
   },
 ];
 
@@ -84,7 +90,10 @@ export default function LightingPage() {
         accentColor="#00A551"
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-8 sm:pt-14 lg:pt-20">
+      <div
+        id="lighting-services"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-8 sm:pt-14 lg:pt-20 scroll-mt-28"
+      >
         {/* DIMMING & TUNING OF LIGHTS SECTION */}
         <DimmingTuningSection />
 

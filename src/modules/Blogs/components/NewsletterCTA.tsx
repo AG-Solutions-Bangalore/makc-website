@@ -55,7 +55,7 @@ export default function NewsletterCTA() {
               placeholder="you@yourhome.com"
               title="Email address for newsletter"
               aria-label="Email address"
-              className="flex-1 px-5 py-3 bg-bg-main border border-border-main rounded-full text-sm text-text-main placeholder:text-text-muted/70 focus:outline-none focus:border-accent-blue/50 focus:ring-2 focus:ring-accent-blue/20 transition-all"
+              className="flex-1 px-5 py-3 bg-bg-main border border-border-main rounded-full text-base sm:text-sm text-text-main placeholder:text-text-muted/70 focus:outline-none focus:border-accent-blue/50 focus:ring-2 focus:ring-accent-blue/20 transition-all"
             />
             <button
               type="submit"

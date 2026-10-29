@@ -18,15 +18,14 @@ const services = [
     icon: Home,
     title: "Smart Home Automation",
     description: "One-touch control for your entire home.",
-    bgImage: getImageUrl("services/automation.avif"),
+    bgImage: getImageUrl("/gallery/rectangle-54364.webp"),
     link: "/automation",
     linkTitle: "Smart Home Automation Services",
     imgTitle: "Smart Home Automation Solutions in Bangalore",
     isWide: true,
     overlay: {
       left: "linear-gradient(to top right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.30) 40%, rgba(0,0,0,0) 100%)",
-      bottom:
-        "linear-gradient(to top, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0) 50%)",
+      bottom: "linear-gradient(to top, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0) 50%)",
     },
   },
   {
@@ -34,7 +33,8 @@ const services = [
     icon: Lightbulb,
     title: "Smart Lighting",
     description: "Create moods with intelligent lighting scenes.",
-    bgImage: getImageUrl("services/lighting.avif"),
+    bgImage: "/images/temp/lighting_image1.webp",
+    imgPosition: "50% 10%",
     link: "/lighting",
     linkTitle: "Smart Lighting Solutions",
     imgTitle: "Smart Lighting Installation Services",
@@ -67,15 +67,14 @@ const services = [
     icon: Wifi,
     title: "Networking",
     description: "Enterprise-grade WiFi designed for luxury villas.",
-    bgImage: getImageUrl("services/networking.avif"),
+    bgImage: getImageUrl("services/details/mesh-wifi-1.webp"),
     link: "/networking",
     linkTitle: "Home Networking Solutions",
     imgTitle: "Home Networking Solutions in Bangalore",
     isWide: true,
     overlay: {
       left: "linear-gradient(to top right, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.32) 40%, rgba(0,0,0,0) 100%)",
-      bottom:
-        "linear-gradient(to top, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0) 50%)",
+      bottom: "linear-gradient(to top, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0) 50%)",
     },
   },
   {
@@ -242,6 +241,10 @@ export default function ServicesSection() {
                     alt={service.title}
                     title={service.imgTitle}
                     className="absolute inset-0 w-full h-full object-cover object-center brightness-[1.03] contrast-[1.04] transition-transform duration-700 ease-out group-hover:scale-105"
+                    style={{
+                      objectPosition:
+                        "imgPosition" in service ? service.imgPosition : undefined,
+                    }}
                     loading="lazy"
                     decoding="async"
                   />

@@ -78,7 +78,7 @@ export default function WhyChooseUsSection() {
                 return (
                   <div
                     key={index}
-                    className="relative flex flex-col items-center text-center px-2 sm:px-4 reveal-on-scroll reveal-up"
+                    className="relative flex flex-col items-center text-center px-2 sm:px-4 max-sm:last:col-span-2 max-sm:last:max-w-xs max-sm:last:mx-auto reveal-on-scroll reveal-up"
                     data-reveal-delay={`${index * 100}ms`}
                     data-reveal-duration="0.6s"
                   >

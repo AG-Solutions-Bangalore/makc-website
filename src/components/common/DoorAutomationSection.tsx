@@ -27,6 +27,7 @@ const images = [
 export default function DoorAutomationSection() {
   return (
     <AutomationMosaicSection
+      id="door-automation"
       title="Door Automation"
       description="Manage Access to your space from anywhere with Smart Door Automation."
       types={types}

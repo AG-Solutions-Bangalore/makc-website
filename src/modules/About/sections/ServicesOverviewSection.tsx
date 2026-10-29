@@ -39,7 +39,7 @@ const services = [
     href: "/audio",
   },
   {
-    title: "Experience Center",
+    title: "Electrical wiring",
     description:
       "Visit our Brookefield showroom and walk through a fully integrated smart home before you commit.",
     image: getImageUrl("why_choose_us.webp"),

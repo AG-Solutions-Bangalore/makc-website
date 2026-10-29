@@ -29,9 +29,11 @@ function InstagramGlyph({ className }: { className?: string }) {
 export default function InstagramEmbed({
   reelUrl,
   compact = false,
+  fit = false,
 }: {
   reelUrl: string;
   compact?: boolean;
+  fit?: boolean;
 }) {
   const embedUrl = getReelEmbedUrl(reelUrl);
 
@@ -41,7 +43,7 @@ export default function InstagramEmbed({
       <div
         className={`relative min-h-0 overflow-hidden bg-black ${
           compact ? "shrink-0 aspect-[4/5]" : "flex-1"
-        }`}
+        } ${fit && !compact ? "[container-type:size]" : ""}`}
       >
         <iframe
           src={embedUrl}
@@ -54,13 +56,21 @@ export default function InstagramEmbed({
                   width: "100%",
                   height: "calc(100% + 54px)",
                 }
-              : {
-                  top: "-54px",
-                  bottom: "-80px",
-                  left: "-21.111%",
-                  width: "142.222%",
-                  height: "calc(100% + 134px)",
-                }
+              : fit
+                ? {
+                    top: "-54px",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    width: "80cqh",
+                    height: "calc(100% + 54px)",
+                  }
+                : {
+                    top: "-54px",
+                    bottom: "-80px",
+                    left: "-21.111%",
+                    width: "142.222%",
+                    height: "calc(100% + 134px)",
+                  }
           }
           scrolling="no"
           loading="lazy"

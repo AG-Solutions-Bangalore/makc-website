@@ -17,8 +17,8 @@ const LOCAL_IMAGES: Record<string, string> = {
   "smarter_way_bg.avif": `${LOCAL_IMAGE_BASE}/home/smarter_way_bg.avif`,
   "contact_villa_night.webp": `${LOCAL_IMAGE_BASE}/home/contact_villa_night.webp`,
   "contact_villa_night.avif": `${LOCAL_IMAGE_BASE}/home/contact_villa_night.avif`,
-  "why_choose_us.webp": `${LOCAL_IMAGE_BASE}/home/why_choose_us.webp`,
-  "project_apartments.webp": `${LOCAL_IMAGE_BASE}/home/project_apartments.webp`,
+  "why_choose_us.webp": `${LOCAL_IMAGE_BASE}/services/details/sensor-1.webp`,
+  "project_apartments.webp": `${LOCAL_IMAGE_BASE}/services/details/sensor-2.webp`,
   "project_commercial.webp": `${LOCAL_IMAGE_BASE}/home/project_commercial.webp`,
   "project_farmhouses.webp": `${LOCAL_IMAGE_BASE}/home/project_farmhouses.webp`,
   "project_penthouses.webp": `${LOCAL_IMAGE_BASE}/home/project_penthouses.webp`,
@@ -31,16 +31,16 @@ const LOCAL_IMAGES: Record<string, string> = {
   "service_lighting.avif": `${LOCAL_IMAGE_BASE}/home/service_lighting.avif`,
   "service_networking.webp": `${LOCAL_IMAGE_BASE}/home/service_networking.webp`,
   "service_networking.avif": `${LOCAL_IMAGE_BASE}/home/service_networking.avif`,
-  "service_security.webp": `${LOCAL_IMAGE_BASE}/home/service_security.webp`,
+  "service_security.webp": `${LOCAL_IMAGE_BASE}/security/cam1.webp`,
   "service_security.avif": `${LOCAL_IMAGE_BASE}/home/service_security.avif`,
   "service_theatre.webp": `${LOCAL_IMAGE_BASE}/home/service_theatre.webp`,
   "service_theatre.avif": `${LOCAL_IMAGE_BASE}/home/service_theatre.avif`,
 
-  "automation.avif": `${LOCAL_IMAGE_BASE}/services/automation.avif`,
+  "automation.avif": `${LOCAL_IMAGE_BASE}//gallery/rectangle-54364.webp`,
   "audio.avif": `${LOCAL_IMAGE_BASE}/services/audio.avif`,
   "electricals.avif": `${LOCAL_IMAGE_BASE}/services/electricals.avif`,
   "ligting.avif": `${LOCAL_IMAGE_BASE}/services/lighting.avif`,
-  "networking.avif": `${LOCAL_IMAGE_BASE}/services/networking.avif`,
+  "networking.avif": `${LOCAL_IMAGE_BASE}/services/details/mesh-wifi-1.webp`,
   "security.avif": `${LOCAL_IMAGE_BASE}/services/security.avif`,
 
   "industrial-automation-overview.webp": `${LOCAL_IMAGE_BASE}/services/industrial/automation-overview.webp`,
@@ -75,13 +75,13 @@ const LOCAL_IMAGES: Record<string, string> = {
   "SBL2.webp": `${LOCAL_IMAGE_BASE}/services/details/scene-lighting-2.webp`,
   "DTL2.webp": `${LOCAL_IMAGE_BASE}/services/details/dimming-2.webp`,
   "DTL2a.webp": `${LOCAL_IMAGE_BASE}/services/details/dimming-2.webp`,
-  "OLL2.webp": `${LOCAL_IMAGE_BASE}/services/details/outdoor-2.webp`,
-  "OLLa2.webp": `${LOCAL_IMAGE_BASE}/services/details/outdoor-2.webp`,
+  "OLL2.webp": `${LOCAL_IMAGE_BASE}/services/details/gate-sliding.webp`,
+  "OLLa2.webp": `${LOCAL_IMAGE_BASE}/services/details/gate-sliding.webp`,
   "ol1.webp": `${LOCAL_IMAGE_BASE}/services/details/outdoor-1.webp`,
 
   "automation_banner.png": `${LOCAL_IMAGE_BASE}/banners/automation_banner.webp`,
   "automation_banner.webp": `${LOCAL_IMAGE_BASE}/banners/automation_banner.webp`,
-  "curtain_automation.webp": `${LOCAL_IMAGE_BASE}/automation/curtain_automation.webp`,
+  "curtain_automation.webp": `${LOCAL_IMAGE_BASE}//services/details/curtain-bedroom.webp`,
   "doorautomation1.webp": `${LOCAL_IMAGE_BASE}/automation/doorautomation1.webp`,
   "doorautomation2.webp": `${LOCAL_IMAGE_BASE}/automation/doorautomation2.webp`,
   "doorautomation3.webp": `${LOCAL_IMAGE_BASE}/automation/doorautomation3.webp`,
@@ -91,9 +91,9 @@ const LOCAL_IMAGES: Record<string, string> = {
   "ha1.2.webp": `${LOCAL_IMAGE_BASE}/automation/ha1-2.webp`,
   "ha1.3.webp": `${LOCAL_IMAGE_BASE}/automation/ha1-3.webp`,
 
-  "smart_dimming_lighting.webp": `${LOCAL_IMAGE_BASE}/lighting/smart_dimming_lighting.webp`,
-  "smart_outdoor_lighting.webp": `${LOCAL_IMAGE_BASE}/lighting/smart_outdoor_lighting.webp`,
-  "smart_rgb_lighting.webp": `${LOCAL_IMAGE_BASE}/lighting/smart_rgb_lighting.webp`,
+  "smart_dimming_lighting.webp": `${LOCAL_IMAGE_BASE}/lighting/dime-light.webp`,
+  "smart_outdoor_lighting.webp": `${LOCAL_IMAGE_BASE}/services/details/gate-sliding.webp`,
+  "smart_rgb_lighting.webp": `${LOCAL_IMAGE_BASE}/services/details/rgb-lighting-1.webp`,
   "lightimage1.webp": `${LOCAL_IMAGE_BASE}/lighting/lighting-1.webp`,
   "dimeLight.webp": `${LOCAL_IMAGE_BASE}/lighting/dime-light.webp`,
   "outdoorImage1.webp": `${LOCAL_IMAGE_BASE}/lighting/outdoor-image-1.webp`,
@@ -183,7 +183,10 @@ export const getImageUrl = (filename: string): string => {
   return `${BASE_URL}/${remoteRelPath}`;
 };
 
-export const getResponsiveHomeImageUrl = (filename: string, width?: 480 | 768) => {
+export const getResponsiveHomeImageUrl = (
+  filename: string,
+  width?: 480 | 768,
+) => {
   void width;
   return getImageUrl(filename);
 };
