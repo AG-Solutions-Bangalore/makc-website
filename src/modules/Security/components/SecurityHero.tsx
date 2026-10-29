@@ -151,7 +151,7 @@ export default function SecurityHero() {
       {/* ======================================================== */}
       {/* MOBILE / TABLET HERO (flex lg:hidden) — Homepage Flow   */}
       {/* ======================================================== */}
-      <div className="flex lg:hidden flex-col justify-between w-full relative bg-bg-main overflow-hidden h-[100dvh] min-h-[100dvh]">
+      <div className="flex lg:hidden flex-col justify-between w-full relative bg-bg-main overflow-hidden h-[100svh] min-h-[100svh] max-h-[100svh]">
         {/* Top Hero Image Showcase */}
         <div className="relative w-full flex-1 min-h-[220px] overflow-hidden bg-slate-900">
           <img
