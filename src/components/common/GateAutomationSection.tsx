@@ -15,6 +15,7 @@ const features = [
 export default function GateAutomationSection() {
   return (
     <AutomationMosaicSection
+      id="gate-automation"
       title="Gate Automation"
       description="Automate your Gates and Shutters for Security, Safety, and Convenience."
       types={types}

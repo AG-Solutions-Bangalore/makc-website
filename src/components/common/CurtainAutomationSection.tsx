@@ -28,6 +28,7 @@ const images = [
 export default function CurtainAutomationSection() {
   return (
     <AutomationMosaicSection
+      id="curtain-automation"
       title="Curtain Automation"
       description="Automate Curtains and Blinds for Comfort, Privacy, and Energy Efficiency."
       types={types}

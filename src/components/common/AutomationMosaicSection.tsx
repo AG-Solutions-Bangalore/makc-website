@@ -51,6 +51,7 @@ interface AutomationMosaicImage {
 const EMPTY_IMAGES: AutomationMosaicImage[] = [];
 
 interface AutomationMosaicSectionProps {
+  id?: string;
   title: string;
   description: string;
   types: string[];
@@ -68,6 +69,7 @@ interface AutomationMosaicSectionProps {
 
 
 export default function AutomationMosaicSection({
+  id,
   title,
   description,
   types,
@@ -335,7 +337,11 @@ export default function AutomationMosaicSection({
   );
 
   return (
-    <section ref={sectionRef} className="mb-10 sm:mb-16 lg:mb-24 no-reveal">
+    <section
+      id={id}
+      ref={sectionRef}
+      className="mb-10 sm:mb-16 lg:mb-24 no-reveal scroll-mt-28"
+    >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
         <div className={`w-full max-w-lg mx-auto lg:max-w-none ${imagePosition === "right" ? "lg:order-last" : "lg:order-first"}`}>
           <div
