@@ -209,144 +209,136 @@ export default function AutomationShowcase({
   return (
     <section
       style={accentStyle}
-      className="w-full relative overflow-hidden bg-bg-surface dark:bg-black py-6 sm:py-10 lg:py-24 min-h-0 lg:h-[650px] flex items-center border-b border-border-main/40 select-none"
+      className="w-full relative overflow-hidden bg-bg-surface dark:bg-black py-10 sm:py-14 lg:py-20 border-b border-border-main/40"
     >
-      {/* Background Images Crossfade Layer (Only on the right half for desktop, full background for mobile) */}
-      {slides.map((tab, idx) => (
-        <img
-          key={tab.id}
-          src={tab.image}
-          alt={tab.imageAlt}
-          title={tab.imageTitle || tab.imageAlt}
-          className={`absolute inset-y-0 right-0 h-full object-cover object-center z-0 transition-all duration-1000 ease-in-out lg:w-1/2 w-full brightness-105 contrast-105 ${
-            idx === cachedIndex
-              ? "opacity-100 scale-100"
-              : "opacity-0 pointer-events-none"
-          }`}
-          style={{
-            transitionProperty: "opacity, transform",
-            objectPosition: tab.imagePosition,
-          }}
-        />
-      ))}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 lg:px-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 xl:gap-16 items-center">
+          {/* Left Column: Heading, Subtitle and Tabs */}
+          <div className="lg:col-span-6 flex flex-col items-start text-left">
+            <span className="text-[10px] font-bold text-[var(--accent-color)] uppercase tracking-[0.25em] block mb-2 sm:mb-3">
+              {eyebrow}
+            </span>
 
-      {/* Subtle edge blend only at the seam where left column meets the image, leaving the background image 100% crisp and unblurred */}
-      <div className="absolute inset-y-0 left-1/2 w-12 bg-gradient-to-r from-bg-surface dark:from-black to-transparent z-10 hidden lg:block pointer-events-none" />
-      {/* Mobile fade overlay to ensure text contrast without blacking out or blurring the background image */}
-      <div className="absolute inset-0 bg-gradient-to-b from-bg-surface/85 via-bg-surface/30 to-bg-surface/90 dark:from-black/85 dark:via-black/25 dark:to-black/90 z-10 lg:hidden pointer-events-none" />
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-text-main dark:text-white tracking-[-0.03em] leading-[1.12] mb-4 sm:mb-5 text-balance">
+              {heading}
+            </h2>
 
-      {/* Grid Content Overlay */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-5 lg:px-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-center">
-          {/* Left Column: Heading, Subtitle, Tabs, and Arrows */}
-          <div className="lg:col-span-7 flex flex-col justify-between text-left">
-            <div>
-              {/* Eyebrow */}
-              <span className="text-[10px] font-bold text-[var(--accent-color)] uppercase tracking-[0.25em] block mb-2 sm:mb-4">
-                {eyebrow}
-              </span>
+            <p className="text-sm sm:text-base text-text-muted dark:text-white/70 max-w-[30rem] leading-relaxed mb-5 sm:mb-6">
+              {introduction}
+            </p>
 
-              {/* Main Heading */}
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-text-main dark:text-white tracking-[-0.03em] leading-[1.15] mb-3 sm:mb-6 text-balance">
-                {heading}
-              </h2>
+            <div className="w-10 h-[2px] bg-[rgba(var(--accent-color-rgb),0.7)] mb-2 sm:mb-3" />
 
-              {/* Subtext */}
-              <p className="text-sm sm:text-base text-slate-800 dark:text-white/70 max-w-[27rem] leading-relaxed mb-3 sm:mb-6 font-medium sm:font-normal">
-                {introduction}
-              </p>
+            <div
+              className="flex items-start gap-2 sm:gap-4 lg:gap-5 w-full overflow-x-auto flex-nowrap scrollbar-none snap-x snap-mandatory touch-pan-x -mx-5 px-5 sm:mx-0 sm:px-0 pt-3 pb-1"
+              role="tablist"
+              aria-label="Automation solutions"
+            >
+              {slides.map((tab, idx) => {
+                const Icon = tab.icon;
+                const isActive = idx === activeIndex;
 
-              {/* Short Line Divider */}
-              <div className="w-10 h-[2px] bg-[rgba(var(--accent-color-rgb),0.7)] mb-4 sm:mb-8" />
-
-              <div
-                className="flex flex-wrap items-center gap-3 py-2 sm:gap-6 mt-4 sm:mt-6 lg:mt-8"
-                role="tablist"
-                aria-label="Automation solutions"
-              >
-                {slides.map((tab, idx) => {
-                  const Icon = tab.icon;
-                  const isActive = idx === activeIndex;
-
-                  return (
-                    <div key={tab.id} className="flex flex-col  items-center shrink-0 gap-2">
-                      <button
-                        onClick={() => setActiveIndex(idx)}
-                        role="tab"
-                        aria-selected={isActive}
-                        aria-label={tab.title}
-                        aria-controls="automation-showcase-detail"
-                        className={`flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full transition-all duration-300 relative cursor-pointer group shadow-md ${
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={(e) => {
+                      setActiveIndex(idx);
+                      e.currentTarget.scrollIntoView({
+                        behavior: "smooth",
+                        block: "nearest",
+                        inline: "center",
+                      });
+                    }}
+                    role="tab"
+                    aria-selected={isActive}
+                    aria-label={tab.title}
+                    aria-controls="automation-showcase-detail"
+                    className="group flex w-16 sm:w-20 shrink-0 snap-start cursor-pointer flex-col items-center gap-2.5 focus:outline-none"
+                  >
+                    <span
+                      className={`flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full border-2 transition-all duration-300 ${
+                        isActive
+                          ? "border-[var(--accent-color)] bg-bg-main dark:bg-white/10 shadow-[0_0_0_4px_rgba(var(--accent-color-rgb),0.12)]"
+                          : "border-border-main bg-bg-main/70 dark:border-white/15 dark:bg-white/5 group-hover:border-[rgba(var(--accent-color-rgb),0.45)]"
+                      }`}
+                    >
+                      <Icon
+                        className={`h-6 w-6 sm:h-7 sm:w-7 transition-colors duration-300 ${
                           isActive
-                            ? "bg-white dark:bg-black border-2 border-[var(--accent-color)] z-10 shadow-lg scale-105"
-                            : "bg-white dark:bg-black/75 border border-slate-300 dark:border-white/20 hover:border-slate-500 hover:shadow-lg"
+                            ? "text-[var(--accent-color)]"
+                            : "text-text-main/70 dark:text-white/70 group-hover:text-text-main dark:group-hover:text-white"
                         }`}
-                      >
-                        <Icon
-                          className={`w-7 h-7 sm:w-8 sm:h-8 transition-transform duration-300 group-hover:scale-110 ${
-                            isActive
-                              ? "text-[var(--accent-color)]"
-                              : "text-slate-800 dark:text-white/80 group-hover:text-black dark:group-hover:text-white"
-                          }`}
-                        />
-                      </button>
-                      <span
-                        className={`text-xs sm:text-sm tracking-wide text-center leading-tight transition-all duration-200 select-none ${
-                          isActive
-                            ? "text-[var(--accent-color)] font-bold drop-shadow-sm"
-                            : "text-slate-800 dark:text-slate-200 font-semibold hover:text-[var(--accent-color)]"
-                        }`}
-                      >
-                        {tab.shortTitle}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
+                      />
+                    </span>
+                    <span
+                      className={`text-[11px] sm:text-xs font-semibold tracking-wide text-center leading-tight whitespace-nowrap transition-colors duration-200 ${
+                        isActive
+                          ? "text-[var(--accent-color)]"
+                          : "text-text-muted dark:text-white/60 group-hover:text-text-main dark:group-hover:text-white"
+                      }`}
+                    >
+                      {tab.shortTitle}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           </div>
 
-          {/* Right Column: Tab details floating directly over the image with transparent background */}
-          <div
-            className="lg:col-span-5 flex flex-col justify-center items-start text-left pl-0 lg:pl-6"
-            id="automation-showcase-detail"
-            role="tabpanel"
-          >
-            <div
-              className={`transition-all duration-500 ease-out relative p-2 sm:p-4 max-w-lg ${
-                isTransitioning
-                  ? "opacity-0 translate-y-2"
-                  : "opacity-100 translate-y-0"
-              }`}
-            >
-              {/* Large glowing backdrop number */}
-              <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-display tracking-tight text-[var(--accent-color)] select-none leading-none block mb-1 drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
-                {activeTab.id}
+          {/* Right Column: Active image in a contained media card */}
+          <div className="lg:col-span-6 w-full">
+            <div className="relative h-[420px] sm:h-[500px] lg:h-[560px] w-full overflow-hidden rounded-3xl border border-border-main/40 dark:border-white/10 bg-slate-900 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.35)]">
+              {slides.map((tab, idx) => (
+                <img
+                  key={tab.id}
+                  src={tab.image}
+                  alt={tab.imageAlt}
+                  title={tab.imageTitle || tab.imageAlt}
+                  aria-hidden={idx !== cachedIndex}
+                  className={`absolute inset-0 h-full w-full object-cover transition-all duration-1000 ease-in-out ${
+                    idx === cachedIndex
+                      ? "opacity-100 scale-100"
+                      : "opacity-0 scale-[1.03] pointer-events-none"
+                  }`}
+                  style={{
+                    transitionProperty: "opacity, transform",
+                    objectPosition: tab.imagePosition,
+                  }}
+                />
+              ))}
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/5 pointer-events-none" />
+
+              <span className="absolute top-4 right-4 z-10 rounded-full border border-white/15 bg-black/35 px-3 py-1 text-[11px] font-semibold tracking-[0.2em] text-white/80 backdrop-blur-md">
+                {activeTab.id} / {String(slides.length).padStart(2, "0")}
               </span>
 
-              {/* Detail Title */}
-              <h3
-                style={{
-                  color: "#ffffff",
-                  textShadow:
-                    "0 2px 12px rgba(0,0,0,0.95), 0 1px 4px rgba(0,0,0,0.9)",
-                }}
-                className="text-2xl sm:text-3xl lg:text-4xl font-bold font-display !text-white text-white! tracking-tight mb-3 mt-1 text-balance drop-shadow-[0_3px_12px_rgba(0,0,0,0.95)]"
+              <div
+                id="automation-showcase-detail"
+                role="tabpanel"
+                className="absolute inset-x-0 bottom-0 z-10 p-5 sm:p-7 lg:p-8"
               >
-                {activeTab.title}
-              </h3>
+                <div
+                  className={`transition-all duration-500 ease-out ${
+                    isTransitioning
+                      ? "opacity-0 translate-y-2"
+                      : "opacity-100 translate-y-0"
+                  }`}
+                >
+                  <span className="text-4xl sm:text-5xl font-extrabold font-display tracking-tight text-[var(--accent-color)] leading-none block mb-2">
+                    {activeTab.id}
+                  </span>
 
-              {/* Detail Description */}
-              <p
-                style={{
-                  color: "#ffffff",
-                  textShadow:
-                    "0 2px 8px rgba(0,0,0,0.95), 0 1px 3px rgba(0,0,0,0.9)",
-                }}
-                className="!text-white text-white! text-base sm:text-lg leading-relaxed font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]"
-              >
-                {activeTab.description}
-              </p>
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-display text-white tracking-tight mb-2 sm:mb-3 text-balance">
+                    {activeTab.title}
+                  </h3>
+
+                  <p className="text-sm sm:text-base text-white/80 leading-relaxed font-medium max-w-xl">
+                    {activeTab.description}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

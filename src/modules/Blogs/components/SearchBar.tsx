@@ -21,7 +21,7 @@ export default function SearchBar({
         placeholder={placeholder}
         title="Search blog posts"
         aria-label="Search blog posts"
-        className="w-full pl-11 pr-10 py-3 bg-bg-surface border border-border-main rounded-full text-sm text-text-main placeholder:text-text-muted/70 focus:outline-none focus:border-accent-blue/50 focus:ring-2 focus:ring-accent-blue/20 transition-all"
+        className="w-full pl-11 pr-10 py-3 bg-bg-surface border border-border-main rounded-full text-base sm:text-sm text-text-main placeholder:text-text-muted/70 focus:outline-none focus:border-accent-blue/50 focus:ring-2 focus:ring-accent-blue/20 transition-all"
       />
       {value && (
         <button

@@ -54,7 +54,7 @@ export function ContactForm() {
               {...register("name")}
               type="text"
               id="name"
-              className="w-full bg-slate-50/80 dark:bg-black/40 border border-slate-200/90 dark:border-white/10 focus:border-accent-blue focus:ring-2 focus:ring-accent-blue/20 rounded-xl px-3.5 py-2.5 text-text-main transition-all duration-200 outline-none text-xs sm:text-sm placeholder:text-text-muted/60"
+              className="w-full bg-slate-50/80 dark:bg-black/40 border border-slate-200/90 dark:border-white/10 focus:border-accent-blue focus:ring-2 focus:ring-accent-blue/20 rounded-xl px-3.5 py-2.5 text-text-main transition-all duration-200 outline-none text-base sm:text-sm placeholder:text-text-muted/60"
               placeholder="e.g. Rahul Sharma"
             />
             {errors.name && (
@@ -77,7 +77,7 @@ export function ContactForm() {
               {...register("phone")}
               type="tel"
               id="phone"
-              className="w-full bg-slate-50/80 dark:bg-black/40 border border-slate-200/90 dark:border-white/10 focus:border-accent-blue focus:ring-2 focus:ring-accent-blue/20 rounded-xl px-3.5 py-2.5 text-text-main transition-all duration-200 outline-none text-xs sm:text-sm placeholder:text-text-muted/60"
+              className="w-full bg-slate-50/80 dark:bg-black/40 border border-slate-200/90 dark:border-white/10 focus:border-accent-blue focus:ring-2 focus:ring-accent-blue/20 rounded-xl px-3.5 py-2.5 text-text-main transition-all duration-200 outline-none text-base sm:text-sm placeholder:text-text-muted/60"
               placeholder="+91 98765 43210"
             />
             {errors.phone && (
@@ -100,7 +100,7 @@ export function ContactForm() {
               {...register("email")}
               type="email"
               id="email"
-              className="w-full bg-slate-50/80 dark:bg-black/40 border border-slate-200/90 dark:border-white/10 focus:border-accent-blue focus:ring-2 focus:ring-accent-blue/20 rounded-xl px-3.5 py-2.5 text-text-main transition-all duration-200 outline-none text-xs sm:text-sm placeholder:text-text-muted/60"
+              className="w-full bg-slate-50/80 dark:bg-black/40 border border-slate-200/90 dark:border-white/10 focus:border-accent-blue focus:ring-2 focus:ring-accent-blue/20 rounded-xl px-3.5 py-2.5 text-text-main transition-all duration-200 outline-none text-base sm:text-sm placeholder:text-text-muted/60"
               placeholder="rahul@example.com"
             />
             {errors.email && (
@@ -156,7 +156,7 @@ export function ContactForm() {
             {...register("message")}
             id="message"
             rows={3}
-            className="w-full bg-slate-50/80 dark:bg-black/40 border border-slate-200/90 dark:border-white/10 focus:border-accent-blue focus:ring-2 focus:ring-accent-blue/20 rounded-xl p-3.5 text-text-main transition-all duration-200 outline-none text-xs sm:text-sm placeholder:text-text-muted/60 resize-none leading-relaxed"
+            className="w-full min-h-[148px] sm:min-h-0 bg-slate-50/80 dark:bg-black/40 border border-slate-200/90 dark:border-white/10 focus:border-accent-blue focus:ring-2 focus:ring-accent-blue/20 rounded-xl p-3.5 text-text-main transition-all duration-200 outline-none text-base sm:text-sm placeholder:text-text-muted/60 resize-none leading-relaxed"
             placeholder="Tell us about your home, villa, or commercial space and any specific automation or lighting requirements..."
           />
           {errors.message && (

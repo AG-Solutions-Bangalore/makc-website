@@ -335,8 +335,8 @@ export default function AutomationPage() {
                 </span>
               </div>
 
-              {/* Tab pills tighter, cleaner */}
-              <div className="flex flex-wrap gap-2 mb-6">
+              {/* Tab pills: horizontally scrollable on mobile, wrapping on sm+ */}
+              <div className="flex items-center gap-2 mb-6 overflow-x-auto flex-nowrap sm:flex-wrap scrollbar-none pb-1.5 -mx-2 px-2 sm:mx-0 sm:px-0 touch-pan-x snap-x">
                 {features.map((feat) => {
                   const isActive = activeFeature === feat.id;
                   const IconComponent = feat.icon;
@@ -344,7 +344,7 @@ export default function AutomationPage() {
                     <button
                       key={feat.id}
                       onClick={() => setActiveFeature(feat.id)}
-                      className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer ${
+                      className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer shrink-0 snap-start whitespace-nowrap min-h-[36px] ${
                         isActive
                           ? "bg-accent-blue text-white! shadow-[0_2px_10px_rgba(10,132,255,0.25)]"
                           : "text-text-muted hover:text-text-main bg-bg-main border border-border-main/50 hover:border-border-main"
@@ -622,7 +622,7 @@ export default function AutomationPage() {
                               setInlinePhoneError("");
                             }}
                             placeholder="e.g. 9876543210"
-                            className="w-full bg-black/60 border border-white/25 focus:border-accent-blue focus:ring-2 focus:ring-accent-blue/30 rounded-xl px-4 py-2.5 text-white text-sm outline-none transition-all font-mono tracking-wider placeholder:text-white/35"
+                            className="w-full bg-black/60 border border-white/25 focus:border-accent-blue focus:ring-2 focus:ring-accent-blue/30 rounded-xl px-4 py-2.5 text-white text-base sm:text-sm outline-none transition-all font-mono tracking-wider placeholder:text-white/35"
                           />
                           {inlinePhoneError && (
                             <p className="text-red-400 text-xs mt-1.5 font-medium">

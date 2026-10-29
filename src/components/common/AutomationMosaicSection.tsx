@@ -82,12 +82,25 @@ export default function AutomationMosaicSection({
   // reelTitles,
 }: AutomationMosaicSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
+  const galleryScrollRef = useRef<HTMLDivElement>(null);
+  const [activeGalleryIndex, setActiveGalleryIndex] = useState(0);
   const [mediaData, setMediaData] = useState<{
     type: "Reel" | "Instagram" | "Image";
     url: string;
     embedUrl?: string;
   } | null>(null);
   const [loading, setLoading] = useState(true);
+
+  const handleGalleryScroll = () => {
+    const el = galleryScrollRef.current;
+    if (!el) return;
+    const card = el.firstElementChild as HTMLElement | null;
+    if (!card) return;
+    const cardWidth = card.offsetWidth + 14;
+    const index = Math.round(el.scrollLeft / cardWidth);
+    const totalCount = reels && reels.length > 1 ? reels.length : (images.length || 3);
+    setActiveGalleryIndex(Math.min(Math.max(0, index), totalCount - 1));
+  };
 
   useEffect(() => {
     const controller = new AbortController();
@@ -272,12 +285,12 @@ export default function AutomationMosaicSection({
         </p>
       </div>
 
-      {/* Types checklist */}
+      {/* Types checklist (2-column layout) */}
       {types.length > 0 && (
-        <ul className="space-y-3">
+        <ul className="grid grid-cols-2 gap-x-3 sm:gap-x-6 gap-y-3.5">
           {types.map((type) => (
-            <li key={type} className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-6 h-6 rounded-full bg-emerald-500 text-white! shrink-0 shadow-md">
+            <li key={type} className="flex items-start gap-2.5 sm:gap-3 min-w-0 last:odd:col-span-2">
+              <div className="flex items-center justify-center w-6 h-6 rounded-full bg-emerald-500 text-white! shrink-0 shadow-md mt-0.5">
                 <svg
                   className="w-3.5 h-3.5 stroke-[3]"
                   fill="none"
@@ -291,7 +304,7 @@ export default function AutomationMosaicSection({
                   />
                 </svg>
               </div>
-              <span className="text-sm font-medium text-text-main">{type}</span>
+              <span className="text-sm font-medium text-text-main leading-snug min-w-0 break-words">{type}</span>
             </li>
           ))}
         </ul>
@@ -324,113 +337,161 @@ export default function AutomationMosaicSection({
   return (
     <section ref={sectionRef} className="mb-10 sm:mb-16 lg:mb-24 no-reveal">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
-        <div className={`grid ${reels && reels.length > 1 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-2"} gap-3 w-full max-w-lg mx-auto lg:max-w-none ${imagePosition === "right" ? "lg:order-last" : "lg:order-first"}`}>
-          {reels && reels.length > 1 ? (
-            /* ── Double-Reel Layout ── */
-            <>
-              {reels.map((reel, idx) => (
+        <div className={`w-full max-w-lg mx-auto lg:max-w-none ${imagePosition === "right" ? "lg:order-last" : "lg:order-first"}`}>
+          <div
+            ref={galleryScrollRef}
+            onScroll={handleGalleryScroll}
+            className="flex lg:grid flex-nowrap lg:grid-cols-2 gap-3.5 lg:gap-3 overflow-x-auto lg:overflow-visible snap-x snap-mandatory scrollbar-none touch-pan-x -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 pb-2 lg:pb-0"
+          >
+            {reels && reels.length > 1 ? (
+              /* ── Double-Reel Layout ── */
+              <>
+                {reels.map((reel, idx) => (
+                  <div
+                    key={idx}
+                    className={`${prefix}-img shrink-0 snap-center w-[82vw] sm:w-[70vw] max-w-[340px] h-[460px] sm:h-[480px] lg:w-full lg:max-w-none lg:h-[560px] relative rounded-2xl overflow-hidden bg-bg-surface border border-border-main/30 shadow-inner scrollbar-none`}
+                  >
+                    <div className="absolute inset-0 w-full h-full overflow-hidden">
+                      <InstagramEmbed reelUrl={reel} />
+                    </div>
+                  </div>
+                ))}
+              </>
+            ) : (
+              /* ── Original 3-Image Mosaic Layout ── */
+              <>
+                {/* 1st Card: Tall left image (Dynamic content, Reel or Image from the API) */}
                 <div
-                  key={idx}
-                  className={`${prefix}-img relative rounded-2xl overflow-hidden bg-bg-surface border border-border-main/30 shadow-inner w-full h-[520px] sm:h-[480px] lg:h-[560px] scrollbar-none`}
+                  className={`${prefix}-img shrink-0 snap-center w-[82vw] sm:w-[70vw] max-w-[340px] h-[460px] sm:h-[480px] lg:w-full lg:max-w-none lg:h-full lg:min-h-[560px] lg:row-span-2 relative rounded-2xl overflow-hidden bg-bg-surface border border-border-main/30 shadow-inner scrollbar-none`}
                 >
-                  <div className="absolute inset-0 w-full h-full overflow-hidden">
-                    <InstagramEmbed reelUrl={reel} />
+                  <div className="absolute inset-0 overflow-hidden w-full h-full">
+                    {loading ? (
+                      <div className="w-full h-full flex items-center justify-center bg-bg-surface">
+                        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-accent-blue" />
+                      </div>
+                    ) : mediaData?.type === "Instagram" && mediaData.embedUrl ? (
+                      <InstagramEmbed reelUrl={mediaData.url} />
+                    ) : mediaData?.type === "Reel" ? (
+                      <div className="relative w-full h-full">
+                        <video
+                          src={mediaData.url}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full h-full object-cover"
+                        />
+                        {(reelUrl || REEL_MAP[serviceName]) && (
+                          <a
+                            href={reelUrl || REEL_MAP[serviceName]}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="Watch on Instagram"
+                            className="absolute bottom-3 right-3 z-10 bg-gradient-to-r from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white text-[11px] font-semibold px-3 py-1.5 rounded-full shadow-lg hover:scale-105 transition-all duration-200 flex items-center gap-1.5 opacity-90 hover:opacity-100"
+                          >
+                            <svg
+                              className="w-3.5 h-3.5 fill-current text-white"
+                              viewBox="0 0 24 24"
+                            >
+                              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                            <span>Watch on Instagram</span>
+                          </a>
+                        )}
+                      </div>
+                    ) : (
+                      <img
+                        src={mediaData?.url || getImageUrl(images[0]?.src || "")}
+                        alt={images[0]?.alt || `${title} demonstration`}
+                        title={
+                          images[0]?.title ||
+                          images[0]?.alt ||
+                          `${title} demonstration`
+                        }
+                        className="w-full h-full object-cover transition-transform duration-750 hover:scale-[1.04]"
+                      />
+                    )}
                   </div>
                 </div>
-              ))}
-            </>
-          ) : (
-            /* ── Original 3-Image Mosaic Layout ── */
-            <>
-              {/* 1st Card: Tall left image (Dynamic content, Reel or Image from the API) */}
-              <div className={`${prefix}-img row-span-2 relative rounded-2xl overflow-hidden bg-bg-surface border border-border-main/30 shadow-inner w-full h-full min-h-[300px] sm:min-h-[460px] lg:min-h-[560px] scrollbar-none`}>
-                <div className="absolute inset-0 overflow-hidden w-full h-full">
-                  {loading ? (
-                    <div className="w-full h-full flex items-center justify-center bg-bg-surface">
-                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-accent-blue" />
+
+                {/* 2nd Card: Top-right wider image on desktop, swipe card on mobile */}
+                <div
+                  className={`${prefix}-img shrink-0 snap-center w-[82vw] sm:w-[70vw] max-w-[340px] h-[460px] sm:h-[480px] lg:w-full lg:max-w-none lg:h-auto lg:aspect-square relative rounded-2xl overflow-hidden group border border-border-main/20 shadow-md bg-bg-surface`}
+                >
+                  <img
+                    src={getImageUrl(images[1]?.src || "")}
+                    alt={images[1]?.alt || `${title} secondary view`}
+                    title={
+                      images[1]?.title ||
+                      images[1]?.alt ||
+                      `${title} secondary view`
+                    }
+                    style={images[1]?.objectPosition ? { objectPosition: images[1].objectPosition } : undefined}
+                    className={`absolute inset-0 w-full h-full object-cover transition-transform duration-750 group-hover:scale-[1.04] ${images[1]?.className || ""}`}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent pointer-events-none" />
+                  {(images[1]?.title || images[1]?.alt) && (
+                    <div className="absolute bottom-3 left-3 right-3 z-10 lg:hidden">
+                      <span className="inline-block max-w-full truncate bg-black/60 backdrop-blur-md text-white text-[11px] font-medium px-3 py-1.5 rounded-full border border-white/15">
+                        {images[1]?.title || images[1]?.alt}
+                      </span>
                     </div>
-                  ) : mediaData?.type === "Instagram" && mediaData.embedUrl ? (
-                    <InstagramEmbed reelUrl={mediaData.url} />
-                  ) : mediaData?.type === "Reel" ? (
-                    <div className="relative w-full h-full">
-                      <video
-                        src={mediaData.url}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full h-full object-cover"
-                      />
-                      {(reelUrl || REEL_MAP[serviceName]) && (
-                        <a
-                          href={reelUrl || REEL_MAP[serviceName]}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          title="Watch on Instagram"
-                          className="absolute bottom-3 right-3 z-10 bg-gradient-to-r from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white text-[11px] font-semibold px-3 py-1.5 rounded-full shadow-lg hover:scale-105 transition-all duration-200 flex items-center gap-1.5 opacity-90 hover:opacity-100"
-                        >
-                          <svg
-                            className="w-3.5 h-3.5 fill-current text-white"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                          </svg>
-                          <span>Watch on Instagram</span>
-                        </a>
-                      )}
-                    </div>
-                  ) : (
-                    <img
-                      src={mediaData?.url || getImageUrl(images[0]?.src || "")}
-                      alt={images[0]?.alt || `${title} demonstration`}
-                      title={
-                        images[0]?.title ||
-                        images[0]?.alt ||
-                        `${title} demonstration`
-                      }
-                      className="w-full h-full object-cover transition-transform duration-750 hover:scale-[1.04]"
-                    />
                   )}
                 </div>
-              </div>
 
-              {/* 2nd Card: Top-right wider image */}
-              <div
-                className={`${prefix}-img relative rounded-2xl overflow-hidden aspect-square group border border-border-main/20 shadow-md`}
-              >
-                <img
-                  src={getImageUrl(images[1]?.src || "")}
-                  alt={images[1]?.alt || `${title} secondary view`}
-                  title={
-                    images[1]?.title ||
-                    images[1]?.alt ||
-                    `${title} secondary view`
-                  }
-                  style={images[1]?.objectPosition ? { objectPosition: images[1].objectPosition } : undefined}
-                  className={`absolute inset-0 w-full h-full object-cover transition-transform duration-750 group-hover:scale-[1.04] ${images[1]?.className || ""}`}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
-              </div>
+                {/* 3rd Card: Bottom-right wider image on desktop, swipe card on mobile */}
+                <div
+                  className={`${prefix}-img shrink-0 snap-center w-[82vw] sm:w-[70vw] max-w-[340px] h-[460px] sm:h-[480px] lg:w-full lg:max-w-none lg:h-auto lg:aspect-square relative rounded-2xl overflow-hidden group border border-border-main/20 shadow-md bg-bg-surface`}
+                >
+                  <img
+                    src={getImageUrl(images[2]?.src || "")}
+                    alt={images[2]?.alt || `${title} tertiary view`}
+                    title={
+                      images[2]?.title ||
+                      images[2]?.alt ||
+                      `${title} tertiary view`
+                    }
+                    style={images[2]?.objectPosition ? { objectPosition: images[2].objectPosition } : undefined}
+                    className={`absolute inset-0 w-full h-full object-cover transition-transform duration-750 group-hover:scale-[1.04] ${images[2]?.className || ""}`}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent pointer-events-none" />
+                  {(images[2]?.title || images[2]?.alt) && (
+                    <div className="absolute bottom-3 left-3 right-3 z-10 lg:hidden">
+                      <span className="inline-block max-w-full truncate bg-black/60 backdrop-blur-md text-white text-[11px] font-medium px-3 py-1.5 rounded-full border border-white/15">
+                        {images[2]?.title || images[2]?.alt}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </>
+            )}
+          </div>
 
-              {/* 3rd Card: Bottom-right wider image */}
-              <div
-                className={`${prefix}-img relative rounded-2xl overflow-hidden aspect-square group border border-border-main/20 shadow-md`}
-              >
-                <img
-                  src={getImageUrl(images[2]?.src || "")}
-                  alt={images[2]?.alt || `${title} tertiary view`}
-                  title={
-                    images[2]?.title ||
-                    images[2]?.alt ||
-                    `${title} tertiary view`
+          {/* Mobile pagination indicator dots */}
+          <div className="flex lg:hidden justify-center items-center gap-1.5 pt-3" aria-hidden="true">
+            {Array.from({
+              length: reels && reels.length > 1 ? reels.length : (images.length || 3),
+            }).map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => {
+                  const el = galleryScrollRef.current;
+                  if (!el) return;
+                  const targetCard = el.children[i] as HTMLElement;
+                  if (targetCard) {
+                    targetCard.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
                   }
-                  style={images[2]?.objectPosition ? { objectPosition: images[2].objectPosition } : undefined}
-                  className={`absolute inset-0 w-full h-full object-cover transition-transform duration-750 group-hover:scale-[1.04] ${images[2]?.className || ""}`}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
-              </div>
-            </>
-          )}
+                }}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  activeGalleryIndex === i
+                    ? "w-6 bg-accent-blue"
+                    : "w-1.5 bg-border-main/60 dark:bg-white/20"
+                }`}
+                aria-label={`Go to card ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Content Column */}
