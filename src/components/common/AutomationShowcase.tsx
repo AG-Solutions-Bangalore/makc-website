@@ -77,6 +77,7 @@ export interface AutomationShowcaseSlide {
   image: string;
   imageAlt: string;
   imageTitle?: string;
+  imagePosition?: string;
   icon: ComponentType<{ className?: string; style?: React.CSSProperties }>;
 }
 
@@ -87,9 +88,10 @@ const DEFAULT_SLIDES: AutomationShowcaseSlide[] = [
     shortTitle: "Lighting",
     description:
       "Transform your spaces with adaptive lighting scenes tailored to your daily routines.",
-    image: getImageUrl("/service/ha1.1.webp"),
+    image: "/images/temp/lighting_image1.webp",
     imageAlt: "Industrial and Commercial Lighting Automation Solutions",
     imageTitle: "Lighting Services",
+    imagePosition: "50% 10%",
     icon: Lightbulb,
   },
   {
@@ -221,7 +223,10 @@ export default function AutomationShowcase({
               ? "opacity-100 scale-100"
               : "opacity-0 pointer-events-none"
           }`}
-          style={{ transitionProperty: "opacity, transform" }}
+          style={{
+            transitionProperty: "opacity, transform",
+            objectPosition: tab.imagePosition,
+          }}
         />
       ))}
 

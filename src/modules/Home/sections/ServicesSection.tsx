@@ -33,7 +33,8 @@ const services = [
     icon: Lightbulb,
     title: "Smart Lighting",
     description: "Create moods with intelligent lighting scenes.",
-    bgImage: getImageUrl("services/lighting.avif"),
+    bgImage: "/images/temp/lighting_image1.webp",
+    imgPosition: "50% 10%",
     link: "/lighting",
     linkTitle: "Smart Lighting Solutions",
     imgTitle: "Smart Lighting Installation Services",
@@ -240,6 +241,10 @@ export default function ServicesSection() {
                     alt={service.title}
                     title={service.imgTitle}
                     className="absolute inset-0 w-full h-full object-cover object-center brightness-[1.03] contrast-[1.04] transition-transform duration-700 ease-out group-hover:scale-105"
+                    style={{
+                      objectPosition:
+                        "imgPosition" in service ? service.imgPosition : undefined,
+                    }}
                     loading="lazy"
                     decoding="async"
                   />

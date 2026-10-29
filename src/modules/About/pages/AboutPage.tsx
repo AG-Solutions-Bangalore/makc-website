@@ -43,24 +43,28 @@ export default function AboutPage() {
       name: "Abhay Kumar",
       role: "Chief Executive Officer",
       img: getImageUrl("name_03-1-1.webp"),
+      imgPosition: "50% 50%",
       bio: "Visionary behind MAKc's design-led approach to smart living. 15+ years building premium automation experiences across India.",
     },
     {
       name: "Manan Abhay Kumar",
       role: "Chief Technical Officer",
-      img: getImageUrl("name_02-2.webp"),
+      img: "/images/temp/team-Manan-Abhay-Kumar.png",
+      imgPosition: "50% 5%",
       bio: "Architects the networks, integrations and on-site engineering that turn a smart-home design into a working reality.",
     },
     {
       name: "Charu Agarwal",
       role: "Director, Operations",
       img: getImageUrl("name_01-1.webp"),
+      imgPosition: "50% 50%",
       bio: "Keeps every project on schedule and every client happy. The reason 900+ families trust us with their homes.",
     },
     {
       name: "Bikash Pradhan",
       role: "Sales Director",
       img: "/images/temp/team-Bikash-Pradhan.jpeg",
+      imgPosition: "50% 0%",
       bio: "Guides clients from first consultation to handover with a practical, consultative approach to smart-home automation.",
     },
   ];
@@ -389,6 +393,7 @@ export default function AboutPage() {
                   <img
                     src={member.img}
                     alt={`${member.name} - ${member.role}`}
+                    style={{ objectPosition: member.imgPosition }}
                     className="w-full h-full object-cover filter contrast-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />

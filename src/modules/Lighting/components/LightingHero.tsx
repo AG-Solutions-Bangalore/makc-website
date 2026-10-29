@@ -77,7 +77,6 @@ export default function LightingHero() {
           <div className="space-y-1 pt-1 sm:space-y-4 sm:pt-2">
             {[
               "Personalized Mood Scenes & Automated Dimming",
-              "Circadian Lighting Adjustments for Natural Wellness",
               "Energy-Efficient Scheduling & Eco-Friendly settings",
             ].map((text, idx) => (
               <div
