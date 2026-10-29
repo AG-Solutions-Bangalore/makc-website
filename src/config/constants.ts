@@ -20,10 +20,10 @@ export const COMPANY_INFO = {
   // Phone numbers categorized by function
   phones: {
     primary: {
-      number: "+91-8197783287",
-      display: "+91 81977 83287",
-      digits: "+918197783287",
-      raw: "8197783287",
+      number: "+91-8951934440",
+      display: "+91 89519 34440",
+      digits: "+918951934440",
+      raw: "8951934440",
       label: "Direct Sales & Inquiries",
     },
     support: {
@@ -37,9 +37,9 @@ export const COMPANY_INFO = {
 
   // WhatsApp
   whatsapp: {
-    number: "+91 81977 83287",
-    digits: "918197783287",
-    url: "https://wa.me/918197783287?text=Hi%20MAKc%20Team,%20I'm%20interested%20in%20your%20services!",
+    number: "+91 89519 34440",
+    digits: "918951934440",
+    url: "https://wa.me/918951934440?text=Hi%20MAKc%20Team,%20I'm%20interested%20in%20your%20services!",
   },
 
   // Address

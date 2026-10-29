@@ -36,11 +36,11 @@ const ORGANIZATION_SCHEMA = {
     "caption": "MAKc Automations Logo"
   },
   "email": "info@makcautomations.com",
-  "telephone": "+91-8197783287",
+  "telephone": "+91-8951934440",
   "contactPoint": [
     {
       "@type": "ContactPoint",
-      "telephone": "+91-8197783287",
+      "telephone": "+91-8951934440",
       "contactType": "sales",
       "areaServed": "IN",
       "availableLanguage": ["English", "Hindi", "Kannada"]
@@ -354,7 +354,7 @@ const ROUTES = {
   },
   "/contact": {
     title: "Contact MAKc Automations | Smart Home Company in Bangalore",
-    description: "Contact MAKc Automations in Bangalore for smart home automation, luxury lighting, security systems, and high-speed networking solutions. Call +91-8197783287.",
+    description: "Contact MAKc Automations in Bangalore for smart home automation, luxury lighting, security systems, and high-speed networking solutions. Call +91-8951934440.",
     keywords: "contact makc automations, smart home consultation bangalore, home automation quote bangalore",
     canonicalUrl: `${SITE_URL}/contact`,
     ogImage: DEFAULT_OG_IMAGE,
@@ -486,7 +486,7 @@ const ROUTES = {
         "url": `${SITE_URL}/experience`,
         "parentOrganization": { "@id": `${SITE_URL}/#organization` },
         "image": `${SITE_URL}/icons/MAKc-Logo-white.webp`,
-        "telephone": "+91-8197783287",
+        "telephone": "+91-8951934440",
         "email": "info@makcautomations.com",
         "address": {
           "@type": "PostalAddress",
