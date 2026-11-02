@@ -4,7 +4,7 @@ export default function StatsSection() {
   const stats = [
     {
       icon: Home,
-      value: "800+",
+      value: "900+",
       label: "Luxury Homes Automated",
     },
     {
