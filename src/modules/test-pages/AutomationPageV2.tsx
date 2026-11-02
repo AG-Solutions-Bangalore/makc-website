@@ -271,7 +271,7 @@ export default function AutomationPageV2() {
               );
             }
 
-            // Stat card (800+ Projects)
+            // Stat card (900+ Projects)
             const bentoStat = bentoEl.querySelector(".bento-stat");
             if (bentoStat) {
               gsap.fromTo(
@@ -451,7 +451,7 @@ export default function AutomationPageV2() {
             <div className="hero-subtitle max-w-2xl">
               <p className="text-base sm:text-lg !text-white/95 text-white! font-normal sm:font-medium leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
                 Smart homes are not about gadgets — they are about how you live.
-                With almost a decade of experience and 700+ projects delivered
+                With almost a decade of experience and 900+ projects delivered
                 across homes and select commercial spaces, here is what you can
                 expect from us.
                 <img
@@ -620,7 +620,7 @@ export default function AutomationPageV2() {
                 </span>
                 <div>
                   <p className="text-text-main text-4xl sm:text-5xl font-bold leading-none">
-                    800
+                    900
                     <span className="text-2xl font-semibold text-text-muted">
                       +
                     </span>
@@ -759,5 +759,3 @@ export default function AutomationPageV2() {
     </div>
   );
 }
-
-

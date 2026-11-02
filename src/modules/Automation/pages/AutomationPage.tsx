@@ -205,10 +205,10 @@ export default function AutomationPage() {
               {/* Subtitle */}
               <div className="hero-subtitle max-w-xl xl:max-w-2xl">
                 <p className="text-base lg:text-lg !text-white/95 text-white/95 font-normal leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
-                  Smart homes are not about gadgets — they are about how you live.
-                  With almost a decade of experience and 800+ projects delivered
-                  across homes and select commercial spaces, here's what you can
-                  expect from us.
+                  Smart homes are not about gadgets — they are about how you
+                  live. With almost a decade of experience and 900+ projects
+                  delivered across homes and select commercial spaces, here's
+                  what you can expect from us.
                   <img
                     src={getImageUrl("star.webp")}
                     alt="Five-star rating icon representing premium home automation services"
@@ -225,10 +225,7 @@ export default function AutomationPage() {
                   "Professional Execution, Installation and Configuration",
                   "Seamless Delivery with Reliable After-Sales Support",
                 ].map((text, idx) => (
-                  <div
-                    key={idx}
-                    className="hero-check flex items-center gap-3"
-                  >
+                  <div key={idx} className="hero-check flex items-center gap-3">
                     <div className="flex items-center justify-center w-5.5 h-5.5 rounded-full bg-[#00A551] text-white shrink-0 shadow-md">
                       <svg
                         className="w-3 h-3 stroke-[3] text-white"
@@ -322,7 +319,8 @@ export default function AutomationPage() {
 
             {/* Subtitle / Narrative */}
             <p className="mt-2 text-xs sm:text-[13px] text-slate-600 dark:text-slate-400 font-normal leading-relaxed">
-              Smart homes are not about gadgets — they are about how you live. With almost a decade of experience and 800+ projects delivered.
+              Smart homes are not about gadgets — they are about how you live.
+              With almost a decade of experience and 900+ projects delivered.
             </p>
 
             {/* CTA Buttons */}
@@ -399,7 +397,10 @@ export default function AutomationPage() {
                     ))}
                   </div>
 
-                  <div className="animate-hero-marquee items-center gap-2 pr-2" aria-hidden="true">
+                  <div
+                    className="animate-hero-marquee items-center gap-2 pr-2"
+                    aria-hidden="true"
+                  >
                     {[
                       "Thoughtful Design & Planning",
                       "Professional Execution & Installation",
@@ -584,7 +585,7 @@ export default function AutomationPage() {
                 </span>
                 <div>
                   <p className="text-text-main text-4xl sm:text-5xl font-bold leading-none">
-                    800
+                    900
                     <span className="text-2xl font-semibold text-text-muted">
                       +
                     </span>
