@@ -9,8 +9,8 @@ function getReelEmbedUrl(reelUrl: string): string {
   return reelUrl.endsWith("/embed/")
     ? reelUrl
     : reelUrl.endsWith("/embed")
-    ? `${reelUrl}/`
-    : `${reelUrl.replace(/\/$/, "")}/embed/`;
+      ? `${reelUrl}/`
+      : `${reelUrl.replace(/\/$/, "")}/embed/`;
 }
 
 function InstagramGlyph({ className }: { className?: string }) {
@@ -94,7 +94,7 @@ export default function InstagramEmbed({
         />
         <InstagramGlyph className="pointer-events-none absolute -right-7 -bottom-10 h-32 w-32 fill-white/5" />
         <span className="relative text-[9px] font-semibold uppercase tracking-[0.22em] text-white/50">
-          MAKc Reel
+          MAKC
         </span>
         <span className="relative inline-flex items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] px-3.5 py-1.5 text-center text-[10px] sm:text-[11px] font-semibold whitespace-nowrap text-white shadow-[0_4px_16px_-2px_rgba(238,42,123,0.6)] transition-all duration-200 group-hover/cta:scale-105 active:scale-95">
           <InstagramGlyph className="h-3.5 w-3.5 shrink-0 fill-current" />

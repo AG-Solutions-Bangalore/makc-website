@@ -24,11 +24,7 @@ export default function LightingHero() {
           { y: 20, autoAlpha: 0, stagger: 0.12, duration: 0.6 },
           "-=0.5",
         )
-        .from(
-          ".hero-cta",
-          { y: 20, autoAlpha: 0, duration: 0.6 },
-          "-=0.4",
-        );
+        .from(".hero-cta", { y: 20, autoAlpha: 0, duration: 0.6 }, "-=0.4");
     },
     { scope: heroRef },
   );
@@ -55,7 +51,9 @@ export default function LightingHero() {
           <div className="max-w-2xl xl:max-w-3xl space-y-4 lg:space-y-5 my-auto">
             {/* Badge */}
             <div className="hero-badge inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 !text-white text-white text-xs tracking-widest uppercase font-bold shadow-md w-fit">
-              <span className="text-accent-blue font-extrabold text-sm leading-none">#1</span>
+              <span className="text-accent-blue font-extrabold text-sm leading-none">
+                #1
+              </span>
               <span>Choice for Smart Lighting</span>
             </div>
 
@@ -68,11 +66,11 @@ export default function LightingHero() {
             {/* Subtitle */}
             <div className="hero-subtitle max-w-xl xl:max-w-2xl">
               <p className="text-base lg:text-lg !text-white/95 text-white/95 font-normal leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
-                Lighting Automation isn't just about switching lights ON or OFF —
-                it's about creating the Right Ambience, Saving Energy, and making
-                Everyday Living Effortless. With professionally designed Smart
-                Lighting in Bangalore, MAKc Automation helps you control every
-                light in your space with ease.
+                Lighting Automation isn't just about switching lights ON or OFF
+                — it's about creating the Right Ambience, Saving Energy, and
+                making Everyday Living Effortless. With professionally designed
+                Smart Lighting in Bangalore, MAKc Automation helps you control
+                every light in your space with ease.
                 <img
                   src={getImageUrl("star.webp")}
                   alt="Five-star rating icon representing premium smart lighting solutions"
@@ -88,12 +86,8 @@ export default function LightingHero() {
               {[
                 "Personalized Mood Scenes & Automated Dimming",
                 "Energy-Efficient Scheduling & Daylight Harvesting",
-                "Circadian & Human-Centric Tunable White Lighting",
               ].map((text, idx) => (
-                <div
-                  key={idx}
-                  className="hero-check flex items-center gap-3"
-                >
+                <div key={idx} className="hero-check flex items-center gap-3">
                   <div className="flex items-center justify-center w-5.5 h-5.5 rounded-full bg-[#00A551] text-white shrink-0 shadow-md">
                     <svg
                       className="w-3 h-3 stroke-[3] text-white"
@@ -190,7 +184,8 @@ export default function LightingHero() {
 
           {/* Subtitle / Narrative */}
           <p className="mt-2 text-xs sm:text-[13px] text-slate-600 dark:text-slate-400 font-normal leading-relaxed">
-            Lighting Automation creates the Right Ambience, Saves Energy, and makes Everyday Living Effortless.
+            Lighting Automation creates the Right Ambience, Saves Energy, and
+            makes Everyday Living Effortless.
           </p>
 
           {/* CTA Buttons */}
@@ -270,7 +265,10 @@ export default function LightingHero() {
                   ))}
                 </div>
 
-                <div className="animate-hero-marquee items-center gap-2 pr-2" aria-hidden="true">
+                <div
+                  className="animate-hero-marquee items-center gap-2 pr-2"
+                  aria-hidden="true"
+                >
                   {[
                     "Mood Scenes & Automated Dimming",
                     "Energy Scheduling & Daylight Harvesting",

@@ -23,7 +23,7 @@ export default function AboutPage() {
 
   const stats = [
     { value: "1", label: "Experience Center", icon: Home },
-    { value: "700+", label: "Projects Delivered", icon: Star },
+    { value: "900+", label: "Projects Delivered", icon: Star },
     { value: "900+", label: "Happy Customers", icon: Users },
     { value: "28+", label: "Years of Expertise", icon: Cpu },
   ];

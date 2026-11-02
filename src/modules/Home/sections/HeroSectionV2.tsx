@@ -359,7 +359,7 @@ export default function HeroSectionV2() {
               }}
             >
               Smart homes are not about gadgets — they are about how you live.
-              With almost a decade of experience and 800+ projects delivered
+              With almost a decade of experience and 900+ projects delivered
               across homes and select commercial spaces, here's what you can
               expect from us.
             </p>
@@ -491,7 +491,7 @@ export default function HeroSectionV2() {
 
           {/* Subtitle / Narrative (Clean & Concise) */}
           <p className="mt-3 text-xs sm:text-[13px] text-slate-600 dark:text-slate-400 font-normal leading-relaxed max-w-sm">
-            Bespoke smart living for modern luxury homes. Over 800+ projects
+            Bespoke smart living for modern luxury homes. Over 900+ projects
             delivered with 8+ years of excellence.
           </p>
 
@@ -611,7 +611,10 @@ export default function HeroSectionV2() {
                   {activeHotspot?.videoFile ? (
                     isInstagram ? (
                       <div className="relative w-full h-full min-h-[500px] sm:min-h-[540px] bg-black flex flex-col items-center justify-center">
-                        <InstagramEmbed reelUrl={activeHotspot.videoFile} compact />
+                        <InstagramEmbed
+                          reelUrl={activeHotspot.videoFile}
+                          compact
+                        />
                       </div>
                     ) : (
                       <video
