@@ -1,4 +1,5 @@
 import { Phone, MessageSquare, MapPin, ArrowRight } from "lucide-react";
+import { COMPANY_INFO } from "@/config/constants";
 
 interface ContactStripProps {
   title?: string;
@@ -93,7 +94,7 @@ export default function ContactStrip({
           </a>
 
           <a
-            href="https://www.google.com/maps/search/?api=1&query=MAKc+Automation+and+Solutions+LLP+Brookefield+Bengaluru"
+            href={COMPANY_INFO.address.mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
             title="Visit Experience Centre"

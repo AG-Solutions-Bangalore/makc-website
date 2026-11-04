@@ -22,7 +22,7 @@ export default function ContactEnquirySection() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_25%,rgba(10,132,255,0.06)_0%,transparent_55%),radial-gradient(circle_at_85%_75%,rgba(56,189,248,0.04)_0%,transparent_55%)] pointer-events-none" />
 
         <div className="relative mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8 z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-10 xl:gap-12 items-center">
             {/* Left Column: Narrative, Quick Connect Options & Trust Badges */}
             <div className="lg:col-span-5 flex flex-col justify-between text-left py-2">
               <div>
@@ -103,9 +103,15 @@ export default function ContactEnquirySection() {
                   </a>
 
                   {/* Card 3: Experience Studio */}
-                  <div className="flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-bg-surface border border-border-main shadow-xs">
+                  <a
+                    href={COMPANY_INFO.address.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Open MAKc Experience Centre in Google Maps"
+                    className="group flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-bg-surface border border-border-main hover:border-amber-500/50 shadow-xs hover:shadow-md transition-all duration-300"
+                  >
                     <div className="flex items-center gap-3.5">
-                      <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-600 dark:text-amber-400 shrink-0">
+                      <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-600 dark:text-amber-400 shrink-0 group-hover:scale-105 transition-transform duration-300">
                         <MapPin className="w-4.5 h-4.5" />
                       </div>
                       <div className="flex flex-col">
@@ -117,10 +123,10 @@ export default function ContactEnquirySection() {
                         </span>
                       </div>
                     </div>
-                    <span className="text-[11px] font-medium text-text-muted">
+                    <span className="text-[11px] font-medium text-text-muted group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
                       Private Tours
                     </span>
-                  </div>
+                  </a>
                 </div>
               </div>
 
