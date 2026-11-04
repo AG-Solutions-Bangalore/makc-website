@@ -116,7 +116,7 @@ export default function ServicesSection() {
   return (
     <section
       id="solutions"
-      className="relative w-full py-8 bg-bg-surface border-t border-border-main/40 transition-colors duration-500 overflow-hidden"
+      className="relative w-full bg-bg-surface border-t border-border-main/40 transition-colors duration-500 overflow-hidden"
     >
       {/* Top statistics section */}
       <StatsSectionV2 />
@@ -243,7 +243,9 @@ export default function ServicesSection() {
                     className="absolute inset-0 w-full h-full object-cover object-center brightness-[1.03] contrast-[1.04] transition-transform duration-700 ease-out group-hover:scale-105"
                     style={{
                       objectPosition:
-                        "imgPosition" in service ? service.imgPosition : undefined,
+                        "imgPosition" in service
+                          ? service.imgPosition
+                          : undefined,
                     }}
                     loading="lazy"
                     decoding="async"

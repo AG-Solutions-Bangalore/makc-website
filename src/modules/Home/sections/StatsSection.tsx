@@ -25,9 +25,9 @@ export default function StatsSection() {
   ];
 
   return (
-    <div className="relative w-full z-20 bg-transparent border-none py-4 sm:py-6 lg:pb-12">
+    <div className="relative w-full z-20 bg-transparent border-none py-3 sm:py-6">
       <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-[auto_auto] justify-center gap-x-5 gap-y-5 sm:gap-x-10 sm:gap-y-6 xl:grid-cols-4 xl:justify-items-stretch xl:gap-4">
+        <div className="grid grid-cols-[auto_auto] justify-center gap-x-5 gap-y-3 sm:gap-x-10 sm:gap-y-6 xl:grid-cols-4 xl:justify-items-stretch xl:gap-4">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (

@@ -35,7 +35,7 @@ const GOOGLE_REVIEWS_URL = COMPANY_INFO.socials.googleReviews;
 
 export default function GoogleReviews() {
   return (
-    <section className="relative w-full py-12 sm:py-16 md:py-20 border-t border-border-main/40 overflow-hidden bg-bg-surface transition-colors duration-300">
+    <section className="relative w-full py-4 sm:py-16 md:py-20 border-t border-border-main/40 overflow-hidden bg-bg-surface transition-colors duration-300">
       {/* Subtle glow overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(10,132,255,0.05)_0%,transparent_60%)] pointer-events-none" />
 
@@ -54,12 +54,7 @@ export default function GoogleReviews() {
 
       {/* Full-width reviews marquee */}
       <div className="relative w-full">
-        <Marquee
-          speed={40}
-          gradient={false}
-          pauseOnHover
-          className="py-1"
-        >
+        <Marquee speed={40} gradient={false} pauseOnHover className="py-1">
           <div className="flex items-stretch gap-3 sm:gap-6 pr-3 sm:pr-6">
             {reviews.map((review) => (
               <div

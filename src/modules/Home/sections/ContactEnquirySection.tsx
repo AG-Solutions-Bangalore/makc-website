@@ -16,7 +16,7 @@ export default function ContactEnquirySection() {
     <QueryProvider>
       <section
         id="contact-enquiry"
-        className="relative w-full py-12 sm:py-16 lg:py-20 bg-bg-surface border-t border-border-main/40 transition-colors duration-500 overflow-hidden"
+        className="relative w-full py-2 sm:py-16 lg:py-20 bg-bg-surface border-t border-border-main/40 transition-colors duration-500 overflow-hidden"
       >
         {/* Subtle Luxury Ambient Radial Glows */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_25%,rgba(10,132,255,0.06)_0%,transparent_55%),radial-gradient(circle_at_85%_75%,rgba(56,189,248,0.04)_0%,transparent_55%)] pointer-events-none" />
