@@ -206,7 +206,7 @@ export default function AboutPage() {
         <ServicesOverviewSection />
 
         {/* WHY CHOOSE US & STATISTICS SECTION */}
-        <section className="bg-bg-surface/30 border-y border-border-main/50 py-10 sm:py-16 lg:py-20 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
+        <section className="bg-bg-surface/30 border-y border-border-main/50 py-4 mb-0! -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center">
             <div
               className="lg:col-span-7 space-y-6 reveal-on-scroll reveal-left"
@@ -266,7 +266,7 @@ export default function AboutPage() {
         </section>
 
         {/* MISSION & VISION */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <section className="grid grid-cols-1 py-4 md:grid-cols-2 gap-6 lg:gap-8">
           {/* Vision Panel */}
           <div
             className="bg-bg-surface border border-border-main p-8 sm:p-10 rounded-3xl flex flex-col justify-between transition-all hover:border-accent-blue/15 shadow-md reveal-on-scroll reveal-left"
@@ -317,11 +317,11 @@ export default function AboutPage() {
         </section>
 
         {/* CLIENTS TICKER MARQUEE */}
-        <section
-          className="border-t border-border-main/50 pt-20 reveal-on-scroll reveal-up"
+        <div
+          className="border-t border-border-main/50 pt-4 reveal-on-scroll mb-0! reveal-up"
           data-reveal-duration="0.8s"
         >
-          <div className="text-center max-w-2xl mx-auto mb-12">
+          <div className="text-center max-w-2xl mx-auto mb-4">
             <span className="text-accent-blue text-xs font-bold uppercase tracking-widest block mb-3">
               Enterprise Trust
             </span>
@@ -361,10 +361,10 @@ export default function AboutPage() {
             <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-bg-main to-transparent pointer-events-none z-10" />
             <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-bg-main to-transparent pointer-events-none z-10" />
           </div>
-        </section>
+        </div>
 
         {/* TEAM MEMBERS PROFILE SECTION */}
-        <section className="border-t border-border-main/50 pt-20">
+        <section className="border-t border-border-main/50 py-4">
           <div
             className="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll reveal-up"
             data-reveal-duration="0.8s"

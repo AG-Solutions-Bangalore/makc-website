@@ -102,6 +102,51 @@ const hotspotsList: HotspotType[] = [
 
 const reelTabsList = hotspotsList.filter((h) => h.id !== "networking");
 
+const mobileHotspotsList = [
+  {
+    id: "curtains",
+    label: "Curtain Automation",
+    anchor: { x: 50, y: 31 },
+    labelPos: { x: 74, y: 27 },
+    icon: Blinds,
+  },
+  {
+    id: "lighting",
+    label: "Lighting Automation",
+    anchor: { x: 54, y: 41 },
+    labelPos: { x: 75, y: 38 },
+    icon: Lightbulb,
+  },
+  {
+    id: "switches",
+    label: "Smart Switches",
+    anchor: { x: 67, y: 52 },
+    labelPos: { x: 77, y: 49 },
+    icon: ToggleLeft,
+  },
+  {
+    id: "door",
+    label: "Door Automation",
+    anchor: { x: 58, y: 64 },
+    labelPos: { x: 30, y: 62 },
+    icon: Sliders,
+  },
+  {
+    id: "security",
+    label: "Security",
+    anchor: { x: 69, y: 72 },
+    labelPos: { x: 34, y: 75 },
+    icon: ShieldCheck,
+  },
+  {
+    id: "gate",
+    label: "Gate Automation",
+    anchor: { x: 73, y: 83 },
+    labelPos: { x: 76, y: 83 },
+    icon: ShieldAlert,
+  },
+];
+
 export default function HeroSectionV2() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { isMobile, isTablet, isDesktop } = useResponsive();
@@ -477,6 +522,96 @@ export default function HeroSectionV2() {
 
           {/* Bottom gradient fade into page background */}
           <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-bg-main via-bg-main/70 to-transparent pointer-events-none z-10" />
+
+          {/* Mobile Straight Connector Lines (SVG) directly over Villa image */}
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none z-20"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+          >
+            {mobileHotspotsList.map((hotspot) => {
+              const isHovered = hoveredId === hotspot.id;
+              const isActive = activeId === hotspot.id;
+              const highlighted = isHovered || isActive;
+
+              return (
+                <line
+                  key={`m-line-${hotspot.id}`}
+                  x1={hotspot.anchor.x}
+                  y1={hotspot.anchor.y}
+                  x2={hotspot.labelPos.x}
+                  y2={hotspot.labelPos.y}
+                  stroke={highlighted ? "#38bdf8" : "rgba(255, 255, 255, 0.65)"}
+                  strokeWidth={highlighted ? "0.6" : "0.35"}
+                  strokeDasharray={highlighted ? "none" : "1 0.8"}
+                  className="transition-all duration-300"
+                />
+              );
+            })}
+          </svg>
+
+          {/* Mobile Interactive Hotspots & Labels pinned directly on Villa Image in straight line */}
+          <div className="absolute inset-0 w-full h-full z-30 pointer-events-none">
+            {mobileHotspotsList.map((hotspot) => {
+              const isActive = activeId === hotspot.id;
+              const isHovered = hoveredId === hotspot.id;
+              const highlighted = isHovered || isActive;
+              const Icon = hotspot.icon;
+
+              return (
+                <div key={`m-hotspot-${hotspot.id}`}>
+                  {/* Anchor Point (Dot on the actual villa fixture) */}
+                  <button
+                    type="button"
+                    onClick={() => handleHotspotClick(hotspot.id)}
+                    style={{
+                      position: "absolute",
+                      left: `${hotspot.anchor.x}%`,
+                      top: `${hotspot.anchor.y}%`,
+                      transform: "translate(-50%, -50%)",
+                    }}
+                    className="pointer-events-auto cursor-pointer focus:outline-none"
+                    aria-label={`Hotspot for ${hotspot.label}`}
+                  >
+                    <span className="relative flex h-3 w-3 items-center justify-center">
+                      <span
+                        className={`absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping ${
+                          highlighted ? "bg-[#0070e0]" : "bg-amber-400"
+                        }`}
+                      />
+                      <span
+                        className={`relative inline-flex rounded-full h-1.5 w-1.5 border border-white shadow-xs ${
+                          highlighted ? "bg-[#0070e0]" : "bg-amber-300"
+                        }`}
+                      />
+                    </span>
+                  </button>
+
+                  {/* Straight-line Connected Label Chip */}
+                  <button
+                    type="button"
+                    onClick={() => handleHotspotClick(hotspot.id)}
+                    style={{
+                      position: "absolute",
+                      left: `${hotspot.labelPos.x}%`,
+                      top: `${hotspot.labelPos.y}%`,
+                      transform: "translate(-50%, -50%)",
+                    }}
+                    className={`pointer-events-auto shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-bold tracking-tight shadow-lg transition-all cursor-pointer backdrop-blur-md border ${
+                      highlighted
+                        ? "bg-[#0070e0] text-white border-white/40 shadow-blue-500/40 scale-105 z-40"
+                        : "bg-black/75 text-white/95 border-white/25 hover:bg-black/90"
+                    }`}
+                    aria-label={`Watch ${hotspot.label} Reel`}
+                  >
+                    <Icon className="w-2.5 h-2.5 shrink-0 text-sky-300" />
+                    <span className="whitespace-nowrap">{hotspot.label}</span>
+                    <Play className="w-1.5 h-1.5 fill-current ml-0.5 opacity-90" />
+                  </button>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         {/* Bottom Content Area — Concise, Airy & Mobile-Optimized */}
@@ -512,53 +647,6 @@ export default function HeroSectionV2() {
             <span>Free Consultation</span>
             <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
           </a>
-
-          {/* Solution Reel Tabs (Single-Row Horizontal Scroll) */}
-          <div className="mt-6 pt-4 border-t border-slate-200/60 dark:border-white/10 w-full">
-            <div className="flex items-center justify-between gap-2 mb-2">
-              <span className="text-[10px] font-sans font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                Solutions in Action
-              </span>
-              <span className="text-[9.5px] font-sans font-medium text-[#0070e0] dark:text-[#38bdf8]">
-                Tap to watch reel
-              </span>
-            </div>
-
-            <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none py-1 -mx-5 px-5">
-              {reelTabsList.map((pointer) => {
-                const isActive = activeId === pointer.id;
-                const Icon = pointer.icon;
-
-                return (
-                  <button
-                    key={pointer.id}
-                    type="button"
-                    onClick={() => handleHotspotClick(pointer.id)}
-                    className={`shrink-0 inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold tracking-tight transition-all cursor-pointer ${
-                      isActive
-                        ? "bg-[#0070e0] text-white shadow-xs"
-                        : "bg-white/80 dark:bg-white/5 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-white/10"
-                    }`}
-                    aria-label={`Watch ${pointer.label} Showcase Reel`}
-                  >
-                    <Icon
-                      className={`w-3 h-3 shrink-0 ${
-                        isActive
-                          ? "text-white"
-                          : "text-[#0070e0] dark:text-[#38bdf8]"
-                      }`}
-                    />
-                    <span className="whitespace-nowrap">{pointer.label}</span>
-                    {isActive ? (
-                      <X className="w-2.5 h-2.5 text-white ml-0.5" />
-                    ) : (
-                      <Play className="w-2 h-2 fill-current ml-0.5 opacity-70" />
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
         </div>
       </div>
 

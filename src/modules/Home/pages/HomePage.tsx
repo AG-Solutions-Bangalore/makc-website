@@ -81,9 +81,9 @@ export default function HomeV2Page() {
         <ServicesSection />
       </LazyOnView>
 
-      <LazyOnView minHeight={520}>
+      <Suspense fallback={<div className="min-h-[520px]" aria-hidden="true" />}>
         <SolutionsGallery />
-      </LazyOnView>
+      </Suspense>
 
       <LazyOnView minHeight={520}>
         <GoogleReviews />

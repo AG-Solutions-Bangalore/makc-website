@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { getImageUrl } from "@/utils/image";
 import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 interface StoryScene {
   id: string;
@@ -30,53 +30,53 @@ interface StoryScene {
 
 const STORY_SCENES: StoryScene[] = [
   {
-    id: "living-suite",
+    id: "smart-touch-panels",
     tag: "01",
-    category: "Living Automation",
-    title: "Smart Living Suite",
-    storyTitle: "A day in our Smart Villa.",
+    category: "Smart Touch Panels",
+    title: "Bespoke Glass Keypads & Consoles",
+    storyTitle: "Tactile Luxury at Your Fingertips.",
     description:
-      "Where technology quietly anticipates every desire. Morning blinds raise to gentle sunlight, bespoke acoustic scenes accompany your espresso, and custom cove lighting sets the evening mood with a single whisper.",
+      "Crafted with precision-milled glass and capacitive touch, our bespoke smart keyplates blend seamlessly into modern interiors. Control whole-home mood scenes, motorized curtains, and individual circuits with backlit icons and haptic finesse.",
     mainPhoto: {
-      src: getImageUrl("service_automation.webp"),
-      alt: "Luxury Smart Living Room",
-      caption: "Living room at sunset",
-      annotation: "One-touch sunset mood",
+      src: "/images/temp/gallery_touch_keyplate.webp",
+      alt: "MAK Luxury Matte Black Smart Touch Keyplate with Warm Sconce Lighting",
+      caption: "Architectural glass keyplate with custom engraved icon backlighting",
+      annotation: "Master scene & curtain touch keyplate",
     },
     leftCard: {
-      src: getImageUrl("Rectangle 54367.webp"),
-      alt: "Modern Smart Villa Exterior",
-      annotation: "Villa facade at 6:00 PM",
+      src: "/images/temp/gallery_touch_bedside.webp",
+      alt: "MAK Bedside Tabletop Smart Touch Console with Integrated Universal Socket",
+      annotation: "Bedside mood console & power hub",
     },
     rightCard: {
-      src: getImageUrl("curtain_automation.webp"),
-      alt: "Automated Motorized Blinds",
-      annotation: "Automated sheer curtains",
+      src: "/images/temp/gallery_touch_curtain.webp",
+      alt: "Wall-Mounted Smart Curtain and Lighting Touch Keypad with Emerald Backlighting",
+      annotation: "Motorized drapery & lighting control",
     },
   },
   {
-    id: "touch-plates",
+    id: "luxury-villa",
     tag: "02",
-    category: "Control Plates",
-    title: "Sculptural Keyplates",
-    storyTitle: "Touch, Glass & Precision.",
+    category: "Architecture & Ambiance",
+    title: "Contemporary Villa Architecture",
+    storyTitle: "Light, Form & Smart Architecture.",
     description:
-      "Ditch visual clutter for sculptural minimalism. Custom CNC-milled aluminum, tempered matte glass, and tactile haptic switches turn everyday wall interactions into tactile art.",
+      "A seamless symphony of architectural grandeur and responsive intelligence. Warm driveway pathway bollards illuminate your arrival, while soft perimeter cove lights and smart curtain automation create effortless indoor-outdoor harmony across every floor.",
     mainPhoto: {
-      src: getImageUrl("Rectangle 54364.webp"),
-      alt: "Matte Black Smart Touch Plate",
-      caption: "Matte black glass touch surface",
-      annotation: "Velvet-matte touch glass",
+      src: "/images/temp/gallery_villa_exterior.webp",
+      alt: "Contemporary Smart Luxury Villa Exterior at Dusk",
+      caption: "Bespoke architectural facade with smart landscape & accent lighting",
+      annotation: "Automated dusk pathway lighting",
     },
     leftCard: {
-      src: getImageUrl("Rectangle 54360.webp"),
-      alt: "Smart Touch Switch Plates",
-      annotation: "Backlit laser engravings",
+      src: "/images/temp/gallery_living_lounge.webp",
+      alt: "Smart Living Lounge with Ambient Warm Cove Lighting",
+      annotation: "Circadian living lounge scene",
     },
     rightCard: {
-      src: getImageUrl("service_lighting.webp"),
-      alt: "Mood Lighting Control",
-      annotation: "Multi-scene lighting dim",
+      src: "/images/temp/gallery_bedroom_sanctuary.webp",
+      alt: "Luxury Master Bedroom with Integrated Ceiling Cove Lighting",
+      annotation: "Warm cove sleep ambiance",
     },
   },
   {
@@ -88,45 +88,45 @@ const STORY_SCENES: StoryScene[] = [
     description:
       "Engineered for restorative calm. Say 'Goodnight' to extinguish every light in the villa, arm perimeter access points, and let circadian-calibrated indirect lighting ease you into restful slumber.",
     mainPhoto: {
-      src: getImageUrl("Rectangle 54368.webp"),
+      src: getImageUrl("DTL2.webp"),
       alt: "Luxury Bedroom Lighting",
       caption: "Indirect cove lighting headboard",
       annotation: "Circadian sleep dimmed to 10%",
     },
     leftCard: {
-      src: getImageUrl("smart_dimming_lighting.webp"),
+      src: getImageUrl("services/details/scene-lighting-2.webp"),
       alt: "Warm Dimming Lighting",
       annotation: "Warm 2400K cove light",
     },
     rightCard: {
-      src: getImageUrl("smart_rgb_lighting.webp"),
-      alt: "RGB Cove Accent",
+      src: getImageUrl("Mood Lighting.webp"),
+      alt: "Amber Evening Lighting",
       annotation: "Amber evening spectrum",
     },
   },
   {
     id: "digital-security",
     tag: "04",
-    category: "Smart Access",
+    category: "Smart Access & Security",
     title: "Fortress-Grade Security",
     storyTitle: "Fortress-Grade Peace.",
     description:
-      "Invisible protection designed seamlessly around your family. 0.2s biometric recognition, encrypted remote access, and AI video intercoms ensure your home is always guarded and welcoming.",
+      "Invisible protection designed seamlessly around your family. High-definition AI perimeter surveillance, precision intrusion motion detectors, and instant flood safety sensors safeguard your villa 24/7 with zero compromises.",
     mainPhoto: {
-      src: getImageUrl("doorautomation1.webp"),
-      alt: "Smart Biometric Door Lock",
-      caption: "3D fingerprint & keyless deadbolt",
-      annotation: "0.2s 3D biometric thumb scan",
+      src: "/images/temp/gallery_security_cctv.webp",
+      alt: "Hikvision Outdoor Weatherproof Smart CCTV Security Camera",
+      caption: "High-definition AI outdoor camera protecting villa entryways",
+      annotation: "AI perimeter CCTV surveillance",
     },
     leftCard: {
-      src: getImageUrl("service_security.webp"),
-      alt: "AI Surveillance",
-      annotation: "Perimeter AI radar sensor",
+      src: "/images/temp/gallery_security_motion.webp",
+      alt: "Ajax Wireless Pet-Immune Motion Detector Mounted on Fluted Acoustic Wall",
+      annotation: "Ajax intrusion motion sensor",
     },
     rightCard: {
-      src: getImageUrl("contact_villa_night.webp"),
-      alt: "Villa at Night",
-      annotation: "Perimeter intrusion lighting",
+      src: "/images/temp/gallery_security_leak.webp",
+      alt: "Ajax Wireless Flood and Water Leak Detector under Shelf",
+      annotation: "Early water leak prevention",
     },
   },
 ];
@@ -256,7 +256,7 @@ export default function SolutionsGallery() {
 
   return (
     <section
-      className="relative w-full py-8 sm:py-12 lg:py-14 bg-[#faf8f5] dark:bg-[#070e18] border-y border-slate-200/80 dark:border-white/10 transition-colors duration-500 overflow-hidden no-reveal select-none"
+      className="relative w-full py-3 sm:py-12 lg:py-14 bg-[#faf8f5] dark:bg-[#070e18] border-y border-slate-200/80 dark:border-white/10 transition-colors duration-500 overflow-hidden no-reveal select-none"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={handleTouchStart}
@@ -267,11 +267,11 @@ export default function SolutionsGallery() {
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         {/* Top Header Tag */}
-        <div className="flex flex-col items-center text-center mb-6 sm:mb-8">
+        <div className="flex flex-col items-center text-center mb-3 sm:mb-8">
           <h2 className="text-2xl font-handwriting sm:text-3xl md:text-4xl font-bold text-text-main tracking-tight">
             A Day in a MAKc Home
           </h2>
-          <p className="mt-1.5 text-xs sm:text-sm text-text-muted max-w-lg">
+          <p className="mt-1.5 text-xs md:text-nowrap sm:text-sm text-text-muted max-w-lg">
             Scattered glimpses of bespoke architectural spaces, intuitive touch
             surfaces, and calm automated living.
           </p>
@@ -279,52 +279,13 @@ export default function SolutionsGallery() {
 
         {/* Mobile / Tablet Editorial Layout (desktop layout is untouched below) */}
         <div className="lg:hidden">
-          {/* Photo Collage */}
+          {/* Compact Photo Collage */}
           <div className="relative mx-auto w-full max-w-[430px] sm:max-w-[520px]">
-            {/* Focal Scene Card */}
-            <div className="relative mx-auto w-[84%] max-w-[320px] sm:max-w-[380px]">
-              <div className="p-1.5 bg-white dark:bg-slate-800 rounded-2xl shadow-[0_16px_40px_rgba(0,0,0,0.18)] dark:shadow-[0_18px_46px_rgba(0,0,0,0.6)] border border-slate-200/90 dark:border-white/25">
-                <div className="relative aspect-[9/10] sm:aspect-[4/5] rounded-xl overflow-hidden bg-slate-900">
-                  <img
-                    key={`mobile-main-${activeScene.id}`}
-                    src={activeScene.mainPhoto.src}
-                    alt={activeScene.mainPhoto.alt}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 p-2.5 bg-gradient-to-t from-black/85 via-black/50 to-transparent pointer-events-none">
-                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/20 shadow-md max-w-full">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#38bdf8] animate-pulse shrink-0" />
-                      <span className="text-white! !text-white text-[10px] font-sans font-semibold tracking-wide drop-shadow-sm truncate">
-                        {activeScene.mainPhoto.caption}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Annotation below focal card */}
-              <div className="mt-2 flex items-start gap-1 pointer-events-none">
-                <ArrowUpRight className="w-4 h-4 mt-0.5 text-slate-600 dark:text-slate-300 shrink-0" />
-                <span className="font-handwriting text-slate-800 dark:text-slate-200 text-xs sm:text-sm font-semibold leading-tight drop-shadow-sm">
-                  {activeScene.mainPhoto.annotation}
-                </span>
-              </div>
-            </div>
-
-            {/* Supporting Detail Cards */}
-            <div className="mt-8 sm:mt-10 flex items-start justify-between gap-3">
+            <div className="flex items-start justify-center gap-1.5 sm:gap-3">
               {/* Left Detail */}
-              <div className="relative w-[46%] max-w-[185px] sm:max-w-[220px] -rotate-3">
-                <div className="mb-2 pointer-events-none">
-                  <span className="font-handwriting text-slate-800 dark:text-slate-200 text-xs sm:text-sm font-semibold leading-tight whitespace-nowrap drop-shadow-sm">
-                    {activeScene.leftCard.annotation}
-                  </span>
-                  <ArrowDownRight className="inline-block w-4 h-4 ml-1 align-[-2px] text-slate-600 dark:text-slate-300" />
-                </div>
-
-                <div className="p-1.5 bg-white dark:bg-slate-800 rounded-xl shadow-[0_10px_26px_rgba(0,0,0,0.14)] dark:shadow-[0_12px_30px_rgba(0,0,0,0.55)] border border-slate-200/90 dark:border-white/20">
-                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-slate-900">
+              <div className="relative mt-8 w-[23%] max-w-[110px] -rotate-3 sm:mt-12 sm:max-w-[150px]">
+                <div className="p-1 bg-white dark:bg-slate-800 rounded-lg shadow-[0_8px_20px_rgba(0,0,0,0.14)] dark:shadow-[0_10px_24px_rgba(0,0,0,0.55)] border border-slate-200/90 dark:border-white/20">
+                  <div className="relative aspect-[3/4] rounded-md overflow-hidden bg-slate-900">
                     <img
                       key={`mobile-left-${activeScene.id}`}
                       src={activeScene.leftCard.src}
@@ -335,19 +296,47 @@ export default function SolutionsGallery() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
                   </div>
                 </div>
+                <div className="mt-1 flex items-start gap-0.5 pointer-events-none">
+                  <ArrowDownRight className="w-3 h-3 mt-0.5 text-slate-600 dark:text-slate-300 shrink-0" />
+                  <span className="font-handwriting text-slate-800 dark:text-slate-200 text-[8px] sm:text-[10px] font-semibold leading-tight">
+                    {activeScene.leftCard.annotation}
+                  </span>
+                </div>
+              </div>
+
+              {/* Focal Scene Card */}
+              <div className="relative w-[49%] max-w-[240px] sm:max-w-[260px]">
+                <div className="p-1 sm:p-1.5 bg-white dark:bg-slate-800 rounded-xl shadow-[0_12px_28px_rgba(0,0,0,0.18)] dark:shadow-[0_14px_34px_rgba(0,0,0,0.6)] border border-slate-200/90 dark:border-white/25">
+                  <div className="relative aspect-[4/5] rounded-lg overflow-hidden bg-slate-900">
+                    <img
+                      key={`mobile-main-${activeScene.id}`}
+                      src={activeScene.mainPhoto.src}
+                      alt={activeScene.mainPhoto.alt}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 p-1.5 bg-gradient-to-t from-black/85 via-black/50 to-transparent pointer-events-none">
+                      <div className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-black/75 backdrop-blur-md border border-white/20 shadow-md max-w-full">
+                        <span className="w-1 h-1 rounded-full bg-[#38bdf8] animate-pulse shrink-0" />
+                        <span className="text-white! !text-white text-[8px] sm:text-[10px] font-sans font-semibold tracking-wide drop-shadow-sm truncate">
+                          {activeScene.mainPhoto.caption}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-1 flex items-start gap-0.5 pointer-events-none">
+                  <ArrowUpRight className="w-3 h-3 mt-0.5 text-slate-600 dark:text-slate-300 shrink-0" />
+                  <span className="font-handwriting text-slate-800 dark:text-slate-200 text-[8px] sm:text-[10px] font-semibold leading-tight">
+                    {activeScene.mainPhoto.annotation}
+                  </span>
+                </div>
               </div>
 
               {/* Right Detail */}
-              <div className="relative mt-8 w-[46%] max-w-[185px] sm:max-w-[220px] rotate-3">
-                <div className="mb-2 text-right pointer-events-none">
-                  <span className="font-handwriting text-slate-800 dark:text-slate-200 text-xs sm:text-sm font-semibold leading-tight whitespace-nowrap drop-shadow-sm">
-                    {activeScene.rightCard.annotation}
-                  </span>
-                  <ArrowDownLeft className="inline-block w-4 h-4 ml-1 align-[-2px] text-slate-600 dark:text-slate-300" />
-                </div>
-
-                <div className="p-1.5 bg-white dark:bg-slate-800 rounded-xl shadow-[0_10px_26px_rgba(0,0,0,0.14)] dark:shadow-[0_12px_30px_rgba(0,0,0,0.55)] border border-slate-200/90 dark:border-white/20">
-                  <div className="relative aspect-[16/11] rounded-lg overflow-hidden bg-slate-900">
+              <div className="relative mt-3 w-[23%] max-w-[110px] rotate-3 sm:mt-6 sm:max-w-[150px]">
+                <div className="p-1 bg-white dark:bg-slate-800 rounded-lg shadow-[0_8px_20px_rgba(0,0,0,0.14)] dark:shadow-[0_10px_24px_rgba(0,0,0,0.55)] border border-slate-200/90 dark:border-white/20">
+                  <div className="relative aspect-[3/4] rounded-md overflow-hidden bg-slate-900">
                     <img
                       key={`mobile-right-${activeScene.id}`}
                       src={activeScene.rightCard.src}
@@ -358,46 +347,52 @@ export default function SolutionsGallery() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
                   </div>
                 </div>
+                <div className="mt-1 flex items-start gap-0.5 pointer-events-none">
+                  <ArrowDownLeft className="w-3 h-3 mt-0.5 text-slate-600 dark:text-slate-300 shrink-0" />
+                  <span className="font-handwriting text-slate-800 dark:text-slate-200 text-[8px] sm:text-[10px] font-semibold leading-tight">
+                    {activeScene.rightCard.annotation}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Narrative Copy */}
-          <div className="mt-10 sm:mt-12 mx-auto max-w-lg md:text-center">
-            <div className="flex items-center gap-2 mb-2 md:justify-center">
-              <span className="text-[11px] font-mono font-bold tracking-[0.2em] text-accent-blue uppercase">
+          <div className="mt-3 sm:mt-12 mx-auto max-w-lg md:text-center">
+            <div className="flex items-center gap-2 mb-1 sm:mb-2 md:justify-center">
+              <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.2em] text-accent-blue uppercase">
                 {activeScene.category}
               </span>
               <span className="text-slate-300 dark:text-slate-700">•</span>
-              <span className="text-[11px] font-mono text-text-muted">
+              <span className="text-[10px] sm:text-[11px] font-mono text-text-muted">
                 {activeScene.tag} / 04
               </span>
             </div>
 
-            <h3 className="font-serif text-[26px] sm:text-3xl font-normal tracking-tight text-text-main leading-[1.15]">
+            <h3 className="font-serif text-[22px] sm:text-3xl font-normal tracking-tight text-text-main leading-[1.15]">
               {activeScene.storyTitle}
             </h3>
 
-            <p className="mt-2.5 text-[13px] sm:text-sm md:mx-auto md:max-w-xl text-text-muted leading-relaxed font-sans">
+            <p className="mt-1.5 sm:mt-2.5 text-[11px] sm:text-sm md:mx-auto md:max-w-xl text-text-muted leading-snug sm:leading-relaxed font-sans">
               {activeScene.description}
             </p>
 
-            <div className="mt-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 md:justify-center">
+            <div className="mt-3 sm:mt-5 flex flex-row items-stretch gap-2 sm:gap-3 md:justify-center">
               <Link
                 to="/experience"
                 title="Explore MAKc Smart Living Experience"
-                className="group inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-accent-blue hover:bg-[#0070e0] text-white! !text-white font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-[0_4px_18px_rgba(10,132,255,0.4)] active:translate-y-0 cursor-pointer whitespace-nowrap text-center sm:w-auto"
+                className="group flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2.5 sm:py-3 rounded-full bg-accent-blue hover:bg-[#0070e0] text-white! !text-white font-bold text-[10px] sm:text-xs uppercase tracking-wider transition-all duration-300 shadow-[0_4px_18px_rgba(10,132,255,0.4)] active:translate-y-0 cursor-pointer whitespace-nowrap text-center"
               >
                 <span className="text-white! !text-white font-bold">
                   Experience Living
                 </span>
-                <ArrowRight className="w-3.5 h-3.5 text-white! !text-white transition-transform duration-300 group-hover:translate-x-1 shrink-0" />
+                <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white! !text-white transition-transform duration-300 group-hover:translate-x-1 shrink-0" />
               </Link>
 
               <Link
                 to="/automation"
                 title="Explore Automation Services"
-                className="inline-flex items-center justify-center px-4 py-3 rounded-full border border-border-main bg-bg-surface/50 hover:bg-bg-surface text-text-main hover:text-accent-blue hover:border-accent-blue/40 text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap text-center sm:w-auto"
+                className="flex-1 sm:flex-none inline-flex items-center justify-center px-3 sm:px-4 py-2.5 sm:py-3 rounded-full border border-border-main bg-bg-surface/50 hover:bg-bg-surface text-text-main hover:text-accent-blue hover:border-accent-blue/40 text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap text-center"
               >
                 View Services
               </Link>
@@ -541,7 +536,7 @@ export default function SolutionsGallery() {
         {/* Interactive Bottom Filmstrip Dock (Tightened Spacing & Crisp Typography) */}
         <div className="mt-6 sm:mt-8 flex flex-col items-center">
           {/* Active Thumbnail Title Tag */}
-          <div className="flex flex-col items-center text-center mb-2 transition-all duration-300">
+          <div className="hidden md:flex flex-col items-center text-center mb-2 transition-all duration-300">
             <span className="font-handwriting text-slate-800 dark:text-slate-100 text-base sm:text-lg font-bold tracking-wide">
               {activeScene.title}
             </span>
@@ -584,7 +579,7 @@ export default function SolutionsGallery() {
           </div>
 
           {/* Dot progress indicator */}
-          <div className="flex items-center gap-1.5 mt-2.5">
+          <div className="hidden md:flex items-center gap-1.5 mt-2.5">
             {STORY_SCENES.map((_, idx) => (
               <span
                 key={idx}

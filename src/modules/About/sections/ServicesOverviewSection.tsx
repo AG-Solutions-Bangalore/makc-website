@@ -49,7 +49,7 @@ const services = [
 
 export default function ServicesOverviewSection() {
   return (
-    <section className="reveal-on-scroll reveal-up" data-reveal-duration="0.8s">
+    <section className="reveal-on-scroll reveal-up py-6" data-reveal-duration="0.8s">
       <div className="text-center max-w-2xl mx-auto mb-14">
         <span className="text-accent-blue text-xs font-bold uppercase tracking-widest block mb-3">
           What We Do

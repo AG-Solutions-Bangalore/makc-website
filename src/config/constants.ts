@@ -52,6 +52,8 @@ export const COMPANY_INFO = {
     countryCode: "IN",
     cityState: "Bengaluru, Karnataka",
     full: "141/6, 4th Main, 12th Cross Rd, BEML Layout, Brookefield, Bengaluru, Karnataka 560066",
+    mapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=MAKc+Automation+and+Solutions+LLP+Brookefield+Bengaluru",
   },
 
   // Social Links

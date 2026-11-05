@@ -1,4 +1,5 @@
-import { Star, ExternalLink, Quote } from "lucide-react";
+import { useState } from "react";
+import { Star, ExternalLink, Quote, Pause, Play } from "lucide-react";
 import Marquee from "react-fast-marquee";
 import { COMPANY_INFO } from "@/config/constants";
 
@@ -34,8 +35,10 @@ const reviews: GoogleReview[] = [
 const GOOGLE_REVIEWS_URL = COMPANY_INFO.socials.googleReviews;
 
 export default function GoogleReviews() {
+  const [isPaused, setIsPaused] = useState(false);
+
   return (
-    <section className="relative w-full py-12 sm:py-16 md:py-20 border-t border-border-main/40 overflow-hidden bg-bg-surface transition-colors duration-300">
+    <section className="relative w-full py-4 sm:py-16 md:py-20 border-t border-border-main/40 overflow-hidden bg-bg-surface transition-colors duration-300">
       {/* Subtle glow overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(10,132,255,0.05)_0%,transparent_60%)] pointer-events-none" />
 
@@ -58,6 +61,7 @@ export default function GoogleReviews() {
           speed={40}
           gradient={false}
           pauseOnHover
+          play={!isPaused}
           className="py-1"
         >
           <div className="flex items-stretch gap-3 sm:gap-6 pr-3 sm:pr-6">
@@ -110,7 +114,20 @@ export default function GoogleReviews() {
       </div>
 
       {/* View More Reviews CTA */}
-      <div className="relative mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 z-10 text-center mt-5 sm:mt-7">
+      <div className="relative mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 z-10 mt-5 sm:mt-7 flex flex-col items-center gap-2.5 sm:gap-0">
+        <button
+          type="button"
+          onClick={() => setIsPaused((paused) => !paused)}
+          aria-pressed={isPaused}
+          className="sm:hidden inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-full border border-border-main bg-bg-surface text-[11px] font-semibold text-text-muted hover:text-text-main transition-colors"
+        >
+          {isPaused ? (
+            <Play className="h-3.5 w-3.5" aria-hidden="true" />
+          ) : (
+            <Pause className="h-3.5 w-3.5" aria-hidden="true" />
+          )}
+          {isPaused ? "Resume Reviews" : "Pause Reviews"}
+        </button>
         <a
           href={GOOGLE_REVIEWS_URL}
           target="_blank"

@@ -388,7 +388,7 @@ export default function AutomationShowcase({
   return (
     <section
       style={accentStyle}
-      className="w-full relative overflow-hidden bg-bg-main dark:bg-[#070a12] text-text-main py-12 sm:py-16 lg:py-20 border-b border-border-main dark:border-white/10 select-none transition-colors duration-300"
+      className="w-full relative overflow-hidden bg-bg-main dark:bg-[#070a12] text-text-main py-4 sm:py-16 lg:py-20 border-b border-border-main dark:border-white/10 select-none transition-colors duration-300"
     >
       {/* Ambient background glow */}
       <div className="absolute top-1/4 left-1/4 w-[480px] h-[480px] bg-[var(--accent-color)]/5 dark:bg-[var(--accent-color)]/8 blur-[140px] rounded-full pointer-events-none" />
@@ -462,9 +462,10 @@ export default function AutomationShowcase({
             </div>
           </div>
 
-          {/* ── RIGHT COLUMN: 4. A Card with Item Image and Blurred Bottom Overlay ── */}
-          <div className="lg:col-span-7 w-full">
-            <div className="relative w-full h-[460px] sm:h-[500px] lg:h-[520px] xl:h-[560px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-slate-900 dark:bg-black border border-slate-200/80 dark:border-white/10 group">
+          {/* ── RIGHT COLUMN: Right Container with 2 Children (1st Image, 2nd Card) ── */}
+          <div className="lg:col-span-7 w-full flex border rounded-2xl flex-col">
+            {/* 1st Child: Image Container */}
+            <div className="relative w-full h-[280px] sm:h-[340px]  rounded-tl-2xl rounded-tr-2xl overflow-hidden shadow-xl bg-slate-900 dark:bg-black border border-slate-200/80 dark:border-white/10 group">
               {/* Blurred backdrop fills the letterbox around the contained full image */}
               {slides.map((tab, idx) => (
                 <img
@@ -496,65 +497,64 @@ export default function AutomationShowcase({
 
               {/* Top ambient vignette */}
               <div className="absolute top-0 inset-x-0 h-28 bg-gradient-to-b from-black/50 via-black/20 to-transparent pointer-events-none z-10" />
+            </div>
 
-              {/* ── BOTTOM OVERLAY WITH BLUR BACKGROUND ── */}
-              {/* ("add bg with blur background to avoid text blend in imnage and texts") */}
-              <div className="absolute inset-x-3 bottom-3 sm:inset-x-5 sm:bottom-5 p-4 sm:p-5 lg:p-6 rounded-2xl sm:rounded-3xl bg-white/85 dark:bg-[#080d1a]/85 backdrop-blur-xl border border-white/60 dark:border-white/15 shadow-2xl text-left z-20 transition-all duration-500">
-                {/* Top Row: 02 ─── Title and Explore CTA + Category Icon */}
-                <div className="flex items-center justify-between gap-2 mb-2 sm:mb-2.5">
-                  <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
-                    <span className="text-2xl sm:text-3xl font-extrabold font-mono text-[var(--accent-color)] leading-none drop-shadow-sm shrink-0">
-                      {activeTab.id}
-                    </span>
-                    <span className="w-5 sm:w-8 h-[2px] bg-[var(--accent-color)]/70 rounded-full shrink-0" />
-                    <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700 dark:text-white/85 truncate">
-                      {activeTab.shortTitle}
-                    </span>
+            {/* 2nd Child: Detail Card (Separate from image container, not an overlay) */}
+            <div className="w-full p-4 sm:p-5 lg:p-6 rounded-bl-2xl rounded-br-2xl bg-white/90 dark:bg-[#080d1a]/90 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 shadow-xl text-left transition-all duration-500">
+              {/* Top Row: 02 ─── Title and Explore CTA + Category Icon */}
+              <div className="flex items-center justify-between gap-1">
+                <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                  <span className="text-2xl sm:text-3xl font-extrabold font-mono text-[var(--accent-color)] leading-none drop-shadow-sm shrink-0">
+                    {activeTab.id}
+                  </span>
+                  <span className="w-5 sm:w-8 h-[2px] bg-[var(--accent-color)]/70 rounded-full shrink-0" />
+                  <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700 dark:text-white/85 truncate">
+                    {activeTab.shortTitle}
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2 shrink-0">
+                  {activeTab.exploreHref && (
+                    <a
+                      href={activeTab.exploreHref}
+                      className="inline-flex items-center gap-1.5 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[var(--accent-color)] hover:opacity-95 text-white font-semibold text-[11px] sm:text-xs transition-all shadow-md shadow-[var(--accent-color)]/30 hover:scale-105 active:scale-95"
+                    >
+                      <span>Explore</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-slate-200/80 dark:border-white/20 bg-slate-100/90 dark:bg-white/10 backdrop-blur-md flex items-center justify-center text-slate-800 dark:text-white shrink-0 shadow-xs">
+                    <ActiveTabIcon className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[var(--accent-color)]" />
                   </div>
+                </div>
+              </div>
 
-                  <div className="flex items-center gap-2 shrink-0">
-                    {activeTab.exploreHref && (
-                      <a
-                        href={activeTab.exploreHref}
-                        className="inline-flex items-center gap-1.5 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[var(--accent-color)] hover:opacity-95 text-white font-semibold text-[11px] sm:text-xs transition-all shadow-md shadow-[var(--accent-color)]/30 hover:scale-105 active:scale-95"
-                      >
-                        <span>Explore</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </a>
-                    )}
-                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-slate-200/80 dark:border-white/20 bg-slate-100/90 dark:bg-white/10 backdrop-blur-md flex items-center justify-center text-slate-800 dark:text-white shrink-0 shadow-xs">
-                      <ActiveTabIcon className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[var(--accent-color)]" />
+              {/* Title */}
+              <h3 className="text-xl sm:text-2xl xl:text-3xl font-extrabold font-display text-slate-900 dark:text-white tracking-tight leading-tight mb-1.5 sm:mb-2 drop-shadow-sm">
+                {activeTab.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-white/90 leading-relaxed font-normal mb-3 sm:mb-4 max-w-xl drop-shadow-xs line-clamp-2 sm:line-clamp-none">
+                {activeTab.description}
+              </p>
+
+              {/* 3 in 1 Row: Feature Pills */}
+              <div className="grid grid-cols-3 gap-1.5 sm:gap-2 pt-2.5 sm:pt-3 border-t border-slate-200/80 dark:border-white/10 w-full">
+                {activeFeatures.slice(0, 3).map((feat, idx) => {
+                  const FeatIcon = feat.icon;
+                  return (
+                    <div
+                      key={idx}
+                      className="flex items-center justify-center gap-1 sm:gap-1.5 px-1.5 sm:px-2.5 py-1.5 sm:py-2 rounded-xl bg-slate-100/90 hover:bg-slate-200/90 dark:bg-white/10 dark:hover:bg-white/15 backdrop-blur-md border border-slate-200/80 dark:border-white/15 text-slate-800 dark:text-white text-[10px] min-[380px]:text-[11px] sm:text-xs font-medium transition-colors shadow-xs min-w-0"
+                    >
+                      <FeatIcon className="w-3.5 h-3.5 text-[var(--accent-color)] shrink-0" />
+                      <span className="truncate">
+                        {feat.shortTitle || feat.title}
+                      </span>
                     </div>
-                  </div>
-                </div>
-
-                {/* Title */}
-                <h3 className="text-xl sm:text-2xl xl:text-3xl font-extrabold font-display text-slate-900 dark:text-white tracking-tight leading-tight mb-1.5 sm:mb-2 drop-shadow-sm">
-                  {activeTab.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-white/90 leading-relaxed font-normal mb-3 sm:mb-4 max-w-xl drop-shadow-xs line-clamp-2 sm:line-clamp-none">
-                  {activeTab.description}
-                </p>
-
-                {/* 3 in 1 Row: Feature Pills */}
-                <div className="grid grid-cols-3 gap-1.5 sm:gap-2 pt-2.5 sm:pt-3 border-t border-slate-200/80 dark:border-white/10 w-full">
-                  {activeFeatures.slice(0, 3).map((feat, idx) => {
-                    const FeatIcon = feat.icon;
-                    return (
-                      <div
-                        key={idx}
-                        className="flex items-center justify-center gap-1 sm:gap-1.5 px-1.5 sm:px-2.5 py-1.5 sm:py-2 rounded-xl bg-slate-100/90 hover:bg-slate-200/90 dark:bg-white/10 dark:hover:bg-white/15 backdrop-blur-md border border-slate-200/80 dark:border-white/15 text-slate-800 dark:text-white text-[10px] min-[380px]:text-[11px] sm:text-xs font-medium transition-colors shadow-xs min-w-0"
-                      >
-                        <FeatIcon className="w-3.5 h-3.5 text-[var(--accent-color)] shrink-0" />
-                        <span className="truncate">
-                          {feat.shortTitle || feat.title}
-                        </span>
-                      </div>
-                    );
-                  })}
-                </div>
+                  );
+                })}
               </div>
             </div>
           </div>

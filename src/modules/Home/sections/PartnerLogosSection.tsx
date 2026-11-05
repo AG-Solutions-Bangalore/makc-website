@@ -88,7 +88,7 @@ export default function PartnerLogosSection() {
   };
 
   return (
-    <section className="relative w-full py-14 sm:py-18 lg:py-20 bg-bg-surface border-y border-border-main/40 overflow-hidden transition-colors duration-300">
+    <section className="relative w-full py-4 sm:py-18 lg:py-20 bg-bg-surface border-y border-border-main/40 overflow-hidden transition-colors duration-300">
       {/* Ambient glows */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(10,132,255,0.10)_0%,transparent_55%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(10,132,255,0.16)_0%,transparent_55%)]" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent-blue/40 to-transparent" />
