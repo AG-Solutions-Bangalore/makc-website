@@ -504,9 +504,9 @@ export default function AutomationPage() {
           </div> */}
 
           {/* Bento grid 3-col, left spans 2 rows */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* Left: tall reel card */}
-            <div className="lg:row-span-2 relative rounded-2xl overflow-hidden bg-black min-h-[520px] lg:min-h-0">
+            <div className="lg:row-span-2 relative rounded-2xl overflow-hidden bg-black min-h-[320px] sm:min-h-[420px] lg:min-h-0">
               <div className="absolute inset-0">
                 <InstagramEmbed
                   reelUrl="https://www.instagram.com/reel/Dbt7nF7yjHG/"
@@ -516,7 +516,7 @@ export default function AutomationPage() {
             </div>
 
             {/* Right top: Feature hub panel */}
-            <div className="lg:col-span-2 bg-bg-surface border border-border-main/40 rounded-2xl p-7">
+            <div className="lg:col-span-2 bg-bg-surface border border-border-main/40 rounded-2xl p-5 sm:p-7">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-base font-semibold text-text-main">
                   Feature Control Hub
@@ -558,19 +558,21 @@ export default function AutomationPage() {
                     key={feat.id}
                     className="animate-in fade-in duration-200"
                   >
-                    <div className="flex items-start gap-4 p-4 rounded-xl bg-bg-main border border-border-main/30">
-                      <div className="w-9 h-9 rounded-lg bg-accent-blue/10 flex items-center justify-center text-accent-blue shrink-0">
-                        <IconComponent className="w-4.5 h-4.5" />
-                      </div>
-                      <div>
+                  <div className="p-4 rounded-xl bg-bg-main border border-border-main/30">
+                    <div className="flex flex-wrap items-center gap-4">
+                      <div className="order-first sm:order-none">
                         <h4 className="text-sm font-semibold text-text-main mb-1">
                           {feat.title}
                         </h4>
-                        <p className="text-sm text-text-muted leading-relaxed">
-                          {feat.desc}
-                        </p>
+                      </div>
+                      <div className="w-9 h-9 rounded-lg bg-accent-blue/10 flex items-center justify-center text-accent-blue shrink-0 order-last sm:order-first">
+                        <IconComponent className="w-4.5 h-4.5" />
                       </div>
                     </div>
+                    <p className="text-sm text-text-muted leading-relaxed mt-2">
+                      {feat.desc}
+                    </p>
+                  </div>
                   </div>
                 );
               })}
@@ -579,7 +581,7 @@ export default function AutomationPage() {
             {/* Right bottom: two side-by-side info cells */}
             <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* Stat plain surface, no gradient hero-metric */}
-              <div className="bg-bg-surface border border-border-main/40 rounded-2xl p-6 flex flex-col justify-between">
+              <div className="bg-bg-surface border border-border-main/40 rounded-2xl p-5 sm:p-6 flex flex-col justify-between">
                 <span className="text-text-muted text-xs font-medium mb-4">
                   Experience
                 </span>
@@ -597,7 +599,7 @@ export default function AutomationPage() {
               </div>
 
               {/* CTA cell */}
-              <div className="bg-accent-blue rounded-2xl p-6 flex flex-col justify-between">
+              <div className="bg-accent-blue rounded-2xl p-5 sm:p-6 flex flex-col justify-between">
                 <span className="text-white/70 text-xs font-medium mb-4">
                   Ready to start?
                 </span>

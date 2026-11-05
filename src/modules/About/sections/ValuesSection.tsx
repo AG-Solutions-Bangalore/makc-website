@@ -30,7 +30,7 @@ const values = [
 export default function ValuesSection() {
   return (
     <section
-      className="bg-bg-surface/30 border-y border-border-main/50 py-20 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 reveal-on-scroll reveal-up"
+      className="bg-bg-surface/30 border-y border-border-main/50 py-4 mb-0! -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 reveal-on-scroll reveal-up"
       data-reveal-duration="0.8s"
     >
       <div className="text-center max-w-2xl mx-auto mb-14">
