@@ -69,20 +69,20 @@ const services = [
     category: "Automation",
     href: "/automation",
     items: [
-      { title: "Smart Switches", href: "/automation", icon: ToggleLeft },
-      { title: "Curtain Automation", href: "/automation", icon: Blinds },
-      { title: "Gate Automation", href: "/automation", icon: Lock },
-      { title: "Door Automation", href: "/automation", icon: DoorOpen },
-      { title: "Electrical Automation", href: "/automation", icon: Zap },
+      { title: "Smart Switches", href: "/automation#electrical-automation", icon: ToggleLeft },
+      { title: "Curtain Automation", href: "/automation#curtain-automation", icon: Blinds },
+      { title: "Gate Automation", href: "/automation#gate-automation", icon: Lock },
+      { title: "Door Automation", href: "/automation#door-automation", icon: DoorOpen },
+      { title: "Electrical Automation", href: "/automation#electrical-automation", icon: Zap },
     ],
   },
   {
     category: "Lighting",
     href: "/lighting",
     items: [
-      { title: "Scene-Based Lighting", href: "/lighting", icon: Sparkles },
-      { title: "Dimming & Tuning", href: "/lighting", icon: Sliders },
-      { title: "RGB Mood Lighting", href: "/lighting", icon: Palette },
+      { title: "Scene-Based Lighting", href: "/lighting#lighting-services", icon: Sparkles },
+      { title: "Dimming & Tuning", href: "/lighting#lighting-services", icon: Sliders },
+      { title: "RGB Mood Lighting", href: "/lighting#lighting-services", icon: Palette },
     ],
   },
   {
@@ -97,8 +97,8 @@ const services = [
     category: "Security",
     href: "/security",
     items: [
-      { title: "CCTV Monitoring", href: "/security", icon: Camera },
-      { title: "Sensor-Based Protection", href: "/security", icon: Radar },
+      { title: "CCTV Monitoring", href: "/security#security-services", icon: Camera },
+      { title: "Sensor-Based Protection", href: "/security#security-services", icon: Radar },
     ],
   },
   {
