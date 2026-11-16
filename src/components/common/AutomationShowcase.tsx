@@ -9,6 +9,7 @@ import {
   Shield,
   Lock,
 } from "lucide-react";
+import InstagramEmbed from "@/components/common/InstagramEmbed";
 import { getImageUrl } from "@/utils/image";
 
 // Custom Blinds / Curtain SVG icon to match design
@@ -80,8 +81,11 @@ export interface AutomationShowcaseFeature {
 }
 
 export interface AutomationShowcaseGalleryItem {
-  image: string;
+  image?: string;
   alt: string;
+  title?: string;
+  objectPosition?: string;
+  reelUrl?: string;
 }
 
 export interface AutomationShowcaseSlide {
@@ -355,18 +359,6 @@ export default function AutomationShowcase({
   const slidesSerialized = slides.map((slide) => slide.id).join(",");
 
   useEffect(() => {
-    setActiveIndex(initialIndex);
-    setCachedIndex(initialIndex);
-  }, [slidesSerialized, initialSlideId, initialIndex]);
-
-  useEffect(() => {
-    if (activeIndex >= slides.length) {
-      setActiveIndex(initialIndex);
-      setCachedIndex(initialIndex);
-    }
-  }, [activeIndex, initialIndex, slides.length]);
-
-  useEffect(() => {
     if (activeIndex !== cachedIndex) {
       const timer = setTimeout(() => {
         setCachedIndex(activeIndex);
@@ -387,6 +379,7 @@ export default function AutomationShowcase({
 
   return (
     <section
+      key={slidesSerialized}
       style={accentStyle}
       className="w-full relative overflow-hidden bg-bg-main dark:bg-[#070a12] text-text-main py-4 sm:py-16 lg:py-20 border-b border-border-main dark:border-white/10 select-none transition-colors duration-300"
     >
@@ -479,21 +472,38 @@ export default function AutomationShowcase({
                 />
               ))}
 
-              {/* Crossfading Hero Images */}
-              {slides.map((tab, idx) => (
-                <img
-                  key={tab.id}
-                  src={tab.image}
-                  alt={tab.imageAlt}
-                  title={tab.imageTitle || tab.imageAlt}
-                  className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-700 ease-in-out ${
-                    idx === cachedIndex
-                      ? "opacity-100 scale-100"
-                      : "opacity-0 scale-105 pointer-events-none"
-                  }`}
-                  style={{ objectPosition: tab.imagePosition }}
-                />
-              ))}
+              {/* Active slide gallery: Instagram reels & images crossfade per category selection */}
+              {slides.map((tab, idx) => {
+                const isActive = idx === cachedIndex;
+                const firstItem = tab.gallery?.[0];
+                return (
+                  <div
+                    key={tab.id}
+                    className={`absolute inset-0 w-full h-full flex items-center justify-center transition-opacity duration-700 ease-in-out ${
+                      isActive ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+                    }`}
+                  >
+                    {firstItem?.reelUrl ? (
+                      <InstagramEmbed
+                        reelUrl={firstItem.reelUrl}
+                        fit
+                        className="w-full h-full min-h-[280px] sm:min-h-[340px]"
+                      />
+                    ) : (
+                      <img
+                        src={firstItem?.image ?? tab.image}
+                        alt={firstItem?.alt ?? tab.imageAlt}
+                        title={firstItem?.title ?? tab.imageTitle ?? tab.imageAlt}
+                        className="w-full h-full object-cover object-center transition-transform duration-700 ease-in-out"
+                        style={{
+                          objectPosition:
+                            firstItem?.objectPosition ?? tab.imagePosition,
+                        }}
+                      />
+                    )}
+                  </div>
+                );
+              })}
 
               {/* Top ambient vignette */}
               <div className="absolute top-0 inset-x-0 h-28 bg-gradient-to-b from-black/50 via-black/20 to-transparent pointer-events-none z-10" />
@@ -535,7 +545,7 @@ export default function AutomationShowcase({
               </h3>
 
               {/* Description */}
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-white/90 leading-relaxed font-normal mb-3 sm:mb-4 max-w-xl drop-shadow-xs line-clamp-2 sm:line-clamp-none">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-white/90 leading-relaxed font-normal mb-3 sm:mb-4 max-w-xl drop-shadow-xs sm:line-clamp-none">
                 {activeTab.description}
               </p>
 
@@ -544,15 +554,16 @@ export default function AutomationShowcase({
                 {activeFeatures.slice(0, 3).map((feat, idx) => {
                   const FeatIcon = feat.icon;
                   return (
-                    <div
+                    <a
                       key={idx}
-                      className="flex items-center justify-center gap-1 sm:gap-1.5 px-1.5 sm:px-2.5 py-1.5 sm:py-2 rounded-xl bg-slate-100/90 hover:bg-slate-200/90 dark:bg-white/10 dark:hover:bg-white/15 backdrop-blur-md border border-slate-200/80 dark:border-white/15 text-slate-800 dark:text-white text-[10px] min-[380px]:text-[11px] sm:text-xs font-medium transition-colors shadow-xs min-w-0"
+                      href={activeTab.exploreHref}
+                      className="flex items-center justify-center gap-1 sm:gap-1.5 px-1.5 sm:px-2.5 py-1.5 sm:py-2 rounded-xl bg-slate-100/90 hover:bg-slate-200/90 dark:bg-white/10 dark:hover:bg-white/15 backdrop-blur-md border border-slate-200/80 dark:border-white/15 text-slate-800 dark:text-white text-[10px] min-[380px]:text-[11px] sm:text-xs font-medium transition-colors shadow-xs min-w-0 touch-manipulation"
                     >
                       <FeatIcon className="w-3.5 h-3.5 text-[var(--accent-color)] shrink-0" />
                       <span className="truncate">
                         {feat.shortTitle || feat.title}
                       </span>
-                    </div>
+                    </a>
                   );
                 })}
               </div>
