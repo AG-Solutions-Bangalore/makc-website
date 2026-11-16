@@ -535,7 +535,7 @@ export default function AutomationShowcase({
               </h3>
 
               {/* Description */}
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-white/90 leading-relaxed font-normal mb-3 sm:mb-4 max-w-xl drop-shadow-xs line-clamp-2 sm:line-clamp-none">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-white/90 leading-relaxed font-normal mb-3 sm:mb-4 max-w-xl drop-shadow-xs sm:line-clamp-none">
                 {activeTab.description}
               </p>
 
@@ -544,15 +544,16 @@ export default function AutomationShowcase({
                 {activeFeatures.slice(0, 3).map((feat, idx) => {
                   const FeatIcon = feat.icon;
                   return (
-                    <div
+                    <a
                       key={idx}
-                      className="flex items-center justify-center gap-1 sm:gap-1.5 px-1.5 sm:px-2.5 py-1.5 sm:py-2 rounded-xl bg-slate-100/90 hover:bg-slate-200/90 dark:bg-white/10 dark:hover:bg-white/15 backdrop-blur-md border border-slate-200/80 dark:border-white/15 text-slate-800 dark:text-white text-[10px] min-[380px]:text-[11px] sm:text-xs font-medium transition-colors shadow-xs min-w-0"
+                      href={activeTab.exploreHref}
+                      className="flex items-center justify-center gap-1 sm:gap-1.5 px-1.5 sm:px-2.5 py-1.5 sm:py-2 rounded-xl bg-slate-100/90 hover:bg-slate-200/90 dark:bg-white/10 dark:hover:bg-white/15 backdrop-blur-md border border-slate-200/80 dark:border-white/15 text-slate-800 dark:text-white text-[10px] min-[380px]:text-[11px] sm:text-xs font-medium transition-colors shadow-xs min-w-0 touch-manipulation"
                     >
                       <FeatIcon className="w-3.5 h-3.5 text-[var(--accent-color)] shrink-0" />
                       <span className="truncate">
                         {feat.shortTitle || feat.title}
                       </span>
-                    </div>
+                    </a>
                   );
                 })}
               </div>
