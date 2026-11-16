@@ -278,7 +278,7 @@ export default function ServicesSection() {
 
                       {/* Bottom Action: View More with Circular Arrow Button directly next to it */}
                       <div className="mt-2 flex items-center gap-2">
-                        <span className="text-[11.5px] font-handwriting sm:text-xs font-medium text-white/90! group-hover:text-white transition-colors duration-200 group-hover:decoration-white">
+                        <span className="text-xs font-semibold text-white/90! group-hover:text-white transition-colors duration-200">
                           View More
                         </span>
                         <div className="w-6 h-6 rounded-full border border-white/45 flex items-center justify-center text-white! group-hover:bg-white group-hover:text-black! group-hover:border-white transition-all duration-300 shadow-sm shrink-0">
@@ -297,7 +297,7 @@ export default function ServicesSection() {
 
                       {/* Bottom Action: View More on left, Circular Arrow on right */}
                       <div className="mt-2 flex items-center justify-between w-full">
-                        <span className="text-[11.5px] font-handwriting sm:text-xs font-medium text-white/90 group-hover:text-white transition-colors duration-200 group-hover:decoration-white">
+                        <span className="text-xs font-semibold text-white/90 group-hover:text-white transition-colors duration-200">
                           View More
                         </span>
                         <div className="w-6 h-6 rounded-full border border-white/45 flex items-center justify-center text-white! group-hover:bg-white group-hover:text-black! group-hover:border-white transition-all duration-300 shadow-sm shrink-0">

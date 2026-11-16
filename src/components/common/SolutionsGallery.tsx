@@ -268,7 +268,7 @@ export default function SolutionsGallery() {
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         {/* Top Header Tag */}
         <div className="flex flex-col items-center text-center mb-3 sm:mb-8">
-          <h2 className="text-2xl font-handwriting sm:text-3xl md:text-4xl font-bold text-text-main tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-text-main tracking-tight font-display">
             A Day in a MAKc Home
           </h2>
           <p className="mt-1.5 text-xs md:text-nowrap sm:text-sm text-text-muted max-w-lg">
@@ -298,7 +298,7 @@ export default function SolutionsGallery() {
                 </div>
                 <div className="mt-1 flex items-start gap-0.5 pointer-events-none">
                   <ArrowDownRight className="w-3 h-3 mt-0.5 text-slate-600 dark:text-slate-300 shrink-0" />
-                  <span className="font-handwriting text-slate-800 dark:text-slate-200 text-[8px] sm:text-[10px] font-semibold leading-tight">
+                  <span className="font-sans text-slate-700 dark:text-slate-200 text-[9px] sm:text-[11px] font-medium leading-tight">
                     {activeScene.leftCard.annotation}
                   </span>
                 </div>
@@ -327,7 +327,7 @@ export default function SolutionsGallery() {
                 </div>
                 <div className="mt-1 flex items-start gap-0.5 pointer-events-none">
                   <ArrowUpRight className="w-3 h-3 mt-0.5 text-slate-600 dark:text-slate-300 shrink-0" />
-                  <span className="font-handwriting text-slate-800 dark:text-slate-200 text-[8px] sm:text-[10px] font-semibold leading-tight">
+                  <span className="font-sans text-slate-700 dark:text-slate-200 text-[9px] sm:text-[11px] font-medium leading-tight">
                     {activeScene.mainPhoto.annotation}
                   </span>
                 </div>
@@ -349,7 +349,7 @@ export default function SolutionsGallery() {
                 </div>
                 <div className="mt-1 flex items-start gap-0.5 pointer-events-none">
                   <ArrowDownLeft className="w-3 h-3 mt-0.5 text-slate-600 dark:text-slate-300 shrink-0" />
-                  <span className="font-handwriting text-slate-800 dark:text-slate-200 text-[8px] sm:text-[10px] font-semibold leading-tight">
+                  <span className="font-sans text-slate-700 dark:text-slate-200 text-[9px] sm:text-[11px] font-medium leading-tight">
                     {activeScene.rightCard.annotation}
                   </span>
                 </div>
@@ -408,7 +408,7 @@ export default function SolutionsGallery() {
             <div className="relative w-[36%] max-w-[145px] sm:max-w-none sm:w-48 md:w-52 shrink-0 -rotate-4 hover:rotate-0 hover:scale-105 transition-all duration-300 z-10 cursor-pointer">
               {/* Annotation anchored directly to top of Left Card */}
               <div className="absolute -top-6 sm:-top-7 left-0 sm:-left-3 z-20 flex items-center gap-1 pointer-events-none">
-                <span className="font-handwriting text-slate-800 dark:text-slate-200 text-[11px] sm:text-sm md:text-base font-semibold drop-shadow-sm max-w-[100px] sm:max-w-none truncate sm:whitespace-normal">
+                <span className="font-sans text-slate-800 dark:text-slate-200 text-[10px] sm:text-xs md:text-sm font-semibold tracking-tight drop-shadow-sm max-w-[110px] sm:max-w-none truncate sm:whitespace-normal">
                   {activeScene.leftCard.annotation}
                 </span>
                 <ArrowDownRight className="w-4 h-4 sm:w-6 sm:h-6 text-slate-600 dark:text-slate-300 shrink-0" />
@@ -455,7 +455,7 @@ export default function SolutionsGallery() {
               {/* Annotation anchored directly to bottom-left of Center Card */}
               <div className="absolute -bottom-6 sm:-bottom-7 left-0 sm:-left-5 z-20 flex items-center gap-1 pointer-events-none">
                 <ArrowUpRight className="w-4 h-4 sm:w-6 sm:h-6 text-slate-600 dark:text-slate-300 shrink-0" />
-                <span className="font-handwriting text-slate-800 dark:text-slate-200 text-[11px] sm:text-sm md:text-base font-semibold drop-shadow-sm max-w-[130px] sm:max-w-none truncate sm:whitespace-normal">
+                <span className="font-sans text-slate-800 dark:text-slate-200 text-[10px] sm:text-xs md:text-sm font-semibold tracking-tight drop-shadow-sm max-w-[140px] sm:max-w-none truncate sm:whitespace-normal">
                   {activeScene.mainPhoto.annotation}
                 </span>
               </div>
@@ -489,7 +489,7 @@ export default function SolutionsGallery() {
             <div className="relative mt-7 mb-2 w-36 sm:w-54 md:w-58 rotate-3 hover:rotate-0 hover:scale-105 transition-all duration-300 cursor-pointer self-start">
               {/* Annotation directly above Right Card pointing into it */}
               <div className="absolute -top-6 sm:-top-7 right-0 sm:-right-3 z-20 flex items-center gap-1 pointer-events-none">
-                <span className="font-handwriting text-slate-800 dark:text-slate-200 text-[11px] sm:text-sm md:text-base font-semibold drop-shadow-sm max-w-[130px] sm:max-w-none truncate sm:whitespace-normal">
+                <span className="font-sans text-slate-800 dark:text-slate-200 text-[10px] sm:text-xs md:text-sm font-semibold tracking-tight drop-shadow-sm max-w-[140px] sm:max-w-none truncate sm:whitespace-normal">
                   {activeScene.rightCard.annotation}
                 </span>
                 <ArrowDownLeft className="w-4 h-4 sm:w-6 sm:h-6 text-slate-600 dark:text-slate-300 shrink-0" />
@@ -537,7 +537,7 @@ export default function SolutionsGallery() {
         <div className="mt-6 sm:mt-8 flex flex-col items-center">
           {/* Active Thumbnail Title Tag */}
           <div className="hidden md:flex flex-col items-center text-center mb-2 transition-all duration-300">
-            <span className="font-handwriting text-slate-800 dark:text-slate-100 text-base sm:text-lg font-bold tracking-wide">
+            <span className="font-sans text-slate-800 dark:text-slate-100 text-sm sm:text-base font-semibold tracking-tight">
               {activeScene.title}
             </span>
             <span className="text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-accent-blue">
