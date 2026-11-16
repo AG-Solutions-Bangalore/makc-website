@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { Bot, X, Sparkles, Send, RotateCcw } from "lucide-react";
 import { API_BASE_URL } from "@/config/constants";
 
@@ -428,8 +429,9 @@ export default function FloatingBot() {
       )}
 
       {/* 2. Interactive Chat Window (Opens when trigger clicked) */}
-      {isOpen && (
-        <div className="fixed sm:absolute bottom-20 sm:bottom-0 right-4 sm:right-full left-4 sm:left-auto sm:mr-4 w-auto sm:w-[380px] max-w-[calc(100vw-2rem)] h-[72vh] sm:h-[520px] max-h-[580px] bg-bg-surface border border-border-main rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300 origin-bottom-right animate-in fade-in slide-in-from-right-4 zoom-in-95 duration-200 z-[110] sm:z-auto">
+      {isOpen &&
+        createPortal(
+          <div className="fixed z-[120] flex flex-col overflow-hidden bg-bg-surface border border-border-main rounded-2xl shadow-2xl transition-all duration-300 origin-bottom-right animate-in fade-in slide-in-from-right-4 zoom-in-95 duration-200 inset-x-3 bottom-[8.25rem] h-[70dvh] max-h-[calc(100dvh-9rem)] sm:inset-x-auto sm:right-24 sm:bottom-6 sm:w-[380px] sm:h-[520px] sm:max-h-[calc(100dvh-3rem)]">
           {/* Header */}
           <div className="bg-gradient-to-r from-[#0a84ff] to-[#6366f1] p-4 text-white flex items-center justify-between shadow-md">
             <div className="flex items-center gap-3">
@@ -464,7 +466,7 @@ export default function FloatingBot() {
           </div>
 
           {/* Messages Feed */}
-          <div className="flex-1 p-4 overflow-y-auto space-y-3.5 scrollbar-thin scrollbar-thumb-border-main scrollbar-track-transparent">
+          <div className="flex-1 p-4 overflow-y-auto overscroll-contain space-y-3.5 scrollbar-thin scrollbar-thumb-border-main scrollbar-track-transparent">
             {messages.length === 0 && !isTyping ? (
               <div className="h-full flex flex-col items-center justify-center text-center p-4">
                 <Bot className="h-10 w-10 text-text-muted mb-2 animate-bounce" />
@@ -548,7 +550,9 @@ export default function FloatingBot() {
               onChange={(e) => setInputText(e.target.value)}
               disabled={isTyping}
               placeholder={isTyping ? "Assistant is typing..." : "Type your message..."}
-              className="flex-1 bg-bg-main text-text-main text-xs sm:text-sm border border-border-main rounded-xl px-3 py-2 focus:outline-none focus:ring-1.5 focus:ring-[#0a84ff] focus:border-transparent disabled:opacity-60 transition-all"
+              enterKeyHint="send"
+              autoComplete="off"
+              className="flex-1 bg-bg-main text-text-main text-base sm:text-sm border border-border-main rounded-xl px-3 py-2 focus:outline-none focus:ring-1.5 focus:ring-[#0a84ff] focus:border-transparent disabled:opacity-60 transition-all"
             />
             <button
               type="submit"
@@ -559,8 +563,9 @@ export default function FloatingBot() {
               <Send className="h-4 w-4" />
             </button>
           </form>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
 
       <button
         onClick={handleBotClick}
