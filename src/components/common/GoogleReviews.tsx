@@ -45,7 +45,7 @@ export default function GoogleReviews() {
       <div className="relative mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-8">
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-text-main mb-1.5 sm:mb-2 font-handwriting">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-text-main mb-1.5 sm:mb-2 font-display">
             Trusted by Homeowners
           </h2>
           <p className="text-xs sm:text-sm md:text-base text-text-muted max-w-2xl mx-auto">

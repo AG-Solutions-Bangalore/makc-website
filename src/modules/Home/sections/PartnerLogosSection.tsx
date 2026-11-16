@@ -102,7 +102,7 @@ export default function PartnerLogosSection() {
             </span>
             <span className="h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-accent-blue/60" />
           </div>
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-handwriting font-bold text-text-main tracking-tight">
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-text-main tracking-tight">
             OUR TECHNOLOGY PARTNERS
           </h3>
           <p className="mt-2 text-xs sm:text-sm text-text-muted max-w-lg mx-auto">
