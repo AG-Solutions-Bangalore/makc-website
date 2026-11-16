@@ -25,6 +25,13 @@ const LIGHTING_SLIDES = [
     imageTitle: "Circadian Smart Lighting",
     icon: Sparkles,
     exploreHref: "#lighting-services",
+    gallery: [
+      {
+        image: getImageUrl("lightimage1.webp"),
+        alt: "Circadian ambient lighting layout for a modern smart home",
+        title: "Circadian Smart Lighting",
+      },
+    ],
   },
   {
     id: "02",
@@ -37,6 +44,17 @@ const LIGHTING_SLIDES = [
     imageTitle: "Architectural Dimmable LED Lighting",
     icon: SunDim,
     exploreHref: "#lighting-services",
+    gallery: [
+      {
+        image: getImageUrl("smart_dimming_lighting.webp"),
+        alt: "Smart Architectural Dimmable LED Lighting Control Solution",
+        title: "Architectural Dimmable LED Lighting",
+      },
+      {
+        reelUrl: "https://www.instagram.com/reel/DBYze7SySVh/",
+        alt: "Dimming and tuning lights smart control",
+      },
+    ],
   },
   {
     id: "03",
@@ -50,6 +68,13 @@ const LIGHTING_SLIDES = [
     icon: Palette,
     exploreHref: "#lighting-services",
     mobileTextLight: true,
+    gallery: [
+      {
+        image: getImageUrl("smart_rgb_lighting.webp"),
+        alt: "Smart RGB LED Mood Lighting System with Multi-Color Scene Control",
+        title: "Smart RGB LED Mood Lighting",
+      },
+    ],
   },
   {
     id: "04",
@@ -64,6 +89,18 @@ const LIGHTING_SLIDES = [
     icon: Trees,
     exploreHref: "#lighting-services",
     mobileTextLight: true,
+    gallery: [
+      {
+        image: getImageUrl("smart_outdoor_lighting.webp"),
+        alt:
+          "High-Resolution Architectural Outdoor Landscape and Facade Lighting for Luxury Modern Villa",
+        title: "Architectural Outdoor Landscape Lighting",
+      },
+      {
+        reelUrl: "https://www.instagram.com/reel/Dbt7nF7yjHG/",
+        alt: "Outdoor and landscape lighting smart control",
+      },
+    ],
   },
 ];
 
